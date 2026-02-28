@@ -3,3 +3,11 @@
 
 # Temporary files
 ~*
+
+# Nested git repositories (source reference material — see ADR-0008)
+# These are cloned repos kept locally for reference; not tracked by outer repo.
+# Provenance documented in docs/adr/0008-nested-git-repos-handling.md
+docs/resources/reveal.js/reveal.js/
+docs/resources/reveal.js/reveal.js-plugins/
+docs/resources/reveal.js/revealjs.com/
+docs/resources/automated-testing/playwright-mcp/

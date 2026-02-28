@@ -56,6 +56,8 @@ This means the skill should be self-contained enough to be useful without file s
 
 **Design principle**: SKILL.md must be dense enough to be useful in one shot (Claude Web), but the subskill resources allow Claude Code sessions to load deeper context when needed.
 
+**NOT:** I think "one shot" is underselling what is possible in the Claude Web environment. It's more that, multi-file flows are less likely. It's less likely for a user to be able to include a lot of assets, unless they give absolute links. In fact we should give absolute links to CDNs for Claude Web, whereas Claude Code could also install them. Things like that, which you mentioned, yes, self contained HTML. But I could see Claude Web allowing for iteration.
+
 ---
 
 ## NOT a decision about model capability
