@@ -44,7 +44,7 @@ jobs:
           echo "## 📋 Required File Check" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_DIR="architecture-of-complexity-skill"
+          SKILL_DIR="architecture-of-complexity"
           REQUIRED_FILES=(
             "$SKILL_DIR/SKILL.md"
             "$SKILL_DIR/README.md"
@@ -77,7 +77,7 @@ jobs:
           echo "## 🔍 SKILL.md Frontmatter Validation" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_FILE="architecture-of-complexity-skill/SKILL.md"
+          SKILL_FILE="architecture-of-complexity/SKILL.md"
 
           # Check if file starts with ---
           if ! head -1 "$SKILL_FILE" | grep -q "^---$"; then
@@ -115,7 +115,7 @@ jobs:
           echo "## 📏 SKILL.md Size Check" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_FILE="architecture-of-complexity-skill/SKILL.md"
+          SKILL_FILE="architecture-of-complexity/SKILL.md"
           LINE_COUNT=$(wc -l < "$SKILL_FILE")
           FILE_SIZE=$(du -h "$SKILL_FILE" | cut -f1)
 
@@ -191,7 +191,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
 
           # Create ZIP from skill directory
-          cd architecture-of-complexity-skill
+          cd architecture-of-complexity
           zip -r "../$SKILL_FILE" . \
             -x "*.git*" \
             -x "*.DS_Store" \
