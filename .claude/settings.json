@@ -61,6 +61,7 @@
       "Bash(gh:*)",
       "WebSearch(claude)",
       "WebFetch(domain:google.com)",
+      "WebFetch(domain:github.com)",
       "WebFetch(domain:claude.com)",
       "WebFetch(domain:code.claude.com)",
       "mcp__*",
@@ -70,7 +71,29 @@
       "Bash(unzip -l visual-diffusion.skill)",
       "Bash(unzip -q visual-diffusion.skill -d visual-diffusion-unpacked)",
       "Bash(test -f)",
-      "Bash(test -f:*)"
+      "Bash(test -f:*)",
+      "mcp__browsermcp__browser_go_back",
+      "Bash(ngrok --version)",
+      "mcp__browsermcp__browser_hover",
+      "mcp__browsermcp*",
+      "mcp__browsermcp__browser_navigate",
+      "mcp__browsermcp__browser_click",
+      "mcp__browsermcp__browser_snapshot",
+      "mcp__browsermcp__browser_wait",
+      "mcp__browsermcp__browser_type",
+      "mcp__browsermcp__browser_get_console_logs",
+      "mcp__browsermcp__browser_screenshot",
+      "mcp__browsermcp__browser_press_key",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_install"
     ],
     "deny": [
       "Read(.env*)",
@@ -106,6 +129,13 @@
       "Read(Pipfile.lock)"
     ]
   },
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": []
+  "enableAllProjectMcpServers": false,
+  "enabledMcpjsonServers": [
+    "playwright"
+  ],
+  "disabledPlugins": [
+    "rust-analyzer-lsp"
+  ],
+  "enableAllGlobalMcpServers": false,
+  "enabledGlobalMcpServers": []
 }
