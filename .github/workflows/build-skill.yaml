@@ -44,13 +44,11 @@ jobs:
           echo "## 📋 Required File Check" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_DIR="architecture-of-complexity"
+          SKILL_DIR="revealjs"
           REQUIRED_FILES=(
             "$SKILL_DIR/SKILL.md"
             "$SKILL_DIR/README.md"
             "$SKILL_DIR/LICENSE"
-            "$SKILL_DIR/LICENSE-CAM.md"
-            "$SKILL_DIR/LICENSE-THIRDX.md"
           )
 
           ALL_PRESENT=true
@@ -61,6 +59,15 @@ jobs:
               echo "❌ \`$file\` **MISSING**" >> $GITHUB_STEP_SUMMARY
               ALL_PRESENT=false
             fi
+          done
+
+          # Check subskills directory exists and has content
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Subskills" >> $GITHUB_STEP_SUMMARY
+          SUBSKILL_COUNT=$(ls "$SKILL_DIR/resources/"*.md 2>/dev/null | wc -l)
+          echo "- **Subskills found**: $SUBSKILL_COUNT" >> $GITHUB_STEP_SUMMARY
+          for f in "$SKILL_DIR"/resources/*.md; do
+            [ -f "$f" ] && echo "  - \`$f\`" >> $GITHUB_STEP_SUMMARY
           done
 
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -77,7 +84,7 @@ jobs:
           echo "## 🔍 SKILL.md Frontmatter Validation" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_FILE="architecture-of-complexity/SKILL.md"
+          SKILL_FILE="revealjs/SKILL.md"
 
           # Check if file starts with ---
           if ! head -1 "$SKILL_FILE" | grep -q "^---$"; then
@@ -115,7 +122,7 @@ jobs:
           echo "## 📏 SKILL.md Size Check" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_FILE="architecture-of-complexity/SKILL.md"
+          SKILL_FILE="revealjs/SKILL.md"
           LINE_COUNT=$(wc -l < "$SKILL_FILE")
           FILE_SIZE=$(du -h "$SKILL_FILE" | cut -f1)
 
@@ -127,8 +134,15 @@ jobs:
             echo "✅ Under recommended 500-line limit" >> $GITHUB_STEP_SUMMARY
           else
             echo "⚠️  Exceeds recommended 500-line limit" >> $GITHUB_STEP_SUMMARY
-            echo "_Consider moving detailed content to supporting files_" >> $GITHUB_STEP_SUMMARY
+            echo "_Consider moving detailed content to subskills in resources/_" >> $GITHUB_STEP_SUMMARY
           fi
+
+          # Also report subskill sizes
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Subskill Sizes" >> $GITHUB_STEP_SUMMARY
+          for f in revealjs/resources/*.md; do
+            [ -f "$f" ] && echo "- \`$(basename $f)\`: $(wc -l < $f) lines" >> $GITHUB_STEP_SUMMARY
+          done
 
       # ── Summary ─────────────────────────────────────────────────
       - name: Validation summary
@@ -185,18 +199,19 @@ jobs:
         id: package
         run: |
           VERSION="${{ steps.extract_version.outputs.version }}"
-          SKILL_FILE="architecture-of-complexity-${VERSION}.skill"
+          SKILL_FILE="revealjs-${VERSION}.skill"
 
           echo "Packaging skill as $SKILL_FILE..." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           # Create ZIP from skill directory
-          cd architecture-of-complexity
+          cd revealjs
           zip -r "../$SKILL_FILE" . \
             -x "*.git*" \
             -x "*.DS_Store" \
             -x "__pycache__/*" \
-            -x "*.pyc"
+            -x "*.pyc" \
+            -x ".gitkeep"
           cd ..
 
           # Get file info
@@ -215,7 +230,7 @@ jobs:
           echo "### 📁 Contents" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          unzip -l "$SKILL_FILE" | head -20 >> $GITHUB_STEP_SUMMARY
+          unzip -l "$SKILL_FILE" | head -25 >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
@@ -266,37 +281,40 @@ jobs:
 
           # Create release notes
           cat > release_notes.md << EOF
-          # Architecture of Complexity Skill v${VERSION}
+          # reveal.js Skill v${VERSION}
 
-          A Claude Code skill for applying Herbert Simon's Architecture of Complexity principles to system design, code architecture, and UI decisions.
+          A Claude Code skill for creating, editing, and validating reveal.js HTML
+          presentations — including math (KaTeX), diagrams (Mermaid), pseudocode,
+          speaker notes, plugins, and visual quality checking via Playwright MCP.
 
           ## 📦 Installation
 
           1. Download \`${SKILL_FILE}\`
           2. Unzip to your Claude skills directory:
              \`\`\`bash
-             unzip ${SKILL_FILE} -d ~/.claude/skills/
+             unzip ${SKILL_FILE} -d ~/.claude/skills/revealjs/
              \`\`\`
-          3. Restart Claude Code or invoke with \`/architecture-of-complexity\`
+          3. Use in Claude Code: \`/revealjs\` or reference in CLAUDE.md
 
           ## 🎯 What's Included
 
-          - **Core Principles**: Hierarchical decomposition, near-decomposability, stable intermediate forms
-          - **Decision Framework**: Practical questions for architectural choices
-          - **Real Examples**: Vue vs React, MCP design, CAM framework
-          - **Full Theory**: Herbert Simon's 1962 paper included
+          - **SKILL.md**: Core skill (~500 lines) — AoC hierarchy, boilerplate, CSS baseline, plugin table, KaTeX/Mermaid/pseudocode/fragments/Playwright QC
+          - **resources/math-katex.md**: Proof-steps grid, color variables, notation box, overflow budget
+          - **resources/diagrams-mermaid.md**: Mermaid setup, color theme, all diagram types
+          - **resources/pseudocode-algorithms.md**: white-space: pre-wrap patterns, algorithm/proof boxes
+          - **resources/playwright-review.md**: Visual QA workflow with Reveal.js navigation API
+          - **resources/speaker-notes.md**: Stack TOC format, timing markers, pre-publish checklist
+          - **resources/plugins-reference.md**: Complete plugin lookup table (built-in, navigation, diagrams, drawing, interaction, animation)
+
+          ## 🏗️ Architecture
+
+          This skill follows Herbert Simon's Architecture of Complexity — the same
+          hierarchical decomposition that reveal.js itself uses. SKILL.md is the
+          stable intermediate form; subskills are independent modules loadable on demand.
 
           ## 📄 License
 
-          - Skill content: CC BY-SA 4.0
-          - CAM framework: Copyright © Jérémie Lumbroso
-          - Third X framework: Copyright © Jérémie Lumbroso
-
-          ## 🔗 Resources
-
-          - Documentation: See README.md in the skill package
-          - Third X: https://thirdx.design
-          - GitHub: https://github.com/jlumbroso/architecture-of-complexity-skill
+          CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.6
 
           ---
 
@@ -306,7 +324,7 @@ jobs:
 
           ---
 
-          **Authors**: Jérémie Lumbroso and Claude Sonnet 4.5
+          **Authors**: Jérémie Lumbroso and Claude Sonnet 4.6
           **Created**: February 2026
           EOF
 
@@ -322,7 +340,7 @@ jobs:
         with:
           files: ${{ needs.build.outputs.skill_file }}
           body_path: release_notes.md
-          name: Architecture of Complexity Skill v${{ needs.build.outputs.version }}
+          name: reveal.js Skill v${{ needs.build.outputs.version }}
           draft: false
           prerelease: false
         env:
