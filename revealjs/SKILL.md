@@ -392,6 +392,8 @@ Load these from `resources/` when needed:
 | `resources/pdf-export.md` | Exporting to PDF (DeckTape primary, print-pdf, Playwright) |
 | `resources/slido.md` | Slido Q&A, polls, copy-paste format, end survey |
 | `resources/topic-curation.md` | Building from topic stacks; multi-audience presentations |
+| `resources/troubleshooting.md` | Common failure points: symptoms, diagnosis, fix |
+| `resources/slides-com.md` | Slides.com format, conversion to/from hand-crafted |
 
 ---
 
