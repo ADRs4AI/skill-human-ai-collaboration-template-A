@@ -1,9 +1,9 @@
 # CLAUDE.md - Project Guidance
 
-- **Project**: "Architecture of Complexity" Skill
+- **Project**: "Reveal.js" Skill
 - **Human**: Jérémie Lumbroso  
-- **AI**: Claude Web Sonnet 4.5 and Claude Code Sonnet 4.5
-- **Last Updated**: February 27, 2026
+- **AI**: Claude Web Sonnet 4.5 and Claude Code Sonnet 4.6
+- **Last Updated**: February 28, 2026
 
 ---
 
@@ -83,11 +83,10 @@ If the script was successfully used, append as comments how, and what the outcom
 ## Project Context
 
 ### What we're building:
-This is a repository where we're putting together a skill called architecture of complexity. This is a skill that will teach LLMs how to the theoretically decompose systems.
+This is a repository where we're putting together a skill to create reveal.js presentations with a lot of depth of understanding of reveal.js.
 
 ### Current focus:
-Claude Web Sonnet 4.5 has created almost all the skill, but the frontmatter seems to be missing. It's also missing appropriate licenses. CC for the skill, and copyright Jérémie Lumbroso for the Computationally-Assisted Metacognition framework that is mentioned, and possibly the LLM output linearization framework.
-Claude Code Sonnet 4.5 will help create continuous-integration to create a .skill release file in the repo with the latest version of the right files. The script will also version the skill. Please use GITHUB_STEP_SUMMARY to create wonderful CI/CD, see: `docs/sample-ci-cd.yaml` for an example.
+Claude Web Sonnet 4.5 has created multiple research reports. We need to systematize them (for instance we need to create a table of plugin names so Claude Code models are not stuttering with installation). And we need to provide guidance on how to use the plugins effectively, what are good defaults, how to do math, how to do algorithms, proofs, diagrams, etc.
 
 ### Key decisions made:
 None yet. Later will be in this format:
@@ -95,9 +94,8 @@ None yet. Later will be in this format:
 - [Decision 2] - See `docs/adr/0002-*.md`
 
 ### Open questions:
-- How to write the license correctly?
-- How to link the CC license to the right content?
-- What frontmatter to add to the SKILL.md so it will compile?
+- How to structure the skill most effectively in main SKILL.md and subskills to have layered activation when effective. -> This will involve using the `.claude/skills/architecture-of-complexity` skill that you should load. This skill is actually the initial instance of a repo of this kind (to build skills). You can check the last commit or one of the last commit moved the skill to the folder.
+- What files/resources from `architecture-of-complexity` remains that we should remove. (I deleted some obvious, but others may be missing.)
 
 ---
 
@@ -180,7 +178,7 @@ If context window fills mid-work, create `docs/HANDOFF-datetime.md`:
 
 ## Project-Specific Notes
 
-[Add anything specific to this project that doesn't fit above]
+- This repo was based off another project called the `architecture-of-complexity-skill` and so there are traces of that. I have left them to show you an one-shot example of what we are going for with our new skill.
 
 - It's possible the user uses `asdf` for Node.js and Python and the runtime of most languages. You can `source .claude/agent.env` before calling the runtimes, like `python` or `node` to access them through `asdf`'s shims. See: https://asdf-vm.com/manage/configuration.html
 

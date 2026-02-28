@@ -1,5 +1,7 @@
 # Architecture of Complexity - Claude Code Skill
 
+**NOTE: OUTDATED, THIS NEEDS TO BE UPDATED FOR THE NEW PROJECT OF REVEAL.JS SKILL**
+
 A Claude Code skill for applying Herbert Simon's "Architecture of Complexity" principles to system design, code architecture, UI decisions, and organizational design.
 
 **Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
