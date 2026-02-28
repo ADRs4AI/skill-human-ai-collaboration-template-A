@@ -3,6 +3,10 @@
 Load this when working with Slides.com exports, converting between Slides.com and
 hand-crafted reveal.js, or analyzing the structural differences.
 
+**Source material**: Playwright analysis + two offline exports (2026-02-28):
+- `docs/resources/slides.com/slides_test-slides/` — purpose-built test deck
+- `docs/resources/slides.com/slides_deck-0a7905/` — question-scaffolded.html imported → re-exported
+
 ---
 
 ## What Slides.com Is
@@ -18,239 +22,297 @@ all assets are bundled. This makes them portable but opaque.
 
 ## Confirmed Structure (from Playwright analysis, 2026-02-28)
 
-**Tested on**: `slides_text-rules-penn-engineering-may-2025-ai-summit/index.html`
-
 ### What's the same as hand-crafted reveal.js
 - `<section>` hierarchy — horizontal slides, vertical stacks with `class="stack"`
 - Reveal.js API fully functional (`Reveal.slide()`, `Reveal.getState()`, `Reveal.next()`)
 - Background images via `data-background-image="..."` on `<section>`
+- Background gradients via `data-background-gradient="linear-gradient(...)"` on `<section>`
 - Background colors via `data-background-color="rgb(...)"` on `<section>`
+- **Fragments**: standard `.fragment` class + `data-fragment-index` on individual elements
 - Stack navigation (↓ for vertical)
-- No overflow (absolute positioning means content never reflows)
 - 0 console errors on a properly bundled export
 
 ### What's different
+
 | Feature | Hand-crafted | Slides.com |
 |---|---|---|
 | Content model | HTML document flow | Absolute-positioned `.sl-block` divs |
 | Theme | CSS variables + external `.css` | Inline in `<style id="theme-css-output">` |
-| Speaker notes | `<aside class="notes">` | **None** — not exported |
-| Fonts | Google Fonts CDN or system | Custom (TWK Everett, Pitch Sans) via remote CDN |
-| Images | Semantic `<img>` in flow | `<div class="sl-block"><img data-src="..."></div>` |
-| Lines / dividers | CSS borders | SVG `<path>` elements in `.sl-block[data-block-type="line"]` |
-| Sub-slide counters | Automatic (Verticator) or none | Manual text blocks ("1/3", "2/3", "3/3") |
-| Reveal.js version | Controlled by you | Bundled in `lib/offline-v2.css` / `lib/offline.js` |
-| Portability | Depends on CDN or local | Fully self-contained (with sibling assets folder) |
-| Section IDs | Meaningful or absent | UUIDs (`data-id="704083770bd8c22cfe2d249f13048036"`) |
+| **Speaker notes** | `<aside class="notes">` in DOM | **`SLConfig.notes[slideUUID]`** in JS config |
+| Images | Semantic `<img>` in flow | `<div class="sl-block" data-block-type="image"><img data-src="..."></div>` |
+| Code blocks | `<pre><code class="language">` | `<div class="sl-block" data-block-type="code"><pre><code>` |
+| Lines / dividers | CSS borders | SVG `<path>` in `.sl-block[data-block-type="line"]` |
+| Section IDs | Meaningful or absent | UUIDs (`data-id="704083770bd8..."`) |
+| Reveal.js version | Controlled by you | Bundled in `lib/` |
+| Portability | Depends on CDN or local | Self-contained with sibling assets folder |
+| Animations (own system) | n/a | `.sl-block-content.animate` + `data-animation-type` |
+
+---
+
+## Speaker Notes: The Actual Mechanism
+
+**Correction from initial analysis**: Slides.com exports DO include speaker notes, but
+they are stored in the JavaScript config object, NOT as `<aside class="notes">` DOM elements.
+
+```javascript
+// In index.html, inside <script>:
+var SLConfig = {
+  "deck": {
+    // ...
+    "notes": {
+      "e79acd0f572422ded6fa245940a8252b": "These are speaker notes",
+      // key = slide UUID (matches data-id attribute on <section>)
+      // value = the note text
+    }
+  }
+};
+```
+
+**How to find your note for a slide**: Match the slide's `data-id` attribute to the key in `SLConfig.notes`.
+
+**Implication**: `document.querySelectorAll('aside.notes')` returns 0 — but notes DO exist
+in the JS config. This is why Playwright's DOM query showed 0 notes.
+
+**In practice**: Slides.com renders notes through its offline.js. The Reveal.js `S` key
+should still open speaker view with those notes (via the RevealNotes plugin registered in
+the Slides.com export's `plugins: [RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight]`).
+
+**Extraction script** (for converting speaker notes to `<aside>` format):
+```javascript
+// In Playwright, extract all notes and their slide positions
+() => {
+  const notes = SLConfig.deck.notes || {};
+  const sections = document.querySelectorAll('.reveal .slides section[data-id]');
+  return Array.from(sections).map((s, i) => ({
+    index: i,
+    uuid: s.getAttribute('data-id'),
+    note: notes[s.getAttribute('data-id')] || null
+  })).filter(n => n.note);
+}
+```
+
+---
+
+## Two Animation Systems
+
+Slides.com has its **own animation system** (different from reveal.js fragments):
+
+### System 1: Slides.com animations (block-level, whole block fades in on click)
+```html
+<div class="sl-block-content animate"
+     data-animation-type="fade-in"
+     data-animation-trigger="click"
+     data-animation-trigger-id="self"
+     style="transition-duration: 0.6s;">
+  <!-- entire block content appears on click -->
+</div>
+```
+
+### System 2: Standard reveal.js fragments (element-level, granular)
+```html
+<ul>
+  <li class="fragment" data-fragment-index="0">First item</li>
+  <li class="fragment" data-fragment-index="1">Second item</li>
+  <li class="fragment" data-fragment-index="2">Third item</li>
+</ul>
+```
+
+Both systems survive export. Fragments are the standard reveal.js mechanism and work
+identically to hand-crafted presentations. The Slides.com animation system uses `offline.js`
+and is **not** compatible with hand-crafted reveal.js.
+
+**When converting FROM Slides.com**: keep `.fragment` elements as-is; remove the
+`.animate` class and `data-animation-*` attributes (they won't work without `lib/offline.js`).
+
+---
+
+## Code Blocks
+
+Slides.com uses a dedicated `data-block-type="code"` block type:
+
+```html
+<div class="sl-block" data-block-type="code"
+     style="width: 500px; height: 300px; left: 230px; top: 200px;">
+  <div class="sl-block-content notranslate"
+       data-highlight-theme="monokai"
+       data-code-frame="none"
+       style="z-index: 10;">
+    <pre style="font-size: 16px; line-height: 19px; tab-size: 4;">
+      <code data-line-numbers="">def func(a, b):
+  return a + b
+
+print(func(a, b))</code>
+    </pre>
+  </div>
+</div>
+```
+
+**Key attributes**:
+- `data-highlight-theme="monokai"` — highlight.js theme
+- `data-code-frame="none"` — Slides.com UI frame option
+- `data-line-numbers=""` — line numbers enabled
+
+**When converting**: extract the `<code>` content, wrap in standard `<pre><code class="language-python">`.
 
 ---
 
 ## The .sl-block Model
 
-Every piece of content is a positioned container:
+Every piece of content is an absolutely-positioned container. Coordinate system: **960 × 700px**.
 
 ```html
-<section data-id="[UUID]" data-background-image="path.png">
+<section data-id="[UUID]">
 
   <!-- Text block -->
   <div class="sl-block" data-block-type="text"
-       style="width: 554px; left: 402px; top: 12px; height: auto;"
-       data-block-id="[UUID]">
+       style="width: 900px; left: 30px; top: 237px; height: auto;">
     <div class="sl-block-content" data-placeholder-tag="h1" style="z-index: 10;">
-      <h1><span style="color:#ffffff">TITLE TEXT</span></h1>
+      <h1>Title Text</h1>
     </div>
   </div>
 
   <!-- Image block -->
   <div class="sl-block" data-block-type="image"
-       style="width: 407px; height: 135px; left: 11px; top: 12px;"
-       data-block-id="[UUID]">
+       style="width: 407px; height: 135px; left: 11px; top: 12px;">
     <div class="sl-block-content" style="z-index: 11;">
-      <img data-natural-width="1810" data-natural-height="599"
-           data-lazy-loaded="" data-src="folder/image.png">
-    </div>
-  </div>
-
-  <!-- SVG line -->
-  <div class="sl-block" data-block-type="line"
-       style="left: 0; top: 318px;" data-block-id="[UUID]">
-    <div class="sl-block-content" data-line-x1="0" data-line-y1="0"
-         data-line-x2="960" data-line-y2="0" data-line-color="#000000"
-         data-line-width="2px" style="z-index: 16;">
-      <svg ...><path class="line-element" ...></path></svg>
+      <img data-lazy-loaded="" data-src="folder/image.png">
     </div>
   </div>
 
 </section>
 ```
 
-**Coordinate system**: 960px wide × 700px tall (reveal.js default). All positions are
-pixel offsets from the top-left corner of the slide.
+**Two-column layout** = two text blocks, one at `left: 30px`, one at `left: 495px`.
+No flexbox or grid — pure absolute positioning.
 
 ---
 
-## Converting FROM Slides.com to Hand-Crafted
+## Import Behavior: Hand-crafted → Slides.com → Re-export
 
-When you want to take Slides.com content and convert it to maintainable hand-crafted HTML.
+When importing a hand-crafted reveal.js presentation into Slides.com, the result is **mangled**:
 
-### Why convert?
-- Add speaker notes (not exported by Slides.com)
-- Add Mermaid diagrams or KaTeX math
-- Make content reflow-friendly (responsive)
-- Add Verticator, Menu, or other plugins
-- Move content into a topic stack system
+### What survives import
+- Text content (all HTML inside `<section>` elements)
+- Fragment classes (`.fragment`, `data-fragment-index`) — preserved intact
+- Background gradients / colors (`data-background-gradient`, `data-background-color`)
+- Section structure (horizontal/vertical)
 
-### Conversion process
+### What is lost or broken
+- **Custom CSS** — all classes like `.two-col`, `.mode-box`, `.slido-box`, `.callout` lose their styles. The class names survive in HTML but the stylesheet does not transfer.
+- **Speaker notes** — `<aside class="notes">` elements are NOT converted to `SLConfig.notes`. Lost.
+- **Layout** — custom `.two-col` grids collapse to single-column since the CSS is gone
+- **Fine-grained positioning** — Slides.com wraps each slide's entire content in ONE `.sl-block` with `data-has-custom-html=""`, instead of interpreting individual elements
 
-**Step 1: Extract content from `.sl-block-content`**
-Each text block's content lives in `.sl-block-content`. Extract it, discard the wrapper.
-
-```javascript
-// In Playwright — extract all text content by slide
-() => Array.from(document.querySelectorAll('.reveal .slides > section:not(.stack)')).map((section, i) => ({
-  slide: i,
-  texts: Array.from(section.querySelectorAll('.sl-block-content[data-placeholder-tag]')).map(el => ({
-    tag: el.getAttribute('data-placeholder-tag'),
-    html: el.innerHTML.trim().slice(0, 100)
-  }))
-}))
-```
-
-**Step 2: Rebuild as semantic HTML**
-Replace absolute-positioned blocks with document-flow HTML:
-
+### The mangling pattern
 ```html
-<!-- Slides.com: -->
-<div class="sl-block" style="width:710px; left:0; top:121px;">
-  <div class="sl-block-content"><ul><li>Point one</li></ul></div>
-</div>
+<!-- Before (hand-crafted): -->
+<section>
+  <h2>Title</h2>
+  <div class="two-col">
+    <div class="mode-box">...</div>
+    <div class="mode-box">...</div>
+  </div>
+</section>
 
-<!-- Hand-crafted equivalent: -->
-<ul>
-  <li>Point one</li>
-</ul>
+<!-- After (Slides.com re-export): -->
+<section data-id="[UUID]">
+  <div class="sl-block" data-block-type="text" data-has-custom-html="">
+    <div class="sl-block-content">
+      <!-- HTML preserved but .two-col, .mode-box have no CSS -->
+      <h2>Title</h2>
+      <div class="two-col">
+        <div class="mode-box">...</div>
+        <div class="mode-box">...</div>
+      </div>
+    </div>
+  </div>
+</section>
 ```
 
-**Step 3: Reconstruct theme as CSS variables**
-The inline `<style id="theme-css-output">` can be adapted to reveal.js CSS variables:
+**Verdict**: Import round-tripping (hand-crafted → Slides.com → back) is **destructive**.
+Do not use Slides.com as a round-trip converter. Keep hand-crafted and Slides.com formats
+as separate parallel tracks.
 
+---
+
+## Converting FROM Slides.com to Hand-crafted
+
+### Step 1: Extract speaker notes from SLConfig
+```javascript
+// Playwright: extract all notes
+() => {
+  const notes = SLConfig.deck.notes || {};
+  const sections = document.querySelectorAll('.reveal .slides section[data-id]');
+  return Array.from(sections).map((s, i) => ({
+    index: i, uuid: s.getAttribute('data-id'),
+    note: notes[s.getAttribute('data-id')] || ''
+  }));
+}
+```
+Add these as `<aside class="notes">` in the converted HTML.
+
+### Step 2: Extract text content
+Each text block's content lives in `.sl-block-content`. Strip the `.sl-block` wrapper.
+
+### Step 3: Handle the coordinate system
+Absolute positions (e.g., `left: 495px`) map to the 960×700 canvas. For two-column
+layouts, `left: 30px` + `left: 495px` → use CSS flexbox/grid in hand-crafted.
+
+### Step 4: Fix images
+Change `data-src="..."` to `src="..."`. Rename hash-named files to descriptive names.
+
+### Step 5: Remove Slides.com animations
+Remove `class="animate"` and `data-animation-type="fade-in"` attributes. Keep
+`.fragment` and `data-fragment-index` unchanged.
+
+### Step 6: Fix code blocks
+Extract `<code>` content from `data-block-type="code"` blocks. Wrap in:
+```html
+<pre><code class="python" data-line-numbers>
+  your code here
+</code></pre>
+```
+
+### Step 7: Rebuild theme as CSS variables
 ```css
-/* From Slides.com theme output: */
-.reveal .slides { color: #011F5B; font-family: "TWK Everett", sans-serif; }
-.reveal .slides h1, h2, h3 { color: #990000; }
-
-/* Translate to reveal.js variables: */
+/* From Slides.com SLConfig.theme + theme CSS output: */
 :root {
   --r-main-color: #011F5B;
   --r-main-font: "TWK Everett", sans-serif;
   --r-heading-color: #990000;
+  --r-background-color: #FFFFFF;
 }
 ```
-
-**Step 4: Add speaker notes**
-Slides.com exports have **zero speaker notes** (`<aside class="notes">` = 0 in the DOM).
-These must be written from scratch or reconstructed from memory/recordings.
-
-**Step 5: Restore images**
-Images use `data-src` (lazy-loaded). In hand-crafted HTML, use standard `src`:
-```html
-<!-- Slides.com: -->
-<img data-lazy-loaded="" data-src="folder/abc123.png">
-
-<!-- Hand-crafted: -->
-<img src="assets/descriptive-name.png" alt="Description">
-```
-Rename the hash-named files to descriptive names.
-
----
-
-## Converting TO Slides.com Style (Hand-crafted → Canvas Model)
-
-Generally not recommended — the absolute positioning model breaks at different screen sizes
-and makes content harder to maintain. But if you need to match Slides.com's visual approach:
-
-```html
-<section style="position: relative;">
-  <div style="position: absolute; width: 554px; left: 402px; top: 12px;">
-    <h1 style="color: #ffffff;">TITLE</h1>
-  </div>
-  <div style="position: absolute; width: 710px; left: 0; top: 121px;">
-    <ul><li>Content</li></ul>
-  </div>
-</section>
-```
-
-The slide canvas in reveal.js is 960×700px by default. All absolute positions are relative
-to that coordinate system.
-
----
-
-## No Speaker Notes: The Critical Gap
-
-Slides.com exports contain **zero speaker notes**. This is the most significant difference
-from hand-crafted reveal.js presentations.
-
-When importing a Slides.com deck:
-1. Press `S` → no speaker view opens (or opens empty)
-2. Presenter has no in-slide prompts during delivery
-3. Stack TOC format in notes is absent
-
-**Mitigation**: After conversion, add speaker notes to every slide. Use the stack TOC
-format from `speaker-notes.md` for topic stacks.
 
 ---
 
 ## Offline Export Portability
 
-Slides.com offline exports bundle everything **except** they require the sibling assets folder:
-
+Slides.com offline exports require the sibling assets folder:
 ```
 slides_my-talk/          ← keep together as a unit
 ├── index.html
-├── lib/                 ← Slides.com's bundled reveal.js + CSS
+├── lib/                 ← Slides.com's bundled reveal.js + CSS + fonts
 └── my-talk/             ← images (named as hashes)
-    ├── 704083770bd8.png
-    └── 3c1bafb1b428.jpg
 ```
-
-If `index.html` is separated from its sibling folders, all images break (404).
-If only `lib/` is missing, reveal.js itself won't load.
 
 Always distribute / archive as a zip of the entire `slides_my-talk/` folder.
 
 ---
 
-## Hypotheses for Further Investigation
+## Hypotheses: Final Status
 
-These are unconfirmed — verified by requesting specific test slides from the user.
-
-| Hypothesis | Status | Test |
+| Hypothesis | Status | Evidence |
 |---|---|---|
-| All content uses `.sl-block` absolute positioning | ✅ Confirmed (315 blocks, 979 lines) | Read HTML |
-| Section structure = standard reveal.js | ✅ Confirmed (8 stacks, Reveal API works) | Playwright |
-| Theme CSS is inlined in `<style id="theme-css-output">` | ✅ Confirmed | Read HTML |
-| Reveal.js API works identically | ✅ Confirmed (slide(), getState() work) | Playwright |
-| Speaker notes absent | ✅ Confirmed (0 `<aside class="notes">`) | Playwright |
-| Sub-slide counters are manual text blocks | ✅ Confirmed ("1/3" is a `.sl-block`) | Read HTML |
-| Background images via `data-background-image` | ✅ Confirmed | Read HTML |
-| No overflow issues possible | ✅ Confirmed (abs positioning fills exactly 700px) | Playwright |
-| Fragments can be added in slides.com | ❓ Unconfirmed | Request test deck |
-| KaTeX/Mermaid can be added post-export | ❓ Unconfirmed | Request test deck |
-| Slide transitions are configurable | ❓ Unconfirmed | Read HTML more carefully |
-
----
-
-## Reverse-Engineering Spec (for user to create)
-
-To verify the unconfirmed hypotheses, create a Slides.com deck with these specific slides:
-
-1. **Slide A**: Title + single bullet list (baseline text structure)
-2. **Slide B**: Two-column layout with text left, image right
-3. **Slide C**: A code block (if Slides.com supports it — what does the HTML look like?)
-4. **Slide D**: A slide with a fragment/animation (if Slides.com supports it)
-5. **Slide E**: A vertical stack (3 sub-slides) with meaningful titles
-
-Export offline and provide the `index.html`. This will let us:
-- Confirm whether fragments appear as `.fragment` in the output
-- See how code blocks are represented
-- Understand the two-column layout structure for conversion mapping
+| All content in `.sl-block` absolute positioning | ✅ | 315 blocks, read HTML |
+| Section structure = standard reveal.js | ✅ | 8 stacks, Reveal API works |
+| Theme CSS inlined | ✅ | `<style id="theme-css-output">` |
+| Reveal.js API works identically | ✅ | slide(), getState() in Playwright |
+| Fragments = standard `.fragment` class | ✅ | `data-fragment-index` in test deck |
+| Speaker notes in SLConfig.notes[UUID] | ✅ | test deck JS config |
+| Sub-slide counters are manual text blocks | ✅ | "1/3" is a `.sl-block` |
+| Background via `data-background-*` | ✅ | Read HTML |
+| No overflow (abs positioning) | ✅ | Playwright overflow check |
+| Separate Slides.com animation system | ✅ | `.animate` + `data-animation-type` |
+| Code blocks via `data-block-type="code"` | ✅ | test deck HTML |
+| Import mangling (hand-crafted → Slides.com) | ✅ | deck-0a7905 export |

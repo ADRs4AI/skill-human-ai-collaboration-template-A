@@ -7,6 +7,46 @@ Always document this option first. Keep all options below for different contexts
 
 ---
 
+## `file://` vs. `http://localhost` — Which Do You Need?
+
+This affects your setup requirements:
+
+| Your situation | Protocol | HTTP server needed? |
+|---|---|---|
+| CDN-based presentation (no local assets) | Either | Optional |
+| Local images or fonts | `http://` | **Yes** — browsers block local file access from `file://` |
+| CDN plugins (Mermaid, Menu, etc.) | `http://` preferred | Yes — some CDN scripts block `file://` origin |
+| Slides.com offline export | Either | Optional (`lib/` is bundled) |
+| Simple single-file, no plugins | `file://` | No |
+
+**Rule of thumb**: If your presentation loads any external CDN scripts or references local
+image files, use `http://localhost`. If it's fully self-contained (Slides.com export or
+truly offline single-file), `file://` works.
+
+### Starting the HTTP server (Python required)
+
+Python 3 is pre-installed on macOS. On Linux/WSL, install with your package manager.
+
+```bash
+# Serve from project root — use paths like http://localhost:8765/slides/talk.html
+python3 -m http.server 8765 --directory /path/to/project/root
+
+# Serve from the slides directory — use http://localhost:8765/talk.html
+python3 -m http.server 8765 --directory /path/to/slides/
+
+# Default port is 8000 if you omit --port
+python3 -m http.server --directory /path/to/slides/
+```
+
+Keep the terminal open while exporting. Stop with `Ctrl+C` when done.
+
+**Port conflict**: If you get `OSError: [Errno 48] Address already in use`:
+```bash
+lsof -ti:8765 | xargs kill -9   # kill whatever is on that port
+```
+
+---
+
 ## Option 1: DeckTape (Recommended — Best Quality)
 
 DeckTape is a command-line tool that uses a headless browser to export any HTML5 presentation
@@ -16,15 +56,18 @@ that Chrome's print dialog often misses.
 ### Setup
 
 ```bash
-# Using npx (no install required)
+# Using npx (no install required — downloads DeckTape + Chromium ~170MB on first run)
 npx decktape reveal http://localhost:8765/slides.html output.pdf
+
+# Using file:// (works for self-contained presentations)
+npx decktape reveal "file:///absolute/path/to/slides.html" output.pdf
 
 # Or install globally
 npm install -g decktape
 decktape reveal http://localhost:8765/slides.html output.pdf
 ```
 
-Requires Node.js. DeckTape downloads its own Chromium on first run (~170MB).
+Requires Node.js (`node --version` to check; install from nodejs.org if missing).
 
 ### Options
 
@@ -76,17 +119,23 @@ npx decktape reveal http://localhost:8765/path/to/slides.html slides.pdf
 
 ---
 
-## Option 2: Built-in ?print-pdf (Chrome/Chromium only)
+## Option 2: Built-in ?print-pdf (Chrome/Chromium only — no installation)
 
-The simplest option — no installation required. Works in Claude Web environments where
-you can open a browser.
+The simplest option when you can open Chrome. No CLI tools or Python server required
+for self-contained presentations.
 
-**Limitation**: Only confirmed to work in Google Chrome and Chromium.
+**Limitation**: Only confirmed to work in Google Chrome and Chromium. Not Firefox, not Safari.
+
+**Works with `file://`**: Yes — for self-contained presentations with no local asset dependencies.
+For presentations using CDN plugins (KaTeX, Mermaid, etc.), `file://` works because those
+load from external URLs, not local files. Only fails if the presentation references local
+image files via relative paths.
 
 ### Steps
 
-1. Open `http://localhost:8765/slides.html?print-pdf` in Chrome
-   (or `file:///path/to/slides.html?print-pdf` for local files)
+1. Open in Chrome — either:
+   - `file:///absolute/path/to/slides.html?print-pdf` (no server needed, self-contained decks)
+   - `http://localhost:8765/slides.html?print-pdf` (if you started Python HTTP server)
 2. Open print dialog: `Ctrl+P` (Windows/Linux) or `Cmd+P` (Mac)
 3. Set:
    - **Destination**: Save as PDF
@@ -211,17 +260,23 @@ Reveal.initialize({
 Need best quality (Mermaid, math, animations)?
   → DeckTape
 
-Have CLI access?
-  → DeckTape (primary)
-  → Playwright (if DeckTape unavailable)
+Have CLI access + Node.js?
+  → DeckTape (primary, best quality)
 
-No CLI, only browser?
+Have CLI access, no Node.js?
+  → Python HTTP server + ?print-pdf in Chrome
+    OR: install Node.js first, then DeckTape
+
+No CLI, only browser (or Claude Web)?
   → ?print-pdf in Chrome
+    - Self-contained / Slides.com exports: file:///path/slides.html?print-pdf (no server)
+    - CDN presentations with local images: need HTTP server
+    - Instruct user: open URL in Chrome → Cmd+P → Save as PDF
 
 Working in Slides.com?
-  → Slides.com built-in export
+  → Slides.com built-in PDF export (no setup)
 
-Working in Claude Web (no local tools)?
-  → Give user ?print-pdf instructions
-  → Or ask them to run DeckTape locally
+No Python, no Node.js, no Chrome?
+  → Ask user to set up one of the above
+  → Or use Slides.com import + export as fallback
 ```
