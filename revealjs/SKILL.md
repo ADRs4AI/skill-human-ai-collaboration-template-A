@@ -389,6 +389,9 @@ Load these from `resources/` when needed:
 | `resources/pseudocode-algorithms.md` | Algorithm boxes, proof boxes, CSS patterns |
 | `resources/playwright-review.md` | Visual QA workflow, Reveal.js navigation API |
 | `resources/speaker-notes.md` | Stack TOC format, timing, pre-publish checklist |
+| `resources/pdf-export.md` | Exporting to PDF (DeckTape primary, print-pdf, Playwright) |
+| `resources/slido.md` | Slido Q&A, polls, copy-paste format, end survey |
+| `resources/topic-curation.md` | Building from topic stacks; multi-audience presentations |
 
 ---
 
