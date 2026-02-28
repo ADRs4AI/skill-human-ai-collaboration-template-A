@@ -23,6 +23,16 @@ This means the human is interested in meaningful points of friction or underspec
 
 ---
 
+## Tenth Directive
+
+(Other directives have been occluded because they are not relevant.)
+
+**DON'T HESITATE TO EXPERIMENT TO LEARN: YOU HAVE ACCESS TO PLAYWRIGHT MCP TO BE ABLE TO HAVE ACCESS TO YOUR HOW BROWSER**
+
+This is a methodology (of taking screenshots, learning from Playwright) that you need to document a subskill for this reveal.js skill we are building — so dogfooding is the best way of learning!
+
+---
+
 ## The Workflow
 
 ### When you receive a brain dump:
