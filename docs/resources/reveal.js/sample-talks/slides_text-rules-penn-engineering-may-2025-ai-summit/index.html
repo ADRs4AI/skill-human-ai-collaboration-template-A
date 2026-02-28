@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link rel="manifest" href='data:application/manifest+json,{"display": "standalone", "name": "Text Rules!"}' />
+		<title>Text Rules!</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+		<!-- Theme CSS -->
+		<style id="theme-css-output" type="text/css">
+			@import url("https://jlumbroso.github.io/penn-engineering-web-assets/fonts.css");
+@import url("https://jlumbroso.github.io/penn-engineering-web-assets/visuals.css");
+.reveal {
+  /* ========== Penn Engineering Slides Theme (Modular) ========== */
+  /* Import official fonts and visual styles */
+  
+  
+  /* ========== Base Styling ========== */
+  /* Background for all slides */
+  /* Body text */
+  /* Headings */
+  /* Emphasis for blockquotes or pull quotes */
+  /* Slide border */
+  /* Controls */
+  /* Progress bar */
+  /* Make white text legible on dark backgrounds */
+  /* Slide number (optional enhancement) */
+  /* ========== Slide Classes ========== */
+  /*= dark-slide */
+  /*= red-slide */
+  /*= spark-bg */
+  /* === Logo Positioning and Visibility Logic === */
+  /* Default display variable */
+  /* Logo positioning */
+  /* Optional positioning override */
+}
+.reveal .slide-background {
+  background-color: #FFFFFF;
+  /* clean white */
+}
+.reveal .slides {
+  color: #011F5B;
+  /* Primary deep navy */
+  font-family: "TWK Everett", sans-serif;
+  font-weight: 400;
+}
+.reveal .slides h1,
+.reveal .slides h2,
+.reveal .slides h3 {
+  font-family: "TWK Everett", sans-serif;
+  font-weight: 700;
+  color: #990000;
+  /* Penn red */
+}
+.reveal blockquote {
+  border-left: 4px solid #63C7FF;
+  /* electric blue accent */
+  padding-left: 16px;
+  font-style: italic;
+  color: #2D2926;
+  font-family: "Pitch Sans", monospace;
+  font-weight: 500;
+}
+.reveal .slides section {
+  border-top: 4px solid #990000;
+  padding-top: 20px;
+}
+.reveal .controls button {
+  color: #DB2929;
+}
+.reveal .progress span {
+  background: #011F5B;
+}
+.reveal .has-dark-background {
+  color: #FFFFFF;
+}
+.reveal .slide-number {
+  font-family: "Pitch Sans", monospace;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2D2926;
+}
+.reveal .dark-slide {
+  background-color: #011F5B;
+  color: #FFFFFF;
+}
+.reveal .dark-slide h1,
+.reveal .dark-slide h2 {
+  color: #F2F2F2;
+}
+.reveal .red-slide {
+  background-color: #990000;
+  color: #FFFFFF;
+}
+.reveal .spark-bg {
+  background-image: url("https://jlumbroso.github.io/penn-engineering-web-assets/visuals/blue/spark-of-ingenuity.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.reveal :root {
+  --logo-display: block;
+}
+.reveal .penn-logo {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 10;
+  display: var(--logo-display);
+}
+.reveal .penn-logo img {
+  height: 40px;
+}
+.reveal .penn-logo.position-left {
+  left: 30px;
+  right: auto;
+}
+
+		</style>
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="704083770bd8c22cfe2d249f13048036" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png"><div class="sl-block" data-block-type="text" style="width: 554px; left: 402.014px; top: 12.149px; height: auto;" data-block-id="a68d7cf47432fcf7abe06a55dc7f4d0e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;"><h1><span style="color:#ffffff">TEXT RULES!</span></h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 407.029px; height: 134.702px; left: 11px; top: 12.149px; min-width: 1px; min-height: 1px;" data-name="image-0fca89" data-block-id="7ccb9517a8267b457983fdb45e2a2bac"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1810" data-natural-height="599" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/7466182bc11e13bc46844eebb22ac1e5.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 315.168px; height: 221.487px; left: 49.266px; top: 458.5px; min-width: 1px; min-height: 1px;" data-name="image-861eac" data-block-id="da267aa4cc9e046421381687008f5ad7"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1921" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/74497329991b41ff593ea73602d9de39.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 547.971px; left: 405.029px; top: 99px;" data-name="text-d9b4c4" data-block-id="a07e6628ec21b98c6d0a0b0877b4f704"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(99, 199, 255);"><p>Mastering Text Flows for AI Collaboration</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 339.813px; left: 36.9435px; top: 379.5px;" data-block-id="5f1ff665072b19fd762cfbe3e927cf7f" data-name="text-073014"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(99, 199, 255); font-size: 60%;"><p><span style="font-size:0.9em">Jérémie O. V. Lumbroso<br>
+<em>Practice Assistant Professor</em><br>
+<strong>Computer and Information Science (CIS)</strong></span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 509px; height: 509px; left: 424.514px; top: 170.987px; min-width: 1px; min-height: 1px;" data-name="image-489d8f" data-block-id="4e75f96f2b6588f43aae195fc5a73a7c"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="1024" data-natural-height="1024" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/e2a45f3b13ac20b00047a42be499000e.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 321px; left: 36.029px; top: 204.5px;" data-block-id="a502819f63a66ea425d7fd6a098b6aff" data-name="text-3c01ce"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(99, 199, 255);"><p>Monday 5 May 2025<br>
+<strong>2:40–3:10PM</strong><br>
+<em>Amy Gutmann Hall 306</em></p></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-id="3c1bafb1b428487622876ebfee94e1f5">
+
+
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 686.519px; height: 700px; left: 136.759px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-f557b6" data-block-id="16a2e11c8c74f79accbf3ba56c9d6a64"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1324" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/48e31bbeeab922f2a0d3af1145a190d2.png"></div></div></section><section data-id="f5033182a56389d655ae2d4c9a1981a3" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-background-color="rgb(1,28,82)"><div class="sl-block" data-block-type="text" style="width: 710.017px; left: 0px; top: 121.05px; height: auto;" data-block-id="f99d54d506615848efbd16118b4cc4e3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><ul>
+	<li>Large <strong><span style="color:#63c7ff">Language</span></strong> Models are<strong> <span style="color:#63c7ff">the future of cognition</span></strong>
+</li>
+	<li>The <span style="color:#63c7ff"><strong>dominant interface</strong></span> to these powerful systems <span style="color:#63c7ff"><strong>is text</strong></span>
+</li>
+	<li>There are several needs:
+	<ul>
+		<li>
+<strong>technical</strong> ⇨ <em>you need to learn tools</em>
+</li>
+		<li>
+<strong>syntactic</strong><span style="color:rgb(255, 255, 255); text-align:left"> ⇨ <em>you need to understand structure</em></span>
+</li>
+		<li>
+<strong>semantic</strong><span style="color:rgb(255, 255, 255); text-align:left"> ⇨ <em>you need to develop a shared vocabulary, understanding and cognition</em></span>
+</li>
+	</ul>
+	</li>
+	<li>and also...
+	<ul>
+		<li>
+<strong>collaborative</strong><span style="color:rgb(255, 255, 255); text-align:left"> ⇨ </span><em>none of these tools reach their full potential if we are not all using them knowingly</em>
+</li>
+	</ul>
+	</li>
+</ul></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="9ad77e66eb4c19b830f2dd028ae60244"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 90%;"><h1 style="text-align:left"><span style="color:#63c7ff">What is this all about?</span></h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="1358060880be30fa2836a7fd3539992a"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 256px; height: 256px; left: 692px; top: 100px; min-width: 1px; min-height: 1px;" data-name="image-b6edff" data-block-id="2dee8a956a00bb6cd35f6f02717b3897"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="256" data-natural-height="256" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/55233bb9bafb6e910b5928123b46f880.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 187px; left: 740px; top: 362px;" data-name="text-8f8f8b" data-block-id="580e4ca37b87a438f6445418f6b6f75d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><span style="color:#63c7ff"><strong>Sli.do<br>
+QR code</strong></span></p></div></div></section><section data-background-color="rgb(1,28,82)" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-id="6ef144503b94639f3af5443c87da9fcc"><div class="sl-block" data-block-type="image" style="width: 960.213px; height: 672px; left: -1.42109e-14px; top: 14px; min-width: 1px; min-height: 1px;" data-name="image-74cafb" data-block-id="6c5ba1c173b0ca7fa5512611cb40e22f"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1929" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/dcafac15cbf19c7fa93b3ccc3f3bcfe1.png"></div></div></section><section class="stack" data-id="c6b39fcdcf1d1f5d0df56ecf7bdab889"><section data-background-color="rgb(1,28,82)" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-id="7545020d1cf5376a595794c7b5a555f0"><div class="sl-block" data-block-type="text" style="width: 928.017px; left: 14px; top: 148.05px; height: auto;" data-block-id="0fa82460f2d1154352d47d7603e70743"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><ul>
+	<li>Better modes of operation are arriving
+	<ul>
+		<li>
+<strong>Anthropic's Model Context Protocol (MCP):</strong>  USB-C connector of models</li>
+		<li>
+<strong>Google's Agent2Agent (A2A):</strong>  standard of intercommunication among models to allow composition of models</li>
+	</ul>
+	</li>
+	<li>
+<strong>Much better integrated platforms are coming</strong>
+	<ul>
+		<li>But they might take 5-10 years</li>
+	</ul>
+	</li>
+	<li><span style="color:#63c7ff">In the meantime we must all learn to integrate ourselves</span></li>
+</ul></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="a3fc40f478322c6bf599e6152b0c6fb5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 90%;"><h1 style="text-align:left"><span style="color:#63c7ff">The Cavalry is Arriving</span></h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="ae19ecb1bff94a9796ce30e4618bfcfc"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="43cf9db0decba7f372bd8d58e3652def"><div class="sl-block-style" style="z-index: 13; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>1/3</p></div></div></div></section><section data-id="82bf8f26799714c3b3e68d399ab75666" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-background-color="rgb(1,28,82)"><div class="sl-block" data-block-type="image" style="width: 960px; height: 556.144px; left: -1.42109e-14px; top: 71.928px; min-width: 1px; min-height: 1px;" data-name="image-10871b" data-block-id="0c8292324e4cc451c529ee93244cfb24"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="2282" data-natural-height="1322" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/95b195f236eb47d5fd83b0c994c07d1d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="03bc7a8400d62d17004fac0e986015ba"><div class="sl-block-style" style="z-index: 11; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>2/3</p></div></div></div></section><section data-id="b48e64cfd88e1a305d8abcb5672a6f03" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-background-color="rgb(1,28,82)"><div class="sl-block" data-block-type="image" style="width: 191.077px; height: 182.24px; left: 333.462px; top: 337.88px; min-width: 1px; min-height: 1px;" data-name="image-1724e8" data-block-id="c0167946fc31bacd1fe82502b23c661f"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="800" data-natural-height="763" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/fd3025ee180167cf207b9852f9b73700.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 299.127px; height: 164.52px; left: 146.898px; top: 395px; min-width: 1px; min-height: 1px;" data-name="image-281e10" data-block-id="53cb9ef42332513cfb9839395c724f71"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1440" data-natural-height="792" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/3799863223c6214300c2f882a31fc90b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 289.573px; height: 149.085px; left: 676.525px; top: 10.175px; min-width: 1px; min-height: 1px;" data-name="image-a6930e" data-block-id="2f0d83db305e1c291ed20efde3c96bfe"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1280" data-natural-height="659" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/d4ebbe2fabd0a653f60026bfbc9c7e6b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 298.047px; height: 180px; left: 489.688px; top: 297.26px; min-width: 1px; min-height: 1px;" data-name="image-c7be83" data-block-id="03e90b04119d8c15970d71c6add7833b"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="712" data-natural-height="430" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/fbdb9a437f9e528d1ec989fe4ae6e7bf.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 178.975px; height: 230.44px; left: 22.025px; top: 460.24px; min-width: 1px; min-height: 1px;" data-name="image-41f0d5" data-block-id="cc47817769cc6474b8b2852371ad9db9"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="466" data-natural-height="600" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f64d6c4ca6a8430e2f6d719817c7b7c8.webp"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 207px; height: 138px; left: 608.143px; top: 159.26px; min-width: 1px; min-height: 1px;" data-name="image-6dbbea" data-block-id="c650ee31fc423b52e3fa502d5d714136"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="1620" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/19b2b4d3c357307b0c5ee2af6ecabb5b.webp"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 444.618px; left: 22.025px; top: 15.26px;" data-name="text-ee69ad" data-block-id="e57903ca076d4c5adef2777ad48079b7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
+<p><strong>We are at the cusp of a new platform shift</strong></p>
+
+<p> </p>
+
+<p>You are entering the world <strong>at an exceptionally exciting time</strong>, but one that will require flexibility and adaptibility</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 338.712px; top: 586.26px;" data-name="text-36dd81" data-block-id="6b86d8b697d547df5bf3a3e46f3039f5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p>This world will require you to <strong>think responsibly about where we are headed</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="79b78a7148b2d62324d41e489ed2c4ae"><div class="sl-block-style" style="z-index: 18; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>3/3</p></div></div></div></section></section><section data-id="53d7ecb9a9880813fa3d794a9cac313a" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/e2b8c35f03e57246c79422d190787313.png" data-background-color="rgb(221,221,221)"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 129.5px; height: auto;" data-block-id="ff543ec8e42cb9aa832bddf8b6aa04bc">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Why "Text Rules" Now?</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 898px; left: 38px; top: 211.5px; height: auto;" data-block-id="892f8409d744e99f0e71a668b7c4d386">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>LLMs are fundamentally text processors (input text, output text).
+	<ul>
+		<li>Multimodal exists, but unstandardized</li>
+		<li>Multimodal exists, but <span style="color:#63c7ff"><strong>hard to compose</strong></span>
+</li>
+	</ul>
+	</li>
+	<li>Their power is unlocked by the <em>quality</em> and <em>structure</em> of the text we provide.</li>
+	<li>We're moving from simple queries to complex collaborations, requiring assembly of diverse text sources.</li>
+	<li>Mastering text flow = supercharging your AI interactions.</li>
+</ul></div>
+						</div></section><section data-id="38a0d963e7922d899b835a204ddb3816" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-background-color="rgb(74,74,74)"><div class="sl-block" data-block-type="text" style="width: 768px; left: 45px; top: 35.5px; height: auto;" data-block-id="fdb57260ff841b6fc11b1fc900dcd82d">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1><span style="color:#63c7ff">The Untapped Potential: Text is Everywhere!</span></h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 867px; left: 45px; top: 216.5px; height: auto;" data-block-id="180f3b9fba674afaa6ce3d615bae9489">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<ul>
+<li>Meeting transcripts (Zoom, Teams, etc.)</li>
+<li>Lecture transcripts</li>
+<li>Voice memos on your phone (now often auto-transcribed!)</li>
+<li>Emails and documents</li>
+<li>Notes (digital or even scanned handwritten)</li>
+<li>Slide content</li>
+<li>Code and logs</li>
+<li>Web clippings</li>
+</ul>
+							</div>
+						</div></section><section class="stack" data-id="8c1c2b69138d6d097efa818a83c3e3f1"><section data-id="1448f714768a7031a49c21e601de71c3" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/75fcbe45ed7e989f232ec937d191d343.png"><div class="sl-block" data-block-type="image" style="width: 64.7284px; height: 64.7284px; left: 154.223px; top: 9.229px; min-width: 1px; min-height: 1px;" data-name="image-ce6166" data-block-id="090bd3cf924a74d426cb6abbecbe3e86"><div class="sl-block-content" style="z-index: 10;" data-inline-svg="false"><img class="" data-natural-width="721" data-natural-height="721" data-crop-x="0.140221" data-crop-y="0.129151" data-crop-width="0.726937" data-crop-height="0.726937" style="left: -12px; top: -11px; width: 89px; height: 89px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/fbd88cff311b81377f876c82ae9f965e.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 62.2845px; height: 59.4716px; left: 453.588px; top: 11.857px; min-width: 1px; min-height: 1px;" data-name="image-a817ff" data-block-id="cf1f5ddf3effdc82d9d705752ce432e8"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="690" data-natural-height="148" data-crop-x="0" data-crop-y="0" data-crop-width="0.224638" data-crop-height="1" style="left: 0px; top: 0px; width: 277px; height: 59px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/1cd75096b0b013084b189678acb94467.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 69px; height: 69px; left: 750.959px; top: 7.093px; min-width: 1px; min-height: 1px;" data-name="image-78702f" data-block-id="e4ad8c13b0da6ec8a7b8eb8bdc973eeb"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="52" data-natural-height="52" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/ead237ab5cdc3f3b7c2f3e9773860aa8.svg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 221px; left: 179.757px; top: 7.007px;" data-name="text-2b6bf6" data-block-id="6808b0e11b9774ac3bc8d3cee577a1b6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p><span style="color:#ffffff">OpenAI<br>
+ChatGPT</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 221px; left: 476.757px; top: 7.007px;" data-block-id="c7ea6753704c9a3087d82a464afa2e37" data-name="text-0fbfbe"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><font color="#ffffff">Anthropic<br>
+Claude</font><br>
+ </p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 221px; left: 773.757px; top: 7.093px;" data-block-id="2ab82ff2793843d73078206dca697366" data-name="text-7fb95f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p><span style="color:#ffffff">Google<br>
+Gemini</span></p></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 0px; top: 318px;" data-name="line-192b57" data-block-id="a1f4a6cc6bebf8ae963ba39c74c5a948"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="960" data-line-y2="0" data-line-color="#000000" data-line-width="2px" data-line-start-type="none" data-line-end-type="none" data-line-style="solid-rounded" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="960" height="1" viewbox="0 0 960 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#000000" stroke-width="2" stroke-linecap="round" d="M0 0 L960 0"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L960 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L960 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="image" style="width: 188.574px; height: 125.992px; left: 186.587px; top: 117.008px; min-width: 1px; min-height: 1px;" data-name="image-5cecfe" data-block-id="075418cd8e2ec832137c09ce6c72628d"><div class="sl-block-content" style="z-index: 17; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1368" data-natural-height="914" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/681fa2b6db0e0a0a207e6afea49297b8.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 243.137px; height: 124px; left: 200.587px; top: 190px; min-width: 1px; min-height: 1px;" data-name="image-303e8e" data-block-id="566cc446b4bc31f826c981f4ba123bc1"><div class="sl-block-content" style="z-index: 18; border-style: solid; border-width: 2px;"><img class="" data-natural-width="400" data-natural-height="204" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/dfc99cc955c31c12e6a1cd4a16040470.png"></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 0px; top: 104.5px;" data-block-id="d3155b8c9ed72559bea5e86f38a3eb9f" data-name="line-378ecc"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="960" data-line-y2="0" data-line-color="#000000" data-line-width="2px" data-line-start-type="none" data-line-end-type="none" data-line-style="solid-rounded" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="960" height="1" viewbox="0 0 960 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#000000" stroke-width="2" stroke-linecap="round" d="M0 0 L960 0"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L960 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L960 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 218.846px; top: 371.5px;" data-name="text-764d4c" data-block-id="baa87e8b9ff8b53c82fbe7be0b71f95b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p><span style="color:#ffffff">o1, o3, o4</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 200.587px; top: 332.5px;" data-block-id="e0727685b49a38f5ce4eef00d4f8a1e5" data-name="text-fe1747"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21;"><p><span style="color:#ffffff">4o, 4.5</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 140.951px; left: 0px; top: 124.007px;" data-block-id="0f961681b6b5ddba627dfcc95a903a25" data-name="text-94593d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p><span style="color:#ffffff">PRIVACY</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 140.951px; left: 0px; top: 332.5px;" data-block-id="98f1626e56857e8c71cf9c604855d35e" data-name="text-4f3aa8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;"><p><font color="#ffffff">MODELS</font></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 140.951px; left: 78.0004px; top: 366px;" data-block-id="da4640f05a6167de9d4f3fc1a8184c86" data-name="text-d87732"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24;"><p><span style="color:#ffffff">reasoning</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 140.951px; left: 109.281px; top: 332.5px;" data-block-id="7d6c876fbb78efad9b0e223e85268550" data-name="text-f09f3e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25;"><p><span style="color:#ffffff">other</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 322.872px; left: 412.797px; top: 327px;" data-block-id="83187068d3c8e4064ccfd9efbec9f274" data-name="text-fcd9c8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26;"><p><span style="color:#ffffff">Sonnet 3.7 <span style="font-size:0.5em"><em>ext. thinking</em></span></span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 322.872px; left: 412.797px; top: 374px;" data-block-id="9087acbb1e85bcd8392a6fc88ca85336" data-name="text-57e06d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27;"><p><font color="#ffffff">Opus 3.0, Haiku 3.5, Sonnet 3.7</font></p></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 0px; top: 460px;" data-block-id="33cf62814c06dbe0386588b383098a00" data-name="line-49d2a0"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="960" data-line-y2="0" data-line-color="#000000" data-line-width="2px" data-line-start-type="none" data-line-end-type="none" data-line-style="solid-rounded" style="z-index: 28;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="960" height="1" viewbox="0 0 960 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#000000" stroke-width="2" stroke-linecap="round" d="M0 0 L960 0"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L960 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L960 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 182.874px; left: -13.4366px; top: 458px;" data-block-id="f091605cec105f7ccf1555e2c5d58a0b" data-name="text-36c03b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 29; font-size: 90%;"><p><span style="color:#ffffff">CONTEXT<br>
+LENGTH</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 200.587px; top: 473px;" data-block-id="9c772c403af7bd091be27f49d210cb8f" data-name="text-01c467"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 30;"><p><font color="#ffffff">~128k</font></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 453.806px; top: 473px;" data-block-id="c63e6db74a03bfde68ba4746a0448f55" data-name="text-00681a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 31;"><p><span style="color:#ffffff">~200-500k</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 741.049px; top: 473px;" data-block-id="2f126a70a3799f366598c6c16c6c7d7b" data-name="text-732ea7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 32;"><p><span style="color:#ffffff">~1m</span></p></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 0px; top: 532px;" data-block-id="69cded42835b376a47a12ea0ed1aa863" data-name="line-2e04d4"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="960" data-line-y2="0" data-line-color="#000000" data-line-width="2px" data-line-start-type="none" data-line-end-type="none" data-line-style="solid-rounded" style="z-index: 33;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="960" height="1" viewbox="0 0 960 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#000000" stroke-width="2" stroke-linecap="round" d="M0 0 L960 0"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L960 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L960 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 186.587px; left: 0px; top: 540.5px;" data-block-id="151dab423aef1e2b9edd894bcef2ad55" data-name="text-489a57"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 34;"><p><span style="color:#ffffff">ADVANTAGE</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 200.587px; top: 540.5px;" data-block-id="43459d2a361fe14ff4f0af334d3649b4" data-name="text-cc0f0a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 35;"><p><font color="#ffffff">memory, chat-indexing, best-in-class models</font></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 459.73px; top: 540.5px;" data-block-id="8ec9abf114626a26f68d124b69b96e29" data-name="text-2d3327"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 36;"><p><span style="color:#ffffff">writing ability, ethical-first, </span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 281.319px; left: 678.681px; top: 536.5px;" data-block-id="89bfefdaad6522d0e2f4121cf2c985ca" data-name="text-ed6a83"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 37; font-size: 80%;"><p><span style="color:#ffffff">largest context, 50 sources, audio transcription (notebookLM), double check</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 459.73px; top: 181px;" data-block-id="7c192d087cde8000a5f75e2e668e5b7f" data-name="text-09c9fe"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 38;"><p><span style="color:#ffffff">Always<br>
+opt-in</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 741.049px; top: 147px;" data-block-id="52395cda2366b771bbadc6d5616e099a" data-name="text-e62e88"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 39;"><p><font color="#ffffff">⚠️ only use SEAS version<br>
+(no opt-out)</font><br>
+ </p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.951px; left: 212.68px; top: 189.5px;" data-block-id="3d4f021da0a4827b8c788e0590895899" data-name="text-d62bd7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 40;"><p>Opt-out</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 322.872px; left: 678.681px; top: 327.5px;" data-block-id="fa9f7aeeae69e51bb28c97c8056cd694" data-name="text-bdeefe"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 41;"><p><font color="#ffffff">2.5 Pro, 2.5 Flash</font></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 181.594px; left: 759.727px; top: 385.5px;" data-block-id="4b02b97932b4e00aa28cb520a4b1ff7e" data-name="text-389225"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 42;"><p><span style="color:#ffffff">2.0 Flash</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="fd7198ffd954af48ddef12ca0ebb2603"><div class="sl-block-style" style="z-index: 43; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 43; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>1/3</p></div></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-id="666f0c3819a446c34e87d2af618655c2"><div class="sl-block" data-block-type="image" style="width: 593.879px; height: 700.207px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-3125c6" data-block-id="01df677d1033efdfaaead4833f443d7e"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1145" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/b99560ae672c3946da5f7c79422a7161.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 342px; left: 593.879px; top: 49.5px;" data-name="text-c5d49f" data-block-id="854272646348581f993316dc11b1b0ff"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><span style="color:#63c7ff">For total and complete privacy, local models are a <strong>very promising future</strong></span></p></div></div></section><section data-id="cb40cf3d15346c0e2620016d144a0046" data-background-color="rgb(77,0,0)" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/75fcbe45ed7e989f232ec937d191d343.png"><div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="401cdbf7cc5f62fcab2e579ee402fd79"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="b0f67f6e6151d14eabbf80e781409b9f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 80%;"><h1 style="text-align:left">What are "reasoning" models?</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 617.902px; height: 272.68px; left: 325.098px; top: 350px; min-width: 1px; min-height: 1px;" data-name="image-840d5b" data-block-id="1d3eeb8a78d5b43567a4dbdc26a8b841"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1661" data-natural-height="733" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/422beb9caf49a458752e79429aac6cb3.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 491px; left: 458px; top: 647.824px;" data-name="text-024f44" data-block-id="f3289d04a4269e984e432d51b766a235"><a class="sl-block-style" style="z-index: 13; cursor: pointer !important; user-select: none !important;" href="https://arxiv.org/html/2406.09136v1" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p>https://arxiv.org/html/2406.09136v1</p></div></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 927.043px; left: 15.9575px; top: 110.5px;" data-name="text-7a675e" data-block-id="59c5f53fa3ad9727f9163d30b7255f3b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><ul>
+	<li>A model is said to be "reasoning" if its final answers come after multiple inference steps (the model is given the opportunity to "introspect" on its initial outputs)</li>
+	<li>
+<strong>Consumes on order of 10x more tokens</strong> [the outputs you don't see cost just as much to generate as the ones you see]</li>
+</ul></div></div>
+<div class="sl-block" data-block-type="image" style="width: 272.957px; height: 124.604px; left: 25.0824px; top: 329.5px; min-width: 1px; min-height: 1px;" data-name="image-38ffd3" data-block-id="d06d79eab8b239e91a8dbce26ecd3e11"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="1678" data-natural-height="766" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/d57dd82533b4657744b7cb251c688b8c.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 238px; left: 33.479px; top: 491.824px;" data-name="text-af971f" data-block-id="c752958a90a677bf712d6124b18660e3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;"><p><em><strong>SLOWER, LOSING FEEDBACK LOOP SPEED</strong></em></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="c35055caab01c8e4e10627d8d11711a8"><div class="sl-block-style" style="z-index: 17; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>2/3</p></div></div></div></section><section data-background-color="rgb(77,0,0)" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/75fcbe45ed7e989f232ec937d191d343.png" data-id="a3b779cf067f29bf835209e5fe736f82"><div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="c50b9d67e5de69810518961b96d94361"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="5470acb67f430bfde4f2bc6d055d778f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 80%;"><h1 style="text-align:left">What are "reasoning" models?</h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="02b623a7c038e0fb79f2ac3613fe9be3"><div class="sl-block-style" style="z-index: 12; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>3/3</p></div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 351.4px; left: -1.42109e-14px; top: 174.3px; min-width: 1px; min-height: 1px;" data-name="image-7a4050" data-block-id="8d7e9a113d69ce728ab48c7360d37cbb"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1814" data-natural-height="664" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/8d929d5890c092abdb2771bd34ba2ee0.png"></div></div></section></section><section data-id="1efd7a55e6e925c107fdf42c56b1d407"><div class="sl-block" data-block-type="image" style="width: 716.593px; height: 700px; left: 121.79px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-c46844" data-block-id="86269a81edf37e7390f5c6eddc24702b"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1382" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/b3c131a9fa1f56fc896f3b28d71961af.png"></div></div></section><section class="stack" data-id="cd3ea1e37bc1026b42b1c82535a1e151"><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4122e349be9188df21446837026bdbd1.jpeg" data-id="b8c2d75e4dfa611f6853efa28c19aae9"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="a13706fb1d9d85ea2156172abc58affc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 90%;"><h1 style="text-align: left;">When are LLMs OK to use?</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="a69d274b6d434e6860048f53f5b5260c"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="4cf4cb5624548f7a8573417493b29210"><div class="sl-block-style" style="z-index: 12; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>1/4</p></div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 328.97px; height: 445px; left: 8px; top: 106px; min-width: 1px; min-height: 1px;" data-name="image-dbd9b6" data-block-id="8831fc42626af4be3aac51a5f047c4ee"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="998" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/883625345fb7e9d613efca3380093440.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 329.25px; height: 439px; left: 366.688px; top: 106px; min-width: 1px; min-height: 1px;" data-name="image-90d2b1" data-block-id="7db1dc300561ddb9f7a65c13bb013341"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="273" data-natural-height="364" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/fbef093c816b2225879cc63ac7e619cf.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 159.631px; height: 241px; left: 763.574px; top: 430.5px; min-width: 1px; min-height: 1px;" data-name="image-930666" data-block-id="4ba3dda54f7a4a2bd0e959a0d7b37f16"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="257" data-natural-height="388" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/d778edd571d9811f81e119a340800dc0.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 164.521px; height: 242.985px; left: 582.053px; top: 441.515px; min-width: 1px; min-height: 1px;" data-name="image-a9a78b" data-block-id="72f4e56848544b040fb65a528dc47f88"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="260" data-natural-height="384" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/5cfd396a67dbe5e6e6086b4cca9dd588.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 204.606px; height: 319px; left: 725.574px; top: 103.5px; min-width: 1px; min-height: 1px;" data-name="image-8481db" data-block-id="2dc7eafbec948b163ce1c9098000364e"><div class="sl-block-content" style="z-index: 17;"><img class="" data-natural-width="220" data-natural-height="343" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/0666b232e90f7a0d792aa018b4ec202d.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 584px; left: -18.947px; top: 574px;" data-name="text-d7e075" data-block-id="8c24d02f5b3be822fdbfdcfd500bca9b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; font-size: 80%;"><p><span style="color:#ffffff">Ted Chiang, award winning sci-fi author, with two collections of short stories, and movie <em>Arrival</em></span></p></div></div></section><section data-id="52707980d7212e7f35d6f8d8ae3bfe5b" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4122e349be9188df21446837026bdbd1.jpeg"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="d394b45f95e262e28282d3aa260cf884"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 90%;"><h1 style="text-align: left;">When are LLMs OK to use?</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="10ad09a353b799bf3c780aac3458660a"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="f23a08f406d06d8ec78dfb66519a4ac4"><div class="sl-block-style" style="z-index: 12; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>2/4</p></div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 428.059px; height: 255.699px; left: 506.141px; top: 421.801px; min-width: 1px; min-height: 1px;" data-name="image-b307c0" data-block-id="e9df3dc786ce7f1b7374be5e19a17bbc"><a class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 2px; border-color: rgb(99, 199, 255);" href="https://www.newyorker.com/culture/the-weekend-essay/why-ai-isnt-going-to-make-art" target="_blank"><img class="" data-natural-width="2260" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/574c30f320beb92ec9b8553b984be084.png"></a></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4122e349be9188df21446837026bdbd1.jpeg" data-id="f87dc1e8f54b323bb4428d6275d9f711"><div class="sl-block" data-block-type="text" style="height: auto; width: 887px; left: 43.5px; top: 115px;" data-name="text-a2d316" data-block-id="7e009758ff1ac7c930315f62ead67a0e"><div class="sl-block-style" style="z-index: 11; opacity: 0.88;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; background-color: rgb(45, 41, 38); color: rgb(99, 199, 255); padding: 40px;"><pre>"Consider <span style="color:#ffffff"><strong>ART</strong></span> as the result of <span style="color:#ffffff"><strong>MANY SMALL, INTENTIONAL CHOICES</strong></span>.
+
+"A 10,000-word short story reflects at least 10,000 such decisions.
+
+"When you give a model <span style="color:#ffffff">a 100-word prompt to generate a 10,000-word output</span>, you're offloading 99% of the artistic decision-making.
+
+"The result is <span style="color:#ffffff"><strong>NOT AN EXTENSION</strong></span> of your expression—it's a <span style="color:#ffffff"><strong>DILUTION</strong></span> of it."</pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="7850598767791d9e1f793275990f8335"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 90%;"><h1 style="text-align: left;">When are LLMs OK to use?</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 105px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="aec3a9d12df9c216fe47704f346b5f1c"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 643.5px;" data-name="text-9dc412" data-block-id="3faca218201c5b27f6f8a73a8b7851e9"><div class="sl-block-style" style="z-index: 13; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>3/4</p></div></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4122e349be9188df21446837026bdbd1.jpeg" data-id="dadf58dce5a34c04c6a4402185f595b7"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="dd486bbf634eacdf7ae19b1855c9de5c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 90%;"><h1 style="text-align: left;">When are LLMs OK to use?</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 105px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="900de7a1b4c91bcfe310fde59404ef8e"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 643.5px;" data-name="text-9dc412" data-block-id="16d04f9c54604496af9d4d3bad11d014"><div class="sl-block-style" style="z-index: 12; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>4/4</p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 868px; left: 46px; top: 205px;" data-name="text-d1b8df" data-block-id="38bfcddf3d963f30cc49d06fc39cb6bc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(153, 0, 0); background-color: rgb(242, 242, 242); padding: 40px;">
+<p><strong>ALWAYS—</strong>as long as they DISPLACE rather than REPLACE your OWN DECISION-MAKING</p>
+
+<p> </p>
+
+<p>⇨ learn how include them in <strong>COMPLEX, DIDACTIC WORKFLOWS</strong></p>
+</div></div></section></section><section data-id="2a517e5da0b5d17fc752230c59c34d40"><div class="sl-block" data-block-type="text" style="height: auto; width: 648px; left: 14px; top: 143.5px;" data-name="text-70a872" data-block-id="1770d80d0102da635f4eece96f0e32cf"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 80%;">
+<p style="text-align:left"><span style="color:rgb(1, 31, 91); font-size:1em"><u>Let's </u></span><span style="color:#63c7ff"><span style="font-size:1em"><u><strong>ascend</strong></u></span></span><span style="color:rgb(1, 31, 91); font-size:1em"><u><strong> </strong>Jérémie Hierarchy of Work</u><br>
+<br>
+🧱 1. </span><strong>Survival Tasks (Repetitive, Draining Work)</strong></p>
+
+<p style="text-align:left"><span style="font-size:1em">📦 2. </span><strong>Functional Tasks (Execution-Level Work)</strong></p>
+
+<p style="text-align:left"><span style="font-size:1em">🧠 3. </span><strong>Cognitive Work (Problem Solving and Learning)</strong></p>
+
+<p style="text-align:left"><span style="font-size:1em">🎨 4. </span><strong>Creative Work (Original Synthesis and Expression)</strong></p>
+
+<p style="text-align:left"><span style="font-size:1em">🧭 5. </span><strong>Reflective Work (Purpose, Values, Strategy)</strong></p>
+
+<p style="text-align:left">🌐 6. <strong>Meta-Work (Orchestration and Systems Thinking)</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 233.736px; height: 321px; left: 679.692px; top: 29px; min-width: 1px; min-height: 1px;" data-name="image-73719f" data-block-id="4fb8a0d7a5f6f0dfe560deed56d87f29"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="983" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/6fa59e490533500f4a64041bafb8f79d.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 247.898px; height: 313.354px; left: 679.692px; top: 357.646px; min-width: 1px; min-height: 1px;" data-name="image-6fcd59" data-block-id="ebf5c46bf53634a4b4683fd0f1423228"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1068" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f51d6022e466cccf292aa37d2be61103.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 619px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="d2da3d22a6deb946aa3adfb0932ab58e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 90%;"><h1 style="text-align:left">LLMs augment us</h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 33px; top: 498.5px;" data-name="text-c2815c" data-block-id="4fe434cb4cf33c92265cdfe264e7f5ae"><a class="sl-block-style" style="z-index: 14;" href="https://www.linkedin.com/posts/digitalpendemic_aiinnovation-futureofwork-digitaltransformation-activity-7323778646899372032-S-Y4?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADAEqboBlJ80I5Ul6sKSlBZefdYhpe6O9VM" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><blockquote style="color:rgb(29, 28, 29); text-align:left">"<em>The Bottom Line: AI won't replace you—but </em><span><em>someone using AI will</em></span><em>.</em>"</blockquote></div></a></div></section><section data-id="c7ee1c7ac809861a59f4e7803a4156ce"><div class="sl-block" data-block-type="image" style="width: 339.02px; height: 79.179px; left: 34.3565px; top: 351.982px; min-width: 1px; min-height: 1px;" data-name="image-7eab8f" data-block-id="cba309b6926bcbe36273d2416b04c0f7"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1216" data-natural-height="284" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f9c5594b0f957dd40bcfb7f5c8cf2e1c.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 183.399px; height: 57.9156px; left: 28.7063px; top: 291.952px; min-width: 1px; min-height: 1px;" data-name="image-912032" data-block-id="c9b84031d57f610f7c4fa318e7ffcf4e"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="456" data-natural-height="144" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/6d394df4df817b4144a8a8647d2540de.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 339.02px; height: 52.9517px; left: 28px; top: 239px; min-width: 1px; min-height: 1px;" data-name="image-f5021e" data-block-id="c7f77d473fa3a4dfd7691152bb5e0982"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1050" data-natural-height="164" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f73f3b2a023e7aa6f43d9329341fc422.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 8.3px;" data-name="text-84bfb7" data-block-id="d2b5dbfde5ac67c4085b1d79451208db"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 90%;"><h1 style="text-align:left">LLM Energy Consumption</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="c07ba137727c0bc485648e935c1ad698"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 286.364px; height: 161.08px; left: 660.634px; top: 229px; min-width: 1px; min-height: 1px;" data-name="image-a94305" data-block-id="80ed9dc6397ea63b7028a3c7f338e51e"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="2400" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/5f1304965ceec48e6407e63fc11b062f.webp"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 311.263px; height: 285px; left: 635.735px; top: 394px; min-width: 1px; min-height: 1px;" data-name="image-73d7e3" data-block-id="bf2e5f59cf681fecf574a16252978ac0"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="1280" data-natural-height="1172" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/abc1eba2eb9b9b4cba864cc2e23f3d18.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 384px; left: 36.4985px; top: 108.504px;" data-name="text-393b9c" data-block-id="c769d9c13ce5fb530dcbd530881b1a7c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p>Inference is a small portion of energy consumption of the LLM lifecycle</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 384px; left: 562.998px; top: 132.028px;" data-block-id="12906ba2abd5c538695d703ee34e6c57" data-name="text-18217d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;"><p>Inference is currently being optimized in <strong>MANY</strong> ways</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 209.788px; height: 118.006px; left: 426.659px; top: 562.994px; min-width: 1px; min-height: 1px;" data-name="image-76d61d" data-block-id="c6b9fc956e1ded3c7f72a382866ea5ce"><div class="sl-block-content" style="z-index: 22;"><img class="" data-natural-width="1200" data-natural-height="675" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/3a08a3b021111798aa24be547e82aad6.webp"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 61.4999px; height: 40.9999px; left: 405.053px; top: 650px; min-width: 1px; min-height: 1px;" data-name="image-b25775" data-block-id="4a8487b84789683f77c607f2cbf32bac"><div class="sl-block-content" style="z-index: 23;"><img class="" data-natural-width="330" data-natural-height="220" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/cb550b2e5e91a777c32d3581f96246d0.webp"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 384px; left: 562.998px; top: 132.028px;" data-block-id="f6d4099c18ad791b064d0c06766c2232" data-name="text-d90170"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p>Inference is currently being optimized in <strong>MANY</strong> ways</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 120.25px; left: 453.053px; top: 543.494px;" data-name="text-b3c7a8" data-block-id="0e34ec121e7307225bd24be6dca22bfa"><div class="sl-block-style" style="z-index: 24; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>MoE</strong></p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 201.75px; left: 648.745px; top: 382.994px;" data-block-id="91992c840c56e23e27edc557c928aff3" data-name="text-5b1b77"><div class="sl-block-style" style="z-index: 20; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Transformer ASIC</strong></p></div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 315.301px; height: 224.238px; left: 28px; top: 450.875px; min-width: 1px; min-height: 1px;" data-name="image-7bd3ce" data-block-id="47a8415c4c87f5adf365b3b6c66491f4"><a class="sl-block-content" style="z-index: 21; border-style: solid; border-width: 2px; border-color: rgb(99, 199, 255);" href="https://cacm.acm.org/blogcacm/the-energy-footprint-of-humans-and-large-language-models/" target="_blank"><img class="" data-natural-width="1752" data-natural-height="1246" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/12f7148131006afd256fc28f11f2ae5b.png"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 218.25px; left: 136.855px; top: 613px;" data-block-id="6b46fd354ed0b4eba78ea34cda7f6d34" data-name="text-101731"><div class="sl-block-style" style="z-index: 25; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Humans are inefficient</strong></p></div></div></div></section><section data-id="bb47e929b9ca7f9bc7885f76f9b4d807" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/035b8f04dc85dd94e85f0d88a6203f62.png"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 188px; height: auto;" data-block-id="24eaa8d4220b4f6ddba0a69eef5c0ce4"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;"><h1><span style="color:#ffffff">Let's Get Started!</span></h1></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 286px; height: auto;" data-block-id="d8c385ccb8f165c7c3fcaae363d01566"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;"><h2><span style="color:#ffffff">Listing All Tools</span></h2></div></div></section><section data-id="18eeef9eebca8545504ba6a0d11aca3c" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/e2b8c35f03e57246c79422d190787313.png" data-background-color="rgb(221,221,221)"><div class="sl-block" data-block-type="text" style="width: 920px; left: 20px; top: 14px; height: auto;" data-block-id="344214e98c1ecd2717afae5e4245553c">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Prompting Best Practice: Separate Instructions &amp; Data</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 886px; left: 37px; top: 168px; height: auto;" data-block-id="0d123d67234885165f0866323248ea71">
+							<div class="sl-block-content" style="text-align: left; font-size: 80%; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Some tools (like Claude or Google's NotebookLM) automatically <strong>import pasted text as distinct files</strong>
+</li>
+	<li>
+<strong>Otherwise: </strong>Use delimiters (like <code>"""</code> or <code>&lt;data&gt;</code>) to clearly separate:
+	<ol>
+		<li>Your instructions TO the LLM.</li>
+		<li>The data/text you want it to process.</li>
+	</ol>
+	</li>
+	<li>You can <strong>nest</strong> this (just use open/close quotes that are not contained in your data)</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="code" style="width: 446px; left: 20px; top: 431px; height: auto;" data-block-id="1f213d18f80447ebef68904c96f9cd87">
+							<div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" data-code-autoheight="true" data-code-wrap="true" style="z-index: 12;">
+								<pre class="text"><code data-line-numbers="">Summarize the key decisions in the following meeting transcript:
+
+"""
+[Paste Meeting Transcript Here]
+"""
+
+Focus on action items assigned to the 'Engineering Team'.
+</code></pre>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="code" style="width: 446px; left: 514px; top: 399px; height: auto;" data-block-id="632d4c4d0d19ceac843f9f95e38e0612" data-name="code-cae143">
+							<div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" data-code-autoheight="true" data-code-wrap="true" style="z-index: 13;">
+								<pre class="text" style="tab-size: 4;"><code data-line-numbers="">Here is the transcript of my lecture:
+"""
+[Paste Lecture Transcript Here]
+"""
+
+Here are my slides:
+"""
+[Paste Slides Here]
+"""
+
+How did I do in terms of pacing?
+</code></pre>
+							</div>
+						</div></section><section data-id="3e3c4b8dcce1da94b98a2444d6ffea07"><div class="sl-block" data-block-type="text" style="width: 493px; left: 8px; top: 50px; height: auto;" data-block-id="a9f53fd7c7e2c6bb5b7158dce581a174"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 80%;"><h1><span style="color:#ffffff">Rich/Plain Text</span></h1></div></div>
+<div class="sl-block" data-block-type="text" style="width: 462.407px; left: 17.593px; top: 128px; height: auto;" data-block-id="4a5e6010765e177046601062e509a5ab"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 12; color: rgb(255, 255, 255); font-size: 70%;"><h2><span style="color:#ffffff">Text is not created equal</span></h2></div></div>
+<div class="sl-block" data-block-type="image" style="width: 487.407px; height: 700px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-e20071" data-block-id="f1de646faa0ca4890d584e66298dbf46"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="752" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c7ef1fdbc6f01b6dc8474917e504db1b.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 422px; left: 509px; top: 37px; height: auto;" data-block-id="7a15a91523f4e51501558e89609b41fd" data-name="text-5c063e">
+							<div class="sl-block-content" style="text-align: left; z-index: 13;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<ul>
+<li>Sources are often "rich" (formatting, layouts).</li>
+<li>LLMs usually prefer plain or structured text (like Markdown).</li>
+<li>Copy-pasting manually is tedious and error-prone.</li>
+<li>Formatting loss can obscure meaning (e.g., lists, emphasis).</li>
+</ul>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 461.407px; height: 193.277px; left: 17.593px; top: 454px; min-width: 1px; min-height: 1px;" data-name="image-4adf8b" data-block-id="0db87c69d5030146541cf40a38fcefdc"><div class="sl-block-content" style="z-index: 14; border-style: solid; border-width: 2px;"><img class="" data-natural-width="826" data-natural-height="346" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/b311247e4545ce879dd7576661c5605a.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 441.417px; height: 161px; left: 509px; top: 470.139px; min-width: 1px; min-height: 1px;" data-name="image-85e2de" data-block-id="7b2de08f07ae0bf416b141c17f41bec4"><div class="sl-block-content" style="z-index: 15; border-style: solid; border-width: 2px;"><img class="" data-natural-width="828" data-natural-height="302" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/54efd31955e0b774b1cd50cac975f7ea.png"></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 454px; top: 570px;" data-name="line-1d2672" data-block-id="cf458368474dd652e56d9fb75ee65e29"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="71.25307010929424" data-line-y2="0" data-line-color="#db2929" data-line-width="2px" data-line-start-type="none" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="71.25307010929424" height="1" viewbox="0 0 71.25307010929424 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#db2929" stroke-width="2" stroke-linecap="round" d="M0 0 L69.253 0"></path><path stroke="#db2929" stroke-width="2" d="M 64.501 -6 L 70.501 0 L 64.501 6 L 70.501 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L71.253 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L71.253 0"></path></svg></div></div></section><section data-id="b3e5b7fc3ad919d92fd06e4ab84c3253"><div class="sl-block" data-block-type="text" style="width: 944px; left: 10px; top: 13px; height: auto;" data-block-id="46e42bca88260414dd73d38bd0ebd1af"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; font-size: 80%;"><h1>Tool 1: Remove rich formatting</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 326.218px; height: 516.895px; left: 531.783px; top: 145.656px; min-width: 1px; min-height: 1px;" data-name="image-e6370b" data-block-id="53d1f76637b9906046617cd2f76b7be3"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="852" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c53a365705c392f8c278808cf5a3901d.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 374.783px; height: 396.208px; left: 62px; top: 178px; min-width: 1px; min-height: 1px;" data-name="image-b21a8a" data-block-id="e916b1cf9eadfd3ec75299806bf23ebd"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1277" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/efbc93501db73d14273a09b48ec83690.png"></div></div></section><section data-id="7ce85c23371172b7f0d5348c07cc8376"><div class="sl-block" data-block-type="text" style="width: 940px; left: 12px; top: 14px; height: auto;" data-block-id="21e6290341af005fc77f5c9c21ede091">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Tool 2: Rich copy-paste with <code>Puppypaste</code> &amp; Markdown</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 299px; left: 21px; top: 196px; height: auto;" data-block-id="4bee592dffb6eb0b47024536fde62223">
+							<div class="sl-block-content" style="text-align: left; z-index: 11; font-size: 70%;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Problem: Copying rich text -&gt; losing formatting.</li>
+	<li>Solution: Tools that convert clipboard content to Markdown.</li>
+	<li>
+<code>Puppypaste</code> (website): Copies rich text, pastes as Markdown.</li>
+	<li>Why Markdown? Simple, structured, LLM-friendly. Preserves lists, bold/italics, links, code blocks.</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 616.04px; height: 526.03px; left: 343.96px; top: 173.97px; min-width: 1px; min-height: 1px;" data-name="image-466850" data-block-id="7e77ede4fa0d0e2d21bf62e6b325bb96"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1581" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/601d5c044cc9cff67ab682a46a5b8cba.png"></div></div></section><section data-id="a9cdf9b8829a630d5f9fe9ccb7991d97"><div class="sl-block" data-block-type="image" style="width: 583.547px; height: 554px; left: 339.228px; top: 117px; min-width: 1px; min-height: 1px;" data-name="image-012ae1" data-block-id="55763596b0557a69f0c460be8c04896c"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1422" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f6086ac14c048a9bed3a390e81b3424c.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 940px; left: 12px; top: 14px; height: auto;" data-block-id="a844000163b137d6f8e81f4d588fe80a" data-name="text-2c862f">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 11;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Markdown: Specify format with plain text</h1></div>
+						</div></section><section data-id="6ef993a190efd58562b1a5a7fc5ea9a1" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-background-color="rgb(74,74,74)"><div class="sl-block" data-block-type="text" style="width: 915px; left: 22.5px; top: 9px; height: auto;" data-block-id="c3415ce216dd58481b5c59bfd3f5d54b">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1><span style="color:#63c7ff">Tool 3: Clipboard Managers — Your Text Buffer</span></h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 646.5px; left: 30px; top: 169px; height: auto;" data-block-id="4682df273b7af3d0f8f95332d0f0ad78">
+							<div class="sl-block-style" style="z-index: 11; transform: rotate(0deg);"><div class="sl-block-content" style="text-align: left; font-size: 80%; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+<strong>Problem:</strong> Copying multiple snippets sequentially is painful (copy A, paste A, copy B, paste B...).</li>
+	<li>
+<strong>Solution:</strong> Clipboard managers keep a history of copied items.</li>
+	<li>
+<strong>Benefits:</strong>
+	<ul>
+		<li>Access previous clipboard items.</li>
+		<li>Cycle through recent copies.</li>
+		<li>Search clipboard history.</li>
+		<li>Combine multiple snippets easily.</li>
+	</ul>
+	</li>
+</ul></div></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 480px; height: 307.782px; left: 500.5px; top: 283.218px; min-width: 1px; min-height: 1px;" data-name="image-b79f6b" data-block-id="39d9ab601f427dda03769c35016f1956"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1650" data-natural-height="1058" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f3c89834f0943977e25cbeda7e453af8.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 810.922px; height: 235.275px; left: 7px; top: 500.737px; min-width: 1px; min-height: 1px;" data-name="image-3ab1ba" data-block-id="9aa3972d11fdf9cbd61c327579bfb319"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1358" data-natural-height="394" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/a3a99cd4767f87969ac40d9d5d6c5f77.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 330.75px; left: 22.5px; top: 647.5px;" data-name="text-18bce7" data-block-id="402925b5ba4be4579b5cea183b6cadf3"><div class="sl-block-style" style="z-index: 14; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Pasteboard (Windows)</strong></p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 330.75px; left: 622.5px; top: 472px;" data-block-id="4b3cdb2255b0082c813b2133ebb6a18c" data-name="text-66fe0d"><div class="sl-block-style" style="z-index: 15; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Keyboard Maestro (macOS)</strong></p></div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 283.5px; height: 155.925px; left: 663.5px; top: 112px; min-width: 1px; min-height: 1px;" data-name="image-22597d" data-block-id="7db44be1b26da99eb1b53a2304935ac4"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="1180" data-natural-height="649" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/a277863778f8e8f6b8045c42e40fd42d.webp"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 201.75px; left: 745.25px; top: 205.218px;" data-block-id="386135844cc1cf1d8d5529c03352d379" data-name="text-b3c7a8"><div class="sl-block-style" style="z-index: 17; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>ClipClip (Windows)</strong></p></div></div></div></section><section data-id="42d8288ad2ba55d59f126bc355e9d78f"><div class="sl-block" data-block-type="image" style="width: 743.826px; height: 278.71px; left: 19.174px; top: 94.145px; min-width: 1px; min-height: 1px;" data-name="image-38e103" data-block-id="7a333594c9cfc587e5fa23d4e3b30d1a"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="2482" data-natural-height="930" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/222323423ada54ff7258bba2273856de.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 466.557px; height: 295.844px; left: 472.443px; top: 387.578px; min-width: 1px; min-height: 1px;" data-name="image-565ec9" data-block-id="f5a6cc1ee65a0f8a5d246a977bc8f8f5"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="2129" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/e8ba2c93a1ce12c664fc021091df365a.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 209.5px; height: 209.5px; left: 729.5px; top: 116.5px; min-width: 1px; min-height: 1px;" data-name="image-7f1ae7" data-block-id="093c8a0995055bf0c4d895a484a73040"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1024" data-natural-height="1024" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/d40818e4c35afeab7b1258e9890c95df.webp"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 915px; left: 22.5px; top: 9px; height: auto;" data-block-id="b250904bcc08c57112ac995caa736196" data-name="text-659688">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 13;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1><span style="color:#63c7ff">Tool 4: Clipboard "Shelves"</span></h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 401px; left: 32px; top: 438px;" data-name="text-b25730" data-block-id="5a6760f167282d73aaf3666512353a9f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><ul>
+	<li>Important, particularly for images, screenshots</li>
+	<li>Also allows you to manipulate temporary files (rather than desktop)</li>
+</ul></div></div></section><section data-id="7300f79b65d14dab68274aad0dc91fdc" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-background-color="rgb(1,28,82)"><div class="sl-block" data-block-type="image" style="width: 516px; height: 516px; left: 34px; top: 83px; min-width: 1px; min-height: 1px;" data-name="image-23aa7a" data-block-id="83cf7df927b54ef60a33b80e21bd11bb"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1024" data-natural-height="1024" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/79b7a4b201ceeca05f53c0f574af2ea9.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 389px; left: 563px; top: 128.5px;" data-name="text-d364e8" data-block-id="cc72fddf7e054dbec0c521ede4097a89"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><strong><span style="font-size:1.4em"><span style="color:#63c7ff">YOU USING LLMs SKILLFULLY!!</span></span></strong></p></div></div></section><section class="stack" data-id="69357e9d2262b9b7cbef7f73c9b8ef24"><section data-id="358742066107f09499a609c44ec92e4c" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/e2b8c35f03e57246c79422d190787313.png"><div class="sl-block" data-block-type="image" style="width: 354.852px; height: 650px; left: 4.572px; top: 14px; min-width: 1px; min-height: 1px;" data-name="image-6a94eb" data-block-id="af3b67191a714076584c4d1c68c1e3b2"><a class="sl-block-content" style="z-index: 10; border-style: solid; border-width: 2px; border-color: rgb(99, 199, 255); cursor: pointer !important; user-select: none !important;" href="https://www.linkedin.com/posts/chatgpt-for-education_if-you-want-to-better-understand-how-your-activity-7323399864749359105-qG5-?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADAEqboBlJ80I5Ul6sKSlBZefdYhpe6O9VM" target="_blank"><img class="" data-natural-width="737" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/3df71ac0dcca4a2e8dc60703b7154e32.png"></a></div>
+<div class="sl-block" data-block-type="image" style="width: 586.143px; height: 285.344px; left: 367.424px; top: 379.656px; min-width: 1px; min-height: 1px;" data-name="image-6de382" data-block-id="120a32cac0171cc75044a3edb7e4dc27"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="2048" data-natural-height="997" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/1c332cee57d45936aad4bfe7691d8c41.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="a2912316f8724fc08a134330160ea717"><div class="sl-block-style" style="z-index: 12; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>1/3</p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 367.424px; top: 180px;" data-name="text-38f1f7" data-block-id="2e379b5b3bd3213da6488b80fedaf229"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 80%;"><ul>
+	<li>Activity to map the uses everybody makes of LLMs</li>
+	<li>Goal is to broaden each person's horizon + <strong>prime the collective to use these tools together</strong>
+</li>
+	<li>Activity done with 80 students in CIS 3500</li>
+	<li>Should be a widespread group activity</li>
+</ul></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 586.143px; left: 367.424px; top: 38px;" data-name="text-d364e8" data-block-id="9c057cbdf8cdeacb334a3d35dcb18482"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 90%;"><p><strong><span style="font-size:1.4em"><span style="color:#63c7ff">Learning Together Is Important: </span><span style="color:#011f5b">AI's Full Potential is Collective</span></span></strong></p></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/e2b8c35f03e57246c79422d190787313.png" data-id="4ac1e8838ccdb442aab7a89df0b007c3" data-auto-animate=""><div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="0a35d70356f5ce7f094ea00f9009d464"><div class="sl-block-style" style="z-index: 10; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>2/3</p></div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 698.962px; height: 455.185px; left: 8px; top: 9.4075px; min-width: 1px; min-height: 1px;" data-name="image-c5ebb7" data-block-id="e520d72e1ac9fdc9647f500b68f1ab48"><div class="sl-block-content" style="z-index: 11; border-style: solid; border-width: 2px; border-color: rgb(1, 28, 82);"><img class="" data-natural-width="2073" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/fcd67300b36e61edad99bad0e31206c8.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 776.724px; height: 173.054px; left: 190.021px; top: 261.973px; min-width: 1px; min-height: 1px;" data-name="image-0a4545" data-block-id="acc89472d48d02deeed9476bc566ac98"><div class="sl-block-content fragment" style="z-index: 12; border-style: solid; border-width: 2px; border-color: rgb(1, 28, 82);" data-fragment-index="0"><img class="" data-natural-width="2500" data-natural-height="557" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/9f6cf1c9b23d470a4c7279b6cb0d6305.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 759.401px; height: 253.64px; left: 114.599px; top: 446.36px; min-width: 1px; min-height: 1px;" data-name="image-81fc75" data-block-id="070c82563ef7c9499d0a6bc37586147b"><div class="sl-block-content fragment" style="z-index: 13; border-style: solid; border-width: 2px; border-color: rgb(1, 28, 82);" data-fragment-index="1"><img class="" data-natural-width="2500" data-natural-height="835" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/925d4710f2703f1f4199ee4e752e3bd0.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 342.786px; height: 579.175px; left: 578.383px; top: 35.412px; min-width: 1px; min-height: 1px;" data-name="image-7065db" data-block-id="9ed125671ce3cedc3567bb52f1228f5d"><div class="sl-block-content fragment" style="z-index: 14; border-style: solid; border-width: 2px; border-color: rgb(1, 28, 82);" data-fragment-index="2"><img class="" data-natural-width="799" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/286ecd2e80a46ed75b2880de9a16c10c.png"></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/e2b8c35f03e57246c79422d190787313.png" data-id="8ed72e7a5a7c4f90f29a5fa261ab9d5f"><div class="sl-block" data-block-type="text" style="height: auto; width: 59px; left: 8px; top: 645.5px;" data-name="text-9dc412" data-block-id="422ea5e73f605ce6cc127215875b5ee3"><div class="sl-block-style" style="z-index: 11; opacity: 0.8;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; background-color: rgb(255, 255, 255); color: rgb(99, 199, 255);"><p>3/3</p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 694.5px; left: 250.75px; top: 19.1215px;" data-name="text-038b89" data-block-id="b9d4224664fc832b53ebfe36215d346e"><div class="sl-block-style" style="z-index: 12; opacity: 0.7;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 55%; background-color: rgb(242, 242, 242);">
+<p style="text-align:left">"Something unexpected has emerged in my AI literacy research that's challenging conventional wisdom: the critical role of acculturation patterns in how AI literacy actually develops in educational settings.</p>
+
+<p style="text-align:left">"Most frameworks treat AI literacy as a structured set of skills to acquire - a checklist of competencies to master. But what I'm observing in classrooms and teacher workshops is something far more organic and culturally embedded. It mirrors how communities have historically adopted and adapted to new cultural tools.</p>
+
+<p style="text-align:left">"<span style="color:#990000"><strong>Let me share a pattern I've seen repeat across multiple schools: It begins with personal experimentation, often kept private.</strong></span> Teachers and students explore AI tools on their own, testing boundaries and building personal comfort. This phase is marked by curiosity but also hesitation - a natural part of engaging with any transformative technology.</p>
+
+<p style="text-align:left">"<span style="color:#990000"><strong>Then comes a pivotal shift: Tentative sharing with trusted colleagues or peers.</strong></span> A teacher mentions using ChatGPT for lesson planning in the break room. A student shows a classmate how they're using AI to brainstorm essay topics. These small moments of vulnerability and exchange begin building a shared understanding.</p>
+
+<p style="text-align:left">"<span style="color:#990000"><strong>The most fascinating stage emerges next: Collaborative exploration and systematic integration. Once enough individual comfort exists, communities begin collectively reimagining their practices. I watched one department move from individual experimentation to co-creating AI-enhanced curriculum units within a semester. The key wasn't just training - it was trust and shared experience.</strong></span></p>
+
+<p style="text-align:left">"What's particularly striking is how this pattern mirrors historical educational technology adoption, from calculators to computers. Yet AI adds a unique dimension: the tool itself participates in and shapes this acculturation process. It's not just a static technology to master but an interactive partner in the learning process.</p>
+
+<p style="text-align:left">"This raises profound questions about how we support this cultural transition. Should we focus less on formal training and more on creating safe spaces for experimentation? How do we honor the organic nature of this process while ensuring equitable access and development?"</p>
+</div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 221.948px; height: 610.243px; left: 16.733px; top: 12.8785px; min-width: 1px; min-height: 1px;" data-name="image-d46341" data-block-id="fa7444570845e7836ba6e7cad326f2fc"><a class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 2px; border-color: rgb(99, 199, 255);" href="https://www.linkedin.com/posts/nick-potkalitsky-phd-0313ba126_airesearch-educationalchange-teacherdevelopment-activity-7287453595036184576-U5CI?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADAEqboBlJ80I5Ul6sKSlBZefdYhpe6O9VM" target="_blank"><img class="" data-natural-width="491" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/afe07f69f6753ce50a4d334babb8a607.png"></a></div>
+<div class="sl-block" data-block-type="image" style="width: 806.399px; height: 458.954px; left: 163.8px; top: 91.6445px; min-width: 1px; min-height: 1px;" data-name="image-15462d" data-block-id="2b77e7748cce97bd0201806a24a59147"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="2372" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/2277c21d3cc40c570cdb2bd68a28999a.png"></div></div></section></section><section data-id="a37ecf2e255d7ef212c5c6dc1c7f2bb3"><div class="sl-block" data-block-type="text" style="width: 493px; left: 8px; top: 50px; height: auto;" data-block-id="74b6b981d761131a63f65e45d0d8e03e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(255, 255, 255);"><h1><span style="color:#ffffff">Slides.com</span></h1></div></div>
+<div class="sl-block" data-block-type="text" style="width: 462.407px; left: 17.593px; top: 149px; height: auto;" data-block-id="aa1c20e51b45edae9e3db3e166ab05b4"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 12; color: rgb(255, 255, 255); font-size: 70%;"><h2><span style="color:#ffffff">Slide presentation tool with text input/output</span></h2></div></div>
+<div class="sl-block" data-block-type="image" style="width: 487.407px; height: 700px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-e20071" data-block-id="f615cfca5b5cedd3f823c20b0d032001"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="752" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c7ef1fdbc6f01b6dc8474917e504db1b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 752.198px; height: 383.019px; left: 182.912px; top: 285.49px; min-width: 1px; min-height: 1px;" data-name="image-ae5f82" data-block-id="90f430dd5200638e2b15abcb3b154802"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="2500" data-natural-height="1273" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/0287727009e831d62da90582d340b293.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 423px; left: 519px; top: 27px; height: auto;" data-name="text-13d2d8" data-block-id="bc9512c6e85dbfe18ca399246ae5823e">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 70%; z-index: 14; color: rgb(99, 199, 255);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+<h1><span style="color:#63c7ff">Tool 5:</span></h1>
+
+<h1><span style="color:#63c7ff">TOOLS THAT IMPORT &amp; EXPORT TEXT</span></h1>
+</div>
+						</div></section><section data-id="ae5a1476c9c57eedd583124cbf8e3b80"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 21px; height: auto;" data-block-id="6e78a23c23d73a8f1804765980f1ccb4"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;"><h2>What is Slides.com</h2></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 107px; height: auto;" data-block-id="523a97bcfc325e35f4c46ab3322296d1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><ul>
+	<li>Presentation platform founded on <strong>open, interoperable standards</strong>
+	<ul>
+		<li>PDF is not manipulable/editable</li>
+		<li>PDF is very lossy — loss of structure</li>
+		<li>⚠️ When PDFs are converted to text, a lot of information is destroyed<br>
+		 </li>
+	</ul>
+	</li>
+	<li>Slides.com <strong>uses</strong> text in two novel ways<br>
+	 
+	<ul>
+		<li>
+<strong>IMPORT:</strong>  It can create entire presentation from a Markdown outline of your slides<br>
+		 </li>
+		<li>
+<strong>EXPORT:</strong>  It can export in <strong>reveal.js</strong> format which is fully text</li>
+	</ul>
+	</li>
+</ul></div></div></section><section class="stack" data-id="46f95810c3fdbf54f6d4e22efbca0a5e"><section data-id="d068c24191d66bab6bca11817177b9e4"><div class="sl-block" data-block-type="image" style="width: 1005.19px; height: 691.645px; left: -6.053px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-c3ac17" data-block-id="3c898ecda07de7dc4f5abb3bb0fb3399"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1962" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/20806c512871402622882c308aa7fbba.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 72px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-fa810b" data-block-id="548235b59d64a86c6345d372f0eed76a"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1920" data-natural-height="198" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.727273" style="left: 0px; top: 0px; width: 960px; height: 99px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/5b7226e3740f42ed367021a5f8469815.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 950px; left: 0px; top: 0px; height: auto;" data-block-id="5024dca45f16f32a2bf457c1041ec203" data-name="text-a24123"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 12;"><h2><span style="color:#ffffff">Slides.com's Markdown Import</span></h2></div></div></section><section data-id="4194633c9d958d4d3bdb755997df283f"><div class="sl-block" data-block-type="image" style="width: 1005.19px; height: 691.645px; left: -6.053px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-c3ac17" data-block-id="8312bf00434c84cbf2af6d2d1f969b2d"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1962" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/20806c512871402622882c308aa7fbba.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 490.128px; height: 308.76px; left: 528px; top: 368.187px; min-width: 1px; min-height: 1px;" data-name="image-c2631e" data-block-id="c3ee343a439f51a43a54f5f9af477e06"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="2143" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/0341b8ddf63893a421abf5131167ddfa.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 651.323px; height: 411.458px; left: 1.241px; top: 288.542px; min-width: 1px; min-height: 1px;" data-name="image-4e1e9a" data-block-id="9cb56fb62b430ef45f850a212827c6ef"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="2137" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/42afa3c39bc98342ec7993eb6c1555a2.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 313px; left: 195.64px; top: 105.5px;" data-name="text-18bce7" data-block-id="bcbcd0295b0e49d22e802b3c0067df69"><div class="sl-block-style" style="z-index: 13; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Gemini 2.5 Pro</strong></p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 145px; left: 683.064px; top: 376.916px;" data-block-id="e1bfa0b1ec7f500baed65e625aa5d815" data-name="text-f7f19c"><div class="sl-block-style" style="z-index: 14; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>o1-pro</strong></p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 145px; left: 149.14px; top: 570.916px;" data-block-id="2a8ad36c4471d748dca8f847bd302c9c" data-name="text-6a8e14"><div class="sl-block-style" style="z-index: 15; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>GPT 4o</strong></p></div></div></div></section></section><section data-id="92dd9d8170277171d094e01fc6346f4c"><div class="sl-block" data-block-type="text" style="width: 911px; left: 27.5px; top: 33px; height: auto;" data-block-id="37788a1d1c1a8c2b97e2bc8ef5d0eaf3">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Use Case:<br>
+Slide Generation &amp; Feedback</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 905px; left: 27.5px; top: 187px; height: auto;" data-block-id="d81e20747c576b2d8bc51a7c7dd9d0f9">
+							<div class="sl-block-content" style="text-align: left; font-size: 70%; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+<strong>Use Case 1: Generate Markdown Slides From Your Material</strong>
+	<ol>
+		<li>Assemble syllabus, primary sources</li>
+		<li>Generate Markdown from ChatGPT/Claude/Gemini <strong>reasoning model</strong>: "<em>Generate a Markdown outline suitable for slides.com format from</em>".</li>
+		<li>Paste the result into slides.com or similar Markdown-friendly slide tool.</li>
+	</ol>
+	</li>
+	<li>
+<strong>Use Case 2: Content + Transcript -&gt; Feedback</strong>
+	<ol>
+		<li>
+<strong>Input:</strong> Slide content (text export or Markdown).</li>
+		<li>
+<strong>Input:</strong> Lecture transcript where slides were discussed.</li>
+		<li>
+<strong>Prompt:</strong> "Analyze my lecture transcript and slide content. Where were students potentially confused? Which slides need more explanation based on the discussion?"</li>
+	</ol>
+	</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 708.655px; height: 228.375px; left: 147px; top: 481px; min-width: 1px; min-height: 1px;" data-name="image-9d527b" data-block-id="09ed65d2d536381557bdfd75743355d1"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="2048" data-natural-height="660" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/7c94e56595df393a47411f24eac200b8.png"></div></div></section><section data-id="08422ef3c89efa76d2ee768cfdb4e1b6"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 53px; height: auto;" data-block-id="6fe441a9a711ff173a084eff1b62bb7d"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;"><h2>Where Is This Useful To You?</h2></div></div>
+<div class="sl-block" data-block-type="text" style="width: 855px; left: 42px; top: 175px; height: auto;" data-block-id="fbf7ce5e83e9a05d4fb1a6066479c22f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><ul>
+	<li>Many of us manipulate tools that have both a
+	<ul>
+		<li>
+<strong>WISYWYG (What You See Is What You Get)</strong> interface</li>
+		<li>code interface</li>
+	</ul>
+	</li>
+	<li>Usually the WYSIWYG component is very <strong>lossy</strong> — the computer approximates what a user might want, but poorly</li>
+	<li>LLMs are <strong>much more comfortable with the original representations</strong>
+</li>
+	<li>
+<strong>Example</strong>
+	<ul>
+		<li>If you are using a tool like <strong>Intuit MailChimp</strong>, work with the HTML code directly</li>
+	</ul>
+	</li>
+</ul></div></div></section><section data-id="c6c517398ebf878c967adb0f1d50f536"><div class="sl-block" data-block-type="image" style="width: 412.862px; height: 257.484px; left: 11.672px; top: 407px; min-width: 1px; min-height: 1px;" data-name="image-b9576a" data-block-id="b742b199a6db539c0a2b307b86771f61"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1860" data-natural-height="1160" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/26b76a9319861898a27876ce511bf347.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 251.553px; height: 281.123px; left: 21.7505px; top: 87.877px; min-width: 1px; min-height: 1px;" data-name="image-d55ee7" data-block-id="d7865883e3d6b8b60682a3ac1328cca5"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1208" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f3fdfbe47bcfe428ab48afaa363d33eb.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 486.863px; height: 562.245px; left: 473.137px; top: 81.219px; min-width: 1px; min-height: 1px;" data-name="image-ab9a92" data-block-id="3b95c7a3a1be5a66e36f0ae9f06ea0f0"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1169" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/9379009e7a1d5cf260a179339489d35f.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 104px; height: 104px; left: 334.5px; top: 586.5px; min-width: 1px; min-height: 1px;" data-name="image-a974a3" data-block-id="055f60cc7141c31dc077528d0a1fe079"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="171" data-natural-height="171" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/aaff2bc60f1d0a069819252933279255.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 114.407px; height: 112.438px; left: 216.1px; top: 81.219px; min-width: 1px; min-height: 1px;" data-name="image-8dea46" data-block-id="b1a12bebfba99226bd4752dfff8129ad"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="1921" data-natural-height="1350" data-crop-x="0.244118" data-crop-y="0.025105" data-crop-width="0.568458" data-crop-height="0.794979" style="left: -49px; top: -4px; width: 201px; height: 141px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/a2fe9b9545a2619ff2582b63eee930dd.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 227px; left: 129.155px; top: 329px;" data-name="text-2533a1" data-block-id="723807955d2f2ad1ddf07f98dd283177"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 400%; color: rgb(153, 0, 0);"><p>+</p></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 316px; top: 332px;" data-name="line-64b9fd" data-block-id="2f5fbd97dc32f8ff5da86790fbca17b6"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="151.0132444522665" data-line-y2="0" data-line-color="#db2929" data-line-width="2px" data-line-start-type="none" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="151.0132444522665" height="1" viewbox="0 0 151.0132444522665 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#db2929" stroke-width="2" stroke-linecap="round" d="M0 0 L149.013 0"></path><path stroke="#db2929" stroke-width="2" d="M 144.261 -6 L 150.261 0 L 144.261 6 L 150.261 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L151.013 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L151.013 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 0px; height: auto;" data-block-id="a9b962a72eb01b2043ae7eaca2fa98fe" data-name="text-bf13b1"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 17;"><h2>Use Case: PhD Visit Day 2025</h2></div></div></section><section data-id="0e266114040874d70e342ba113235988"><div class="sl-block" data-block-type="text" style="width: 493px; left: -5.7035px; top: 50px; height: auto;" data-block-id="ef15565b2eba4d1d08fb381b447b307b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(255, 255, 255);"><h1><font color="#ffffff">Speech2Text</font></h1></div></div>
+<div class="sl-block" data-block-type="text" style="width: 462.407px; left: 9.593px; top: 148px; height: auto;" data-block-id="f227db6f070f70d317e56453b2a91346"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 12; color: rgb(255, 255, 255); font-size: 70%;"><h2><span style="color:#ffffff">Slide presentation tool with text input/output</span></h2></div></div>
+<div class="sl-block" data-block-type="image" style="width: 487.407px; height: 700px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-e20071" data-block-id="9483c68b8b1f21e58083d15d81f595b7"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="752" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c7ef1fdbc6f01b6dc8474917e504db1b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 415.732px; height: 468px; left: 522.178px; top: 116px; min-width: 1px; min-height: 1px;" data-name="image-26759b" data-block-id="0581a0b7a65a10578b6e0108efc6591a"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1034" data-natural-height="1164" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/cb7c9abe9d79d3e9c6f23fca89ed82ff.png"></div></div></section><section data-id="9cf286675636a7dcd5afbe95f50f3708"><div class="sl-block" data-block-type="text" style="width: 964px; left: 22px; top: 15.5px; height: auto;" data-block-id="1107bd60728e6fff0883b6330dc50029">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Tool 6: Speech-to-Text<br>
+Capture Fleeting Thoughts</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 466px; left: 8px; top: 185.5px; height: auto;" data-block-id="cde620346d71a8e1eafc9d0d7fd88f10">
+							<div class="sl-block-content" style="text-align: left; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Mobile LLM apps (ChatGPT, Gemini, Claude) have excellent voice input.</li>
+	<li>Native OS dictation (macOS, Windows).</li>
+	<li><span style="color:#63c7ff"><strong>Ask reasoning model to structure your thoughts</strong></span></li>
+	<li>Use it for:
+	<ul>
+		<li>Brainstorming on the go.</li>
+		<li>Drafting emails/messages.</li>
+		<li>Capturing ideas during walks or commutes.</li>
+	</ul>
+	</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 225.203px; height: 488px; left: 480px; top: 185.5px; min-width: 1px; min-height: 1px;" data-name="image-d629ae" data-block-id="845414020e3c889ec0fc36ad345a3daa"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="623" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/86886bd4acb0074dd5c4ed2793e832b7.PNG"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 232.125px; height: 503px; left: 719.203px; top: 185.5px; min-width: 1px; min-height: 1px;" data-name="image-11bb3a" data-block-id="0e0c86b8ecf2f7570028530e21551d8f"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="623" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/44990e9ab8beaf6daed65bf65ea1a11c.jpeg"></div></div></section><section data-id="920c2fc9030449648b778f8652d41962"><div class="sl-block" data-block-type="text" style="height: auto; width: 762px; left: 21.596px; top: 432.916px;" data-name="text-d234d0" data-block-id="efaba2e0e1e5390340c686340f892b2e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 70%;"><p style="text-align: left;">🔹 <strong>First automated transcription concept:</strong> <em>Audrey</em> (1952, Bell Labs)<br>
+🔹 <strong>First consumer product:</strong> <em>Dragon NaturallySpeaking</em> (1997)<br>
+🔹 <strong>First large-scale public ASR:</strong> <em>Google Voice &amp; YouTube Captions</em> (~2009)<br>
+🔹 <strong>First high-quality, open ASR usable by anyone:</strong> <em>OpenAI Whisper</em> (2022)</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 416.654px; height: 314px; left: 21.596px; top: 101.083px; min-width: 1px; min-height: 1px;" data-name="image-e1f126" data-block-id="0dc8d3264fabcda0d841b6a86834dc37"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1035" data-natural-height="780" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/cbf9b44d15c1c8f3b8b116a363217f24.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 470.319px; height: 319.833px; left: 472px; top: 101.083px; min-width: 1px; min-height: 1px;" data-name="image-75ffd1" data-block-id="6319ea6c90739d261560b9318830e202"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1147" data-natural-height="780" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/1afe04e045e0bfed29adfe02f045891e.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 911px; left: 21.596px; top: 15px; height: auto;" data-block-id="b7ad8d77aef9944667d38107e985e7fe" data-name="text-f2d1c6"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 13; font-size: 80%;"><h2>Tool 7: Transcription As A Commodity</h2></div></div>
+<div class="sl-block" data-block-type="image" style="width: 827.999px; height: 119px; left: 13px; top: 559.916px; min-width: 1px; min-height: 1px;" data-name="image-494609" data-block-id="d2f17199614ceba60f6f2bf37ac42f93"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="828" data-natural-height="552" data-crop-x="0" data-crop-y="0.375" data-crop-width="1" data-crop-height="0.21558" style="left: 0px; top: -207px; width: 828px; height: 552px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/a0dde925dcdbeea0c7ba1ab8ff1e7039.jpg"></div></div></section><section data-id="fb967bb2238c13a8e2678ac203788826"><div class="sl-block" data-block-type="image" style="width: 312.821px; height: 284px; left: 90.819px; top: 66px; min-width: 1px; min-height: 1px;" data-name="image-39fe2a" data-block-id="8a7d501256da1af5cfdd4cd87127b8fd"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1487" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/fe7d3640504ada097ca9f0073c4274d4.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 310.669px; height: 400.959px; left: 561.071px; top: 27.5205px; min-width: 1px; min-height: 1px;" data-name="image-2b1bc0" data-block-id="a442236f8474fb82f93696da94c155e6"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1046" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/1b63f5844307b94d23e33720aaddfaf8.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 280.989px; height: 478.959px; left: 672.902px; top: 139.52px; min-width: 1px; min-height: 1px;" data-name="image-b5728c" data-block-id="2bdcfcdba96df42fe04405c6e35852d9"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="792" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/5763919824c6d1f066a82e3138060f00.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 728.481px; height: 418.667px; left: 29px; top: 274px; min-width: 1px; min-height: 1px;" data-name="image-a69b28" data-block-id="22ee4e7ba193cca3a2914be392863333"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="2349" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/74c288c7f0a71c4445f6bc42d045ea38.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 313px; left: 90.64px; top: 196.5px;" data-name="text-18bce7" data-block-id="c7696717e8332cf6c7bc5fcda6b0e844"><div class="sl-block-style" style="z-index: 14; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Voice Memos (Apple)</strong></p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 203px; left: 145.64px; top: 562.5px;" data-block-id="7dc57817b9ae5356d1bfbced0293f777" data-name="text-9ae00f"><div class="sl-block-style" style="z-index: 15; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Lectures (Panopto)</strong></p></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 203px; left: 716.405px; top: 100.52px;" data-block-id="dfa3cc935eab960cf321a2f749bee534" data-name="text-55acec"><div class="sl-block-style" style="z-index: 16; opacity: 0.76;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; background-color: rgb(242, 242, 242); color: rgb(99, 199, 255);"><p><strong>Courses (YouTube)</strong></p></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 552.666px; left: 8.405px; top: 8.52px; height: auto;" data-name="text-f2d1c6" data-block-id="fd0858c682e5188548ce7affee79e251"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 17; font-size: 80%;"><h2>Where Are Transcripts?</h2></div></div></section><section data-id="c070f6e36bcc520282ffb36b55b1bb4b"><div class="sl-block" data-block-type="image" style="width: 875.727px; height: 621.9px; left: 36.1135px; top: 65.6px; min-width: 1px; min-height: 1px;" data-name="image-536da8" data-block-id="f841dc0ee05090e7485b147f560f2615"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1901" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/466a708ffbf69e268439c7a64b5fea34.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 943.666px; left: 8.405px; top: 8.52px; height: auto;" data-name="text-f2d1c6" data-block-id="25311e116c804a4948ee8f0b270e2539"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11; font-size: 70%;"><h2>MacWhisper: Free Transcription w/ Diarization</h2></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 700px; left: 260px; top: 648.5px;" data-name="text-cd6d83" data-block-id="227d57551d9c6f7b6cb5d037e89616cd"><a class="sl-block-style" style="z-index: 12; cursor: pointer !important; user-select: none !important;" href="" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p>https://goodsnooze.gumroad.com/l/macwhisper</p></div></a></div></section><section data-id="bbdc2e98b6be217845a96521c56846b6"><div class="sl-block" data-block-type="text" style="width: 908px; left: 22px; top: 8px; height: auto;" data-block-id="664f1acf0e07c7c1897c350dfca3b1d2">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Use Case: Meeting/Lecture Synthesis &amp; Analysis</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 51px; top: 166px; height: auto;" data-block-id="3bce05c9ed85afb41c07a1c9d089b332">
+							<div class="sl-block-content" style="text-align: left; font-size: 70%; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+<strong>Input:</strong> Raw transcript (from Zoom, Otter, voice memo).</li>
+	<li>
+<strong>Input:</strong> Your handwritten/typed notes (scan/type, or use speech-to-text).</li>
+	<li>
+<strong>Prompt:</strong>
+	<pre><code>Analyze the following meeting transcript and my personal notes. Generate a concise summary, list all decisions made, and extract action items with owners and deadlines. Pay special attention to points mentioned in my personal notes.
+
+Transcript:
+"""
+[Paste Transcript]
+"""
+
+My Notes:
+"""
+[Paste Notes]
+"""
+</code></pre>
+	</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 369.269px; height: 321px; left: 547.406px; top: 364px; min-width: 1px; min-height: 1px;" data-name="image-0cd6a4" data-block-id="236f0768d1d6a8fe8e5123b85ad443b9"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1553" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/eaf06086bf2afaf72cd37bdf3f0a5a28.png"></div></div></section><section data-id="6f81b8e58fb28840675a4328fe7cc66c"><div class="sl-block" data-block-type="image" style="width: 402.08px; height: 359px; left: 12px; top: 10px; min-width: 1px; min-height: 1px;" data-name="image-a68b84" data-block-id="c7d09b571fc98cc787c696760139ec9e"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1400" data-natural-height="1250" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/2bb979c10ffaa8884763408a54abb08b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 395.531px; height: 488.087px; left: 489.134px; top: 21px; min-width: 1px; min-height: 1px;" data-name="image-de2858" data-block-id="17c3113d08c1726da04a1b1c369316d5"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1094" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/8dac084490e3c0d5b6c93f6d87d90035.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 409.221px; height: 446.243px; left: 533.853px; top: 220px; min-width: 1px; min-height: 1px;" data-name="image-161897" data-block-id="a3c54b5b42527907ca629e992c0520d4"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1238" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/7541564f2cc9dc0c4ed4fd8de2cd3dc6.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 465.795px; height: 421.746px; left: 12px; top: 350px; min-width: 1px; min-height: 1px;" data-name="image-0643cc" data-block-id="6a670850ad803abadc8e2478d1c59c9b"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1491" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/6d6cf735fc2b79ae0526555c9c1fb93d.png"></div></div></section><section data-id="e4462ef67a05338650eb8cc951d713e3"><div class="sl-block" data-block-type="text" style="width: 943.666px; left: 8.405px; top: 8.52px; height: auto;" data-name="text-f2d1c6" data-block-id="b9457475179c059a926ad17101a3245e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; font-size: 65%;"><h2>Tool 8: Google's NotebookLM has audio transcription</h2></div></div>
+<div class="sl-block" data-block-type="image" style="width: 543.424px; height: 465.201px; left: 22.03px; top: 137px; min-width: 1px; min-height: 1px;" data-name="image-a9d65d" data-block-id="2cecd1edf07489e83ffd39ac44f6c9c7"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1577" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/6f434c06ca4a4c3b7112ae1e97fa8b20.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 355px; left: 587px; top: 122.101px;" data-name="text-a94e4e" data-block-id="5dfafd96a963735d8296b1139a284dc4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Helps "grok" complex topics</li>
+	<li>Upload all documents related to a topic (like vendor contracting) to research and correlate</li>
+	<li>Can use "sourcing" and "double checking"</li>
+</ul>
+
+<p> </p>
+
+<p><em>Usually a dead-end because hard to transfer out of interface (<strong>but excellent for self-study</strong>)</em></p>
+</div></div></section><section data-id="23f39a745777401a283e83cb4a41ad59"><div class="sl-block" data-block-type="image" style="width: 960.191px; height: 673.031px; left: -1.42109e-14px; top: 13.4845px; min-width: 1px; min-height: 1px;" data-name="image-1aafd8" data-block-id="ea16b1f26fb71f6dcec6c7301fc87397"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1926" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/08c81d3a3c9edeb2f3dd3518f98403ff.png"></div></div></section><section class="stack" data-id="38843952ef20307f4d69c989b2d5fb96"><section data-id="00db80136a2a483f7f27afa7ded48583" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png"><div class="sl-block" data-block-type="text" style="height: auto; width: 875px; left: 42.5px; top: 39.5px;" data-name="text-1d8be0" data-block-id="638ef725a66aa97f3b9d8ab876a666ad"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h1><span style="color:#ffffff">Your conversations are a gold mine</span></h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 824px; left: 68px; top: 273.5px;" data-name="text-bda765" data-block-id="27591f054bf57d90680cd9dc614c5b61"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><ul>
+	<li><span style="color:#ffffff">All of your conversations with LLMs are valuable</span></li>
+	<li><span style="color:#ffffff">When you start engaging fully, you can have 100s of conversation a day, and it quickly goes</span></li>
+	<li><span style="color:#63c7ff"><strong>Complex workflows involve combining and consulting with several different models</strong></span></li>
+	<li><span style="color:#ffffff">There are tools to help!</span></li>
+</ul></div></div></section><section data-id="6a1476711098292ee001f4a0e648c8fa" data-background-iframe="https://r2bits.gumroad.com/l/Echoes?layout=profile&amp;recommended_by=library"></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-id="2370265f3dc80c363cae64ed0bba4847">
+<div class="sl-block" data-block-type="image" style="width: 674.15px; height: 538px; left: 142.925px; top: 72px; min-width: 1px; min-height: 1px;" data-name="image-d7c0cb" data-block-id="54b0445344ede0e53498e2f8c79fd716"><div class="sl-block-content" style="z-index: 12; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1634" data-natural-height="1304" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/98c6bed1112e5e2aff2202045f712b6a.png"></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-id="8a0089b858695243120613b3156dabe9">
+<div class="sl-block" data-block-type="image" style="width: 322.322px; height: 200.329px; left: 15px; top: 11.671px; min-width: 1px; min-height: 1px;" data-name="image-0604bd" data-block-id="436d55eca7973a0b41d2c1c97c3958ba"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1580" data-natural-height="982" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/3f67d2210b326f3478202e476ca4f7d7.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 360px; top: 11.671px;" data-name="text-7d5941" data-block-id="2c4ded9e9e10984660f1030f751f05f6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 60%;"><pre style="text-align: left;"><span style="font-size:0.7em"><span style="color:#ffffff">================================
+USER:
+Could you teach me a word only you know, that I don't know?
+================================
+MODEL:
+I love this request. Alright—here's a word I coined just for you:</span>
+
+<span style="color:#ffffff">
+**_nexalgia_** _(noun)_</span>
+
+<span style="color:#ffffff">**/nekˈsal.dʒə/**</span>
+
+<span style="color:#ffffff">
+**Definition:**</span>
+
+<span style="color:#ffffff">A bittersweet, almost physical ache for an unrealized future that once felt certain. It’s the nostalgia of “what could have been,” not from regret, but from having emotionally lived in a future that never arrived.</span>
+
+<span style="color:#ffffff">
+**Example:**</span>
+
+<span style="color:#ffffff">
+&gt; “After the startup folded, he felt a strange _nexalgia_—not for what they’d lost, but for the version of himself he was becoming in that parallel life.”</span>
+
+<span style="color:#ffffff">
+Let me know if you want a verb form or adjective too. We can flesh out its etymology and variants like it's going in the OED.
+================================</span></span></pre></div></div>
+<div class="sl-block" data-block-type="image" style="width: 301.549px; height: 286px; left: 25.3865px; top: 230px; min-width: 1px; min-height: 1px;" data-block-id="ebec102ff4ca2d63c0b26bf616feeeb0" data-name="image-4f646c"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1580" data-natural-height="982" data-crop-x="0" data-crop-y="0" data-crop-width="0.357143" data-crop-height="0.545" style="left: 0px; top: 0px; width: 844px; height: 525px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/3f67d2210b326f3478202e476ca4f7d7.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 274.613px; left: 52.322px; top: 565px;" data-name="text-98ddc2" data-block-id="09d815b919f0de9a09b247a7f1be54dc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 70%;"><p>https://github.com/jlumbroso/chatgpt-conversation-copier</p></div></div></section></section><section data-id="c216d809cedb962a1f69ddf185f9bab6"><div class="sl-block" data-block-type="text" style="width: 951px; left: 9px; top: 0px; height: auto;" data-block-id="0d7899d10f00762475e5fa6b1f9e7210">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Advanced Flow: Agent-to-Agent Communication (Manual)</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 932px; left: 9px; top: 161px; height: auto;" data-block-id="6d1e4ae70e3e6ed16e4d8ec90dfa4191">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Scenario: Get complex research from GPT-4, then summarize/fact-check with a different model (e.g., Claude, or even GPT-3.5 for speed/cost).</li>
+	<li>Method:
+	<ol>
+		<li>Have conversation A with Model 1 (e.g., GPT-4o).</li>
+		<li>Use a tool/extension (or manual copy) to export the <em>entire</em> conversation history (User prompts + AI responses).</li>
+		<li>Start new chat with Model 2.</li>
+		<li>
+<strong>Prompt:</strong> "Based on the following conversation I had with another AI, please [summarize / fact-check / reformat / offer a different perspective]: \n\n """[Paste entire conversation A]""" "</li>
+	</ol>
+	</li>
+	<li>Future: Protocols like A2A aim to automate this.</li>
+</ul></div>
+						</div></section><section class="stack" data-id="de6fa99ccf35235c7ade59be640636a3"><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-id="4222cc7d2acbcca0bf52def0587db073"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 17.3px;" data-name="text-84bfb7" data-block-id="bad475d1ddddaf19d30f5e1a646539a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 60%;"><h1 style="text-align:left">Side-note: Genesis of the Background</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="7246f374c4f1e02cd560b204dd1c0381"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 529.361px; height: 363.683px; left: 0px; top: 93.8px; min-width: 1px; min-height: 1px;" data-name="image-164470" data-block-id="643fc9aca093c73a2d8e0cf5bdf2e804"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1965" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/78fa41174df362a2b5bbffd1b94fc3df.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 231.944px; height: 225.8px; left: 543.361px; top: 111.2px; min-width: 1px; min-height: 1px;" data-name="image-ed4873" data-block-id="d79592f0fabc68403dc410aa55cf922f"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="604" data-natural-height="588" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/8e1c2355ae4dd38b8f806452c85a5dde.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 219.466px; height: 389px; left: 768.534px; top: 283.642px; min-width: 1px; min-height: 1px;" data-name="image-da4260" data-block-id="bcee727f1367dfbc4931907e13137b3a"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="378" data-natural-height="670" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/5768191834ec0508e43e55d200565b3d.png"></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-id="4d1f52fb7e4870b6a054597a9428108a"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 17.3px;" data-name="text-84bfb7" data-block-id="a4c34411173cc9f8bb0cd19c17abe935"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 60%;"><h1 style="text-align:left">Side-note: Genesis of the Background</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="dcc112913ac10e0bdfef7d90d799de43"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 500.836px; height: 387.023px; left: 14px; top: 106.977px; min-width: 1px; min-height: 1px;" data-name="image-852b3b" data-block-id="e5302e5d16327e85e94512194788e686"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1747" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/123322b04c064ca238709da9ffd24d4c.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 588.915px; height: 380.881px; left: 356.085px; top: 300.488px; min-width: 1px; min-height: 1px;" data-name="image-2feab5" data-block-id="9f52b15031247462d67317b480279944"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1908" data-natural-height="1234" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/a92a72b374c3c4e845f8660354025ae8.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 192.51px; height: 360px; left: 524.768px; top: 106.977px; min-width: 1px; min-height: 1px;" data-name="image-44c9b8" data-block-id="c453319bf0d33e5d1a05ef78f851fe21"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="554" data-natural-height="1036" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c43d2343aa1f090c0561b039cf198d31.png"></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-id="8ead246b7b7becc03f42d9426987a008"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 17.3px;" data-name="text-84bfb7" data-block-id="e52750e5596b0ab9488f353168d41d62"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 60%;"><h1 style="text-align:left">Side-note: Genesis of the Background</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="762ab0d36c3855f5f4114e792c36974b"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 613.333px; height: 247.692px; left: 14px; top: 111.154px; min-width: 1px; min-height: 1px;" data-name="image-1e9a8f" data-block-id="d1b7f7bd16594535fb92a8cd6293bf06"><div class="sl-block-content" style="z-index: 12; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1664" data-natural-height="672" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/92045c7335f1cff07eaa80dc44ec6cb7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 637.766px; height: 518.665px; left: 300.711px; top: 161.508px; min-width: 1px; min-height: 1px;" data-name="image-a3966a" data-block-id="03a73f9f13d6b66a35be5b7226a5f146"><div class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1660" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/ab81ba091e2ace923a1e70b8b3add557.png"></div></div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png" data-id="baf805228d4d2c88b996002ab7a37910"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 17.3px;" data-name="text-84bfb7" data-block-id="086382d2ab4deeab78ae5ec901c68df2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 60%;"><h1 style="text-align:left">Side-note: Genesis of the Background</h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 94px; left: 0px; top: -0.2px; min-width: 1px; min-height: 1px;" data-name="image-becebd" data-block-id="88b1fa9bf57ff9214f2b25cce77ee23b"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.895238" style="left: 0px; top: 0px; width: 960px; height: 105px;" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 494.785px; height: 376px; left: 14px; top: 106px; min-width: 1px; min-height: 1px;" data-name="image-d13bbf" data-block-id="ede5f2329feec1415aafb8b1a44ce8cf"><div class="sl-block-content" style="z-index: 12; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1640" data-natural-height="1212" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.972495" data-crop-height="1" style="left: 0px; top: 0px; width: 509px; height: 376px;" data-src="text-rules-penn-engineering-may-2025-ai-summit/b664abaeb405df0e98fc4082c85ec488.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 316.066px; height: 177.787px; left: 592.198px; top: 294px; min-width: 1px; min-height: 1px;" data-name="image-7f3969" data-block-id="48d122fbf3fe8321a7fc0aa235a96ecc"><div class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1920" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/4de3c4f0f1cdde1f918b03fe816511fc.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 316.066px; height: 177.787px; left: 592.198px; top: 106px; min-width: 1px; min-height: 1px;" data-name="image-97c78a" data-block-id="5fc2287cbd728032c2b511995d16fd8c"><div class="sl-block-content" style="z-index: 14; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1920" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/d7db95357ffa5073795fd1f9ddc82c28.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 316.066px; height: 177.787px; left: 592.198px; top: 482px; min-width: 1px; min-height: 1px;" data-name="image-b98b6b" data-block-id="675aca7df586d38b6fdd6096155c1429"><div class="sl-block-content" style="z-index: 15; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1920" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/92fd65823ff54f230f4ed9849a6eb3e9.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 347.89px; height: 195.688px; left: 87.4475px; top: 482px; min-width: 1px; min-height: 1px;" data-name="image-87ee7c" data-block-id="26acbc15d34ed8b1a055e4a8d2c3bbe6"><div class="sl-block-content" style="z-index: 16; border-style: solid; border-width: 2px;"><img class="" data-natural-width="1920" data-natural-height="1080" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/cc041fdf12f50f3d6db54b2217a06e15.png"></div></div></section></section><section data-id="bf634215711e14fc801d39070b230b53" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/e2b8c35f03e57246c79422d190787313.png" data-background-color="rgb(221,221,221)"><div class="sl-block" data-block-type="image" style="width: 960px; height: 105px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-73aaf5" data-block-id="0b5db3c3079b6849dba97f57d4c018af"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1920" data-natural-height="210" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/c0c6e47a73b748c0f39c73156041dda6.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 17.3px;" data-name="text-84bfb7" data-block-id="5aed763311e504a1fc2951faa6c4d616"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 60%;"><h1 style="text-align:left"><span style="color:#011f5b">Tools for the Terminal</span></h1></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 40.3948px; top: 145.723px; height: auto;" data-block-id="1f1e9d072c0bfec516ba09dbfe8fdb57" data-name="text-08d244"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><ul>
+	<li>The terminal is actually a great metaphor for what we are doing</li>
+	<li>
+	<p>We will mention briefly tools to</p>
+
+	<ul>
+		<li>1. <strong>pbpaste/pbcopy: </strong>copy/paste from the terminal</li>
+		<li>2. <strong>chatblade:</strong> use [make single calls] LLMs from the terminal</li>
+		<li>3. <strong>claude-code, codex:</strong> chat [converse] with LLMs from the terminal</li>
+	</ul>
+	</li>
+</ul></div></div></section><section data-id="85b7eacb7364569360ea3bb1fc0c56ff" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png" data-background-color="rgb(1,28,82)"><div class="sl-block" data-block-type="image" style="width: 853.63px; height: 267.058px; left: 46.5295px; top: 58.9581px; min-width: 1px; min-height: 1px;" data-name="image-489ef0" data-block-id="7569994353b922d77fa7a2ba57822ba1"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="2148" data-natural-height="672" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/a538a4ac53834949ed609c6c6840f1c0.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 290.144px; height: 323.881px; left: 584.937px; top: 350px; min-width: 1px; min-height: 1px;" data-name="image-e9d7b9" data-block-id="b06d67e3bff79710779380ea1c825f98"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="344" data-natural-height="384" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/af67c2971c76c92de2cc3a2f82cec475.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 201.325px; height: 252.972px; left: 61.8816px; top: 350px; min-width: 1px; min-height: 1px;" data-name="image-87c914" data-block-id="8df2daee683ee5649bde4f6d10bf2e1a"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="994" data-natural-height="1249" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/7237dc7ffabbb2edecf9b6d02f868f32.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 240.2px; height: 240.2px; left: 309.983px; top: 391.841px; min-width: 1px; min-height: 1px;" data-name="image-f1ed43" data-block-id="674d0ff7faffca7d84c63af97eba1bbb"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="624" data-natural-height="624" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/d050c7c4a625ceba4bbbbc879c75f497.jpg"></div></div></section><section data-id="6490c64b95a34f1c2c1209bd802d8b56"><div class="sl-block" data-block-type="text" style="width: 887.799px; left: 36.1005px; top: 269.269px; height: auto;" data-block-id="785154ffaeecd4ff663a3046b43d3ac6" data-name="text-9d5fb3">
+							<div class="sl-block-content" style="text-align: left; font-size: 70%; z-index: 10;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<table>
+<thead>
+<tr>
+<th>OS</th>
+<th>Read</th>
+<th>Write</th>
+<th>Installed by default?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>macOS</td>
+<td><code>pbpaste</code></td>
+<td><code>pbcopy</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>Get-Clipboard</code></td>
+<td><code>Set-Clipboard</code></td>
+<td>Yes (PowerShell)</td>
+</tr>
+<tr>
+<td>WSL</td>
+<td><code>powershell.exe Get-Clipboard</code></td>
+<td><code>powershell.exe Set-Clipboard</code></td>
+<td>Yes (PowerShell)</td>
+</tr>
+<tr>
+<td>Linux/X11</td>
+<td>
+<code>xclip -o</code> or <code>xsel --clipboard --output</code>
+</td>
+<td>
+<code>xclip</code> or <code>xsel</code>
+</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Linux/Wayland</td>
+<td><code>wl-paste</code></td>
+<td><code>wl-copy</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 756.686px; height: 272.473px; left: 101.657px; top: 29.7635px; min-width: 1px; min-height: 1px;" data-name="image-bc6ab5" data-block-id="aab9e4aec598f5ffbf464382b206fc0c"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1844" data-natural-height="664" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/5282e3539e8cd426e47fefcde3f70e18.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 7px; top: 6.3px;" data-name="text-84bfb7" data-block-id="6eac3b13ab683e92a86abca96e5c9b45"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 60%;"><h1 style="text-align:left"><span style="color:#011f5b">Tool 9: Use the clipboard from terminal too</span></h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 438.055px; height: 115.039px; left: 519.945px; top: 591.269px; min-width: 1px; min-height: 1px;" data-name="image-0f1ec6" data-block-id="23ca8a6e1e695c14ff177d49b878e919"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1546" data-natural-height="406" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/2e4347ad6c3dfe5062e34ec43c26171a.png"></div></div></section><section data-id="f26908cba20332c18e5600099915933a"><div class="sl-block" data-block-type="image" style="width: 519.963px; height: 426.2px; left: 2.683px; top: 7.7647px; min-width: 1px; min-height: 1px;" data-name="image-a9da40" data-block-id="941438f9d4643382a39a4571221a3c55"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1647" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/5e5115fa6e6e73d0d9457831d9293284.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 909.481px; left: 33.579px; top: 651.073px;" data-name="text-74e32e" data-block-id="b08572799fcad203a4b8d4c7f509b338"><a class="sl-block-style" style="z-index: 11; cursor: pointer !important; user-select: none !important;" href="https://gist.github.com/jlumbroso/f9c18f116e3fa5250bbd388245b10f1d" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 80%;"><p>https://gist.github.com/jlumbroso/f9c18f116e3fa5250bbd388245b10f1d</p></div></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 420.414px; left: 522.646px; top: 14.4202px;" data-name="text-010086" data-block-id="750d4e4231918267e2083afb91facd7f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 50%;"><pre>Ignore any previous versions of the files: file2.txt, file1.txt, info.json
+
+Below is the current state of the codebase file-by-file.
+===========================================================================.
+
+File 'file2.txt':
+```
+This is the contents of file2.txt
+
+This will be concatenated to give the model a full overview
+```
+
+File 'file1.txt':
+```
+This is the contents of file1.txt
+
+It can contain anything really
+```
+
+File 'info.json':
+```
+{
+    "description": "This is a simple JSON file.",
+    "version": "1.0"
+}
+
+```
+
+===========================================================================.</pre></div></div>
+<div class="sl-block" data-block-type="image" style="width: 401.229px; height: 296.15px; left: 592.728px; top: 370.423px; min-width: 1px; min-height: 1px;" data-name="image-4a3122" data-block-id="4de8d094efae52e3e958f63a08ba39d7"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1829" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/6ba3903109d8ad674584a4898b29a600.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 452.47px; left: 12.5033px; top: 470.265px;" data-name="text-503701" data-block-id="f08f565d3360f001520bba564155f728"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><ul>
+	<li>Nowadays, many <strong>terminal-based</strong> and <strong>UI-based</strong> tools send whole codebases</li>
+	<li>But can also do this manually</li>
+</ul></div></div></section><section data-id="d47c62823a19e8d00c27a9214ebeb262"><div class="sl-block" data-block-type="image" style="width: 690.4px; height: 414.424px; left: 42.6205px; top: 62.3px; min-width: 1px; min-height: 1px;" data-name="image-09ad2d" data-block-id="b1e87b29a38e478ef521fb6ee468d73d"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="2249" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/29ec770c9b896f75e509799543187403.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 3.3px;" data-name="text-84bfb7" data-block-id="12080cacad2bb4a86ca461871422a209"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 60%;"><h1 style="text-align:left"><span style="color:#011f5b">Tool 10: Chatblade to send one-off queries</span></h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 411.959px; height: 236.128px; left: 527.041px; top: 452.873px; min-width: 1px; min-height: 1px;" data-name="image-c40fac" data-block-id="1ced100494d80e3f842ff9c0fcb46df5"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1954" data-natural-height="1120" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/7f304b1d7f3746ad6adf57f7587606ea.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 493.49px; height: 380px; left: 9.98325px; top: 309.001px; min-width: 1px; min-height: 1px;" data-name="image-5497ab" data-block-id="7ceafc9d5af6f798813755f860aeae6e"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1548" data-natural-height="1192" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/acf6bd2c78f2ac19c0c4b391732664f8.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 254px; left: 671.728px; top: 341.001px;" data-name="text-f76cca" data-block-id="3b820af339efd3243f0baaaa7c683142"><a class="sl-block-style" style="z-index: 14; cursor: pointer !important; user-select: none !important;" href="https://github.com/npiv/chatblade" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>https://github.com/npiv/chatblade</p></div></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 274px; left: 651.728px; top: 269.512px;" data-name="text-9643c5" data-block-id="8063872acde60e088451763f13ebcffd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 60%;"><p><em>Requires setting up API key at https://platform.openai.com</em></p></div></div></section><section data-id="fb92d9893f729f2395687c1905b002bb"><div class="sl-block" data-block-type="text" style="height: auto; width: 946px; left: 14px; top: 3.3px;" data-name="text-84bfb7" data-block-id="948d965142ff11d7cad83d18c9d990e5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 60%;"><h1 style="text-align:left"><span style="color:#011f5b">Tool 11: The agentic clients</span></h1></div></div>
+<div class="sl-block" data-block-type="image" style="width: 520.258px; height: 336.696px; left: 416.012px; top: 354.304px; min-width: 1px; min-height: 1px;" data-name="image-60330c" data-block-id="c914f92fd6566f0251bd43c751dedf3f"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="2086" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/45b76461efc7e4ea7f63a0c0e18af085.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 407.627px; height: 510.006px; left: 16.708px; top: 100.398px; min-width: 1px; min-height: 1px;" data-name="image-026bb0" data-block-id="301f2895f91b7851bb582c595d8c0c72"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1079" data-natural-height="1350" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/480fd1ce435bc51aaf7146d04da33a3d.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 535.665px; height: 240.602px; left: 415.499px; top: 100.398px; min-width: 1px; min-height: 1px;" data-name="image-7c82dd" data-block-id="c480cccb5bd9229e910df51e555ae32c"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1318" data-natural-height="592" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/145dd57f71e536f0fede615c7cbab4ab.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 237.616px; height: 50.967px; left: 140.8px; top: 595.517px; min-width: 1px; min-height: 1px;" data-name="image-c4ef73" data-block-id="732c1dc7d02be0ce07fce84b9c8938ee"><div class="sl-block-content" style="z-index: 14;" data-inline-svg="false"><img class="" data-natural-width="690" data-natural-height="148" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/1cd75096b0b013084b189678acb94467.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 104.602px; height: 104.602px; left: 846.562px; top: 48.097px; min-width: 1px; min-height: 1px;" data-name="image-ca6eef" data-block-id="17bb0a0fb3d82e436034ad3bace76c70"><div class="sl-block-content" style="z-index: 15;" data-inline-svg="false"><img class="" data-natural-width="721" data-natural-height="721" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/fbd88cff311b81377f876c82ae9f965e.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 309.726px; height: 41.438px; left: 597.278px; top: 610.404px; min-width: 1px; min-height: 1px;" data-name="image-d48dd9" data-block-id="1cd02ed1187ddb20cf04677e1e83ccd3"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="1024" data-natural-height="137" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/505bc04c323445345d5d571bb54d2d9e.svg"></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 430px; top: 345px;" data-name="line-81bad2" data-block-id="be9a0c7029b10ca68bf57261f7346a7d"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="255.04901489713697" data-line-y2="0" data-line-color="#db2929" data-line-width="2px" data-line-start-type="none" data-line-end-type="none" data-line-style="solid-rounded" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="255.04901489713697" height="1" viewbox="0 0 255.04901489713697 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#db2929" stroke-width="2" stroke-linecap="round" d="M0 0 L255.049 0"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L255.049 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L255.049 0"></path></svg></div></div></section><section data-id="93339f45819bb501a12c6deb226a3708" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/92fd65823ff54f230f4ed9849a6eb3e9.png"><div class="sl-block" data-block-type="text" style="height: auto; width: 766px; left: 97px; top: 301px;" data-name="text-75f459" data-block-id="746cd3a426e747501c2a8bbd4eefeaa5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255);"><h1><span style="color:#ffffff">One more thing...</span></h1></div></div></section><section class="stack" data-id="33e52b42b69b4b918adc9e07a92104d3"><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/92fd65823ff54f230f4ed9849a6eb3e9.png" data-id="71ee026c41478fbc4c4b63fe719dd86b"><div class="sl-block" data-block-type="image" style="width: 196.04px; height: 199.438px; left: 9px; top: 412.281px; min-width: 1px; min-height: 1px;" data-name="image-d3814f" data-block-id="fa8167386024580b8a74201da0b61ef4"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="750" data-natural-height="763" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/906aea5b977bb7c3a8fe1b48c30c6143.webp"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 402px; height: 268px; left: 219px; top: 412.281px; min-width: 1px; min-height: 1px;" data-name="image-d0471a" data-block-id="81e2ac4d76c0e8ab56b329c51fd91466"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="750" data-natural-height="500" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/343f8c9beff91191575c2673506d2751.jpg"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 196.04px; height: 45.564px; left: 9px; top: 645.719px; min-width: 1px; min-height: 1px;" data-name="image-b3b8de" data-block-id="3de38e132800ce6a4f68461d0adcdb30"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1024" data-natural-height="238" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/593ba05d050ae108fe0dc4813231c1f7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 938.446px; height: 391.846px; left: 9px; top: 11.577px; min-width: 1px; min-height: 1px;" data-name="image-670e95" data-block-id="7d0dd2fa83ef1c47e19d54225f8da47f"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1892" data-natural-height="790" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/f46d386b60e47682b3be2d63f8de9423.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 160px; left: 27.02px; top: 611.719px;" data-name="text-476fac" data-block-id="f52d107af5aa05b6685de62fd00f9352"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><span style="color:#63c7ff">Been Kim</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 308px; left: 635px; top: 412.281px;" data-name="text-43f169" data-block-id="94c4488527b1a4bb642df5e0f84814c1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 70%;"><p><span style="color:#63c7ff"><span style="text-align:left">“We are facing a communication problem,” Kim began. “AI is doing things that seem strange, even magical. But they’re only ‘weird’ because we haven’t expanded our concepts enough to make sense of them.”</span></span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 210px; left: 678px; top: 612.281px;" data-name="text-e9ba46" data-block-id="cfd28cf20362011a1d55ef1917960b5e"><a class="sl-block-style" style="z-index: 16; cursor: pointer !important; user-select: none !important;" href="https://arxiv.org/abs/2502.07586" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; font-size: 60%;"><p><span style="color:#ffffff">Link to paper</span></p></div></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 493px; left: 9px; top: 11.577px;" data-name="text-d66fd4" data-block-id="238e2386b24165012509b488a4dd198a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; font-size: 70%;"><p>John Hewitt, Robert Geirhos, Been Kim (Feb 2025) </p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 210px; left: 678px; top: 639.219px;" data-block-id="dde7d8553d49f59c0d312066fc155661" data-name="text-299fbc"><a class="sl-block-style" style="z-index: 18;" href="https://ai.princeton.edu/news/2025/watch-ai-lab-distinguished-lecture-series-continues-exploration-how-humans-communicate" target="_blank"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; font-size: 60%;"><p><span style="color:#ffffff">Link to talk</span></p></div></a></div></section><section data-id="0a1adcc63301bbd7637318e2d0258116"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 20px; height: auto;" data-block-id="5c24d5f1178484787de780d0fa17087a">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Reframing Understanding: Beyond Current Vocabulary</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 241px; height: auto;" data-block-id="feb41dc974e59d5825b01f07747e4243">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<ul>
+<li>Quick mention: Paper by Been Kim et al. (e.g., "Technology Prototypes That Help Us Understand AI").</li>
+<li>Core Idea: Our current language might be insufficient to truly understand <em>how</em> complex models like LLMs work internally.</li>
+<li>Interpretability isn't just about seeing weights; it might require new concepts and tools.</li>
+<li>Connects back to our theme: We're developing practical <em>workflows</em> (text manipulation) even as deep <em>understanding</em> evolves.</li>
+</ul>
+							</div>
+						</div></section><section data-background-image="text-rules-penn-engineering-may-2025-ai-summit/92fd65823ff54f230f4ed9849a6eb3e9.png" data-id="c52d5f0d01e55d32f31adb6398914cb7"></section></section><section data-id="0fc62483f9ecfb9dc62d95805bb56674"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 36px; height: auto;" data-block-id="ceaa2bf846d8ad6ac69509b544cff43f">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Conclusion: You Are a Text Maestro!</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 186px; height: auto;" data-block-id="07ee788df077055bc78d3968bbf55377">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<ul>
+<li>
+<strong>See Everything as Text:</strong> Unlock hidden value in transcripts, notes, emails.</li>
+<li>
+<strong>Master the Flow:</strong> Use tools (Speech-to-text, Puppypaste, Clipboard Mgrs) to capture, clean, and combine text efficiently.</li>
+<li>
+<strong>Structure Your Prompts:</strong> Separate instructions and data for better results.</li>
+<li>
+<strong>Integrate &amp; Experiment:</strong> Combine sources, try agent-hopping, use text tools everywhere (browser, terminal).</li>
+<li>The power isn't just <em>in</em> the LLM; it's in how you <em>feed</em> and <em>collaborate</em> with it using text.</li>
+</ul>
+							</div>
+						</div></section><section data-id="7a6a9da6fa42372f57e925a8767c7ebc"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 36px; height: auto;" data-block-id="704a9ee09543c8d72a7544679617eca0">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Help Everyone Else Be A Text Maestro!</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 216px; height: auto;" data-block-id="94b82ce16d79d603b8d70ee3be3386f2">
+							<div class="sl-block-content" style="text-align: left; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+<strong>Release all your materials in plain text:</strong> So your students, colleagues, etc. can start combining your materials using this workflows!</li>
+</ul></div>
+						</div></section><section data-id="6fc63293b463c0ca47b1ab6e68f9d3fd" data-background-image="text-rules-penn-engineering-may-2025-ai-summit/4c33b116bd93d609ed7dfdbaf913d1b9.png"><div class="sl-block" data-block-type="image" style="width: 518px; height: 518px; left: 221px; top: 82px; min-width: 1px; min-height: 1px;" data-name="image-abf878" data-block-id="b225e1fee3393f6956adccf18b90953a"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1024" data-natural-height="1024" data-lazy-loaded="" data-src="text-rules-penn-engineering-may-2025-ai-summit/14e5690887740a293f95e11a3ef182cb.png"></div></div></section>
+			</div>
+				<div id="theme-html-output"><div class="penn-logo">
+  <!--img src="https://i.postimg.cc/nrPGtQLm/PE-logo-RGB-one-line-blue.png" alt="Penn Engineering" style="height: 40px;"-->
+  <img src="https://i.postimg.cc/2SpKt3XJ/PE-logo-RGB-stacked-blue.png" alt="Penn Engineering" style="height: 40px;">
+</div>
+</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":3394623,"slug":"text-rules-penn-engineering-may-2025-ai-summit","title":"Text Rules!","description":"","width":960,"height":700,"margin":0.05,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/dad0563e16bc1324ffd1a8aa45dbb881/thumb.jpg?1748041066","view_count":0,"user":{"id":2863330,"username":"lumbroso","name":"Jérémie Lumbroso","description":"","thumbnail_url":"https://media.slid.es/avatars/2863330/Lumbroso_Jeremie_2023_headshot_Penn_Engineering_magazine.jpg","account_type":"enterprise","team_id":2994,"settings":{"id":57477092,"present_controls":false,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null},"membership":{"role":"owner","manager":true,"activated":true}},"background_transition":"slide","transition":"slide","theme_id":3676,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":false,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":78,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":null,"data_updated_at":1772219667536,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"language":"en","notes":{"920c2fc9030449648b778f8652d41962":"High-quality machine transcription is now virtually free and ubiquitous.\nLeverage it for:\n— Meeting summaries \u0026 action items.\n— Analyzing lecture content.\n— Making audio/video searchable."}}};
+
+				SLConfig.theme = {"id":3676,"created_at":"2025-05-04T18:07:19.283Z","updated_at":"2025-06-15T00:18:36.163Z","name":"Penn Engineering Slides","thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/50d384eca2a24c8588cbbd10172ca0eb/thumb.jpg?1749946716","sanitize_messages":null,"font_typekit":"","font_google":"","width":960,"height":700};
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				scrollActivationWidth: null,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+
+	</body>
+</html>
