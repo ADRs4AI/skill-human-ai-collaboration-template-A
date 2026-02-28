@@ -11,3 +11,10 @@ docs/resources/reveal.js/reveal.js/
 docs/resources/reveal.js/reveal.js-plugins/
 docs/resources/reveal.js/revealjs.com/
 docs/resources/automated-testing/playwright-mcp/
+
+# Slides.com export lib/ bundles — large binary fonts, identical across exports
+# Only track index.html and the presentation-specific assets folder per export
+docs/resources/slides.com/*/lib/
+
+# Playwright MCP session logs
+.playwright-mcp/
