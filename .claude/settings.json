@@ -93,7 +93,9 @@
       "mcp__playwright__browser_wait_for",
       "mcp__playwright__browser_press_key",
       "mcp__playwright__browser_close",
-      "mcp__playwright__browser_install"
+      "mcp__playwright__browser_install",
+      "Bash(lsof -ti:8765)",
+      "Bash(xargs kill -9)"
     ],
     "deny": [
       "Read(.env*)",
@@ -127,6 +129,9 @@
       "Read(.git/**)",
       "Read(package-lock.json)",
       "Read(Pipfile.lock)"
+    ],
+    "additionalDirectories": [
+      "/Users/jlumbroso/.claude/projects/-Users-jlumbroso-Programming-claude-revealjs-skill"
     ]
   },
   "enableAllProjectMcpServers": false,
