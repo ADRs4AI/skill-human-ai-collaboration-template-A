@@ -150,6 +150,9 @@ The templates are in the folder `docs/adr/templates/`.
 
 ## Git Commits
 
+- **IMPORTANT:** Make sure commits are granular, and ongoing.
+- Commit ADR drafts before asking for human feedback (so there's a record of your iteration, and then human feedback gets another commit)
+
 Format: `type: subject` (lowercase)
 
 Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `style`, `perf`, `meta`
