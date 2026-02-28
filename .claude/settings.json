@@ -59,8 +59,10 @@
             "Bash(command:*)",
             "Bash(sqlite3:*)",
             "Bash(gh:*)",
-            "WebSearch(*)",
-            "WebFetch(*)",
+            "WebSearch(claude)",
+            "WebFetch(domain:google.com)",
+            "WebFetch(domain:claude.com)",
+            "WebFetch(domain:code.claude.com)",
             "mcp__*"
         ],
         "deny": [
