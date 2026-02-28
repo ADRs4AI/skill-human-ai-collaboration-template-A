@@ -1,0 +1,341 @@
+name: Build and Release Skill
+
+# ─────────────────────────────────────────────────────────────────
+# Triggers:
+#   push main       → validate + build artifact (30-day retention)
+#   pull_request    → validate only
+#   push v*.*.* tag → validate + build + GitHub Release
+#   workflow_dispatch → validate + build artifact on demand
+# ─────────────────────────────────────────────────────────────────
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow release job to create GitHub Releases and upload assets
+permissions:
+  contents: write
+
+# Cancel in-progress runs for the same branch/PR (not for tags — let releases finish)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 1: validate
+  # Validates skill structure, frontmatter, and file requirements
+  # ──────────────────────────────────────────────────────────────
+  validate:
+    name: Validate skill
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── Check required files exist ──────────────────────────────
+      - name: Check required skill files
+        run: |
+          echo "## 📋 Required File Check" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          SKILL_DIR="architecture-of-complexity-skill"
+          REQUIRED_FILES=(
+            "$SKILL_DIR/SKILL.md"
+            "$SKILL_DIR/README.md"
+            "$SKILL_DIR/LICENSE"
+            "$SKILL_DIR/LICENSE-CAM.md"
+            "$SKILL_DIR/LICENSE-THIRDX.md"
+          )
+
+          ALL_PRESENT=true
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ -f "$file" ]; then
+              echo "✅ \`$file\`" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ \`$file\` **MISSING**" >> $GITHUB_STEP_SUMMARY
+              ALL_PRESENT=false
+            fi
+          done
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "$ALL_PRESENT" = true ]; then
+            echo "✅ All required files present" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Some required files are missing" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+      # ── Validate YAML frontmatter ───────────────────────────────
+      - name: Validate SKILL.md frontmatter
+        run: |
+          echo "## 🔍 SKILL.md Frontmatter Validation" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          SKILL_FILE="architecture-of-complexity-skill/SKILL.md"
+
+          # Check if file starts with ---
+          if ! head -1 "$SKILL_FILE" | grep -q "^---$"; then
+            echo "❌ **ERROR**: SKILL.md must start with \`---\` for YAML frontmatter" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          # Extract frontmatter (between first two --- markers)
+          FRONTMATTER=$(awk '/^---$/{n++} n==1{print} n==2{exit}' "$SKILL_FILE" | tail -n +2)
+
+          # Check for required fields
+          echo "Checking required frontmatter fields..." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if echo "$FRONTMATTER" | grep -q "^name:"; then
+            NAME=$(echo "$FRONTMATTER" | grep "^name:" | sed 's/name: *//')
+            echo "✅ \`name\`: $NAME" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️  \`name\` field missing (will default to directory name)" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if echo "$FRONTMATTER" | grep -q "^description:"; then
+            echo "✅ \`description\` field present" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **ERROR**: \`description\` field is required" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Frontmatter validation passed" >> $GITHUB_STEP_SUMMARY
+
+      # ── Check file size (should be under 500 lines) ─────────────
+      - name: Check SKILL.md size
+        run: |
+          echo "## 📏 SKILL.md Size Check" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          SKILL_FILE="architecture-of-complexity-skill/SKILL.md"
+          LINE_COUNT=$(wc -l < "$SKILL_FILE")
+          FILE_SIZE=$(du -h "$SKILL_FILE" | cut -f1)
+
+          echo "- **Lines**: $LINE_COUNT" >> $GITHUB_STEP_SUMMARY
+          echo "- **Size**: $FILE_SIZE" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ $LINE_COUNT -le 500 ]; then
+            echo "✅ Under recommended 500-line limit" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️  Exceeds recommended 500-line limit" >> $GITHUB_STEP_SUMMARY
+            echo "_Consider moving detailed content to supporting files_" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      # ── Summary ─────────────────────────────────────────────────
+      - name: Validation summary
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## ✅ Validation Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All validation checks passed. Skill is ready for packaging." >> $GITHUB_STEP_SUMMARY
+
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 2: build
+  # Creates the .skill ZIP file with proper structure
+  # ──────────────────────────────────────────────────────────────
+  build:
+    name: Build .skill package
+    runs-on: ubuntu-latest
+    needs: validate
+
+    outputs:
+      version: ${{ steps.extract_version.outputs.version }}
+      skill_file: ${{ steps.package.outputs.skill_file }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── Extract version from tag or use commit SHA ──────────────
+      - name: Extract version
+        id: extract_version
+        run: |
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            # Tag release: v1.0.0 → 1.0.0
+            VERSION="${{ github.ref_name }}"
+            VERSION="${VERSION#v}"
+          else
+            # Non-tag: use short commit SHA
+            VERSION="dev-$(git rev-parse --short HEAD)"
+          fi
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+          echo "## 📦 Build Information" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Version**: \`$VERSION\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Ref**: \`${{ github.ref }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **SHA**: \`$(git rev-parse --short HEAD)\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+      # ── Package skill into ZIP ──────────────────────────────────
+      - name: Package skill
+        id: package
+        run: |
+          VERSION="${{ steps.extract_version.outputs.version }}"
+          SKILL_FILE="architecture-of-complexity-${VERSION}.skill"
+
+          echo "Packaging skill as $SKILL_FILE..." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Create ZIP from skill directory
+          cd architecture-of-complexity-skill
+          zip -r "../$SKILL_FILE" . \
+            -x "*.git*" \
+            -x "*.DS_Store" \
+            -x "__pycache__/*" \
+            -x "*.pyc"
+          cd ..
+
+          # Get file info
+          FILE_SIZE=$(du -h "$SKILL_FILE" | cut -f1)
+          FILE_COUNT=$(unzip -l "$SKILL_FILE" | tail -1 | awk '{print $2}')
+
+          echo "skill_file=$SKILL_FILE" >> $GITHUB_OUTPUT
+
+          echo "### 📊 Package Details" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Filename**: \`$SKILL_FILE\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Size**: $FILE_SIZE" >> $GITHUB_STEP_SUMMARY
+          echo "- **Files**: $FILE_COUNT" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "### 📁 Contents" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          unzip -l "$SKILL_FILE" | head -20 >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+      # ── Upload artifact ─────────────────────────────────────────
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-package-${{ steps.extract_version.outputs.version }}
+          path: ${{ steps.package.outputs.skill_file }}
+          retention-days: 30
+
+      - name: Build summary
+        run: |
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## ✅ Build Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Skill package created successfully and uploaded as artifact." >> $GITHUB_STEP_SUMMARY
+
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 3: release
+  # Creates GitHub Release with .skill file (only on tags)
+  # ──────────────────────────────────────────────────────────────
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: skill-package-${{ needs.build.outputs.version }}
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          VERSION="${{ needs.build.outputs.version }}"
+          SKILL_FILE="${{ needs.build.outputs.skill_file }}"
+
+          # Extract recent commit messages (for release notes)
+          COMMITS=$(git log --pretty=format:"- %s (%h)" -10)
+
+          # Create release notes
+          cat > release_notes.md << EOF
+          # Architecture of Complexity Skill v${VERSION}
+
+          A Claude Code skill for applying Herbert Simon's Architecture of Complexity principles to system design, code architecture, and UI decisions.
+
+          ## 📦 Installation
+
+          1. Download \`${SKILL_FILE}\`
+          2. Unzip to your Claude skills directory:
+             \`\`\`bash
+             unzip ${SKILL_FILE} -d ~/.claude/skills/
+             \`\`\`
+          3. Restart Claude Code or invoke with \`/architecture-of-complexity\`
+
+          ## 🎯 What's Included
+
+          - **Core Principles**: Hierarchical decomposition, near-decomposability, stable intermediate forms
+          - **Decision Framework**: Practical questions for architectural choices
+          - **Real Examples**: Vue vs React, MCP design, CAM framework
+          - **Full Theory**: Herbert Simon's 1962 paper included
+
+          ## 📄 License
+
+          - Skill content: CC BY-SA 4.0
+          - CAM framework: Copyright © Jérémie Lumbroso
+          - Third X framework: Copyright © Jérémie Lumbroso
+
+          ## 🔗 Resources
+
+          - Documentation: See README.md in the skill package
+          - Third X: https://thirdx.design
+          - GitHub: https://github.com/jlumbroso/architecture-of-complexity-skill
+
+          ---
+
+          ## Recent Changes
+
+          ${COMMITS}
+
+          ---
+
+          **Authors**: Jérémie Lumbroso and Claude Sonnet 4.5
+          **Created**: February 2026
+          EOF
+
+          echo "## 🚀 Release Notes Generated" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```markdown' >> $GITHUB_STEP_SUMMARY
+          cat release_notes.md | head -30 >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ needs.build.outputs.skill_file }}
+          body_path: release_notes.md
+          name: Architecture of Complexity Skill v${{ needs.build.outputs.version }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release summary
+        run: |
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## ✅ Release Published" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Release **v${{ needs.build.outputs.version }}** created successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📥 Download" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[View Release](https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }})" >> $GITHUB_STEP_SUMMARY
