@@ -1,0 +1,212 @@
+name: Ghost Theme CI/CD
+
+# ─────────────────────────────────────────────────────────────────
+# Triggers:
+#   push main       → validate + build artifact (30-day retention)
+#   pull_request    → validate only
+#   push v*.*.* tag → validate + build + GitHub Release
+#   workflow_dispatch → validate + build artifact on demand
+# ─────────────────────────────────────────────────────────────────
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow release job to create GitHub Releases and upload assets
+permissions:
+  contents: write
+
+# Cancel in-progress runs for the same branch/PR (not for tags — let releases finish)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 1: validate
+  # Runs GScan (official Ghost theme validator) and checks that
+  # required files are present and package.json is well-formed.
+  # ──────────────────────────────────────────────────────────────
+  validate:
+    name: Validate theme
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ── pre-flight: check required files exist ──────────────────
+      - name: Check required theme files
+        run: |
+          echo "## Required file check" >> $GITHUB_STEP_SUMMARY
+          MISSING=0
+          for f in index.hbs post.hbs package.json default.hbs \
+                   partials/breadcrumb.hbs partials/navigation.hbs partials/pagination.hbs; do
+            if [ -f "$f" ]; then
+              echo "  ✓ $f" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "  ✗ $f  ← MISSING" >> $GITHUB_STEP_SUMMARY
+              echo "::error::Required file missing: $f"
+              MISSING=1
+            fi
+          done
+          exit $MISSING
+
+      # ── validate package.json is valid JSON and has required keys ─
+      - name: Validate package.json
+        run: |
+          node -e "
+            const pkg = require('./package.json');
+            const errors = [];
+            if (!pkg.name)    errors.push('missing .name');
+            if (!pkg.version) errors.push('missing .version');
+            if (!pkg.engines || !pkg.engines.ghost) errors.push('missing .engines.ghost');
+            if (!pkg.config || !pkg.config.posts_per_page) errors.push('missing .config.posts_per_page');
+            if (errors.length) { console.error('package.json issues: ' + errors.join(', ')); process.exit(1); }
+            console.log('package.json OK — name: ' + pkg.name + ', version: ' + pkg.version);
+          "
+
+      # ── GScan ── the authoritative Ghost theme validator ──────────
+      - name: Install GScan
+        run: npm install -g gscan@latest
+
+      - name: Run GScan
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## GScan report" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          gscan . 2>&1 | tee gscan-output.txt
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload GScan report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gscan-report
+          path: gscan-output.txt
+          retention-days: 14
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 2: package
+  # Builds the theme zip — exactly what you'd upload to Ghost.
+  # Includes only theme files; excludes docs, CI config, etc.
+  # ──────────────────────────────────────────────────────────────
+  package:
+    name: Build theme zip
+    runs-on: ubuntu-latest
+    # run in parallel with validate — artifact is gated by release job
+    outputs:
+      zip-name: ${{ steps.zip.outputs.name }}
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Determine version string
+        id: version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            VERSION="${GITHUB_REF#refs/tags/}"
+          else
+            PKG_VERSION=$(node -p "require('./package.json').version")
+            SHORT_SHA=$(git rev-parse --short HEAD)
+            VERSION="v${PKG_VERSION}-${SHORT_SHA}"
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Version: ${VERSION}"
+
+      - name: Build zip
+        id: zip
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          ZIP_NAME="system3-${VERSION}.zip"
+          mkdir -p dist
+
+          # Include only theme files — no docs, CI config, repo metadata
+          zip -r "dist/${ZIP_NAME}" \
+            package.json \
+            *.hbs \
+            partials/ \
+            assets/
+
+          echo "name=${ZIP_NAME}" >> $GITHUB_OUTPUT
+
+          # Write zip manifest to job summary
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Theme package: \`${ZIP_NAME}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Size | File |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|------|" >> $GITHUB_STEP_SUMMARY
+          unzip -l "dist/${ZIP_NAME}" | tail -n +4 | head -n -2 | \
+            awk '{print "| " $1 " | `" $4 "` |"}' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          TOTAL=$(unzip -l "dist/${ZIP_NAME}" | tail -1 | awk '{print $1}')
+          echo "**Total uncompressed:** ${TOTAL} bytes" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.zip.outputs.name }}
+          path: dist/${{ steps.zip.outputs.name }}
+          retention-days: 30
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 3: release
+  # Runs only on tag pushes (v*.*.*).
+  # Verifies package.json version matches the tag, then creates a
+  # GitHub Release and attaches the theme zip.
+  # ──────────────────────────────────────────────────────────────
+  release:
+    name: Create GitHub Release
+    needs: [validate, package]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify package.json version matches tag
+        run: |
+          PKG_VERSION="v$(node -p "require('./package.json').version")"
+          TAG="${GITHUB_REF#refs/tags/}"
+          if [ "$PKG_VERSION" != "$TAG" ]; then
+            echo "::error::Version mismatch: package.json has $PKG_VERSION but tag is $TAG."
+            echo "::error::Update package.json version before tagging, then re-tag."
+            exit 1
+          fi
+          echo "✓ Version check passed: $TAG"
+
+      - name: Download theme zip from package job
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.package.outputs.zip-name }}
+          path: dist/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "system3 ${{ needs.package.outputs.version }}"
+          body: |
+            ## Installation
+
+            1. Download `${{ needs.package.outputs.zip-name }}` below
+            2. Ghost Admin → Settings → Design → Change theme → Upload theme
+            3. Activate
+
+            ---
+          files: dist/${{ needs.package.outputs.zip-name }}
+          generate_release_notes: true
+          draft: false
+          # Pre-release if version string contains a hyphen (e.g. v1.0.0-beta.1)
+          prerelease: ${{ contains(needs.package.outputs.version, '-') }}

@@ -1,0 +1,1132 @@
+The Architecture of Complexity Author(s): Herbert A. Simon Reviewed work(s): Source: Proceedings of the American Philosophical Society, Vol. 106, No. 6 (Dec. 12, 1962), pp. 467-482 Published by: American Philosophical Society Stable URL: http://www.jstor.org/stable/985254 . Accessed: 02/08/2012 17:12 Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at . http://www.jstor.org/page/info/about/policies/terms.jsp . JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org. .
+American Philosophical Society is collaborating with JSTOR to digitize, preserve and extend access to Proceedings of the American Philosophical Society.
+http://www.jstor.org
+
+THE ARCHITECTURE OF COMPLEXITY
+HERBERT A. SIMON* Professorof Administration,Carnegie Instituteof Technology
+(Read April 26, 1962)
+
+A NUMBER of proposalshave been advancedin and to analyzeadaptivenessin termsofthetheory
+
+recentyearsforthe developmentof "generalsys- of selectiveinformation.3The ideas of feedback
+
+tems theory"which,abstractingfromproperties and informatiopnrovidea frameof referencefor
+
+peculiarto physical,biological,or social systems, viewinga wide rangeof situationsj,ust as do the
+
+would be applicableto all of them.' We might ideas of evolution,of relativism,of axiomatic
+
+well feelthat,whilethe goal is laudable,systems method,and of operationalism.
+
+of such diversekindscould hardlybe expectedto In this paper I should like to reporton some
+
+have anynontriviapl ropertiesin common. Meta- things we have been learningabout particular
+
+phorand analogycan be helpful,or theycan be kindsof complexsystemsencounteredin the be-
+
+misleading. All depends on whetherthe simi- havioralsciences. The developmentsI shall dis-
+
+laritiesthe metaphorcapturesare significantor cuss arose in the contextof specificphenomena,
+
+superficial.
+
+but the theoreticafl ormulationtshemselvesmake
+
+It maynotbe entirelyvain, however,to search little referenceto details of structure. Instead
+
+for commonpropertiesamong diverse kinds of theyreferprimarilyto thecomplexityof the sys-
+
+complexsystems. The ideas thatgo by thename tems under view withoutspecifyingthe exact
+
+of cyberneticcsonstitutei,f not a theory,at least contentof that complexity. Because of their
+
+a pointofviewthathas beenprovingfruitfuolver abstractness,the theoriesmay have relevance-
+
+a wide rangeof applications.2It has been useful applicationwould be too stronga term-to other
+
+to look at the behaviorof adaptive systemsin kinds of complex systemsthat are observedin
+
+termsoftheconceptsoffeedbackand homeostasis, the social,biological,and physicalsciences.
+
+* The ideas in this paper have been the topic of many conversations with my colleague, Allen Newell. George W. Corner suggested importantimprovementsin biological content as well as editorial form. I am also in(lebted,for valuable comments on the manuscript,to Richard H. Meier, John R. Platt, and Warren Weaver. Some of the conjectures about the nearly decomposable structure of the nucleus-atom-moleculehierarchy were checked against the available quantitativedata by Andrew Schoene and William Wise. My work in this area has been supportedby a Ford Foundation grant for research in organizations and a Carnegie Corporation grant for research on cognitiveprocesses. To all of the above, my warm thanks, and the usual absolution.
+1 See especially the yearbooks of the Society for General Systems Research. Prominentamong the exponents of general systems theory are L. von Bertalanffy,K. Boulding, R. W. Gerard, and J. G. Miller. For a more skeptical view-perhaps too skeptical in the light of the present discussion-see H. A. Simon and A. Newell, Models: their uses and limitations,in L. D. White, ed., The state of the social sciences, 66-83, Chicago, Univ. of Chicago Press, 1956.
+2 N. Wiener, Cybernetics,New York, John Wiley & Sons, 1948. For an imaginative forerunner,see A. J. Lotka, Elements of mathematical biology, New York, Dover Publications, 1951, firstpublished in 1924 as Elemeietsof physical biology.
+
+In recountingthesedevelopmentsI, shall avoid technicaldetail, which can generallybe found elsewhere. I shall describeeach theoryin the particularcontextin whichit arose. Then,I shall cite some examples of complex systems,from areas of scienceotherthanthe initialapplication, to whichthe theoreticafl rameworkappears relevant. In doingso, I shallmakereferencteo areas of knowledgewhere I am not expert-perhaps notevenliterate. I feelquitecomfortablien doing so beforethemembersofthissociety,representing as it does the whole span of the scientificand scholarlyendeavor. Collectivelyyou will have littledifficultyI, am sure, in distinguishinginstances based on idle fancyor sheer ignorance frominstancesthat cast some lighton the ways in which complexityexhibitsitselfwhereverit is foundin nature. I shall leave to you the final judgmentof relevancein yourrespectivefields.
+I shall not undertakea formaldefinitionof
+3 C. Shannon and W. Weaver, The mathematicaltheory of communication,Urbana, Univ. of Illinois Press, 1949; W. R. Ashby,Design for a brain,New York, JohnWiley & Sons, 1952.
+
+PROCEEDINGS OF THE AMERICAN PHILOSOPHICAL
+
+SOCIETY,
+
+VOL. 106,NO. 6, DECEMBER, 467
+
+1962
+
+468
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+"complex systems."4 Roughly, by a complex
+
+HIERARCHIC SYSTEMS
+
+systemI mean one made up of a large number ofpartsthatinteractin a nonsimpleway. In such systems,the whole is more than the sum of the parts,not in an ultimate,metaphysicaslense,but in the importantpragmaticsense that,giventhe propertiesofthepartsand thelaws oftheirinteraction,it is not a trivialmatterto inferthepropertiesof the whole. In the face of complexity, an in-principlereductionistmay be at the same timea pragmaticholist.5
+The foursectionsthatfollowdiscuss fouras-
+pects of complexity. The firstofferssome com-
+
+By a hierarchicsystem,or hierarchyI, mean a systemthat is composed of interrelatedsubsystems,each of the latterbeing,in turn,hier-
+archic in structureuntil we reach some lowest level of elementarysubsystem. In mostsystems in nature,it is somewhatarbitraryas to where
+we leave offthepartitioninga,nd whatsubsystems we takeas elementary.Physicsmakesmuchuse of the conceptof "elementaryparticle"although particles have a disconcertingtendencynot to remain elementaryvery long. Only a couple of generationsago, the atoms themselveswere
+
+mentson the frequencywith which complexity elementaryparticles;today,to the nuclearphysi-
+
+takestheformof hierarchy-thecomplexsystem cist theyare complexsystems. For certainpurbeingcomposedof subsystemsthat,in turn,have poses ofastronomyw, holestars,or evengalaxies, their own subsystems,and so on. The second can be regardedas elementarysubsystems.In one sectiontheorizesabout the relationbetweenthe kindof biologicalresearch,a cell may be treated structureof a complexsystemand the time re- molecule;in stillanother,an amino acid residue. as an elementarysubsystem;in another,a protein quiredforit to emergethroughevolutionaryproc- Justwhya scientisthas a rightto treatas eleesses: specificallyit,arguesthathierarchicsystems mentarya subsystemthat is in fact exceedingly will evolve far more quicklythan non-hierarchiccomplexis one of the questionswe shall take up.
+
+systemsof comparablesize. The third section For the moment,we shall accept the fact that
+
+exploresthedynamicpropertiesof hierarchically-scientistsdo thisall thetime,and thatiftheyare
+
+organizedsystems,and shows how they can be decomposedinto subsystemsin orderto analyze theirbehavior. The fourthsectionexaminesthe relationbetweencomplex systemsand theirde-
+scriptions.
+Thus, the centralthemethatrunsthroughmy remarksis that complexityfrequentlytakes the formof hierarchy,and that hierarchicsystems
+
+carefulscientiststheyusuallyget away withit. Etymologicallyt,he word "hierarchy"has had
+a narrowermeaningthan I am giving it here. The termhas generallybeen used to referto a
+complexsystemin whicheach of the subsystems is subordinatedby an authorityrelationto the
+systemit belongs to. More exactly,in a hierarchic formalorganization,each systemconsists of a "boss" and a set of subordinatesubsystems.
+
+havesomecommonpropertietshatare independent Each of the subsystemshas a "boss" who is the
+
+oftheirspecificcontent. Hierarchy,I shallargue, immediatesubordinateof the boss of the system.
+
+is one of the centralstructuraslchemesthatthe We shall want to considersystemsin whichthe
+
+architectof complexityuses.
+
+relationsamong subsystemsare more complex
+
+than in the formalorganizationalhierarchyjust
+
+4 W. Weaver, in: Science and complexity, American Scientist 36: 536, 1948, has distinguishedtwo kinds of complexity, disorganized and organized. We shall be primarilyconcerned with organized complexity.
+5See also John R. Platt, Properties of large molecules thatgo beyondthe propertiesof theirchemical sub-groups, Jour. Theoret. Biol. 1: 342-358, 1961. Since the reduc-
+
+described. We shall want to includesystemsin
+whichthereis no relationof subordinationamong
+subsystems. (In fact,even in humanorganizations,the formalhierarchyexistsonlyon paper; the real flesh-and-bloodorganizationhas many inter-parrtelationsotherthanthe lines of formal
+
+tionism-holismissue is a major cauise de guerre between scientists and humanists, perhaps we might even hope
+that peace could be negotiated between the two cultures along the lines of the compromise just suggested. As I go along, I shall have a littleto say about complexityin the arts as well as in the niaturalsciences. I must emphasize the pragmatismof my holism to distinguishit sharply
+fromthe positiontaken by W. M. Elsasser in The physical founidationof biology, New York, Pergamon Press, 1958.
+
+authority.) For lack of a betterterm,I shalluse hierarchyin the broadersense introducedin the previousparagraphs,to referto all complexsystemsanalyzableintosuccessivesetsofsubsystems, and speak of "formalhierarchy"when I wantto referto themorespecializedconcept.6
+6 The mathematicalterm "partitioning"will not do for what I call here a hierarchy; for the set of subsystems,
+
+VOL. 106, NO. 6, 1962]
+
+THE ARCHITECTURE OF COMPLEXITY
+
+469
+
+SOCIAL SYSTEMS
+
+tend to reserve the word hierarchy for a system
+
+I have alreadygivenan exampleofone kindof hierarchythat is frequentlyencounteredin the
+social sciences: a formalorganization. Business firmiigso,vernmentsu,niversitieasll have a clearly visible parts-within-parsttsructure. But formal organizationsare not the only,or even the most common,kind of social hierarchy. Almost all
+societies have elementaryunits called families, whichmaybe groupedintovillagesor tribes,and these into larger groupings,and so on. If we make a chartof social interactionso,f who talks to whom,the clustersof dense interactionin the chartwill identifya ratherwell-definehdierarchic
+structure. The groupingsin this structuremay be definedoperationallyby some measureof frequeincyof interactionin this sociometricmatrix.
+
+that is divided into a small or moderatenumber of subsystems,each of which may be furthersubdivided. Hence, we do not ordinarily think of or referto a diamond or a gas as a hierarchic structure. Similarly, a linear polymer is simply a chain, which may be very long, of identical subparts, the monomers. At the molecular level it is a very flat hierarchy.
+In discussing formal organizations, the number of subordinates who reportdirectlyto a single boss is called his span of control. I will speak analogously of the span of a system, by which I shall mean the number of subsystems into which it is partitioned. Thus, a hierarchic system is flat at a given level if it has a wide span at that level. A diamond has a wide span at the crystal level, but not at the next level down, the molecular level.
+
+BIOLOGICAL AND PHYSICAL SYSTEMS
+
+In most of our theory construction in the fol-
+
+The hierarchicasltructureof biologicalsystems is a familiarfact. Taking thecell as thebuilding
+block,we findcells organizedintotissues,tissues intoorgans,organsintosystems. Movingdownward fromthe cell, well-definedsubsystems-for
+
+lowing sections we shall focus our attention on hierarchies of moderate span, but from time to time I shall comment on the extent to which the theoriesmightor mightnot be expected to apply to very flat hierarchies.
+
+example, nucleus, cell membrane,microsomes, There is one important differencebetween the
+
+mitochondriaa,nd so on-have been identifiedin physical and biological hierarchies, on the one
+
+aniniiacl ells.
+
+hand, and social hierarchies, on the other. Most
+
+The hierarchicstructureof manyphysicalsys- physical and biological hierarchies are described
+
+temlsis equally clear-cut. I have already men- in spatial terms. We detect the organelles in a
+
+tionedthe two main series. At the microscopic cell in the way we detect the raisins in a cake-
+
+level we have elementaryparticles,atoms,mole- they are "visibly" differentiatedsubstructures lo-
+
+culles'nacromolecules. At the macroscopiclevel calized spatially in the larger structure. On the we have satellitesystems,planetarysystems,gal- other hand, we propose to identify social hier-
+
+axies. Matteris distributedthroughoutspace in archies not by observing who lives close to whom
+
+a strikinignlyon-uniformfashion.The mostnearly but by observingwho interactswith whom. These
+
+randonmdistributionws e find,gases, are not ran- two points of view can be reconciled by defining
+
+dom ldistributionosf elementaryparticles but hierarchyin ternmsof intensityof interaction,but
+
+raicdonddistributionsof complex systems,i.e. observing that in most biological and physical sys-
+
+molecules.
+
+tems relatively intense interaction implies rela-
+
+A considerablerangeof structuratlypesis sub- tive spatial propinquity. One of the interesting
+
+sumneudinderthetermhierarchyas I have defined characteristicsof nerve cells and teleplhonewires is
+
+it. By this definitiona, diamond is hierarchic, that they permit very specific strong interactions forit is a crystalstructureof carbonatoms that at great distances. To the extent that interactions can be furtherdecomposedintoprotons,neutrons, are channeled through specialized communications andlelectrons. However,it is a very"flat"hier- and transportation systems, spatial propinquity archv, in which the numberof first-ordersub- becomes less determinativeof structure. systemsbelongingto thecrystalcan be indefinitely
+
+large. A volumeof moleculargas is a flathier-
+
+SYMBOLIC SYSTEMS
+
+archyin the same sense. In ordinaryusage, we One very important class of systems has been
+
+and the successivesubsetsin partitioning each of in, dependentl these oyf any definesthe systemsof relations omitted from my examples thus far: systems of
+
+amoingthesubsets. By hierarchyI meanthepartitioninghuman symbolic production. A book is a hier-
+
+in conjunctionwith the relationsthat hold among its archy in the sense in which I am using that term.
+
+parts.
+
+It is generally divided into chapters, the chapters
+
+470
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+into sections, the sections into paragraphs, the paragraphs into sentences, the sentences into clauses and phrases, the clauses and phrases into words. We may take the words as our elementary units, or further subdivide them, as the linguist oftendoes, into smaller units. If the book is narrative in character, it may divide into "episodes" instead of sections, but divisions there will be.
+The hierarchicstructureof music, based on such units as movements,parts, themes,phrases, is well known. The hierarchic structure of products of the pictorial arts is more difficultto characterize, but I shall have somethingto say about it later.
+THE EVOLUTION OF COMPLEX SYSTEMS
+Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufacturedvery finewatches. Both of them were highlyregarded, and the phones in their workshops rang frequently
+-new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finallylost his shop. What was the reason?
+The watches the men made consisted of about 1,000 parts each. Tempus had so constructedhis that if he had one partly assembled and had to put it down-to answer the phone say-it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more theyphoned him, the more difficult it became forhim to findenough uninterrupted time to finisha watch.
+The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies,again, could be put togetherinto a larger subassembly; and a systemof ten of the lattersubassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
+It is rather easy to make a quantitative analysis of the relative difficultyof the tasks of Tempus and Hora: Suppose the probabilitythat an interruption will occur while a part is being added to an incomplete assembly is p. Then the probability that Tempus can complete a watch he has started without interruptionis (1-p) 100-a very small number unless p is .001 or less. Each interruptionwill cost, on the average, the time to as-
+
+semble1/pparts (the expectednumberassemibled beforeinterruption). On the otherhand, Hora has to completeone hundredelevensub-assemblies oftenpartseach. The probabilitythathe willnot be interruptedwhilecompletingany one of these is (1-p) 10,and each interruptionwill cost only aboutthetimerequiredto assemblefiveparts.7
+Now if p is about .01-that is, there is one chancein a hundredthateitherwatchmakerwill be interruptewd hileaddinganyone partto an assembly-thena straightforwarcdalculationshows that it will take Tempus, on the average, about fourthousandtimesas long to assemblea watch
+as Hora. We arriveat theestimateas follows:
+1. Hora mustmake 111 timesas manycomplete assembliesper watchas Tempus; but'
+2. Tempus will lose on the average 20 timesas muchwork for each interruptedassemblyas Hora [100 parts,on theaverage,as against51;
+and, 3. Tempus will completean assemblyonly 44
+times per million attempts (.991(0( = 44 X 10-6), while Hora will complete nine out of ten (.9910= 9 x 10-1). Hence Temppuswill have to make 20,000 as many attemptsper completedassemblyas Hora. (9 x 10-1)/(44 x 10-6) = 2x 104. Multiplying these three
+ratios,we get:
+1/111x 100/5x 9910/991000 = 1/111x 20 x 20,000 - 4,000.
+7 The speculationson speed of evolutionwere firstsuggested by H. Jacobson's application of informationtheory to estimatingthe time required for biological evolution. See his paper, Information,reproduction,and the origin of life,in American Scientist 43: 119-127, January,1955. From thermodynamicconsiderationsit is possible to estimate the amount of increase in entropythat occurs when a complex system decomposes into its elements. ( See, for example, R. B. Setlow and E. C. Pollard, illeoccildar biophysics,63-65, Reading, Mass., Addison-Wesley PublishingCo., 1962,and referencescitedthere.) But entropy is the logarithmof a probability,hence informationit,he negative of entropy,can be interpretedas the logarithm of the reciprocal of the probability-the "improbability," so to speak. The essential idea in Jacobson's model is that the expected time required for the system to reach a particular state is inverselyproportionalto the probabilityof the state-hence increases exponentiallywith the amount of information(negentropy) of the state.
+Following this line of argument, but not introducing the notion of levels and stable subassemblies, Jacobson arrived at estimates of the time required for evolution so large as to make the event ratherimprobable. Our analysis, carried through in the same way, but with attention to the stable intermediate forms, produces very much smaller estimates.
+
+VOL. 106, NO. 6, 1962j
+
+THE ARCHITECTURE OF COMPLEXITY
+
+471
+
+BIOLOGICAL EVOLUTION
+
+schemeby thestabilityof thecomplexforms,once
+
+What lessons can we draw fromour parable these come into existence. But this is nothing
+
+forbiologicalevolution? Let us interpreta par- morethansurvivalofthefittest-i.e.,ofthestable.
+
+tiallycompletedsubassemblyofk elementaryparts Second,not all large systemsappear hierarchi-
+
+as thecoexistenceof k partsin a smallvolume- cal. For example,most polymers-e.g.,nylon-
+
+ignoringtheir relativeorientations. The model are simply linear chains of large numbersof
+
+assumes thatparts are enteringthe volumeat a identicalcomponents,the monomers. However,
+
+constantrate,but thatthereis a constantprob- forpresentpurposeswe can simplyregardsucha
+
+ability,p, that the part will be dispersedbefore structureas a hierarchywitha span of one-the
+
+anotheris added, unless the assemblyreachesa limitingcase. For a chain of any lengthrepre-
+
+stablestate. These assumptionsare not particu- sentsa stateof relativeequilibrium.8
+
+larly realistic. They undoubtedlyunderestimate Third, the evolutionof complex systemsfrom
+
+thedecreasein probabilityofachievingtheassenm- simpleelementsimpliesnothing,one way or the
+
+bly with increase in the size of the assembly. other,about the change in entropyof the entire
+
+Hence theassumptionsunderstate-probablyby a system. If the process absorbs freeenergy,the
+
+large factor-the relativeadvantage of a hier- complexsystemwill have a smallerentropythan
+
+archicstructure.
+
+the elements;if it releasesfreeenergy,the oppo-
+
+Althoughwe cannot,thereforet,ake the nu- site will be true. The formeralternativeis the
+
+mericalestimateseriouslythelessonforbiological one that holds for most biologicalsystems,and
+
+evolutionis quite clear and direct. The timere- the net inflowof freeenergyhas to be supplied
+
+quiredforthe evolutionof a complexformfrom fromthe sun or some othersource if the second
+
+simpleelementsdependscriticallyon thenumbers law ofthermodynamiicss notto be violated. For
+
+and distributionof potentialintermediatestable the evolutionaryprocess we are describing,the
+
+forms. In particular,if thereexists a hierarchy equilibriaoftheintermediatsetatesneedhaveonly
+
+ofpotentialstable"subassemblies,"withaboutthe local and not global stability,and theymay be
+
+same span,s, at each level of the hierarchyt,hen stableonlyin the steadystate-that is, as longas
+
+the time requiredfor a subassemblycan be ex- thereis an externalsourceoffreeenergythatmay
+
+pectedto be aboutthe same at each level-that is be drawnupon.9
+
+proportionatlo 1/(1-p)s. The timerequiredfor Because organismsare not energeticallyclosed
+
+the assemblyof a systemof n elementswill be systems,thereis no way to deduce the direction,
+
+proportionatlo log, n, thatis, to the numberof much less the rate, of evolutionfromclassical
+
+levelsin thesystem. One would say-with more thermodynamicconsiderations.All estimatesin-
+
+illustrativethan literalintent-thatthe time re- dicate that the amountof entropy,measuredin
+
+quiredfortheevolutionof multi-celledorganisms physicalunits,involvedin theformationofa one-
+
+fromsingle-celledorganismsmightbe ofthesame celledbiologicalorganismis triviallysmall-about
+
+orderof magnitudeas the time requiredfor the -10-11 cal/degree.10The "improbabilityo"f evo-
+
+evolutionof single-celledorganismsfrommacro- lution has nothingto do with this quantityof
+
+molecules. The same argumentcould be applied entropyw, hichis producedby everybacterialcell
+
+to the evolutionof proteinsfromaminoacids, of everygeneration. The irrelevanceof quantityof
+
+moleculesfromatoms,of atomsfromelementary 8 There is a well-developed theory of polymer size,
+
+particles.
+
+based on models of random assembly. See for example
+
+A wholehostofobjectionsto thisoversimplified P. J. Flory, Principles of polymer chemistry,ch. 8,
+
+schemewill occur,I am sure, to everyworking Ithaca, Cornell Univ. Press, 1953. blies in Since all the subassem- polymerizationtheory are stable, limitation
+
+biologist,chemist,and physicist. Beforeturning of molecular growth depends on "poisoning" of terminal
+
+to mattersI know more about, I shall mention groups by impuritiesor formationof cycles rather than
+
+threeof these problems,leaving the rest to the upon disruptionof partially-formedchains.
+9 This point has been made many times before, but it
+
+attentionofthespecialists.
+
+cannot be emphasized too strongly. For furtherdiscus-
+
+First, in spite of the overtonesof the watch- sion, see Setlow and Pollard, op. cit., 49-64; E. Schro-
+
+makerparable,the theoryassumesno teleological dinger, What is life? Cambridge Univ. Press, 1945; and
+
+mechanism. The complexformscan arise from H. Linschitz, The informationcontentof a bacterial cell,
+
+the simpleones by purelyrandomprocesses. (I in H. Questler, ed., Informationtheoryin biology, 251-
+
+shall propose anothermodel in a momentthat 262, Urbana, Univ. of 10 Illinois Press, See 1953. Linschitz, op. cit. This quantity,10-11 cal/de-
+
+shows thisclearly.) Directionis providedto the gree, correspondsto obout 1013 bits of information.
+
+472
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+informationi,n this sense, to speed of evolution A little reflectionreveals that cues signialing
+
+can also be seenfromthefactthatexactlyas much progressplaythesamerolein theproblem-solving
+
+informationis requiredto "copy" a cell through processthatstableintermediatfeormsplay in the
+
+thereproductivperocessas to producethefirstcell biologicalevolutionaryprocess. In fact,we can
+
+throughevolution.
+
+take over the watchmakerparable and apply it
+
+The effectoftheexistenceofstableintermediate also to problemsolving. In problemsolving,a
+
+formsexercisesa powerfuleffecton theevolution partialresultthatrepresentrsecognizableprogress
+
+of complexformsthatmaybe likenedto thedra- toward the goal plays the role of a stable sub-
+
+maticeffectof catalystsupon reactionrates and assembly.
+
+steady state distributionof reactionproductsin Suppose thatthe task is to open a safe whose
+
+open systems.1"In neithercase does the entropy lockhas tendials,each withone hundredpossible
+
+changeprovideus witha guideto systembehavior. settingsn, umberedfrom0 to 99. How long will
+
+it take to open the safeby a blindtrial-and-error
+
+PROBLEM SOLVING AS NATURAL SELECTION
+
+search for the correctsetting? Since thereare
+
+Let us turnnow to some phenomenathathave
+no obvious connectionwith biologicalevolution:
+humanproblem-solvinpgrocesses. Consider,for example,the task of discoveringthe prooffora difficulttheorem. The processcan be-and often has been-describedas a searchthrougha maze.
+Startingwiththe axioms and previouslyproved theoremsv, arioustransformationalslowed by the
+rules of the mathematicaslystemsare attempted, to obtainnew expressions. These are modifiedin turnuntil,with persistenceand good fortune,a sequenceor pathof transformationiss discovered
+thatleads to thegoal. The processusuallyinvolvesa greatdeal oftrial
+and error. Various paths are tried; some are abandoned,othersare pushed further. Beforea solutionis found,a greatmanypathsofthemaze may be explored. The more difficulatnd novel theproblemt, hegreateris likelyto be theamount of trialand errorrequiredto finda solution. At the same time,the trial and error is not completelyrandomor blind;itis, in fact,ratherhighly
+selective. The new expressionsthatare obtained by transforminggiven ones are examinedto see
+
+10010possiblesettingsw, e mayexpectto exalmiine
+about one-halfof these, on the average, before findingthecorrectone-that is, fiftybillionbillion settings. Suppose, however,thatthe safe is defectives,o thata clickcan be heardwhenany one
+dial is turnedto the correctsetting. Now each dial can be adjusted independentlya,nd does not needto be touchedagainwhiletheothersare being set. The totalnumberof settingsthathas to be triedis only 10 x 50, or fivehundred. The task of openingthe safe has been altered,by the cues the clicks provide,froma practicallyimpossible one to a trivialone.13
+A considerableamounthas been learnedin the past fiveyearsaboutthenatureof themazes that representcommonhumanproblem-solvintgasksprovingtheorems,solvingpuzzles, playingchess, makinginvestmentsb,alancingassemblylines, to mentiona few. All thatwe have learnedabout these mazes pointsto the same conclusioln:that humanproblemsolving,fromthemostblundering to themostinsightfuiln, volvesnothingmorethan varyingmixturesoftrialand errorand selectivity. The selectivityderives from various rules of
+
+whethertheyrepresentprogresstowardthe goal. Indicationsof progressspur furthersearchin the same direction; lack of progress signals the abandonmenotfa lineofsearch. Problemsolving
+requiresselectivetrialand error.12
+
+amplifier,215-233 in C. E. Shannon and J.,McCarthy, Automata studies, Princeton, Princeton Univ. Press,
+1956. 13 The clicking safe example was supplied by D. P.
+Simon. Ashby, op. cit., 230, has called the selectivity involved in situations of this kind "selection by compo-
+
+1" See H. Kacser, Some physico-chemical aspects of biological organization, Appendix, pp. 191-249 in C. H.
+Waddington, The strategy of the genes, London, George
+Allen & Unwin, 1957.
+12See A. Newell, J. C. Shaw, and H. A. Simon, Empirical explorations of the logic theorymachine,Pro-
+ceedings of the 1957 Western JointComputerConference, February, 1957, New York: Institute of Radio Engi-
+neers; Chess-playing programs and the problem of complexity, IBM Journal of Research and Development 2: 320-335, October, 1958; and for a similar view of prob-
+
+nents." The even greater reductionin time produced by hierarchizationin the clicking safe example, as compared
+with the watchmaker's metaphor,is due to the fact that a random search for the correct combinationis involved in the formercase, while in the latter the parts come to-
+gether in the right order. It is not clear which of these metaphors provides the better model for biological evolution, but we may be sure that the watchmaker's nmetaphor gives an exceedingly conservative estimate of the savings due to hierarchization. The safe may give an excessively high estimate because it assumes all possible
+
+lem solving, W. R. Ashby, Design for an intelligence arrangementsof the elements to be equally probable.
+
+VOL. 106, NO. 6, 1962]
+
+THE ARCHITECTURE OF COMPLEXITY
+
+473
+
+thumb,or heuristics,that suggest which paths Macedonianempireand gave it to his son, to be
+
+shouldbe triedfirstand whichleadsare promising. latercombinedwiththe Persian subassemblyand
+
+We do not need to postulate processes more othersintoAlexander'sgreatersystem. On Alex-
+
+sophisticatedthan thoseinvolvedin organicevo- ander'sdeath,his empiredid notcrumbleto dust,
+
+lutionto explain how enormousproblemmazes butfragmenteidntosomeofthemajor subsystems
+
+are cut downto quitereasonablesize.'4
+
+thathad composedit.
+
+The watchmakerargumentimpliesthat if one
+
+THE SOURCES OF SELECTIVITY
+
+would be Alexander,one should be born into a
+
+When we examinethe sourcesfromwhichthe worldwherelarge stablepoliticalsystemsalready
+
+problem-solvingsystem,or the evolvingsystem, exist. Where this conditionwas not fulfilleda,s
+
+as thecase maybe, derivesits selectivityw, e dis- on the Scythianand Indian frontiersA, lexander
+
+cover thatselectivitycan always be equated with found empirebuildinga slipperybusiness. So
+
+some kind of feedbackof informationfromthe too, T. E. Lawrence's organizingof the Arabian
+
+environment.
+
+revoltagainsttheTurkswas limitedbythecharac-
+
+Let us considerthecase ofproblemsolvingfirst. terof his largeststablebuildingblocks,the sepa-
+
+There are two basic kindsof selectivity.One we rate,suspiciousdeserttribes.
+
+have alreadynoted: various paths are tried out, The professionofhistoryplaces a greatervalue
+
+theconsequencesoffollowingthemare noted,and upon the validatedparticularfactthanupon ten-
+
+this informationis used to guide furthersearch. dentiousgeneralization.I shallnotelaborateupon
+
+In the same way, in organic evolution,various myfancy,thereforeb,ut will leave it to historians
+
+complexescome intobeing,at least evanescently, to decidewhetheranythingcan be learnedforthe
+
+and those that are stable provide new building interpretatioonf historyfroman abstracttheory
+
+blocks forfurtherconstruction.It is this infor- ofhierarchicomplexsystems.
+
+mationabout stable configurationsa,nd not free energyor negentropyfromthe sun, that guides CONCLUSION: theprocessofevolutionand providestheselectivity
+
+THE EVOLUTIONARY OF HIERARCHY
+
+EXPLANATION
+
+thatis essentialto accountforits rapidity.
+
+We have shownthusfarthatcomplexsystems
+
+The second source of selectivityin problem willevolvefromsimplesystemsmuchmorerapidly
+
+solvingis previousexperience. We see thispar- ifthereare stableintermediatfeormsthanifthere
+
+ticularlyclearlywhentheproblemto be solvedis are not. The resultingcomplexformsin thefor-
+
+similarto one thathas been solvedbefore. Then, mercase willbe hierarchic.We haveonlyto turn
+
+by simplytryingagain the paths that led to the theargumentaroundto explaintheobservedpre-
+
+earliersolution,or theiranalogues,trial-and-errordominanceof hierarchiesamongthecomplexsys-
+
+searchis greatlyreducedor altogethereliminated. tems nature presents to us. Among possible
+
+What correspondsto thislatterkindofinforma- complexforms,hierarchiesare theones thathave
+
+tion in organicevolution? The closestanalogue thetimeto evolve. The hypothesitshatcomplex-
+
+is reproduction.Once we reachthe level of self- itywill be hierarchicmakesno distinctionamong
+
+reproducingsystems,a complex system,when it veryflathierarchiesl,ikecrystalsa,nd tissues,and
+
+has once been achieved,can be multipliedindefi- polymersa,nd theintermediatfeorms. Indeed,in
+
+nitely. Reproductionin factallowstheinheritance the complexsystemswe encounterin nature,ex-
+
+-ofacquired characteristicsb, ut at the level of amples of both formsare prominent. A more
+
+geneticmaterialo, fcourse;i.e.,onlycharacteristics completetheorythan the one we have developed
+
+acquiredby thegenescan be inherited.We shall here would presumablyhave somethingto say
+
+returnto the topic of reproductionin the final about the determinantosf widthof span in these
+
+sectionof thispaper.
+
+systems.
+
+ON EMPIRES AND EMPIRE-BUILDING
+
+NEARLY DECOMPOSABLE SYSTEMS
+
+We have not exhaustedthe categoriesof complex systemsto whichthe watchmakerargument can reasonablybe applied. Philip assembledhis
+14 A. Newell and H. A. Simon, Computer simulation of human thinking,Science 134: 2011-2017, December 22, 1961.
+
+In hierarchicsystems,we can distinguishbetweenthe interactionasmongsubsystemso,n the one hand,and the interactionws ithinsubsvstems -i.e., among the parts of those subsystems-on theother. The interactionast thedifferenltevels. may be, and oftenwill be, of differenotrdersof
+
+474
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+Al A2 A3
+Al - 100
+
+Bi B2 2
+
+Cl C2 C3
+
+A2 100 - 100
+
+1 1
+
+A3 - 100
+
+-
+
+2
+
+B1
+
+2
+
+1 -
+
+- 100
+
+2 1-
+
+B2 -
+
+1 2 100 -
+
+1 2
+
+C1 - -
+
+2 -
+
+- 100 -
+
+C2 - -
+
+1
+
+100 - 100
+
+C3 - -
+
+2
+
+100
+
+FIG. 1. A hypotheticalnearly-decomposablesystem. In termsof the heat-exchangeexample of the text, Al, A2, and A3 may be interpretedas cubicles in one room,BI and B2 as cubiclesin a second room,and Cl, C2, and C3 as cubicles in a third. The matrix entries then are the heat diffusioncoefficientsbetween cuLbicles.
+
+Al
+
+Cl
+
+Bi
+A2 ~ ~C2
+
+132
+
+A3
+
+C3
+
+magnitude. In a formalorganizationtherewill generallybe moreinteractiono,n theaverage,between two employeeswho are membersof the
+same departmentthan between two employees from differentdepartments. In organic sub-
+stances, intermolecularforces will generallybe
+weakerthanmolecularforces,and molecularforces
+thannuclearforces.
+In a raregas, the intermoleculafrorceswill be
+negligiblecomparedto thosebindingthemolecules we can treatthe individualparticles,formany
+purposes,as if they were independentof each other. We can describesucha systemas decomXposableintothesubsystemcsomprisedoftheindividualparticles. As thegas becomesdenser,molecularinteractionbsecomemoresignificant.But over some range,we can treatthe decomposable case as a limit,and as a firstapproximation.We can use a theoryof perfectgases, forexample,to describe approximatelythe behavior of actual gases iftheyare nottoo dense. As a secondapproximationw, e may move to a theoryof nearly decomposablesystems,in which the interactions amongthesubsystemasre weak,butnotnegligible.
+At leastsomekindsofhierarchicsystemscan be approximatedsuccessfullyas nearlydecomposable systems. The main theoreticafl indingsfromthe approachcan be summedup in two propositions:
+
+(a) in a nearlydecomposablesystem,the shortrunbehaviorofeach ofthecomponentsubsystems is approximatelyindependenotftheshort-runbehaviorof the othercomponents;(b) in the long run,the behaviorof any one of the components dependsin onlyan aggregateway on thebehavior oftheothercomponents.
+Let me providea veryconcretesimpleexample of a nearlydecomposablesystem.15Considera building whose outside walls provide perfect thermalinsulationfrom the environment.We shalltakethesewalls as theboundaryof our system. The buildingis dividedintoa largenumber of rooms,thewalls betweenthembeinggood,but notperfecti,nsulators. The walls betweenrooms are theboundariesofourmajorsubsystems.Each room is dividedby partitionsinto a numberof cubicles,but the partitionsare poor insulators. A thermometehrangs in each cubicle. Suppose thatat thetimeofour firstobservationofthesystemthereis a wide variationin temperaturferom cubicle to cubicle and fromroom to room-the variouscubicleswithinthebuildingare in a state of thermaldisequilibrium.When we take new temperaturereadings several hours later, what shall we find? There will be verylittlevariation in temperatureamong the cubicles withineach
+singleroom,buttheremaystillbe largetemperature variationsamong rooms. When we take readingsagain severaldays later,we findan almost uniformtemperaturethroughouthe building; the temperaturedifferencesamong rooms have virtuallydisappeared.
+We can describe the process of equilibration formallyby settingup theusual equationsofheat flow. The equationscan be representedby the matrixoftheircoefficientrsi,j,whererijis therate at whichheatflowsfromtheithcubicleto thejth cubicleperdegreedifferencien theirtemperatures. If cubiclesi and j do not have a commonwall, rijwillbe zero. If cubiclesi and j havea common wall, and are in the same room,rij will be large. If cubiclesi and j are separatedby the wall of a
+15 This discussion of near-decomposability is based
+upon H. A. Simon and A. Ando, Aggregation of variables in dynamic systems, Econometrica 29: 111-138, April, 1961. The example is drawn from the same source, 117-118. The theory has been further developed and
+applied to a variety of economic and political phenomena by Ando and F. M. Fisher. See F. M. Fisher, On the cost of approximate specificationin simultaneousequation estimation, Econometrica 29: 139-170, April, 1961, and F. M. Fisher and A. Ando, Two theorems on Ceteris Paribus in the analysis of dynamic systems, American Political Scienlce Reviezc 61: 103-113, March, 1962.
+
+VOL. 106, NO. 6, 1962]
+
+THE ARCHITECTURE OF COMPLEXITY
+
+475
+
+room,rij will be nonzerobut small. Hence, by groupingall the cubiclestogetherthatare in the same room,we can arrangethe matrixof coefficients so that all its large elementslie inside a stringof square submatricesalong the main diagonal. All the elementsoutside these diagonal squareswillbe eitherzero or small (see figure1). We maytake some smallnumber,E,as the upper bound of the extradiagonalelements. We shall call a matrix having these propertiesa nearly decomtposablematrix.
+Now it has been provedthata dynamicsystem that can be describedby a nearlydecomposable matrixhas thepropertiess,tatedabove,ofa nearly decomposablesystem. In our simpleexampleof heat flowthis means that in the shortrun each room will reach an equilibriumtemperature(an average of the initialtemperatureosf its offices) nearlyindependentloyf the others;and thateach roomwillremainapproximatelyin a stateofequilibriumover the longerperiod duringwhich an over-alltemperatureequilibriumis being established throughouthe building. Afterthe intraroom short-runequilibriahave been reached,a singlethermometeirn each roomwill be adequate to describethe dynamicbehaviorof the entire system-separatethermometerins eachcubiclewill be superfluous.
+NEAR DECOMPOSABILITY OF SOCIAL SYSTEMS
+
+economicactivity. The large linkagecoefficients are associated,in general,withthe main flowsof raw materialsand semi-finishepdroductswithin and betweenindustries. An input-outpumt atrix of the economy,givingthe magnitudesof these flows,reveals the nearlydecomposablestructure of thesystem-withone qualification.There is a consumptionsubsystemof the economythat is linkedstronglyto variablesin most of the other subsystems. Hence, we have to modifyour notions of decomposabilityslightlyto accommodate the special role of the consumptionsubsystemin our analysis of the dynamic behavior of the
+economy. In thedynamicsof social systemsw, heremem-
+bers of a systemcommunicatewithand influence othermembers,near decomposabilityis generally veryprominent.This is most obviousin formal organizations,where the formalauthorityrelation connectseach memberof the organization with one immediatesuperiorand with a small numberof subordinates. Of course many communicationisn organizationsfollowotherchannels than the lines of formalauthority. But mostof thesechannelslead fromany particularindividual to a very limitednumberof his superiors,subordinates,and associates. Hence, departmental boundariesplay verymuchthe same role as the walls in our heatexample.
+
+As a glanceat figure1 shows,near decomposabilityis a ratherstrongpropertyfora matrixto possess,and the matricesthathave this property will describeveryspecial dynamicsystems-vanishinglyfew systemsout of all those that are thinkable. How few they will be depends, of course,on how good an approximationwe insist upon. If we demandthatepsilonbe verysmall, correspondinglfyew dynamicsystemswill fitthe definition.But we have alreadyseen thatin the natural world nearly decomposablesystemsare farfromrare. On thecontrarys,ystemsin which each variableis linkedwithalmostequal strength withalmostall otherparts of the systemare far rarerand less typical.
+In economicdynamics,the main variablesare the prices and quantitiesof commodities. It is empiricallytruethatthe priceof any givencom-
+modityand the rateat whichit is exchangeddependto a significanetxtentonlyon thepricesand quantitiesof a few other commoditiest, ogether with a few otheraggregatemagnitudes,like the average price level or some over-allmeasure of
+
+PHYSICO-CHEMICAL
+
+SYSTEMS
+
+In the complex systemsfamiliarin biological
+chemistrya, similar structureis clearlyvisible. Take the atomicnuclei in such a systemas the elementaryparts of the system,and constructa matrixofbondstrengthbsetweenelements.There will be matrixelementsof quite differenotrders of magnitude. The largestwill generallycorrespondto thecovalentbonds,thenextto theionic bonds, the thirdgroup to hydrogenbonds, still smallerlinkagesto van der Waals forces.'6 If we selectan epsilonjust a littlesmallerthanthemagnitude of a covalentbond, the systemwill decompose into subsystems-theconstituentmolecules. The smallerlinkageswillcorrespondto the intermoleculabr onds.
+It is well known that high-energyh, igh-fre-
+
+16 For a survey of the several classes of molecular and inter-molecular forces, and their dissociation energiessee Setlow and Pollard, op. cit., chapter 6. The energies of typical covalent bonds are of the order of 80-100 k cal/mole, of the hydrogen bonds, 10 k cal/mole. Ionic bonds generally lie between these two levels, the bonds due to van der Waals forces are lower in energy.
+
+476
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+quencyvibrationsare associatedwiththe smaller as thenumberassociatedwiththeindividualatoms,
+
+physical subsystems,low-frequencyvibrations the bondingprocess can go on indefinitely-the
+
+withthelargersystemsintowhichthesubsystems atomscan formcrystalsor polymersof indefinite
+
+are assembled. For example,the radiationfre- extent. If the numberof bonds of which the
+
+quenciesassociatedwithmolecularvibrationsare compositeis capable is less than the numlberas-
+
+muchlowerthanthoseassociatedwiththe vibra- sociatedwitheach of the parts,thenthe process
+
+tionsof the planetaryelectronsof the atoms; the ofagglomerationmustcometo a halt.
+
+latter,in turn,are lowerthanthoseassociatedwith We need only mentionsome elementaryex-
+
+nuclearprocesses.'7 Molecularsystemsare nearly amples. Ordinarygases showno tendencyto ag-
+
+decomposablesystems,the short-rundynamics glomeratebecause the multiplebondingof atoms
+
+relatingto the internalstructuresof the subsys- "uses up" theircapacityto interact. While each
+
+tems; thelong-rundynamicsto theinteractionosf oxygenatom has a valenceof two,the O., mole-
+
+these subsystems.
+
+culeshavea zerovalence. Contrariwisei,nidefinite
+
+A numberoftheimportanatpproximationesm- chainsof single-bondedcarbonatomscan be built
+
+ployedin physicsdependfortheirvalidityon the up becausea chainof any numberof such atoms,
+
+near-decomposabilitoyfthesystemsstudied. The each withtwo side groups,has a valence of ex-
+
+theoryofthethermodynamiocfs irreversiblperoc- actlytwo.
+
+esses, for example, requires the assumptionof Now whathappensifwe have a systemof ele-
+
+macroscopicdisequilibriumbut microscopicequi- mentsthat possess both strongand weak inter-
+
+librium,'8exactlythe situationdescribedin our actioncapacities,and whose strongbondsare ex-
+
+heat-exchangeexample. Similarlycomputations haustiblethroughcombination? Subsystemswill
+
+in quantummechanicsare oftenhandledby treat- form,untilall the capacityforstronginteraction
+
+ing weak interactionass producingperturbations is utilizedin theirconstruction.Then thesesub-
+
+on a systemofstronginteractions.
+
+systemswillbe linkedbytheweakersecondl-order
+
+SOME OBSERVATIONS ON HIERARCHIC SPAN
+
+bondsintolargersystems. For example,a water moleculehas essentiallya valenceof zero-all the
+
+To understandwhy the span of hierarchiesis potentialcovalentbondsare fullyoccupiedby the
+
+sometimesverybroad-as in crystals-sometimes interactionof hydrogenand oxygen molecules.
+
+narrow,we needto examinemoredetailofthein- But thegeometryofthemoleculecreatesan elec-
+
+teractions. In general,the criticalconsideration tricdipolethatpermitsweak interactionbetween
+
+is theextentto whichinteractionbetweentwo (or the waterand salts dissolvedin it-whence such
+
+a few) subsystemsexcludes interactionof these phenomenaas its electrolyticonductivity.19
+
+subsystemws iththeothers. Let us examinefirst Similarly,it has been observedthat,although
+
+somephysicalexamples.
+
+electricalforcesare much strongerthan gravita-
+
+Considera gas of identicalmolecules,each of tional forces,the latterare far more important
+
+whichcan formcovalentbonds,in certainways, than the formerfor systemson an astronomical
+
+withothers. Let us supposethatwe can associate scale. The explanationo, fcourse,is thattheelec-
+
+with each atom a specificnumberof bonds that tricalforces,beingbipolar,are all "used up" in the
+
+it is capableofmaintainingsimultaneously(.This linkagesof the smallersubsystemsa,nd thatsignumberis obviouslyrelatedto thenumberwe usu- nificannt etbalancesofpositiveor negativecharges
+
+allycall itsvalence.) Now supposethattwoatoms are notgenerallyfoundin regionsof macroscopic
+
+join,and thatwe can also associatewiththecom- size. binationa specificnumberof externalbonds it is In social as in physicalsystemsthereare gencapableofmaintaining.If thisnumberis thesame erally limitson the simultaneousinteractionof
+
+17Typical wave numbersfor vibrationsassociated with various systems (the wave number is the reciprocal of wave length hence proportionalto frequency):
+steel wire under tension-10-l' to 10-9 cm'
+molecular rotations-100 to 102 cm-1 molecular vibrations-102 to 103 cmplanetary electrons-104 to 105 cm-1
+
+largenumbersof subsystems.In the social case, theselimitsare relatedto the factthata human
+being is more nearlya serial than a parallel information-processinsgystem. He can carrv on onlyone conversationat a time,and althoughthis does notlimitthe size of theaudienceto whicha
+
+nuclear rotations-109 to 1010cm-1 nuclear surfacevibrations-101l to 1012 cm-1. 18 S. R. de Groot, Thermodynamicsof irreversibleprocesses, 11-12, New York, Interscience Publishers, 1951.
+
+mass communicationcan be addressed,it does
+19See, for example, L. Pauling, General chemnistry, ch. 15.
+
+VOL. 106, NO. 6, 19621
+
+THE ARCHITECTURE OF COMPLEXITY
+
+477
+
+limitthenumberofpeoplesimultaneousliynvolved in theoutlineand is likelyto be lost. The loss of
+
+in mostotherformsof social interaction.Apart such informationand the preservationmainlyof
+
+fromrequirementosfdirectinteractionm, ostroles informationabout hierarchicorder is a salient
+
+imposetasksand responsibilitietshatare timecon- characteristitchatdistinguishetshe drawingsof a
+
+suming. One cannot,forexample,enactthe role childor someoneuntrainedin representatiofnrom
+
+of"friend"withlargenumbersofotherpeople. thedrawingofa trainedartist. (I am speakingof
+
+It is probablytruethatin social as in physical an artistwho is strivingforrepresentation.) systemst,hehigherfrequencydynamicsare associ-
+
+ated withthesubsystemst,helowerfrequencydy- NEAR DECOMPOSABILITY AND COMPREHENSIBILITY
+
+namics with the larger systems. It is generally believed,forexample,thatthe relevantplanning horizonof executivesis longerthe highertheir location in the organizationalhierarchy. It is probablyalso truethatboththe averageduration ofan interactionbetweenexecutivesand theaverage intervalbetween interactionsis greater at higherthanat lowerlevels.
+
+From our discussionof the dynamicproperties ofnearlydecomposablesystemsw, e have seenthat comparativelylittleinformationis lost by representingthemas hierarchies. Subpartsbelonging to differenptarts only interactin an aggregative fashion-the detailof theirinteractioncan be ignored. In studyingthe interactionof two large molecules,generallywe do not need to consider
+
+SUMMARY: NEAR DECOMPOSABILITY
+
+in detail the interactionsof nuclei of the atoms
+
+belongingto the one moleculewiththe nucleiof
+
+We haveseenthathierarchiehs avetheproperty theatomsbelongingto theother. In studyingthe
+
+of near-decomposability.Intra-componentlink- interactionoftwonations,we do notneedto study
+
+ages are generallystrongerthan intercomponentin detail the interactionsof each citizen of the
+
+linkages. This facthas the effectof separating firstwitheach citizenof the second.
+
+the high-frequencdyynamicsof a hierarchy-in- The fact, then, that many complex systems
+
+volvingtheinternalstructuroefthecomponents- have a nearlydecomposable,hierarchicstructure
+
+fromthelowfrequencydynamics-involvinginter- is a major facilitatinfgactorenablingus to under-
+
+action among components. We shall turn next stand,to describe,and evento "see" suchsystems
+
+to someimportanctonsequencesofthisseparation and their parts. Or perhaps the proposition
+
+forthedescriptionand comprehensionof complex shouldbe put the otherway round. If thereare
+
+systems.
+
+importantsystemsin the worldthatare complex
+
+THE DESCRIPTION OF COMPLEXITY
+If youask a personto drawa complexobjecte.g.,a humanface-he willalmostalwaysproceed in a hierarchicfashion.20 First he will outline the face. Then he will add or insertfeatures: eyes,nose, mouth,ears, hair. If asked to elaborate,he will beginto developdetailsforeach of
+
+withoutbeinghierarchict,heymayto a considerable extentescape our observationand our understanding. Analysis of theirbehaviorwould involve such detailedknowledgeand calculationof the interactionosf theirelementaryparts that it would be beyond our capacities of memoryor computation.2"
+
+the features-pupils,eyelids,lashes for the eyes,
+and so on-until he reachesthe limitsof his anatomical knowledge. His informationabout the object is arrangedhierarchiclyin memory,like a topicaloutline.
+
+21 I believe the fallacy in the central thesis of W. M.
+Elsasser's The physical foundationof biology, mentioned earlier,lies in his ignoringthe simplificationin description of complex systems that derives from their hierarchic structure. Thus (p. 155): "If we now apply similar arguments to the coupling of enzymatic reactions with
+
+When informationis put in outlineform,it is easy to include informationabout the relations amongthemajor partsand informatioanboutthe internalrelationsof parts in each of the suboutlines. Detailed informatioanboutthe relationsof subpartsbelongingto differenptartshas no place
+20 George A. Miller has collected protocols from subjects who were given the task of drawing faces, and finds that they behave in the manner described here (private communication). See also E. H. Gombrich, Art and illuision,291-296, New York, Pantheon Books, 1960.
+
+the substratumof protein molecules, we see that over a
+sufficienpteriod of time,the informationcorrespondingto the structuraldetails of these molecules will be communicated to the dynamics of the cell, to higher levels of
+organizationas it were, and may influencesuch dynamics. While this reasoning is only qualitative,it lends credence to the assumption that in the living organism, unlike the inorganiccrystal,the effectsof microscopicstructurecannot be simply averaged out; as time goes on this influ-
+ence will pervade the behavior of the cell 'at all levels.'" But from our discussion of near-decomposabilityit
+would appear that those aspects of microstructurethat control the slow developmental aspects of organismic
+
+478
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+I shall not tryto settlewhichis chickenand whichis egg: whetherwe are able to understand the patternACD,forexample,occurs fourtimes
+
+the world because it is hierarchic,or whetherit in thetotal pattern,it is economicalto represent
+
+appears hierarchicbecause those aspects of it it by the singlesymbol,a.
+
+whichare not elude our understandingand ob- If a complex structureis completelyunre-
+
+servation. I have alreadygivensome reasonsfor dundant-if no aspect of its structurecan be in-
+
+supposingthat the formeris at least half the ferredfromany other-thenit is itsown simplest
+
+truth-thatevolvingcomplexitywould tendto be description. We can exhibitit, but we cannot
+
+hierarchic-butitmaynotbe thewholetruth. describeit by a simplerstructure.The hierarchic
+
+structureswe have been discussinghave a high
+
+SIMPLE DESCRIPTIONS OF COMPLEX SYSTEMS
+
+degreeofredundancyh,encecan oftenbe described
+
+One mightsuppose that the descriptionof a complexsystemwould itselfbe a complexstructureof symbols-and indeed,it may be just that. But there is no conservationlaw that requires thatthe descriptionbe as cumbersomeas the object described. A trivialexamplewill show how a systemcan be describedeconomically.Suppose thesystemis a two-dimensionalrraylikethis:
+A B MN R S HI C DO P T UlJ K MNA B HI RS OP CDJKTU RS HI A B MN T UJKC D 0 P HI R S MNA B J K T UO P C D
+
+in economicalterms. The redundancytakes a numberof forms,of whichI shall mentionthree:
+1. Hierarchicsystemsare usuallycomposedof onlya fewdifferenktindsof subsystemsi,n various combinationsand arrangements.A familiar exampleis theproteins,theirmultitudinouvsariety arising from arrangementsof only twenty differenatmino acids. Similarly,the ninety-odd elementsprovideall the kindsof buildingblocks neededforan infinitvearietyofmolecules. Hence, we can constructour descriptionfroma restricted alphabetofelementarytermscorrespondintgo the basic set of elementarysubsystemsfromwhich
+thecomplexsystemis generated.
+2. Hierarchic systemsare, as we have seen, oftennearlydecomposable. Hence only aggregativepropertiesof theirpartsenterintothe de-
+
+Let us call thearray AB a, thearray AIN ml generalizationof thenotionof near-decomposabil- scriptionof the interactionsof those parts. A
+
+the array RS r, and thearray JK h. Let us -most thingsare only weakly connectedwith itymightbe called the "emptyworldhypothesis"
+
+am
+
+rh
+
+most otherthings;for a tolerabledescriptionof
+
+call the array ma w,and thearray hr x. Then realityonlya tinyfractionof all possibleinterac-
+
+the entire array is simply xw While the tionsneedsto be takenintoaccount. By adopting a descriptivelanguagethatallows the absence of
+
+originalstructureconsistedof 64 symbols,it re- somethingto go unmentioneda, nearly empty quiresonly35 to writedown its description: world can be describedquite concisely. Mother
+
+Hubbarddid nothave to checkoffthelistofpos-
+
+S =S=wx xw
+
+sible contentsto say thather cupboardwas bare.
+
+am rh 3. By appropriate"recoding,"the redundancy
+
+ma hr thatis presentbut unobviousin the structureof
+
+a complexsystemcan oftenbe made patent. The
+
+AB
+
+MN
+
+RS
+
+HI most common recoding of descriptionsof dy-
+
+CD
+
+opr=
+
+h=JK namicsystemsconsistsin replacinga description
+
+We achieve theabbreviationby makinguse of the redundancyin the originalstructure. Since
+
+ofthetimepathwitha descriptionofa differential law thatgeneratesthatpath. The simplicityt,hat is, resides in a constant relation between the
+
+dynamicscan be separated out fromthe aspects that control the more rapid cellular metabolic processes. For this reason we should not despair of unravelling the web of causes. See also J. R. Platt's review of Elsasser's book in Perspectives in biology and medicine2: 243-245, 1959.
+
+stateofthesystemat anygiventimeand thestate ofthesystema shorttimelater. Thus, thestructureof the sequence,1 3 5 7 9 11 . . ., is most simplyexpressedby observingthateach member is obtainedby adding2 to thepreviousone. But
+
+VOL. 106, NO. 6, 19621
+
+THE ARCHITECTURE OF COMPLEXITY
+
+479
+
+thisis thesequencethatGalileofoundto describe lationbetweenthe stateand process descriptions
+
+thevelocityat theend of successivetimeintervals of the same complexreality. Plato, in theMeno,
+
+ofa ball rollingdownan inclinedplane.
+
+argued that all learning is remembering. He
+
+It is a familiarpropositionthatthetask of sci- could not otherwiseexplainhow we can discover
+
+ence is to make use of theworld'sredundancyto or recognizethe answerto a problemunless we describethatworldsimply. I shallnotpursuethe alreadyknowthe answer.23 Our dual relationto generalmethodologicaplointhere,butshallinstead the worldis the sourceand solutionof the para-
+
+takea closerlookat twomaintypesof description dox. We pose a problemby giving the state
+
+that seem to be available to us in seeking an descriptionof the solution. The task is to dis-
+
+understandingof complex systems. I shall call cover a sequence of processesthat will produce
+
+these state descriptionand process description, the goal state froman initial state.Translation
+
+respectively.
+
+fromthe processdescriptionto the statedescrip-
+
+tion enablesus to recognizewhen we have suc-
+
+STATE DESCRIPTIONS AND PROCESS DESCRIPTIONS
+"A circleis the locus of all pointsequidistant froma givenpoint." "To construcat circle,rotate a compasswithone armfixeduntiltheotherarm has returnedto its startingpoint." It is implicit in Euclid thatif you carryout the processspecifiedin the second sentence,you will producean object that satisfiesthe definitionof the first. The firstsentenceis a statedescriptionofa circle, the seconda processdescription.
+These twomodesofapprehendingstructureare the warp and weftof our experience. Pictures, blueprints,most diagrams, chemical structural formulaeare state descriptions. Recipes, differ-
+
+ceeded. The solutionis genuinelynew to usand we do notneedPlato's theoryofremembering to explainhow we recognizeit.
+There is now a growingbodyof evidencethat theactivitycalled humanproblemsolvingis basically a formof means-endanalysisthat aims at discoveringa processdescriptionof the path that leads to a desiredgoal. The generalparadigmis: given a blueprint,to find the corresponding recipe. Much of the activityof science is an applicationof that paradigm: given the descriptionofsomenaturalphenomenat,o findthedifferential equations for processes that will produce the phenomena.
+
+entialequations,equationsforchemicalreactions are processdescriptions.The formercharacterize the worldas sensed; theyprovidethe criteriafor identifyinogbjects,oftenby modelingthe objects themselves. The lattercharacterizethe worldas actedupon; theyprovidethemeansforproducing or generatingobjects havingthe desiredcharacteristics.
+The distinctionbetweentheworldas sensedand theworldas actedupondefinesthebasic condition forthe survivalof adaptiveorganisms. The organism must develop correlationsbetweengoals in the sensed worldand actionsin the world of process. When theyare madeconsciousand verbalized,thesecorrelationscorrespondto whatwe usuallycall means-endanalysis. Givena desired stateofaffairsand an existingstateof affairst,he taskof an adaptiveorganismis to findthe difference betweenthese two states,and then to find the correlatingprocess thatwill erase the differ-
+ence. 2
+Thus, problemsolvingrequirescontinualtrans-
+
+THE DESCRIPTION OF COMPLEXITY IN
+SELF-REPRODUCING SYSTEMS
+The problemoffindingrelativelysimpledescriptionsforcomplexsystemsis of interestnot only foran understandingof humanknowledgeof the worldbut also foran explanationof how a complex systemcan reproduceitself. In my discussionoftheevolutionofcomplexsystemsI, touched onlybrieflyon theroleofself-reproduction.
+Atoms of highatomicweightand complexinorganicmoleculesare witnessesto thefactthatthe evolution of complexitydoes not imply selfreproduction. If evolutionof complexityfrom simplicityis sufficientlpyrobable,it will occur repeatedlyt; hestatisticaelquilibriumofthesystem will finda large fractionof the elementaryparticlesparticipatingin complexsystems.
+If, however,the existenceof a particularcomplex formincreasedtheprobabilityofthecreation of anotherformjust like it, the equilibriumbetweencomplexesand componentcsouldbe greatly alteredin favorof the former. If we have a de-
+
+22 See H. A. Simon and A. Newell, Simulation of scriptionof an objectthatis sufficientclylear and
+
+human thinking,in M. Greenberger (ed.), Management
+
+and the computerof the future,95-114, esp. pp 110 ff., 23 The zoorksof Plato, B. Jowett,trans.,3: 26-35, New
+
+New York, Wiley, 1962.
+
+York, Dial Press.
+
+480
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+complete,we can reproducethe object fromthe of symbolicstructures.Let me spin out some of
+
+description. Whateverthe exact mechanismof theconsequencesof thelattercomparison.
+
+reproductiont,hedescriptionprovidesus withthe necessaryinformation.
+Now we haveseenthatthedescriptionosfcomplex systemscan takemanyforms. In particular, we can have state descriptionsor we can have process descriptions;blueprintsor recipes. Reproductiveprocessescould be builtaroundeither
+of these sources of information. Perhaps the simplestpossibilityis forthe complexsystemto serve as a descriptionof itself a templateon whicha copy can be formed. One of the most plausible currenttheories,for example, of the reproductionof deoxyribonucleicacid (DNA) proposesthata DNA molecule,in the formof a double helix of matchingparts (each essentially a "negative"oftheother),unwindsto allow each halfof the helix to serveas a templateon which a newmatchinghalfcan form.
+On the otherhand, our currentknowledgeof how DNA controlsthe metabolismof the organismsuggeststhatreproductionbytemplateis only one of the processesinvolved. Accordingto the prevailingtheory,DNA servesas a templateboth foritselfand forthe relatedsubstanceribonucleic acid (RNA). RNA, in turn,servesas a template for protein. But proteins accordingto current knowledge-guidethe organism'smetabolismnot bythetemplatemethodbutbyservingas catalysts to governreactionratesin thecell. While RNA is a blueprintforprotein,proteinis a recipefor
+metabolism.24
+
+If geneticmaterialis a program-viewedin its relationto the organism-it is a programwith specialand peculiarproperties.First,it is a selfreproducingprogram;we have alreadyconsidered its possiblecopyingmechanism. Second, it is a programthathas developedby Darwinianevolution. On thebasisofourwatchmaker'asrgument, we mayassertthatmanyofitsancestorswerealso viable programs-programsforthe subassemblies.
+Are thereany otherconjectureswe can make about the structureof thisprogram? There is a well-knowngeneralizationin biologythatis verbally so neat thatwe would be reluctantto give it up evenifthefactsdid notsupportit: ontogeny recapitulatepshylogeny.The individualorganism, in its developmentg, oes throughstages that resemblesomeof its ancestralforms. The factthat the human embryodevelops gill bars and then modifiesthem for other purposes is a familiar particularbelongingto thegeneralization.Biologiststodaylike to emphasizethe qualificationosf theprinciple-thatontogenyrecapitulateosnlythe grossest aspects of phylogeny,and these only
+crudely. These qualificationshouldnotmakeus lose sightof the factthatthe generalizationdoes hold in roughapproximation it does summarize a verysignificanstet offactsabouttheorganism's development.How can we interprethesefacts?
+One way to solve a complex problemis to reduceit to a problempreviouslysolved to show whatstepslead fromtheearliersolutionto a solu-
+
+ONTOGENY RECAPITULATES PHYLOGENY
+
+tionof the new problem. If, aroundthe turnof the century,we wanted to instructa workman
+
+The DNA in thechromosomesof an organism to makean automobilep, erhapsthe simplestway
+
+containssome,and perhapsmost,of the informa- would have been to tell him how to modifya tion thatis needed to determineits development wagon by removingthe singletreeand adding a and activity. We have seen that,ifcurrenttheo- motor and transmission. Similarly,a genetic ries are even approximatelycorrect,the informa- programcould be alteredin the course of evolu-
+
+tion is recordednot as a statedescriptionof the tionby adding new processesthatwould modify organismbut as a seriesof "instructionsf"orthe a simplerformintoa morecomplexone to con-
+
+constructionand maintenanceof the organism structa gastrula,takea blastulaand alterit!
+
+fromnutrientmaterials. I have alreadyused the The geneticdescriptionof a single cell may,
+
+metaphorofa recipe;I couldequallywellcompare thereforet,ake a quite differenftormfromthe
+
+it witha computerprogram,whichis also a se- genetic descriptionthat assembles cells into a
+
+quenceof instructionsg,overningtheconstruction multi-celledorganism. Multiplicationbycell divi-
+
+24 C. B. Anfinsen, The molecular basis of evolution, sionwouldrequire,as a minimuma, statedescripchs. 3 and 10, New York, Wiley, 1959, will qualify this tion (the DNA, say), and a simple"interpretive
+
+sketchy,oversimplifiedaccount. For an imaginative discussion of some mechanisms of process descriptionthat could govern molecular structure,see H. H. Pattee, On the originof macromolecularsequences,Biophysical Joutrntal1: 683-710, 1961.
+
+process" to use thetermfromcomputerlanguage that copies this descriptionas a part of the
+largercopyingprocessof cell division. But such a mechanismclearly would not sufficefor the
+
+VOL. 106, NO. 6, 1962]
+
+THE ARCHITECTURE OF COMPLEXITY
+
+481
+
+lifferentiatiofncellsin development.It appears realm of biology. It can be applied as readily,
+
+morenaturalto conceptualizethatmechanismas forexample,to the transmissionof knowledgein
+
+based on a process descriptiona,nd a somewhat the educationalprocess. In most subjects,par-
+
+more complexinterpretivperocessthatproduces ticularlyin the rapidlyadvancing sciences,the
+
+the adult organismin a sequenceof stages,each progressfromelementaryto advancedcoursesis
+
+newstagein developmenrtepresentintgheeffecotf to a considerableextenta progressthroughthe
+
+an operatorupon thepreviousone.
+
+conceptualhistoryof the science itself. Fortu-
+
+It is harderto conceptualizetheinterrelatioonf nately,the recapitulationis seldom literal any
+
+these twvodescriptions. Interrelatedthey must morethanit is in thebiologicalcase. We do not
+
+be, for enoughhas been learnedof gene-enzyme teachthe phlogistontheoryin chemistryin order
+
+mechanismsto show thattheseplay a major role later to correctit. (I am not sure I could not
+
+in developmenats in cell metabolism.The single cite examplesin othersubjectswherewe do ex-
+
+clue we obtainfromour earlierdiscussionis that actlythat.) But curriculumrevisionsthatrid us
+
+thedescriptionmayitselfbe hierarchicalo,r nearly of the accumulationsof the past are infrequent
+
+decomposable,in structuret,he lower levels gov- and painful. Nor are theyalwaysdesirable-parerniiigthefast,"high-frequencyd"ynamicsof the tial recapitulationmay,in manyinstances,provide
+
+individualcell, the higherlevel interactionsgov- themostexpeditiousroutetoadvancedknowledge.
+
+erniiigthe slow,"low-frequencyd"ynamicsof the developingmulti-cellulaorrganism.
+
+SUMMARY: THE DESCRIPTION OF COMPLEXITY
+
+There are onlybitsof evidence,apart fromthe How complexor simplea structureis depends
+
+factsof recapitulationt,hatthegeneticprogramis criticallyupon the way in whichwe describeit. organizedin thisway,butsuchevidenceas exists Most ofthecomplexstructurefsoundin theworld is compatiblewith this notion.25 To the extent are enormouslyredundant,and we can use this
+
+that we can differentiatethe genetic information redundancyto simplifytheirdescription. But to
+
+that governs cell metabolism from the genetic in- use it, to achievethe simplificationw,e mustfind
+
+formationthat governs the development of differ- the rightrepresentation.
+
+entiated cells in the multi-cellular organization, The notionof substitutinag processdescription
+
+we simplifyenormously-as we have already seen fora statedescriptionof naturehas playeda cen-
+
+-our task of theoretical description. But I have tral role in the developmentof modernscience.
+
+perhaps pressed this speculation far enough.
+
+Dynamiclaws, expressedin the formof systems
+
+The generalization that in evolving systems of differentiaolr differencequations,have in a
+
+whose descriptions are stored in a process lan- large numberof cases providedthe clue for the
+
+guage, we might expect ontogeny partially to re- simple descriptionof the complex. In the pre-
+
+capitulate phylogeny has applications outside the cedingparagraphsI have triedto show thatthis
+
+25 There is considerable evidence that successive genes along a chromosomeoftendetermineenzymes controlling
+successive stages of protein syntheses. For a review of some of this evidence, see P. E. Hartman, Transduction: a comparative review, in W. D. McElroy and B. Glass (eds.), The chemical basis of heredity,Baltimore, Johns Hopkins Press, 1957, at pp. 442-454. Evidence for differentialactivityof genes in differentissues and at different stages of development is discussed by J. G. Gall, Chromosomal Differentiation,it W. D. McElroy and B. Glass (eds.), The chemical basis of development, Baltimore, Johns Hopkins Press, 1958, at pp. 103-135. Finally, a model very like that proposed here has been
+
+characteristiocf scientifiicnquiryis notaccidental or superficial.The correlationbetweenstatedescriptionand process descriptionis basic to the functioningof any adaptive organism,to its capacityfor acting purposefullyupon its environment. Our present-dayunderstandingof genetic mechanismsuggeststhatevenin describingitself themulti-cellulaorrganismfindsa processdescription-a geneticallyencoded program-to be the parsimoniousand usefulrepresentation.
+CONCLUSION
+
+independentlya,nd far more fully,outlinedby J. R. Platt, A 'book model' of genetic informationtransfer in cells and tissues, in Kasha and Pullman (eds.), Horixons in biochemiistrvl, New York, Academic Press, forthcoming. Of course, this kind of mechanismis not the only one in which developmentcould be controlled by a process description. Induction,in the formenvisaged in Spemann's organizer theory,is based on process description,in which metabolites in already formed tissue control the next stages of development.
+
+Our speculationshave carriedus over a rather alarmingarrayof topics,but thatis the price we
+mustpay if we wish to seek propertiescommon to manysortsofcomplexsystems. My thesishas been thatone path to the constructionof a nontrivialtheoryof complexsystemsis by way of a theoryof hierarchy.Empiricallya, largeproportionof thecomplexsystemswe observein nature
+
+482
+
+HERBERT A. SIMON
+
+[PROC. AMER. PHIL. SOC.
+
+exhibit hierarchic structure. On theoretical groundswe could expectcomplexsystemsto be hierarchiesin a worldin whichcomplexityhad to evolve fromsimplicity.In theirdynamics,hierarchieshavea propertyn,ear-decomposabilittyh,at greatlysimplifiestheir behavior. Near-decomposabilityalso simplifietshedescriptionof a complex system,and makes it easier to understand how the informationeededforthe development or reproductionof the systemcan be stored in reasonablecompass.
+
+In both scienceand engineeringt,he studyof "systems"is an increasinglypopularactivity. Its popularityis morea responseto a pressingneed forsynthesizingand analyzingcomplexitythanit is to any large developmentof a body of knowledge and techniquefor dealingwith complexity. If thispopularityis to be morethana fad,necessity will have to motherinventionand provide substanceto go withthename. The explorations reviewedhere representone particulardirection
+of searchforsuch substance.
+
+

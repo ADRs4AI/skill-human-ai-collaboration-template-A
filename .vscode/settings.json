@@ -1,22 +1,27 @@
 {
+    "claudeCode.selectedModel": "claude-sonnet-4-5-20250929",
     "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#57bfc4",
-        "activityBar.background": "#57bfc4",
+        "activityBar.activeBackground": "#d89c85",
+        "activityBar.background": "#d89c85",
         "activityBar.foreground": "#15202b",
         "activityBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.background": "#bd42b7",
-        "activityBarBadge.foreground": "#e7e7e7",
+        "activityBarBadge.background": "#e7f7eb",
+        "activityBarBadge.foreground": "#15202b",
         "commandCenter.border": "#15202b99",
-        "sash.hoverBorder": "#57bfc4",
-        "statusBar.background": "#3ca7ac",
+        "sash.hoverBorder": "#d89c85",
+        "statusBar.background": "#cc7c5e",
         "statusBar.foreground": "#15202b",
-        "statusBarItem.hoverBackground": "#2f8286",
-        "statusBarItem.remoteBackground": "#3ca7ac",
+        "statusBarItem.hoverBackground": "#bc5e3b",
+        "statusBarItem.remoteBackground": "#cc7c5e",
         "statusBarItem.remoteForeground": "#15202b",
-        "titleBar.activeBackground": "#3ca7ac",
+        "titleBar.activeBackground": "#cc7c5e",
         "titleBar.activeForeground": "#15202b",
-        "titleBar.inactiveBackground": "#3ca7ac99",
+        "titleBar.inactiveBackground": "#cc7c5e99",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#3CA7AC"
+    "peacock.color": "#CC7C5E",
+    "python.terminal.activateEnvironment": false,
+    "terminal.integrated.env.osx": {
+        "PATH": "/opt/homebrew/bin:${env:HOME}/.asdf/shims:${env:PATH}"
+    }
 }

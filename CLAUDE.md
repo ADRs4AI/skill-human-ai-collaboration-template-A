@@ -1,9 +1,9 @@
 # CLAUDE.md - Project Guidance
 
-- **Project**: [Project Name]
+- **Project**: "Architecture of Complexity" Skill
 - **Human**: Jérémie Lumbroso  
-- **AI**: Claude Sonnet 4.5
-- **Last Updated**: [Date]
+- **AI**: Claude Web Sonnet 4.5 and Claude Code Sonnet 4.5
+- **Last Updated**: February 27, 2026
 
 ---
 
@@ -83,32 +83,52 @@ If the script was successfully used, append as comments how, and what the outcom
 ## Project Context
 
 ### What we're building:
-[1-2 sentences describing the project goal]
+This is a repository where we're putting together a skill called architecture of complexity. This is a skill that will teach LLMs how to the theoretically decompose systems.
 
 ### Current focus:
-[What's being worked on right now]
+Claude Web Sonnet 4.5 has created almost all the skill, but the frontmatter seems to be missing. It's also missing appropriate licenses. CC for the skill, and copyright Jérémie Lumbroso for the Computationally-Assisted Metacognition framework that is mentioned, and possibly the LLM output linearization framework.
+Claude Code Sonnet 4.5 will help create continuous-integration to create a .skill release file in the repo with the latest version of the right files. The script will also version the skill. Please use GITHUB_STEP_SUMMARY to create wonderful CI/CD, see: `docs/sample-ci-cd.yaml` for an example.
 
 ### Key decisions made:
+None yet. Later will be in this format:
 - [Decision 1] - See `docs/adr/0001-*.md`
 - [Decision 2] - See `docs/adr/0002-*.md`
 
 ### Open questions:
-- [Question 1]
-- [Question 2]
+- How to write the license correctly?
+- How to link the CC license to the right content?
+- What frontmatter to add to the SKILL.md so it will compile?
 
 ---
 
 ## File Structure
 
 ```
-project/
-├── docs/
-│   └── adr/
-│       ├── 0001-*.md      # ADRs numbered sequentially
-│       └── template.md    # Standard ADR template
-├── src/                   # Source code
-├── tests/                 # Tests
-└── CLAUDE.md             # This file
+architecture-of-complexity-skill
+├── architecture-of-complexity-skill          # Skill as composed by Claude Web Sonnet 4.5 see BUILD-SUMMARY.md
+│   ├── INSTALLATION.md
+│   ├── META-ARCHITECTURE.md
+│   ├── README.md
+│   ├── resources
+│   │   ├── examples
+│   │   │   ├── cam.md
+│   │   │   ├── mcp-design.md
+│   │   │   └── vue-react.md
+│   │   ├── simon_1962_full.txt
+│   │   └── simon_architecture_summary.md
+│   └── SKILL.md
+├── CLAUDE.md                                 # this file, agent guidance
+├── docs
+│   ├── adr                                   # ADR repository for the project
+│   │   └── templates
+│   │       ├── collab-adr-lean.md            # human-AI extended ADR template
+│   │       ├── seed-template.md              # human-AI seed template
+│   │       └── template.md                   # MADR template
+│   ├── BUILD-SUMMARY.md                          # Sonnet 4.5's build summary (may be moved to docs)
+│   ├── CONVERSATION.md                       # original conversation with Claude Web Sonnet 4.5
+│   ├── METHODOLOGY.md                        # human-AI ADR framework methodology
+│   └── sample-ci-cd.yaml                     # sample CI/CD script with GITHUB_STEP_SUMMARY
+└── licenses
 ```
 
 ---
