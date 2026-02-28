@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "browsermcp": {
+      "command": "npx",
+      "args": [
+        "@browsermcp/mcp@latest"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--caps=devtools",
+        "--headless",
+        "--browser=chromium"
+      ]
+    }
+  }
+}
