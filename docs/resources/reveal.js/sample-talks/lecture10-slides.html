@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CIS 5020 - Lecture 10 - Beyond Majority: Two Problems, Two Paths</title>
+	<link rel="stylesheet" href="../../dist/reset.css">
+	<link rel="stylesheet" href="../../dist/reveal.css">
+	<link rel="stylesheet" href="../../dist/theme/simple.css">
+	<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	<style>
+		/* ── CSS Baseline (ADR-0007) ── */
+		:root {
+			--r-background-color: #FAF9F5;
+			--r-main-font: 'Lato', sans-serif;
+			--r-heading-color: #CC7C5E;
+			--r-link-color: #53B467;
+			--r-main-font-size: 28px;
+			--r-heading1-size: 2.0em;
+			--r-heading2-size: 1.4em;
+			--r-heading3-size: 1.2em;
+		}
+		.reveal h1, .reveal h2, .reveal h3 { color: #CC7C5E; font-weight: 700; margin-bottom: 0.3em; }
+		.reveal .slides { text-align: left; }
+		.reveal ul, .reveal ol { margin-left: 1em; line-height: 1.3; }
+		.reveal p { line-height: 1.3; margin-bottom: 0.4em; }
+		.reveal li { line-height: 1.3; margin-bottom: 0.2em; }
+		.large-text { font-size: 1.05em; }
+		.centered { text-align: center !important; }
+		.spacer { margin-top: 24px; }
+
+		/* ── Shared Components ── */
+		.idea-box {
+			background: #fff8f5;
+			border-left: 4px solid #CC7C5E;
+			padding: 10px 14px;
+			margin: 7px 0;
+			font-size: 0.88em;
+			line-height: 1.45;
+		}
+		.idea-box.green  { border-left-color: #53B467; background: #f5fff7; }
+		.idea-box.blue   { border-left-color: #4a90d9; background: #f0f6ff; }
+		.idea-box.warn   { border-left-color: #c49a1a; background: #fdf8e8; }
+		.idea-box.purple { border-left-color: #8e6bb8; background: #f9f5ff; }
+
+		.act-divider {
+			display: inline-block;
+			background: #CC7C5E;
+			color: white;
+			padding: 4px 12px;
+			border-radius: 4px;
+			font-size: 0.65em;
+			font-weight: bold;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			margin-bottom: 6px;
+		}
+
+		.tag {
+			display: inline-block;
+			background: #CC7C5E;
+			color: white;
+			font-size: 0.62em;
+			font-weight: bold;
+			padding: 3px 10px;
+			border-radius: 20px;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			margin-bottom: 6px;
+		}
+		.tag.green  { background: #53B467; }
+		.tag.blue   { background: #4a90d9; }
+		.tag.purple { background: #8e6bb8; }
+
+		/* Activity URL box */
+		.activity-url {
+			font-family: 'Courier New', monospace;
+			font-size: 1.4em;
+			font-weight: bold;
+			color: #4a90d9;
+			background: #f0f6ff;
+			border: 3px solid #4a90d9;
+			border-radius: 8px;
+			padding: 12px 20px;
+			text-align: center;
+			margin: 14px 0;
+		}
+
+		/* Algo block (ADR-0009) */
+		.algo-block {
+			background: #1e1e2e;
+			border-radius: 8px;
+			padding: 10px 14px;
+			font-family: 'Courier New', monospace;
+			font-size: 0.72em;
+			line-height: 1.6;
+			margin: 8px 0;
+			color: #cdd6f4;
+			white-space: pre-wrap;
+		}
+		.algo-block .kw    { color: #cba6f7; font-weight: bold; }
+		.algo-block .plus  { color: #a6e3a1; font-weight: bold; }
+		.algo-block .minus { color: #f38ba8; font-weight: bold; }
+		.algo-block .cmt   { color: #585b70; font-style: italic; }
+		.algo-block .cand  { color: #fab387; font-weight: bold; }
+		.algo-block .num   { color: #89dceb; }
+
+		/* Math box (KaTeX) */
+		.math-box {
+			background: #f0f6ff;
+			border: 2px solid #4a90d9;
+			border-radius: 6px;
+			padding: 12px 18px;
+			margin: 8px 0;
+			line-height: 1.9;
+			font-size: 0.9em;
+		}
+		.reveal .katex { font-size: 1.05em; }
+		.reveal .katex-display { font-size: 1.0em; }
+
+		/* Arc diagram */
+		.arc-row {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin: 6px 0;
+			font-size: 0.9em;
+		}
+		.arc-node {
+			background: #FFF8F5;
+			border: 2px solid #CC7C5E;
+			border-radius: 6px;
+			padding: 6px 14px;
+			white-space: nowrap;
+		}
+		.arc-node.active {
+			background: #CC7C5E;
+			color: white;
+			border-color: #CC7C5E;
+		}
+		.arc-node.solved {
+			background: #53B467;
+			color: white;
+			border-color: #53B467;
+		}
+		.arc-arrow { color: #888; font-size: 1.2em; }
+
+		/* Synthesis steps */
+		.synthesis-step {
+			display: flex;
+			align-items: flex-start;
+			gap: 14px;
+			margin: 8px 0;
+			font-size: 0.9em;
+		}
+		.synthesis-num {
+			background: #CC7C5E;
+			color: white;
+			width: 26px;
+			height: 26px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+			font-size: 0.85em;
+			flex-shrink: 0;
+			margin-top: 1px;
+		}
+		.synthesis-num.green { background: #53B467; }
+
+		/* Two-problem comparison table */
+		.prob-table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 0.84em;
+			margin: 10px 0;
+		}
+		.prob-table th {
+			background: #CC7C5E;
+			color: white;
+			padding: 7px 12px;
+			text-align: left;
+			font-weight: bold;
+		}
+		.prob-table th.blue-h { background: #4a90d9; }
+		.prob-table td {
+			padding: 6px 12px;
+			border-bottom: 1px solid #ede8e0;
+			vertical-align: top;
+		}
+		.prob-table tr:last-child td { border-bottom: none; }
+		.prob-table tr:nth-child(even) td { background: #faf8f5; }
+
+		/* ── Metaphor Gallery Styles (from metaphor-slides.html) ── */
+		.meta-title {
+			font-size: 1.35em;
+			font-weight: 700;
+			color: #CC7C5E;
+			margin: 0 0 2px;
+			line-height: 1.2;
+		}
+		.meta-author {
+			font-size: 0.75em;
+			color: #999;
+			margin-bottom: 8px;
+			font-style: italic;
+		}
+		.meta-quote {
+			background: #fff8f5;
+			border-left: 4px solid #CC7C5E;
+			padding: 9px 13px;
+			font-style: italic;
+			font-size: 0.80em;
+			line-height: 1.5;
+			color: #444;
+			margin: 0 0 8px;
+		}
+		.meta-emoji {
+			font-size: 2.0em;
+			line-height: 1;
+			margin-bottom: 4px;
+			display: block;
+		}
+		.meta-img {
+			border-radius: 7px;
+			box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+			max-height: 150px;
+			width: 100%;
+			object-fit: cover;
+			display: block;
+			margin-top: 4px;
+		}
+		.meta-img-placeholder {
+			width: 100%;
+			height: 100px;
+			background: linear-gradient(135deg, #FAF9F5 0%, #f0ece0 100%);
+			border-radius: 7px;
+			border: 2px dashed #e0d0c8;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.2em;
+			margin-top: 4px;
+		}
+		.score-badge {
+			margin-top: 8px;
+			background: #fff8f5;
+			border: 2px solid #CC7C5E;
+			border-radius: 6px;
+			padding: 5px 8px;
+			text-align: center;
+			font-size: 0.80em;
+			font-weight: bold;
+			color: #CC7C5E;
+			line-height: 1.3;
+		}
+		.score-badge.perfect {
+			background: #f5fff7;
+			border-color: #53B467;
+			color: #2d8f3f;
+		}
+		.chk-cat {
+			font-size: 0.62em;
+			font-weight: bold;
+			color: #CC7C5E;
+			letter-spacing: 0.09em;
+			text-transform: uppercase;
+			margin-top: 7px;
+			margin-bottom: 1px;
+		}
+		.chk-cat.algo  { color: #4a90d9; }
+		.chk-cat.corr  { color: #8e6bb8; }
+		.chk-cat.bonus { color: #53B467; }
+		.checklist-compact {
+			list-style: none;
+			margin-left: 0 !important;
+			font-size: 0.68em;
+			line-height: 1.4;
+			margin-bottom: 0;
+		}
+		.checklist-compact li::before { content: '☐ '; color: #bbb; }
+		.checklist-compact li.check::before { content: '✓ '; color: #53B467; font-weight: bold; }
+		.checklist-compact li.miss::before  { content: '✗ '; color: #e07060; }
+
+		/* Vote grid */
+		.vote-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+			margin-top: 10px;
+		}
+		.vote-card {
+			background: #fff8f5;
+			border: 2px solid #e8d5cb;
+			border-radius: 8px;
+			padding: 9px 11px;
+			font-size: 0.80em;
+		}
+		.vote-card .vc-emoji { font-size: 1.5em; display: block; margin-bottom: 3px; }
+		.vote-card .vc-title { font-weight: bold; color: #CC7C5E; display: block; }
+		.vote-card .vc-name  { color: #888; font-size: 0.88em; }
+		.vote-card .vc-score {
+			display: inline-block;
+			margin-top: 4px;
+			background: #CC7C5E;
+			color: white;
+			font-size: 0.76em;
+			font-weight: bold;
+			padding: 1px 7px;
+			border-radius: 10px;
+		}
+		.vote-card .vc-score.perfect { background: #53B467; }
+
+		/* Mini summary table (improve activity) */
+		.mini-table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 0.78em;
+			margin-top: 8px;
+		}
+		.mini-table th {
+			background: #FAF9F5;
+			color: #CC7C5E;
+			font-weight: bold;
+			padding: 5px 8px;
+			border-bottom: 2px solid #CC7C5E;
+			text-align: left;
+		}
+		.mini-table td {
+			padding: 4px 8px;
+			border-bottom: 1px solid #ede8e0;
+			vertical-align: middle;
+		}
+		.mini-table tr:last-child td { border-bottom: none; }
+		.ok  { color: #53B467; font-weight: bold; text-align: center; }
+		.bad { color: #e07060; font-weight: bold; text-align: center; }
+
+		/* Activity steps */
+		.activity-step {
+			display: flex;
+			align-items: flex-start;
+			gap: 11px;
+			margin: 7px 0;
+			font-size: 0.86em;
+		}
+		.activity-num {
+			background: #53B467;
+			color: white;
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+			font-size: 0.80em;
+			flex-shrink: 0;
+			margin-top: 1px;
+		}
+
+		/* Checklist (full-size, for standard use) */
+		.checklist {
+			list-style: none;
+			margin-left: 0 !important;
+			font-size: 0.88em;
+			line-height: 1.7;
+		}
+		.checklist li::before { content: '☐  '; color: #bbb; }
+		.checklist li.check::before { content: '✓  '; color: #53B467; font-weight: bold; }
+		.checklist li.miss::before  { content: '✗  '; color: #e07060; }
+
+		/* Downward navigation hint */
+		.down-hint {
+			position: absolute;
+			bottom: 16px;
+			left: 50%;
+			transform: translateX(-50%);
+			color: #CC7C5E;
+			font-size: 0.7em;
+			opacity: 0.7;
+			letter-spacing: 0.08em;
+		}
+	</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 1: Title                                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Lecture 10</div>
+	<h1>Beyond Majority</h1>
+	<h2 style="color:#666; font-weight:400;">Two Limitations · Two Solutions</h2>
+	<p class="centered spacer" style="color:#999; font-size:0.85em;">CIS 5020 · February 26, 2026</p>
+	<p class="centered" style="color:#999; font-size:0.8em; margin-top:28px;">Press 'S' for speaker notes · ↓ to navigate inside sections</p>
+	<aside class="notes">
+		Welcome back. Today we have two things: first, we celebrate the metaphors you created on Tuesday — there were 15 of them, and some are remarkable. Then we push MJRTY past its limits. There are two distinct problems with MJRTY; today we solve both.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 2: Recap L9                                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Recap</div>
+	<h2>Tuesday: MJRTY</h2>
+	<div style="display:flex; gap:16px; margin-top:10px;">
+		<div style="flex:1;">
+			<div class="idea-box green" style="margin-bottom:8px;">
+				<strong>What you did:</strong>
+				<ul style="margin:5px 0 0 1em; line-height:1.7;">
+					<li>Inferred MJRTY from four raw traces</li>
+					<li>Applied it to elections, Twitter, DDoS, networks</li>
+					<li>Verified candidates using Hoeffding's inequality</li>
+					<li>Created 15 metaphors — dragons, flagpoles, antibodies…</li>
+				</ul>
+			</div>
+			<div class="idea-box blue" style="font-size:0.86em;">
+				<strong>The algorithm in two lines:</strong><br/>
+				<em>Match?</em> counter++ &nbsp;·&nbsp; <em>Mismatch?</em> counter−− &nbsp;·&nbsp; <em>Zero?</em> switch candidate<br/>
+				One pass · O(1) space · Deterministic
+			</div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box warn" style="font-size:0.86em; margin-bottom:8px;">
+				<strong>What MJRTY guarantees:</strong><br/>
+				If a strict majority (&gt;50%) exists → MJRTY finds it. Always. Regardless of stream order.
+			</div>
+			<div class="idea-box" style="font-size:0.86em;">
+				<strong>What it doesn't guarantee:</strong><br/>
+				If no majority exists → output is arbitrary. MJRTY can't tell the difference. You need verification.
+			</div>
+		</div>
+	</div>
+	<div class="idea-box" style="margin-top:8px; font-size:0.86em; text-align:center;">
+		<strong>Today:</strong> Two distinct limitations → two distinct solutions
+	</div>
+	<aside class="notes">
+		Quick recap, don't dwell. Students know this material. The key framing: MJRTY is powerful AND limited in two separate ways. Today we address both. Emphasize: these are DIFFERENT problems — don't let students conflate them.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 3: Two Limitations Overview                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">The Two Problems</div>
+	<h2>Two Limitations of MJRTY</h2>
+	<div style="display:flex; gap:16px; margin-top:12px;">
+		<div style="flex:1; background:#fff8f5; border:2px solid #CC7C5E; border-radius:8px; padding:14px 16px;">
+			<div class="tag">Problem 1</div>
+			<p style="font-size:1.0em; font-weight:bold; color:#CC7C5E; margin:4px 0 8px;">False Positives</p>
+			<p style="font-size:0.86em; margin:0;">MJRTY outputs a <em>candidate</em>, not a guarantee. When no majority exists, the candidate is arbitrary.</p>
+			<p style="font-size:0.82em; color:#888; margin-top:6px;"><strong>Solution:</strong> Statistical verification without storing the stream</p>
+		</div>
+		<div style="flex:1; background:#f0f6ff; border:2px solid #4a90d9; border-radius:8px; padding:14px 16px;">
+			<div class="tag blue">Problem 2</div>
+			<p style="font-size:1.0em; font-weight:bold; color:#4a90d9; margin:4px 0 8px;">Threshold Limitation</p>
+			<p style="font-size:0.86em; margin:0;">MJRTY only detects elements appearing &gt;50% of the time. What about top-2? Top-10?</p>
+			<p style="font-size:0.82em; color:#888; margin-top:6px;"><strong>Solution:</strong> Generalize the counter structure</p>
+		</div>
+	</div>
+	<div class="idea-box warn" style="margin-top:12px; font-size:0.86em; text-align:center;">
+		Different problems → different solutions → same O(1) or O(k) space spirit
+	</div>
+
+	<!--div class="down-hint" style="padding-top: 10em">↓ Metaphor gallery first — then we solve both</div-->
+
+	<aside class="notes">
+		Pause here. Make sure students understand: Problem 1 is about RELIABILITY (does the answer mean anything?). Problem 2 is about SENSITIVITY (can we catch more than just the top element?). These are orthogonal. We're about to take a creative detour into their metaphors, THEN come back and solve both.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- VERTICAL STACK: METAPHOR GALLERY (navigate ↓)                      -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section>
+
+	<!-- M1: Gallery Title -->
+	<section>
+		<div class="act-divider">Metaphor Gallery</div>
+		<h1>Your MJRTY Metaphors</h1>
+		<p style="color:#666; font-size:0.92em;">15 metaphors submitted · 6 selected for review</p>
+
+		<div style="display:flex; gap:14px; margin-top:12px;">
+			<div class="idea-box" style="flex:1.1;">
+				<strong>What we're doing:</strong>
+				<ol style="margin:5px 0 0 1em; line-height:1.65;">
+					<li>Review the 6 strongest metaphors from Tuesday</li>
+					<li>Score each against the MJRTY checklist</li>
+					<li>Vote: which would you use to explain MJRTY to a friend?</li>
+					<li>Improve one — add the one missing property</li>
+				</ol>
+			</div>
+			<div class="idea-box blue" style="flex:1;">
+				<strong>Why metaphors?</strong><br/><br/>
+				A metaphor that checks all 10 boxes doesn't just describe MJRTY — it <em>teaches</em> MJRTY.
+				The goal: make the algorithm feel <em>inevitable</em>.
+			</div>
+		</div>
+
+		<div class="idea-box warn" style="margin-top:10px;">
+			<strong>The checklist:</strong> 4 core mechanics · 3 algorithmic properties · 3 correctness conditions · 3 bonus
+		</div>
+		<aside class="notes">
+			Navigate ↓ through this gallery. Takes about 15 minutes with discussion. You can skip any metaphor slide if time is tight — vote and improve activity are the key payoffs.
+		</aside>
+	</section>
+
+	<!-- M2: Dragon Slaying (Tianyu) -->
+	<section>
+		<div class="act-divider">Metaphor 1 of 6</div>
+		<div style="display:flex; gap:20px; align-items:flex-start; margin-top:4px;">
+			<div style="flex:1.7;">
+				<span class="meta-emoji">🐉</span>
+				<div class="meta-title">Dragon Slaying</div>
+				<div class="meta-author">Tianyu · Lecture 9 Metaphor Activity</div>
+				<div class="meta-quote">
+					"MJRTY is like a dragon-slaying quest — each hero who defeats the dragon becomes the new dragon; allies give the dragon strength (+1), but a lone hero always slays one ally (−1); when the dragon falls alone, the next hero transforms — yet the one who keeps rising is always the true majority."
+				</div>
+				<img class="meta-img" src="images/1-mjrty-metaphor-illustrations/concept-1.1-dragon-slaying.png"
+					alt="Dragon Slaying" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<div class="meta-img-placeholder" style="display:none;">🐉</div>
+			</div>
+			<div style="flex:1; padding-top:2px;">
+				<div class="chk-cat">Core Mechanics</div>
+				<ul class="checklist-compact">
+					<li class="check">Two-state tracking</li>
+					<li class="check">Match → increment</li>
+					<li class="check">Mismatch → decrement (1:1)</li>
+					<li class="check">Zero → switch candidate</li>
+				</ul>
+				<div class="chk-cat algo">Algorithmic Properties</div>
+				<ul class="checklist-compact">
+					<li class="check">Deterministic</li>
+					<li class="check">One-pass streaming</li>
+					<li class="check">O(1) space</li>
+				</ul>
+				<div class="chk-cat corr">Correctness</div>
+				<ul class="checklist-compact">
+					<li class="check">Correct if majority exists</li>
+					<li class="miss">Graceful failure (no majority)</li>
+					<li class="check">Counter volatility natural</li>
+				</ul>
+				<div class="chk-cat bonus">Bonus</div>
+				<ul class="checklist-compact">
+					<li class="check">Intuitive to non-experts</li>
+					<li class="check">Memorable</li>
+					<li class="check">Reveals why it works</li>
+				</ul>
+				<div class="score-badge">9/10 core &nbsp;·&nbsp; 3/3 bonus</div>
+			</div>
+		</div>
+		<aside class="notes">
+			Dragon = candidate, strength = counter. Beautiful narrative. Misses: "the one who keeps rising is always the true majority" implies the algorithm is always correct — but it isn't when no majority exists.
+		</aside>
+	</section>
+
+	<!-- M3: Flagpole (Maya D) -->
+	<section>
+		<div class="act-divider">Metaphor 2 of 6</div>
+		<div style="display:flex; gap:20px; align-items:flex-start; margin-top:4px;">
+			<div style="flex:1.7;">
+				<span class="meta-emoji">🚩</span>
+				<div class="meta-title">The Flagpole</div>
+				<div class="meta-author">Maya D · Lecture 9 Metaphor Activity</div>
+				<div class="meta-quote">
+					"A single flagpole stands on a hilltop. A long column of soldiers from various armies marches past it, one by one. Each soldier follows one rule: If the pole is bare, plant your flag. If your flag already flies, tie a knot. If an enemy flag flies, cut one knot. If that was the last knot, the flag falls."
+				</div>
+				<img class="meta-img" src="images/1-mjrty-metaphor-illustrations/concept-1.2-flagpole.png"
+					alt="Flagpole" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<div class="meta-img-placeholder" style="display:none;">🚩</div>
+			</div>
+			<div style="flex:1; padding-top:2px;">
+				<div class="chk-cat">Core Mechanics</div>
+				<ul class="checklist-compact">
+					<li class="check">Two-state tracking</li>
+					<li class="check">Match → tie a knot</li>
+					<li class="check">Mismatch → cut one knot (1:1)</li>
+					<li class="check">Zero → flag falls, plant yours</li>
+				</ul>
+				<div class="chk-cat algo">Algorithmic Properties</div>
+				<ul class="checklist-compact">
+					<li class="check">Deterministic</li>
+					<li class="check">One-pass streaming</li>
+					<li class="check">O(1) space (flag + knot count)</li>
+				</ul>
+				<div class="chk-cat corr">Correctness</div>
+				<ul class="checklist-compact">
+					<li class="check">Correct if majority exists</li>
+					<li class="check">Graceful failure — some flag always flies</li>
+					<li class="check">Counter volatility natural</li>
+				</ul>
+				<div class="chk-cat bonus">Bonus</div>
+				<ul class="checklist-compact">
+					<li class="check">Intuitive to non-experts</li>
+					<li class="check">Memorable</li>
+					<li class="check">Reveals why it works</li>
+				</ul>
+				<div class="score-badge perfect">10/10 core &nbsp;·&nbsp; 3/3 bonus ⭐</div>
+			</div>
+		</div>
+		<aside class="notes">
+			The only 10/10 metaphor. Gets "graceful failure" naturally — a flag always flies, but the mechanism never claims it's the winner. When equal armies cancel, some flag just happens to remain. That's honest.
+		</aside>
+	</section>
+
+	<!-- M4: Immune System (Pearl) -->
+	<section>
+		<div class="act-divider">Metaphor 3 of 6</div>
+		<div style="display:flex; gap:20px; align-items:flex-start; margin-top:4px;">
+			<div style="flex:1.7;">
+				<span class="meta-emoji">🦠</span>
+				<div class="meta-title">Immune System</div>
+				<div class="meta-author">Pearl · Lecture 9 Metaphor Activity</div>
+				<div class="meta-quote">
+					"The immune system fights against a lot of foreign bodies and needs to find the majority pathogen. Each antibody generated neutralizes one pathogen by binding to its antigen. The body can't make lots of different antigens at once so it prioritizes one hypothesis of the majority invader until it switches candidates."
+				</div>
+				<img class="meta-img" src="images/1-mjrty-metaphor-illustrations/concept-1.3-immune-system.png"
+					alt="Immune System" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<div class="meta-img-placeholder" style="display:none;">🦠</div>
+			</div>
+			<div style="flex:1; padding-top:2px;">
+				<div class="chk-cat">Core Mechanics</div>
+				<ul class="checklist-compact">
+					<li class="check">Two-state tracking (hypothesis + antibody count)</li>
+					<li class="check">Match → increment</li>
+					<li class="check">Mismatch → neutralize (1:1)</li>
+					<li class="check">Zero → switch candidate</li>
+				</ul>
+				<div class="chk-cat algo">Algorithmic Properties</div>
+				<ul class="checklist-compact">
+					<li class="check">Deterministic</li>
+					<li class="check">One-pass streaming</li>
+					<li class="check">O(1) space (one hypothesis at a time)</li>
+				</ul>
+				<div class="chk-cat corr">Correctness</div>
+				<ul class="checklist-compact">
+					<li class="check">Correct if majority pathogen exists</li>
+					<li class="miss">Graceful failure (no majority)</li>
+					<li class="check">Counter volatility natural</li>
+				</ul>
+				<div class="chk-cat bonus">Bonus</div>
+				<ul class="checklist-compact">
+					<li class="check">Intuitive to non-experts</li>
+					<li class="check">Memorable</li>
+					<li class="check">Reveals why it works</li>
+				</ul>
+				<div class="score-badge">9/10 core &nbsp;·&nbsp; 3/3 bonus</div>
+			</div>
+		</div>
+		<aside class="notes">
+			Biologically sophisticated. Pearl understood in her written feedback that MJRTY produces candidates not guarantees — interesting that her metaphor doesn't encode that awareness. Good discussion: why didn't the creator's insight show up in the metaphor?
+		</aside>
+	</section>
+
+	<!-- M5: Bullet Cancellation (Zhexu) -->
+	<section>
+		<div class="act-divider">Metaphor 4 of 6</div>
+		<div style="display:flex; gap:20px; align-items:flex-start; margin-top:4px;">
+			<div style="flex:1.7;">
+				<span class="meta-emoji">🎮</span>
+				<div class="meta-title">Bullet Cancellation</div>
+				<div class="meta-author">Zhexu · Lecture 9 Metaphor Activity</div>
+				<div class="meta-quote">
+					"It's a survival game of bullet cancellation: if one color has more than 50% of the ammo, it will outlast everyone else even if the entire world teams up to cancel it out."
+				</div>
+				<img class="meta-img" src="images/1-mjrty-metaphor-illustrations/concept-1.4-bullet-cancellation.png"
+					alt="Bullet Cancellation" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<div class="meta-img-placeholder" style="display:none;">🎮</div>
+			</div>
+			<div style="flex:1; padding-top:2px;">
+				<div class="chk-cat">Core Mechanics</div>
+				<ul class="checklist-compact">
+					<li class="check">Two-state tracking (dominant color + ammo)</li>
+					<li class="check">Match → increment</li>
+					<li class="check">Mismatch → cancel (1:1)</li>
+					<li class="check">Zero → switch dominant color</li>
+				</ul>
+				<div class="chk-cat algo">Algorithmic Properties</div>
+				<ul class="checklist-compact">
+					<li class="check">Deterministic</li>
+					<li class="check">One-pass streaming</li>
+					<li class="check">O(1) space</li>
+				</ul>
+				<div class="chk-cat corr">Correctness</div>
+				<ul class="checklist-compact">
+					<li class="check">Correct if majority exists (&gt;50% survives)</li>
+					<li class="miss">Graceful failure (no majority)</li>
+					<li class="check">Counter volatility natural</li>
+				</ul>
+				<div class="chk-cat bonus">Bonus</div>
+				<ul class="checklist-compact">
+					<li class="check">Intuitive to non-experts</li>
+					<li class="check">Memorable</li>
+					<li class="check">Reveals why it works</li>
+				</ul>
+				<div class="score-badge">9/10 core &nbsp;·&nbsp; 3/3 bonus</div>
+			</div>
+		</div>
+		<aside class="notes">
+			Two sentences that nail the correctness proof. "Even if the entire world teams up to cancel it out" — that IS the argument. Misses: what color survives if no one has &gt;50%? The metaphor frames only the success case.
+		</aside>
+	</section>
+
+	<!-- M6: Bar Tab (Max) -->
+	<section>
+		<div class="act-divider">Metaphor 5 of 6</div>
+		<div style="display:flex; gap:20px; align-items:flex-start; margin-top:4px;">
+			<div style="flex:1.7;">
+				<span class="meta-emoji">🍺</span>
+				<div class="meta-title">Bar Tab</div>
+				<div class="meta-author">Max · Lecture 9 Metaphor Activity</div>
+				<div class="meta-quote">
+					"A bar wants to find the biggest drinker. Starts a tab on a napkin with name and bev count, add to count every drink ordered, decrement every mismatch. On 0 bevs, start a new tab with next person."
+				</div>
+				<img class="meta-img" src="images/1-mjrty-metaphor-illustrations/concept-1.5-bar-tab.png"
+					alt="Bar Tab" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<div class="meta-img-placeholder" style="display:none;">🍺</div>
+			</div>
+			<div style="flex:1; padding-top:2px;">
+				<div class="chk-cat">Core Mechanics</div>
+				<ul class="checklist-compact">
+					<li class="check">Two-state tracking (name + bev count)</li>
+					<li class="check">Match → increment</li>
+					<li class="check">Mismatch → decrement (1:1)</li>
+					<li class="check">Zero → start new tab</li>
+				</ul>
+				<div class="chk-cat algo">Algorithmic Properties</div>
+				<ul class="checklist-compact">
+					<li class="check">Deterministic</li>
+					<li class="check">One-pass streaming</li>
+					<li class="check">O(1) space (just a napkin)</li>
+				</ul>
+				<div class="chk-cat corr">Correctness</div>
+				<ul class="checklist-compact">
+					<li class="check">Correct if majority drinker exists</li>
+					<li class="miss">Graceful failure (no majority)</li>
+					<li class="check">Counter volatility natural</li>
+				</ul>
+				<div class="chk-cat bonus">Bonus</div>
+				<ul class="checklist-compact">
+					<li class="check">Intuitive to non-experts</li>
+					<li class="check">Memorable</li>
+					<li class="miss">Reveals why it works</li>
+				</ul>
+				<div class="score-badge">9/10 core &nbsp;·&nbsp; 2/3 bonus</div>
+			</div>
+		</div>
+		<aside class="notes">
+			"A napkin" as the O(1) space constraint is genuinely clever. Most relatable metaphor in the set. Loses a bonus point for not revealing WHY the majority drinker survives — the procedure is described but the mechanism behind correctness isn't.
+		</aside>
+	</section>
+
+	<!-- M7: Robot Balancing (Xiaohan) -->
+	<section>
+		<div class="act-divider">Metaphor 6 of 6</div>
+		<div style="display:flex; gap:20px; align-items:flex-start; margin-top:4px;">
+			<div style="flex:1.7;">
+				<span class="meta-emoji">🤖</span>
+				<div class="meta-title">Robot Balancing</div>
+				<div class="meta-author">Xiaohan · Lecture 9 Metaphor Activity</div>
+				<div class="meta-quote">
+					"Balancing a robot is like MJRTY because the robot doesn't trust a single torque command. Each control step proposes a small correction direction. The robot's orientation ends up following the direction that most consecutive torque commands agree on."
+				</div>
+				<img class="meta-img" src="images/1-mjrty-metaphor-illustrations/concept-1.6-robot-balancing.png"
+					alt="Robot Balancing" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<div class="meta-img-placeholder" style="display:none;">🤖</div>
+			</div>
+			<div style="flex:1; padding-top:2px;">
+				<div class="chk-cat">Core Mechanics</div>
+				<ul class="checklist-compact">
+					<li class="check">Two-state tracking (direction + consensus)</li>
+					<li class="check">Match → reinforce</li>
+					<li class="check">Mismatch → cancel (opposing torque)</li>
+					<li class="check">Zero → switch direction</li>
+				</ul>
+				<div class="chk-cat algo">Algorithmic Properties</div>
+				<ul class="checklist-compact">
+					<li class="check">Deterministic</li>
+					<li class="check">One-pass streaming</li>
+					<li class="check">O(1) space</li>
+				</ul>
+				<div class="chk-cat corr">Correctness</div>
+				<ul class="checklist-compact">
+					<li class="check">Correct if majority direction exists</li>
+					<li class="miss">Graceful failure (balanced commands)</li>
+					<li class="check">Counter volatility natural (oscillation)</li>
+				</ul>
+				<div class="chk-cat bonus">Bonus</div>
+				<ul class="checklist-compact">
+					<li class="miss">Intuitive to non-experts (needs control theory)</li>
+					<li class="check">Memorable (surprising crossover)</li>
+					<li class="miss">Reveals why it works</li>
+				</ul>
+				<div class="score-badge">9/10 core &nbsp;·&nbsp; 1/3 bonus</div>
+			</div>
+		</div>
+		<aside class="notes">
+			Control-theory crossover — counter volatility is especially natural here (oscillation while seeking balance is a perfect image). Loses: "intuitive to non-experts" requires knowing what torque means. "Most consecutive commands agree on" subtly misrepresents: it's cumulative majority, not consecutive agreement.
+		</aside>
+	</section>
+
+	<!-- M8: Vote -->
+	<section data-background-color="#f0f6ff">
+		<div class="act-divider" style="background:#4a90d9;">Class Vote</div>
+		<h2 style="color:#4a90d9;">Which metaphor would you use to explain MJRTY to a friend who has never taken algorithms?</h2>
+
+		<div class="vote-grid" style="margin-top:8px;">
+			<div class="vote-card">
+				<span class="vc-emoji">🐉</span>
+				<span class="vc-title">Dragon Slaying</span>
+				<span class="vc-name">Tianyu</span>
+				<span class="vc-score">9/10 + 3 bonus</span>
+			</div>
+			<div class="vote-card">
+				<span class="vc-emoji">🚩</span>
+				<span class="vc-title">The Flagpole</span>
+				<span class="vc-name">Maya D</span>
+				<span class="vc-score perfect">10/10 + 3 bonus ⭐</span>
+			</div>
+			<div class="vote-card">
+				<span class="vc-emoji">🦠</span>
+				<span class="vc-title">Immune System</span>
+				<span class="vc-name">Pearl</span>
+				<span class="vc-score">9/10 + 3 bonus</span>
+			</div>
+			<div class="vote-card">
+				<span class="vc-emoji">🎮</span>
+				<span class="vc-title">Bullet Cancellation</span>
+				<span class="vc-name">Zhexu</span>
+				<span class="vc-score">9/10 + 3 bonus</span>
+			</div>
+			<div class="vote-card">
+				<span class="vc-emoji">🍺</span>
+				<span class="vc-title">Bar Tab</span>
+				<span class="vc-name">Max</span>
+				<span class="vc-score">9/10 + 2 bonus</span>
+			</div>
+			<div class="vote-card">
+				<span class="vc-emoji">🤖</span>
+				<span class="vc-title">Robot Balancing</span>
+				<span class="vc-name">Xiaohan</span>
+				<span class="vc-score">9/10 + 1 bonus</span>
+			</div>
+		</div>
+		<div class="activity-url" style="margin-top:10px; font-size:1.1em;">slido.com/5020</div>
+		<div class="idea-box blue" style="margin-top:6px; font-size:0.86em; text-align:center;">
+			Poll: <strong>"Which metaphor would you use to explain MJRTY to a friend who has never taken algorithms?"</strong>
+		</div>
+		<aside class="notes">
+			Read Slido results live as they come in. Then ask: "What does it mean for a metaphor to make an algorithm feel inevitable?" Target insight: a great metaphor doesn't just describe the procedure — it makes it obvious WHY the majority element must survive.
+		</aside>
+	</section>
+
+	<!-- M9: Fails Gracefully -->
+	<section>
+		<div class="act-divider">The Missing Property</div>
+		<h2>"Fails Gracefully" — Why It's the Hardest</h2>
+
+		<div style="display:flex; gap:16px; margin-top:8px;">
+			<div style="flex:1.1;">
+				<div class="idea-box blue" style="margin-bottom:8px;">
+					<strong>MJRTY has two very different behaviors:</strong>
+					<ul style="margin:6px 0 0 1em; line-height:1.7;">
+						<li><span style="color:#53B467; font-weight:bold;">Majority exists</span> → MJRTY always outputs the majority element. Guaranteed.</li>
+						<li><span style="color:#e07060; font-weight:bold;">No majority</span> → MJRTY outputs <em>some</em> candidate, but it might be completely arbitrary.</li>
+					</ul>
+				</div>
+				<div class="idea-box warn" style="font-size:0.85em;">
+					<strong>The algorithm cannot tell these cases apart.</strong><br/>
+					It always produces a candidate. The caller must verify.
+				</div>
+			</div>
+			<div style="flex:1;">
+				<div class="idea-box" style="margin-bottom:8px; font-size:0.84em;">
+					<strong>Why metaphors miss this:</strong><br/>
+					Stories have protagonists who "win." The hero slays the dragon. The strongest survives. These narratives imply a meaningful victor — but MJRTY's victor may be meaningless.
+				</div>
+				<div class="idea-box green" style="font-size:0.84em;">
+					<strong>Why the Flagpole gets it right:</strong><br/>
+					A flag always flies after the last soldier — but the mechanism never claims it's the winner. The uncertainty is built into the structure.
+				</div>
+			</div>
+		</div>
+		<div style="margin-top:10px; background:#f9f5ff; border-left:4px solid #8e6bb8; padding:9px 14px; font-size:0.83em; line-height:1.5;">
+			<strong>Model sentence:</strong>
+			<span style="color:#8e6bb8; font-style:italic;">"…but if no army had a true majority, the flag flying at the end is whoever outlasted the others — not necessarily the largest force."</span>
+		</div>
+		<aside class="notes">
+			Key pedagogical moment. MJRTY is correct BY DESIGN: it gives a CANDIDATE, not a PROOF. The algorithm's contract: "if a majority exists, I find it; if not, I give you someone, no promises." The Flagpole is honest because the mechanism never claims the flag is the winner.
+		</aside>
+	</section>
+
+	<!-- M10: Improve Activity -->
+	<section data-background-color="#f5fff7">
+		<div class="act-divider" style="background:#53B467;">Improve Activity — 4 min</div>
+		<h2 style="color:#53B467;">Add "Fails Gracefully" to a metaphor</h2>
+
+		<div style="display:flex; gap:16px; margin-top:6px;">
+			<div style="flex:1.3;">
+				<p style="font-size:0.86em; margin-bottom:5px;"><strong>5 of 6 metaphors miss this. Here's where they land:</strong></p>
+				<table class="mini-table">
+					<thead><tr><th>Metaphor</th><th>Missing</th></tr></thead>
+					<tbody>
+						<tr><td>🐉 Dragon Slaying</td><td class="bad">Fails gracefully</td></tr>
+						<tr><td>🦠 Immune System</td><td class="bad">Fails gracefully</td></tr>
+						<tr><td>🎮 Bullet Cancellation</td><td class="bad">Fails gracefully</td></tr>
+						<tr><td>🍺 Bar Tab</td><td class="bad">Fails gracefully + reveals why</td></tr>
+						<tr><td>🤖 Robot Balancing</td><td class="bad">Fails gracefully + intuitive + reveals why</td></tr>
+						<tr><td>🚩 Flagpole</td><td class="ok">✓ 10/10</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="flex:1;">
+				<div class="activity-step">
+					<div class="activity-num">1</div>
+					<div><strong>Pick your own metaphor</strong> from Tuesday (check your notes) — OR choose Dragon Slaying or Bullet Cancellation.</div>
+				</div>
+				<div class="activity-step">
+					<div class="activity-num">2</div>
+					<div><strong>Add exactly one sentence</strong> making clear: when no majority exists, the output is arbitrary, not guaranteed.</div>
+				</div>
+				<div class="activity-step">
+					<div class="activity-num">3</div>
+					<div><strong>Check:</strong> Does it break the metaphor's logic? Feel natural or forced?</div>
+				</div>
+				<div class="idea-box green" style="margin-top:8px; font-size:0.82em;">
+					<strong>Model (Flagpole):</strong> "…but if no army had a true majority, the flag at the end is just whoever outlasted the others."
+				</div>
+			</div>
+		</div>
+		<aside class="notes">
+			4 minutes. Then ask 2 volunteers to share. Key discussion: if the new sentence feels like a footnote or disclaimer, the metaphor can't carry the failure mode gracefully — and THAT tells us something about its limits.
+		</aside>
+	</section>
+
+</section>
+<!-- ═════════════════ END VERTICAL STACK ════════════════════ -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 4: Transition back                                -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Now: The Problems</div>
+	<h2>Beautiful work. Now let's push MJRTY to its limits.</h2>
+
+	<div style="display:flex; gap:16px; margin-top:14px;">
+		<div style="flex:1; background:#fff8f5; border:2px solid #CC7C5E; border-radius:8px; padding:14px 16px;">
+			<div class="tag">Problem 1</div>
+			<p style="font-weight:bold; color:#CC7C5E; margin:6px 0;">Verification</p>
+			<p style="font-size:0.85em; margin:0;">How do we <em>know</em> MJRTY's candidate is real?<br/>We can't store the stream to double-check.</p>
+		</div>
+		<div style="flex:1; background:#f0f6ff; border:2px solid #4a90d9; border-radius:8px; padding:14px 16px;">
+			<div class="tag blue">Problem 2</div>
+			<p style="font-weight:bold; color:#4a90d9; margin:6px 0;">Beyond 50%</p>
+			<p style="font-size:0.85em; margin:0;">What if there's no majority?<br/>Can we find the top-2? Top-10?</p>
+		</div>
+	</div>
+
+	<div class="idea-box" style="margin-top:14px; font-size:0.9em;">
+		We'll tackle <strong>Problem 2 first</strong> — it builds directly on your Challenge Card intuition from Tuesday.
+	</div>
+	<aside class="notes">
+		Callback to Challenge Card 1 from Tuesday: "MJRTY uses 1 counter for >50%. How many counters for >25%?" Some of you wrestled with this. Let's see what you found.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 5: Problem 2 — The Twitter Scenario               -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Problem 2</div>
+	<h2>When There's No Majority</h2>
+
+	<div class="idea-box blue" style="margin-top:10px; font-size:0.9em;">
+		<strong>From Tuesday's Scenario 3 — Trending Hashtags:</strong>
+		<ul style="margin:6px 0 0 1em; line-height:1.8;">
+			<li>#AI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; → 40% of all tweets</li>
+			<li>#MachineLearning → 35% of all tweets</li>
+			<li>#DeepLearning &nbsp;&nbsp; → 25% of all tweets</li>
+		</ul>
+	</div>
+
+	<div style="display:flex; gap:14px; margin-top:10px;">
+		<div class="idea-box" style="flex:1; font-size:0.86em;">
+			<strong>What MJRTY outputs:</strong><br/>
+			Some candidate — probably #AI or #MachineLearning, but not guaranteed.
+			No majority exists → output is arbitrary.
+		</div>
+		<div class="idea-box green" style="flex:1.2; font-size:0.86em;">
+			<strong>What we WANT:</strong><br/>
+			All elements with frequency &gt;33%.<br/>
+			(Top-2 heavy hitters — in this case, both #AI and #MachineLearning.)
+		</div>
+	</div>
+
+	<div class="idea-box warn" style="margin-top:10px; font-size:0.88em;">
+		This is the <strong>k-iceberg problem</strong>: find all elements appearing more than 1/k of the time.
+	</div>
+	<aside class="notes">
+		Students already encountered this in Tuesday's activity. Now we formalize the question. k-iceberg: element appearing >1/k of the time. For k=2, that's majority. For k=3, that's top-2.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 6: Activity 1 — Design the Generalization         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section data-background-color="#f0f6ff">
+	<div class="act-divider" style="background:#4a90d9;">Activity 1 — 12 min</div>
+	<h2 style="color:#4a90d9;">Modify MJRTY to Find Top-2</h2>
+
+	<div style="display:flex; gap:16px; margin-top:8px;">
+		<div style="flex:1.2;">
+			<div class="idea-box blue" style="margin-bottom:8px;">
+				<strong>The challenge:</strong> Design an algorithm to find <em>both</em> elements with frequency &gt;33%.
+				<ul style="margin:5px 0 0 1em; line-height:1.7;">
+					<li>Fixed number of variables (no unbounded storage)</li>
+					<li>One pass through the stream</li>
+					<li>Must handle: matches candidate 1, matches candidate 2, matches <em>neither</em></li>
+				</ul>
+			</div>
+			<div class="idea-box warn" style="font-size:0.86em;">
+				<strong>The tricky part:</strong> What happens when an element matches <em>neither</em> candidate?
+				<br/>This is the key insight. Think carefully.
+			</div>
+		</div>
+		<div style="flex:1;">
+			<p style="font-size:0.88em; font-weight:bold; margin-bottom:6px;">Work with your neighbor:</p>
+			<ul style="font-size:0.86em; line-height:1.7;">
+				<li>You'll need 2 candidates + 2 counters</li>
+				<li>Element matches candidate1 → ?</li>
+				<li>Element matches candidate2 → ?</li>
+				<li>Element matches <em>neither</em> → ?</li>
+			</ul>
+			<div style="margin-top:8px;">
+				<p style="font-size:0.74em; color:#555; font-weight:bold; margin-bottom:3px;">MJRTY in StreamLang (starting point):</p>
+				<div class="algo-block" style="font-size:0.58em; line-height:1.45;"><span class="kw">let</span> <span class="cand">cand</span>: Element = read(); <span class="kw">let</span> cnt: Count = <span class="num">1</span>;
+<span class="kw">while</span> (hasNext()) {
+  <span class="kw">let</span> x: Element = read();
+  <span class="kw">if</span> (equal(x,<span class="cand">cand</span>)==<span class="num">1</span>) { cnt=cnt<span class="plus">+1</span>; }
+  <span class="kw">else</span>               { cnt=cnt<span class="minus">-1</span>; }
+  <span class="kw">if</span> (cnt==<span class="num">0</span>) { <span class="cand">cand</span>=x; cnt=<span class="num">1</span>; }
+}
+<span class="kw">return</span> <span class="cand">cand</span>;</div>
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		Circulate. The key insight is: when element matches NEITHER candidate, it "fights" BOTH candidates simultaneously — both counters decrement. This is not obvious. Students who figured it out from the challenge card should be asked to share without giving away the answer.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 7: Slido — Submit your update rule                -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section data-background-color="#f0f6ff">
+	<div class="act-divider" style="background:#4a90d9;">Slido</div>
+	<h2 style="color:#4a90d9;">What's your update rule?</h2>
+
+	<div class="activity-url">slido.com/5020</div>
+
+	<div class="idea-box blue" style="margin-top:10px; font-size:0.9em; text-align:center;">
+		In one sentence: <strong>When an element matches neither candidate, what do you do?</strong>
+	</div>
+
+	<div class="idea-box" style="margin-top:10px; font-size:0.86em;">
+		Submit your rule — I'll share responses on screen as they come in.
+		No wrong answers — we're comparing intuitions.
+	</div>
+	<aside class="notes">
+		Read a few answers aloud. Common ones: "decrement one counter" (wrong — only handles one conflict), "pick the one with lower count to decrement" (close but ad hoc), "decrement BOTH" (correct). Give 2 min for Slido, then reveal.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 8: Reveal — the k-iceberg pattern                 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">The Pattern</div>
+	<h2>The Generalized Algorithm</h2>
+
+	<div style="display:flex; gap:16px; margin-top:8px;">
+		<div style="flex:1.3;">
+			<div class="algo-block" style="font-size:0.64em;"><span class="cmt">// Two candidates, two counters</span>
+<span class="kw">let</span> <span class="cand">c1</span>, <span class="cand">c2</span>: Element  <span class="cmt">// candidates</span>
+<span class="kw">let</span> k1, k2: Count = <span class="num">0</span>  <span class="cmt">// counters</span>
+
+<span class="kw">for each</span> element x <span class="kw">in</span> stream:
+  <span class="kw">if</span> x == <span class="cand">c1</span>:
+    k1<span class="plus">++</span>
+  <span class="kw">else if</span> x == <span class="cand">c2</span>:
+    k2<span class="plus">++</span>
+  <span class="kw">else</span>:             <span class="cmt">// matches neither</span>
+    k1<span class="minus">--</span>            <span class="cmt">// ← the key insight:</span>
+    k2<span class="minus">--</span>            <span class="cmt">//   fight BOTH simultaneously</span>
+    <span class="kw">if</span> k1 == <span class="num">0</span>:
+      <span class="cand">c1</span> = x; k1 = <span class="num">1</span>
+    <span class="kw">if</span> k2 == <span class="num">0</span>:
+      <span class="cand">c2</span> = x; k2 = <span class="num">1</span>
+
+<span class="kw">return</span> {<span class="cand">c1</span>, <span class="cand">c2</span>}  <span class="cmt">// candidates, not guarantees</span></div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box green" style="margin-bottom:8px; font-size:0.86em;">
+				<strong>The insight:</strong> When an element matches neither candidate, it "fights" both simultaneously — one from each camp is eliminated.
+			</div>
+			<div class="idea-box" style="font-size:0.86em; margin-bottom:8px;">
+				<strong>Why this works:</strong> If an element appears &gt;1/3 of the time, it can't be completely cancelled by all the others combined.
+			</div>
+			<div class="idea-box warn" style="font-size:0.86em;">
+				<strong>O(1) space</strong> · <strong>One pass</strong> · <strong>Deterministic</strong><br/>
+				Same properties as MJRTY, now for k=3 icebergs.
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		Walk through the ELSE case slowly. "This is the insight: a non-matching element fights both candidates simultaneously — like it defeats one representative from each." Then ask: "Can you generalize this to k-1 counters for any k?"
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 9: The Generalization + Paper Connection           -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Generalization</div>
+	<h2>k-Icebergs: The General Pattern</h2>
+
+	<div style="display:flex; gap:16px; margin-top:8px;">
+		<div style="flex:1.2;">
+			<div class="idea-box" style="margin-bottom:8px;">
+				<strong>The k-iceberg:</strong> An element appearing more than 1/k of the time in a stream of N elements.
+			</div>
+			<table class="prob-table">
+				<thead><tr><th>k</th><th>Threshold</th><th>Counters needed</th><th>Finds</th></tr></thead>
+				<tbody>
+					<tr><td>2</td><td>&gt;50%</td><td>1 (MJRTY)</td><td>The majority</td></tr>
+					<tr><td>3</td><td>&gt;33%</td><td>2</td><td>Top-2 heavy hitters</td></tr>
+					<tr><td>10</td><td>&gt;10%</td><td>9</td><td>Top-9 heavy hitters</td></tr>
+					<tr><td>k</td><td>&gt;1/k</td><td>k−1</td><td>All k-icebergs</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box blue" style="margin-bottom:8px; font-size:0.86em;">
+				<strong>Real-world k-icebergs:</strong>
+				<ul style="margin:5px 0 0 1em; line-height:1.7;">
+					<li>DDoS: top-10 attacking IPs in packet stream</li>
+					<li>Twitter: top-20 trending hashtags</li>
+					<li>Database: top-100 most queried records</li>
+					<li>Network: dominant protocols by byte count</li>
+				</ul>
+			</div>
+			<div class="idea-box green" style="font-size:0.86em;">
+				<strong>You just derived the Misra-Gries structure.</strong>
+				The paper you read on Perusall formalizes this exact idea —
+				they call the candidates a "bag" of size k−1.
+				<br/><em>You built it first.</em>
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		The Misra-Gries (1982) paper is theoretical — no implementation details. Students derived the update rule themselves. The paper proves the correctness guarantee formally. Also worth noting: k-1 counters is O(k) space, one pass, deterministic — same spirit as MJRTY.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 10: Transition to Problem 1                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Problem 1</div>
+	<h2>Verification: How Do We Know the Candidate Is Real?</h2>
+
+	<div style="display:flex; gap:16px; margin-top:10px;">
+		<div style="flex:1;">
+			<div class="arc-row">
+				<div class="arc-node solved">✓ Problem 2</div>
+				<div class="arc-arrow">→</div>
+				<div style="font-size:0.85em; color:#555;">k−1 counters → k-icebergs · O(k) space · one pass</div>
+			</div>
+			<div class="arc-row" style="margin-top:8px;">
+				<div class="arc-node active">Problem 1</div>
+				<div class="arc-arrow">→</div>
+				<div style="font-size:0.85em; color:#555; font-weight:bold;">How to verify a candidate without storing the stream?</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="idea-box blue" style="margin-top:14px; font-size:0.9em;">
+		<strong>Recall from Tuesday's Activity 3:</strong><br/>
+		Hoeffding's inequality tells us: sample ~600 elements, count how many are the candidate, and get 95% confidence.
+		<br/><br/>
+		<strong>The hard part:</strong> How do we get 600 <em>uniformly random</em> samples from a stream we can't store?
+	</div>
+	<aside class="notes">
+		Bridge back to Lecture 8's Hoeffding bound — it already gave us the sample size we need. The remaining problem is purely mechanical: how do you sample from a stream? This is the surprise of reservoir sampling — the solution is elegant and counterintuitive.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 11: Slido — How would you sample?                 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Before the Answer</div>
+	<h2>How would <em>you</em> take a random sample from a stream?</h2>
+
+	<div class="activity-url">slido.com/5020</div>
+
+	<div class="idea-box" style="margin-top:10px; font-size:0.9em; text-align:center;">
+		Open text poll: <strong>"How would you take a 10% random sample from a live stream?"</strong>
+		<br/>No wrong answers — we're exploring intuitions.
+	</div>
+	<aside class="notes">
+		Read answers aloud. Common ones: "flip coin each time with 10% probability" (variable sample size!), "take every 10th element" (not random — adversary can exploit pattern), "store all then sample" (defeats the whole point). All wrong for specific reasons — surface those reasons before presenting the solution.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 12: Naive Approaches Fail                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">The Challenge</div>
+	<h2>Why Naive Approaches Break</h2>
+
+	<div style="display:flex; gap:16px; margin-top:10px;">
+		<div style="flex:1;">
+			<div class="idea-box" style="margin-bottom:8px; font-size:0.88em;">
+				<strong>❌ Flip a coin (10% chance each element)</strong><br/>
+				Sample <em>size</em> varies randomly: sometimes 8%, sometimes 12%.
+				Hoeffding needs exactly m samples for its guarantee.
+			</div>
+			<div class="idea-box" style="margin-bottom:8px; font-size:0.88em;">
+				<strong>❌ Take every 10th element</strong><br/>
+				Not random — it's deterministic and periodic. An adversarial stream can place all interesting events between sampled positions.
+			</div>
+			<div class="idea-box" style="font-size:0.88em;">
+				<strong>❌ Store all, then sample</strong><br/>
+				Defeats the entire purpose. Stream is too large to store (that's why we're here).
+			</div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box green" style="font-size:0.88em; margin-bottom:8px;">
+				<strong>What we actually need:</strong>
+				<ul style="margin:6px 0 0 1em; line-height:1.7;">
+					<li>✓ Exactly m samples (not approximately)</li>
+					<li>✓ Uniform probability (every element equal chance)</li>
+					<li>✓ Works online (can't look backward)</li>
+					<li>✓ O(m) space (not O(N))</li>
+				</ul>
+			</div>
+			<div class="idea-box blue" style="font-size:0.86em;">
+				All four constraints together seem impossible.<br/>
+				They're not.
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		Let the impossibility land. Then: "There's an algorithm from 1981 — the same year as MJRTY — that solves this exactly. It's called reservoir sampling."
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 13: Reservoir Sampling                            -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">The Solution</div>
+	<h2>Reservoir Sampling (Knuth, 1981)</h2>
+
+	<div style="display:flex; gap:16px; margin-top:8px;">
+		<div style="flex:1.3;">
+			<div class="algo-block" style="font-size:0.63em; line-height:1.55;"><span class="cmt">// Keep m elements in the reservoir</span>
+<span class="kw">let</span> reservoir: Array[m]
+
+<span class="kw">for</span> each (i, x) <span class="kw">in</span> stream:
+  <span class="kw">if</span> i ≤ m:
+    reservoir[i] = x          <span class="cmt">// fill first m</span>
+  <span class="kw">else</span>:
+    j = random(<span class="num">1</span>, i)          <span class="cmt">// uniform in [1..i]</span>
+    <span class="kw">if</span> j ≤ m:
+      reservoir[j] = x        <span class="cmt">// replace: prob m/i</span>
+
+<span class="kw">return</span> reservoir              <span class="cmt">// uniform, |reservoir| = m</span></div>
+			<div class="idea-box green" style="margin-top:8px; font-size:0.85em;">
+				<strong>Guarantee:</strong> after n elements, every element has
+				probability m/n of being in the reservoir — uniform, exactly m samples.
+			</div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box" style="margin-bottom:8px; font-size:0.83em;">
+				<strong>Trace (m=3, stream A B C D E):</strong>
+				<table style="font-family:monospace; font-size:0.9em; margin-top:5px; border-collapse:collapse; width:100%;">
+					<tr><td style="padding:1px 6px;">i=1</td><td>[A, ·, ·]</td><td style="color:#888;">fill</td></tr>
+					<tr><td style="padding:1px 6px;">i=2</td><td>[A, B, ·]</td><td style="color:#888;">fill</td></tr>
+					<tr><td style="padding:1px 6px;">i=3</td><td>[A, B, C]</td><td style="color:#888;">fill</td></tr>
+					<tr><td style="padding:1px 6px;">i=4</td><td>j=rand(1,4)</td><td style="color:#888;">if j≤3: swap</td></tr>
+					<tr><td style="padding:1px 6px;">i=5</td><td>j=rand(1,5)</td><td style="color:#888;">if j≤3: swap</td></tr>
+				</table>
+			</div>
+			<div class="idea-box blue" style="font-size:0.83em;">
+				<strong>Fisher-Yates / Knuth shuffle:</strong><br/>
+				Reservoir sampling is the streaming version of the classic random shuffle — uniformity by random replacement.
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		Walk through the trace. The key question: why does this give uniform probability? Prove by induction: after n elements, each element has probability m/n (Challenge Card 2A). At i=n: each element either survived from before or replaced in the last step. The math works out elegantly.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 13b: Reservoir Roulette Activity                   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section data-background-color="#f0f6ff">
+	<div class="act-divider" style="background:#4a90d9;">Activity 2 — 15 min</div>
+	<h2 style="color:#4a90d9;">🪣 Reservoir Roulette — Feel the Algorithm</h2>
+
+	<div class="activity-url">jlumbroso.github.io/reservoir-roulette</div>
+
+	<div style="display:flex; gap:14px; margin-top:8px;">
+		<div style="flex:1.1;">
+			<div class="idea-box blue" style="margin-bottom:6px; font-size:0.86em;">
+				<strong>1️⃣ Manual Step</strong> <em>(start here · 8 min)</em><br/>
+				Step through element by element. Watch the probability m/i change.
+				See which elements survive. Try to figure out <em>why</em> it's m/i before we discuss.
+			</div>
+			<div class="idea-box" style="margin-bottom:6px; font-size:0.86em;">
+				<strong>2️⃣ Distribution Proof</strong> <em>(5 min)</em><br/>
+				Run 100 trials automatically. Histogram should show uniform distribution.
+				Verify every element really does have probability m/N.
+			</div>
+			<div class="idea-box green" style="font-size:0.86em;">
+				<strong>3️⃣ MJRTY + Sample</strong> <em>(optional, if done early)</em><br/>
+				Watch both algorithms run concurrently.
+				MJRTY finds the candidate — reservoir collects the verification sample.
+			</div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box warn" style="margin-bottom:8px; font-size:0.86em;">
+				<strong>Guiding questions:</strong>
+				<ol style="margin:5px 0 0 1em; line-height:1.7;">
+					<li>Why does probability m/i guarantee uniform sampling?</li>
+					<li>What if the stream size is unknown in advance?</li>
+					<li>How does this answer Tuesday's verification problem?</li>
+				</ol>
+			</div>
+			<div class="activity-url" style="font-size:0.85em; padding:8px 14px; margin-top:0;">slido.com/5020</div>
+			<div class="idea-box" style="font-size:0.82em; margin-top:6px; text-align:center;">
+				Poll: <strong>Activity status</strong> — Working on tab 1 / tab 2 / tab 3 / Done / Stuck
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		Circulate. Every 3 min check Slido poll. If >30% stuck: pause and walk through one example on projector showing the m/i calculation. Key moment at [~65 min]: "Who's figured out WHY it's probability m/i?" Take 1-2 student explanations. Then at [~70 min]: "Let's talk about what you discovered. The key insight: m/i at step i ensures every element has final probability m/N."
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 14: Full Verification Algorithm                   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Putting It Together</div>
+	<h2>Problem 1 Solved: Full Verification</h2>
+
+	<div style="display:flex; gap:16px; margin-top:8px;">
+		<div style="flex:1.2;">
+			<div class="idea-box blue" style="margin-bottom:8px;">
+				<strong>Run simultaneously in one pass:</strong>
+				<ol style="margin:6px 0 0 1em; line-height:1.7;">
+					<li><strong>MJRTY</strong> → finds candidate c &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(O(1) space)</li>
+					<li><strong>Reservoir sampling</strong> → collects m=600 samples &nbsp;&nbsp;(O(m) space)</li>
+					<li>After the pass: count c in the reservoir</li>
+					<li><strong>Hoeffding</strong> → 95% confidence answer</li>
+				</ol>
+			</div>
+			<div class="idea-box green" style="font-size:0.86em;">
+				<strong>Total:</strong> O(N) time · O(m) space · <em>one pass</em><br/>
+				No second pass needed. No stream stored. Statistically guaranteed.
+			</div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box warn" style="margin-bottom:8px; font-size:0.86em;">
+				<strong>Why does this work?</strong><br/>
+				MJRTY and reservoir sampling are <em>independent</em> — one reads each element to update the candidate, the other decides whether to include it in the reservoir. They can run in the same loop.
+			</div>
+			<div class="idea-box" style="font-size:0.86em;">
+				<strong>This is what Cloudflare, AWS Shield actually do.</strong><br/>
+				DDoS candidate identified by Boyer-Moore; verified by sampling-based count; Hoeffding gives the confidence bound for the firewall decision.
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		"This answers the question from Tuesday: 'How do we verify without storing traffic?' You sample DURING the same pass MJRTY is running. The insight: two algorithms can share one stream." Let that land.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 15: Synthesis                                     -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Synthesis</div>
+	<h2>Two Problems, Two Solutions</h2>
+
+	<div style="display:flex; gap:14px; margin-top:10px;">
+		<div style="flex:1; background:#fff8f5; border:2px solid #CC7C5E; border-radius:8px; padding:14px;">
+			<div class="tag">Problem 1 ✓</div>
+			<p style="font-weight:bold; color:#CC7C5E; margin:6px 0 8px;">False Positives → Verification</p>
+			<ul style="font-size:0.84em; line-height:1.7; margin-left:1em;">
+				<li>MJRTY gives candidates, not guarantees</li>
+				<li>Reservoir sampling → exact m random samples, one pass</li>
+				<li>Hoeffding → 95% confidence bound on frequency</li>
+				<li><strong>O(N) time · O(m) space · one pass</strong></li>
+			</ul>
+		</div>
+		<div style="flex:1; background:#f0f6ff; border:2px solid #4a90d9; border-radius:8px; padding:14px;">
+			<div class="tag blue">Problem 2 ✓</div>
+			<p style="font-weight:bold; color:#4a90d9; margin:6px 0 8px;">Threshold → k-Icebergs</p>
+			<ul style="font-size:0.84em; line-height:1.7; margin-left:1em;">
+				<li>MJRTY only detects &gt;50%</li>
+				<li>k−1 counters → detect all elements with &gt;1/k frequency</li>
+				<li>Same update spirit: fight both candidates on mismatch</li>
+				<li><strong>O(N) time · O(k) space · one pass</strong></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="idea-box green" style="margin-top:12px; font-size:0.86em; text-align:center;">
+		The thread: one-pass streaming algorithms with O(1) or O(k) space and statistical guarantees.
+		<br/>Started with Morris Counter (L7) · Tail bounds (L8) · MJRTY (L9) · <strong>Verification + Generalization (today)</strong>
+	</div>
+	<aside class="notes">
+		Draw the thread explicitly. Morris → tail bounds → MJRTY → verification → generalization. These aren't isolated algorithms — they're a family of ideas about compressing a stream into a tiny footprint with provable guarantees.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 16: What's Next                                   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">What's Next</div>
+	<h2>The Road Ahead</h2>
+
+	<div style="display:flex; gap:14px; margin-top:10px;">
+		<div style="flex:1;">
+			<div class="arc-row">
+				<div class="arc-node" style="background:#ede8e0; border-color:#aaa; color:#555;">L7: Morris Counter</div>
+				<div class="arc-arrow">→</div>
+				<div style="font-size:0.8em; color:#888;">approx. counting, O(log log N)</div>
+			</div>
+			<div class="arc-row">
+				<div class="arc-node" style="background:#ede8e0; border-color:#aaa; color:#555;">L8: Tail Bounds</div>
+				<div class="arc-arrow">→</div>
+				<div style="font-size:0.8em; color:#888;">Markov · Chebyshev · Hoeffding</div>
+			</div>
+			<div class="arc-row">
+				<div class="arc-node" style="background:#ede8e0; border-color:#aaa; color:#555;">L9: MJRTY</div>
+				<div class="arc-arrow">→</div>
+				<div style="font-size:0.8em; color:#888;">streaming majority, O(1) space</div>
+			</div>
+			<div class="arc-row">
+				<div class="arc-node active">L10: Generalization</div>
+				<div class="arc-arrow">→</div>
+				<div style="font-size:0.8em; color:#555; font-weight:bold;">k-icebergs + reservoir sampling</div>
+			</div>
+			<div class="arc-row">
+				<div class="arc-node" style="border-color:#53B467; color:#2d8f3f;">Next: ?</div>
+				<div class="arc-arrow">→</div>
+				<div style="font-size:0.8em; color:#888;">frequency estimation for ALL elements</div>
+			</div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box blue" style="font-size:0.86em; margin-bottom:8px;">
+				<strong>On the horizon:</strong>
+				<ul style="margin:5px 0 0 1em; line-height:1.7;">
+					<li><strong>Count-Min Sketch</strong> — approximate frequency for any query</li>
+					<li><strong>HyperLogLog</strong> — how many distinct elements? (Flajolet's masterpiece)</li>
+					<li><strong>Adaptive sampling</strong> — non-uniform streams</li>
+				</ul>
+			</div>
+			<div class="idea-box" style="font-size:0.86em;">
+				<strong>The unifying question:</strong> What can you compute with only O(1) or O(log N) space on a stream you can never rewind?
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		Andrew asked about Count-Min Sketch during Tuesday's class. It comes from this direction. HyperLogLog is Flajolet's — and it answers a question that seems even more impossible: how many distinct things have you seen? (Without storing what you've seen.)
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 17: Challenge Exercises                           -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">Optional Challenges</div>
+	<h2>For those who want to go further</h2>
+
+	<div style="display:flex; gap:14px; margin-top:8px;">
+		<div class="idea-box blue" style="flex:1;">
+			<div class="tag blue">Challenge A &nbsp;·&nbsp; Analysis</div>
+			<p style="font-weight:bold; font-size:0.9em; margin:6px 0;">Prove Reservoir Sampling is Uniform</p>
+			<p style="font-size:0.84em; margin:0 0 6px;">
+				<strong>Claim:</strong> After processing n elements, each element has probability m/n of being in the reservoir.
+			</p>
+			<p style="font-size:0.82em; color:#555;">
+				Prove by induction on n.<br/>
+				Base case: n = m (first m elements → probability 1).<br/>
+				Inductive step: element i has probability m/i; show it's m/n after all n.
+			</p>
+		</div>
+		<div class="idea-box" style="flex:1;">
+			<div class="tag">Challenge B &nbsp;·&nbsp; Design</div>
+			<p style="font-weight:bold; font-size:0.9em; margin:6px 0;">Adversarial k-Iceberg Streams</p>
+			<p style="font-size:0.84em; margin:0 0 6px;">
+				Design the stream that causes the most candidate switches for a 3-iceberg detector (2 counters, 3 elements, N=1000).
+			</p>
+			<p style="font-size:0.82em; color:#555;">
+				How many switches? Is it O(N)? O(√N)? O(log N)?<br/>
+				Bonus: can you prove your stream is adversarially optimal?
+			</p>
+		</div>
+	</div>
+
+	<div class="idea-box warn" style="margin-top:10px; font-size:0.86em;">
+		Both challenges are posted on Ed Discussion. They connect to next week's topics.
+		Challenge A: proof by induction · Challenge B: worst-case analysis
+	</div>
+	<aside class="notes">
+		Optional, no submission. Challenge A is accessible — it's a standard induction. Challenge B is the harder one, directly extends Challenge Card 3 from Tuesday. Students who got close to it before will find this a satisfying continuation.
+	</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 18: Closing                                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+	<div class="act-divider">See You Next Week</div>
+	<h2>Before you go</h2>
+
+	<div style="display:flex; gap:14px; margin-top:12px;">
+		<div style="flex:1.2;">
+			<div class="idea-box green" style="margin-bottom:10px;">
+				<strong>Quick survey — 2 min:</strong><br/>
+				What worked? What didn't? What was the most surprising thing today?
+			</div>
+			<div class="activity-url">slido.com/5020</div>
+		</div>
+		<div style="flex:1;">
+			<div class="idea-box" style="font-size:0.86em; margin-bottom:8px;">
+				<strong>Today's key takeaways:</strong>
+				<ul style="margin:5px 0 0 1em; line-height:1.7;">
+					<li>k−1 counters → k-icebergs (O(k) space)</li>
+					<li>Reservoir sampling → uniform, fixed-size sample from a stream</li>
+					<li>MJRTY + reservoir → full verification in one pass</li>
+				</ul>
+			</div>
+			<div class="idea-box blue" style="font-size:0.86em;">
+				<strong>Optional:</strong> Start reading about Count-Min Sketch.<br/>
+				Andrew's question about DDoS from Tuesday leads straight there.
+			</div>
+		</div>
+	</div>
+	<aside class="notes">
+		Thank students. Mention that today's metaphor gallery output — particularly any improved metaphors — may show up as examples in future lectures. Leave on a question: "What else can you compute with O(1) space on a live stream?" That's the thread we're pulling.
+	</aside>
+</section>
+
+</div><!-- .slides -->
+</div><!-- .reveal -->
+
+<script src="../../dist/reveal.js"></script>
+<script src="../../plugin/notes/notes.js"></script>
+<script src="../../plugin/highlight/highlight.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+	Reveal.initialize({
+		hash: true,
+		slideNumber: 'c/t',
+		transition: 'slide',
+		transitionSpeed: 'fast',
+		plugins: [ RevealNotes, RevealHighlight ],
+		width: 960,
+		height: 700,
+		margin: 0.04,
+	});
+</script>
+</body>
+</html>
