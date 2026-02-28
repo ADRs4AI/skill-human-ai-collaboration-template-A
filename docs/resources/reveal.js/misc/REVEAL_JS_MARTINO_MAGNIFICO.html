@@ -1,0 +1,1467 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Plugins for Reveal.js</title>
+    <meta name="description" content="">
+    <meta name="author" content="Martinomagnifico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="demo.css?ioqpu">
+    <link rel="stylesheet" href="reveal.js-copycode/plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="lane">
+        <div class="container">
+            <h1>Plugins for Reveal.js</h1>
+        </div>
+    </div>
+    <div class="lane narrow white">
+        <div class="container">
+            <p>A set of plugins for Reveal.js: <a href="#lane-appearance">Appearance</a>, <a href="#lane-internation">Internation</a>, <a href="#lane-verticator">Verticator</a>, <a href="#lane-smallcontrol">Smallcontrol</a>, <a href="#lane-fsfx">FsFx</a>, <a href="#lane-simplemenu">Simplemenu</a>, <a href="#lane-relativenumber">Relativenumber</a>, <a href="#lane-copycode">CopyCode</a>, <a href="#lane-fontsfirst">FontsFirst</a>, <a href="#lane-doghouse">Doghouse</a>, <a href="#lane-tagteam">Tagteam</a> and <a href="#lane-counteract">CounterAct</a>.
+            </p>
+        </div>
+    </div>
+    <div class="lane narrower"></div>
+    <div class="lane narrow darkgray">
+        <div class="container">
+            <p>These plugins all originated in a need to bend the functionality, of some presentations I did, to the way I would like it to work. The plugins also work together perfectly. You can interact with the examples right here on the page, or click "Get the plugin" to go to each separate GitHub page.</p>
+        </div>
+    </div>
+    <div class="lane" id="lane-appearance">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Appearance</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-appearance/screenshot.png')">
+                        <div class="reveal smallcontrols" id="appearance">
+                            <div class="slides">
+                                <section class="center">
+                                    <h1 class="animate__flipInX slow">Appearance</h1>
+                                    <h3 class="animate__flipInX slow" data-delay="700">for Reveal.js</h3>
+                                </section>
+                                <section class="center"><small>In Powerpoint you can make slides with items that appear automatically and sequentially with effects. Appearance is a plugin for Reveal.js that does the same. </small><small>Appearance is easy to set up. It uses <a href="https://animate.style" target="_blank">Animate.css</a> by Daniel Eden for the animations, with some changes to allow for a non-animated state. </small>
+                                    <p>Let's check out what appearance.js does:</p>
+                                </section>
+                                <section class="center">
+                                    <h3>Let text appear</h3>
+                                    <ul>
+                                        <li class="animate__bounceInLeft">Add it to any text element</li>
+                                        <li class="animate__bounceInLeft">Like list items, or headers.</li>
+                                        <li class="animate__bounceInLeft">It adds some impact.</li>
+                                    </ul>
+                                </section>
+                                <section class="center">
+                                    <h3>Let images appear</h3>
+                                    <div class="row">
+                                        <div class="padded"><img class="animate__flipInX" data-src="reveal.js-appearance/demo/assets/img/1.jpg"></div>
+                                        <div class="padded"><img class="animate__flipInX" data-src="reveal.js-appearance/demo/assets/img/2.jpg"></div>
+                                        <div class="padded"><img class="animate__flipInX" data-src="reveal.js-appearance/demo/assets/img/3.jpg"></div>
+                                        <div class="padded"><img class="animate__flipInX" data-src="reveal.js-appearance/demo/assets/img/4.jpg"></div>
+                                        <div class="padded"><img class="animate__flipInX" data-src="reveal.js-appearance/demo/assets/img/5.jpg"></div>
+                                    </div>
+                                </section>
+                                <section class="center">
+                                    <h3>Change the delay</h3><small>Use data-delay="*" on each element, where the wildcard is the delay in microseconds</small>
+                                    <div class="row">
+                                        <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/1.jpg" data-delay="200"></div>
+                                        <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/2.jpg" data-delay="160"></div>
+                                        <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/3.jpg" data-delay="120"></div>
+                                        <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/4.jpg" data-delay="80"></div>
+                                        <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/5.jpg" data-delay="40"></div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <section class="center">
+                                        <h3>Change the animation speed</h3><small>Use the speed classes from Animate.css to change the speed of the animation:</small>
+                                        <div class="row">
+                                            <div class="padded"><img class="animate__bounceIn slower" data-src="reveal.js-appearance/demo/assets/img/1.jpg"><br><small>slower</small></div>
+                                            <div class="padded"><img class="animate__bounceIn slow" data-src="reveal.js-appearance/demo/assets/img/2.jpg"><br><small>slow</small></div>
+                                            <div class="padded"><img class="animate__bounceIn" data-src="reveal.js-appearance/demo/assets/img/3.jpg"><br><small></small></div>
+                                            <div class="padded"><img class="animate__bounceIn fast" data-src="reveal.js-appearance/demo/assets/img/4.jpg"><br><small>fast</small></div>
+                                            <div class="padded"><img class="animate__bounceIn faster" data-src="reveal.js-appearance/demo/assets/img/5.jpg"><br><small>faster</small></div>
+                                        </div>
+                                    </section>
+                                    <section class="center">
+                                        <h3>Inside fragments</h3>
+                                        <p class="animate__fadeIn">Like this <span class="animate__fadeInDown faster" style="font-size: .8em">(click next)</span>:</p>
+                                        <div class="fragment">
+                                            <div class="row">
+                                                <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/1.jpg"></div>
+                                                <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/2.jpg"></div>
+                                                <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/3.jpg"></div>
+                                                <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/4.jpg"></div>
+                                                <div class="padded"><img class="animate__fadeInDown" data-src="reveal.js-appearance/demo/assets/img/5.jpg"></div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                <section class="center">
+                                    <h3>Additional animations:</h3>
+                                    <ul>
+                                        <li class="animate__skidLeft" data-delay="300">Appear with .animate__skidLeft</li>
+                                        <li class="animated animate__skidLeftBig" data-delay="1000">Appear with .animate__skidLeftBig</li>
+                                        <li class="animated animate__skidRight" data-delay="1000">Appear with .animate__skidRight</li>
+                                        <li class="animated animate__skidRightBig" data-delay="1000">Appear with .animate__skidRightBig</li>
+                                        <li class="animated animate__shrinkIn" data-delay="1000">Appear with .animate__shrinkIn</li>
+                                        <li class="animated animate__shrinkInBlur" data-delay="1000">Appear with .animate__shrinkInBlur</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <!--+demorow("appearance", "both")-->
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall internal" data-viewdemo="appearance">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-appearance/demo/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-appearance" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>In Powerpoint you can make slides with items that appear automatically and sequentially with effects. Appearance is a plugin for Reveal.js that does the same. </p>
+                    <p>Appearance is easy to set up. It uses Animate.css by Daniel Eden for the animations, with some changes to allow for a non-animated state. There are also some extra animations as well.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-internation">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Internation</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-internation/screenshot.png')">
+                        <div class="reveal" id="internation">
+                            <div class="menubar">
+                                <div class="dropdown right p-0">
+                                    <input id="checkbox_toggle" type="checkbox">
+                                    <label for="checkbox_toggle" data-i18n="chooselanguage">Choose language</label>
+                                    <div class="langchooser">
+                                        <label>
+                                            <input type="radio" name="menulangradios" value="en" checked><span>English</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="menulangradios" value="fr"><span>Français</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="menulangradios" value="se"><span>Svenska</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="menulangradios" value="cn"><span>中文</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slides">
+                                <section id="intro" data-state="hide-menubar">
+                                    <h1 data-i18n="title">Internation</h1>
+                                    <h3 data-i18n="subtitle">for Reveal.js</h3>
+                                    <div class="langchooser flags">
+                                        <label>
+                                            <input type="radio" name="langradios" value="en" checked><img src="reveal.js-internation/img/en.png">
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="langradios" value="fr"><img src="reveal.js-internation/img/fr.png">
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="langradios" value="se"><img src="reveal.js-internation/img/se.png">
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="langradios" value="cn"><img src="reveal.js-internation/img/cn.png">
+                                        </label>
+                                    </div>
+                                </section>
+                                <section>
+                                    <section id="examples">
+                                        <h2 data-i18n="title">Examples</h2>
+                                    </section>
+                                    <section id="fruit">
+                                        <h3 data-i18n="title">Fruit</h3>
+                                        <div class="row">
+                                            <div class="col"><img src="reveal.js-internation/img/apple.png">
+                                                <p data-i18n="apple">An apple</p>
+                                            </div>
+                                            <div class="col"><img src="reveal.js-internation/img/orange.png">
+                                                <p data-i18n="orange">An orange</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section id="diner">
+                                        <h3 data-i18n="title">Diner</h3>
+                                        <div class="row">
+                                            <div class="col"><img src="reveal.js-internation/img/pizza.png">
+                                                <p data-i18n="pizza">A pizza</p>
+                                            </div>
+                                            <div class="col"><img src="reveal.js-internation/img/hamburger.png">
+                                                <p data-i18n="hamburger">A hamburger</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section id="animals">
+                                        <h3 data-i18n="title">Animals</h3>
+                                        <div class="row">
+                                            <div class="col"><img src="reveal.js-internation/img/dog.png">
+                                                <p data-i18n="dog">A dog</p>
+                                            </div>
+                                            <div class="col"><img src="reveal.js-internation/img/cat.png">
+                                                <p data-i18n="cat">A cat</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section id="html">
+                                        <h3 data-i18n="title">HTML Content</h3>
+                                        <p data-i18n="paragraph">This is a normal paragraph with text.</p>
+                                        <p data-i18n="htmlparagraph">This is a paragraph that has <a href="#">HTML</a> in it.</p>
+                                    </section>
+                                </section>
+                                <section data-state="hide-menubar">
+                                    <section>
+                                        <h2>Setup</h2>
+                                    </section>
+                                    <section>
+                                        <h3>Step 1. Define current language</h3>
+                                        <p class="small">Internation has English as default language. You can change it if you like in the options:</p>
+                                        <pre><code class="hljs">Reveal.initialize({
+    //
+    internation: {
+        locale: "en",
+        localename: 'English'
+    },
+    plugins: [ Internation ]
+});
+</code></pre>
+                                    </section>
+                                    <section>
+                                        <h3>Step 2. Adding data-attributes</h3>
+                                        <pre><code class="hljs">&lt;section id=&quot;intro&quot;&gt;
+    &lt;h1 data-i18n=&quot;title&quot;&gt;Hello!&lt;/h1&gt;
+    &lt;p data-i18n=&quot;paragraph1&quot;&gt;There is a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt; in the paragraph&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+                                        <p class="small">Add a data-attribute of <code>data-i18n="something"</code> to the text you want to translate. Skip elements that are common in all languages.</p>
+                                        <p class="small">Internation reads HTML by default. If some text contains a span or link, it is better to take that whole piece for translation. If you turn the HTML setting off in the options (you can), you would need to make spans of every text that is not a link.</p>
+                                    </section>
+                                    <section>
+                                        <h3>Step 3. Creating JSON</h3>
+                                        <p class="small">Internation can automatically generate a JSON file for you based on the existing HTML content of the elements. First turn it on in the options (make sure you have added data-attributes in step 2):</p>
+                                        <pre><code class="hljs">Reveal.initialize({
+    //
+    internation: {
+        makejson: true
+    },
+    plugins: [ Internation ]
+});</code></pre>
+                                        <p class="small">Next, load the page with this URL parameter: <code>...index.html?makejson</code>. This will immediately download a JSON file of your current HTML. The URL step is a safeguard for if you accidentally publish with <code>makejson:true</code> in the options turned on.</p>
+                                    </section>
+                                    <section>
+                                        <h3>Step 4. Start translating</h3>
+                                        <p class="small">Make a copy of your first language JSON. Give the file a name that is obvious (so, fr.json for French). </p>
+                                        <p class="small"><b>Now start translating!</b> When you are finished, put the file in an obvious location on your website.</p>
+                                        <p class="small">Note: <em>If an element has the data-attribute, but is missing in the dictionary of your new language, it will stay in the original language.</em></p>
+                                    </section>
+                                    <section>
+                                        <h3>Step 5A. Refer to a language file</h3>
+                                        <pre><code class="hljs">Reveal.initialize({
+    //
+    internation: {
+        languages: {
+            fr: {
+                name: "Français",
+                dictionary: "fr.json"
+            }
+        }
+    },
+    plugins: [ Internation ]
+});
+</code></pre>
+                                        <p class="small">A language in Internation contains both a name and a dictionary. This example shows that a JSON file is used for the dictionary. JSON files will only work if there is a server. It will not work with the file:// protocol.</p>
+                                    </section>
+                                    <section>
+                                        <h3>Step 5B. Or a language object</h3>
+                                        <pre><code class="hljs">Reveal.initialize({
+    internation: {
+        languages: {
+            fr: {
+                name: "Français",
+                dictionary: {
+                    "slides" : {
+                        "intro":{"title":"Bonjour!"}
+                    }
+                }
+            }
+        }
+    },
+    plugins: [ Internation ]
+});
+</code></pre>
+                                        <p class="small">If you really want to allow local file access, you can put the whole dictionary object in the specific language object in your options.</p>
+                                    </section>
+                                    <section>
+                                        <h3>The dictionary / JSON</h3>
+                                        <pre><code class="hljs">{
+    "slides" : {
+        "intro":{
+            "title":"Bonjour!",
+            "paragraph1":"Ceci est un paragraphe"
+        },
+        "animals":{
+            "title":"Animaux",
+            "dog":"Chien",
+            "cat":"Chat",
+        }
+    },
+    "menubar" : {
+        "title":"Voici le titre",
+    }
+}
+</code></pre>
+                                        <p class="small">To get a human-readable structure, Internation looks for a 'slides' object for any sections with ID's. It will also look for any elements with an ID that are outside of the slides, like a menu bar that is visible on all slides.</p>
+                                    </section>
+                                    <section>
+                                        <h3>Switching languages</h3>
+                                        <p class="small">If you want multiple languages, you will probably also want users to choose. Internation listens to 'change' events of either a select or a set of radio buttons. By default, this is any element with the class <code>langchooser</code>, but that classname can be changed in the options.</p>
+                                        <p class="small">You can put these on a slide (like the first page with the flags) or outside them in an element that is visible on multiple slides (like the menubar in the examples).</p>
+                                    </section>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="both">
+                            <button class="button hideonsmall internal" data-viewdemo="internation">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-internation/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-internation" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>Internation is a localization (i10n) or internationalization (i18n) plugin for Reveal.js that reads language dictionaries from JSON files. The author can add switches to the presentation to let the user choose a language. </p>
+                    <p>Authoring dictionary files is made easy by generating a first JSON file of the current language automatically based on the existing HTML.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-verticator">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Verticator</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-verticator/screenshot.png')">
+                        <div class="reveal" id="verticator">
+                            <div class="slides">
+                                <section class="center">
+                                    <h1>Verticator</h1>
+                                    <h3>for Reveal.js</h3>
+                                </section>
+                                <section class="center">
+                                    <section class="center">
+                                        <h2>What does it do?</h2>
+                                    </section>
+                                    <section class="center">
+                                        <p>Verticator shows vertical indicators</p>
+                                    </section>
+                                    <section class="center">
+                                        <p>On vertical slides only</p>
+                                    </section>
+                                </section>
+                                <section class="center">
+                                    <section class="center">
+                                        <h2>Colors</h2>
+                                    </section>
+                                    <section class="center">
+                                        <h4>You can keep it as it is</h4>
+                                        <p>If you do not override the colors in the options, Verticator will use your theme colors: the bullets will be the same color as text in your presentation.</p>
+                                    </section>
+                                    <section class="center" data-background="#dddddd">
+                                        <p>Verticator detects if the slide background is set to an inverse color. If you do not override the colors in the options, the bullets will still take on the heading- or textcolor of the slide.</p>
+                                    </section>
+                                    <section class="center">
+                                        <p>You can also use your own specific colors in the global configuration of Verticator:</p>
+                                        <pre><code class="hljs">Reveal.initialize({
+    ...
+    verticator: {
+        color: 'green',
+        inversecolor: 'orange'
+    },
+    plugins: [ Verticator ]</code></pre>
+                                        <p class="small">(These do not show now because it is not the loaded configuration)</p>
+                                    </section>
+                                    <section class="center" data-verticator="deeppink">
+                                        <p>Or you can override it per slide with a data-attribute:</p>
+                                        <pre><code class="hljs"><section data-verticator="deeppink">
+	<p>Or you can override it per slide with a data-attribute</p>
+</section></code></pre>
+                                    </section>
+                                </section>
+                                <section class="center">
+                                    <section class="center">
+                                        <p>Don’t overdo it: limit vertical slides. You probably don’t want 30 bullets on the right-hand side of your presentation.</p>
+                                    </section>
+                                    <section class="center">
+                                        <p>Really.</p>
+                                    </section>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <!--+demorow("verticator", "both")-->
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall internal" data-viewdemo="verticator">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-verticator/demo/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-verticator" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>A plugin for Reveal.js that adds indicators to show the amount of slides in a vertical stack. Sometimes you would like to have an indication of how many slides are remaining in a vertical stack. This plugin does just that. It is visually quite similar to the indicators at fullPage.js.</p>
+                    <p>The author can choose the main color of the indicators, and an inverse color if the background of the slide is inverse as well.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-smallcontrol">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Smallcontrol</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-smallcontrol/screenshot.png')">
+                        <div class="reveal" id="smallcontrol">
+                            <div class="slides">
+                                <section class="center">
+                                    <h1>Smallcontrol</h1>
+                                    <h3>for Reveal.js</h3>
+                                </section>
+                                <section class="center">
+                                    <section class="center">
+                                        <h2>What does it do?</h2>
+                                    </section>
+                                    <section class="center">
+                                        <p>Smallcontrol makes the controls smaller</p>
+                                        <p>on the vertical control elements</p>
+                                    </section>
+                                    <section class="center">
+                                        <p>Like this</p>
+                                    </section>
+                                </section>
+                                <section>
+                                    <section>
+                                        <h2>Options</h2>
+                                        <ul>
+                                            <li>thisdeckonly</li>
+                                        </ul>
+                                    </section>
+                                    <section>
+                                        <h4>Setting the <code>thisdeckonly</code> option</h4>
+                                        <p>In embedded presentations, the <code>thisdeckonly</code> option defines if the small styling should be set on the current deck only. It is set to <code>true</code> by default. </p>
+                                        <p class="small">You can change like this: </p>
+                                        <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+	//...
+	smallcontrol: {
+		thisdeckonly: false
+	},
+	plugins: [ Smallcontrol ]
+})
+</code></pre>
+                                    </section>
+                                    <section class="center">
+                                        <h4>That’s it!</h4>
+                                    </section>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="internal">
+                            <button class="button hideonsmall internal" data-viewdemo="smallcontrol">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-smallcontrol/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-smallcontrol" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>A plugin for Reveal.js that makes the controls a bit smaller, by scaling the vertical control elements down and aligning them with the horizontal controls. </p>
+                    <p>Because it adds styling to the document, it limits the smaller controls to only the current deck if it is embedded in the page, but you can set it in the options if you want smaller controls on all embedded decks.</p>
+                    <p>Smallcontrol also is set to NOT have smaller controls on touch devices, but you can override that too in the options.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-fsfx">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>FsFx &nbsp; <span class="small">("fullscreen effects")</span></h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-fsfx/screenshot.png')">
+                        <div class="reveal" id="fsfx" data-fs-toggle="fullscreen">
+                            <div class="slides">
+                                <section class="center" data-transition="fade">
+                                    <h1>FsFx</h1>
+                                    <h3>for Reveal.js</h3>
+                                    <button class="bigbutton fsbutton" data-fs-gonext="1500">Start the show!</button>
+                                    <div class="fsfx-disabled"><br>
+                                        <p style="color: #42affa; width: 80%; margin: auto">Note: This device does not support the Fullscreen API.</p>
+                                    </div>
+                                </section>
+                                <section class="center" data-transition="zoom-in fade-out">
+                                    <h3>FsFx.js</h3><small>Can do a few things:</small><br>
+                                    <ol>
+                                        <li>Enter or exit fullscreen</li>
+                                        <li>Trigger 'next slide' after fullscreen</li>
+                                        <li>Toggle a class on any element if fullscreen</li>
+                                        <li>Auto-generate a fullscreen button</li>
+                                    </ol><br>
+                                    <p class="small">If a device does not support the Fullscreen API, a class of <code>no-fsfx</code> will be added to the body. You can use it to show warnings, hide elements etcetera.</p>
+                                </section>
+                                <section class="center">
+                                    <h4>1. Enter or exit fullscreen</h4>
+                                    <ul>
+                                        <li>Triggers if an element with a certain class is clicked</li>
+                                        <li>This baseclass is 'fsbutton' by default</li>
+                                        <li>The baseclass can easily be changed in the plugin options</li>
+                                    </ul>
+                                </section>
+                                <section class="center">
+                                    <h4>2. Trigger 'next slide' after fullscreen</h4><small>The start button on the first page of this deck does exactly that</small><br><br>
+                                    <ul>
+                                        <li>If wanted, a 'next slide' function can be called</li>
+                                        <li>It can be added with a <code>data-fs-gonext="*"</code> attribute</li>
+                                        <li>The wildcard is the time in milliseconds for a delay</li>
+                                    </ul>
+                                </section>
+                                <section class="center">
+                                    <h4>3. Toggle a class on any element if the presentation is fullscreen</h4>
+                                    <ul>
+                                        <li>A class toggle can be added with <code>data-fs-toggle="*"</code></li>
+                                        <li>The wildcard is the class that is toggled in fullscreen</li>
+                                        <li>The Reveal DOM element gets the <code>fullscreen</code> class</li>
+                                        <li class="fsfx-enabled">In this presentation, see the changes in fullscreen: The background and the button icons</li>
+                                    </ul>
+                                    <button class="bigbutton fsbutton icon-fs" data-fs-toggle="icon-fsexit">Toggle Fullscreen</button>
+                                </section>
+                                <section class="center" data-background="white">
+                                    <h4>4. Auto-generate a fullscreen button</h4>
+                                    <ul>
+                                        <li>FsFx can generate a fullscreen button in your presentation <span class="fsfx-enabled">(like in this presentation)</span></li>
+                                        <li>This will only be done if no such button already exists</li>
+                                        <li>The styling of the auto-generated button is included, but you can tweak color and position</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="internal">
+                            <button class="button hideonsmall internal" data-viewdemo="fsfx">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-fsfx/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-fsfx" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>A plugin for Reveal.js that enters or exits fullscreen, and toggles classes on certain elements. This plugin does just that. And some other things.</p>
+                    <p>FsFx looks for elements in the presentation that need to have a class toggled on entering fullscreen and sets that class; it will remove the class on exiting fullscreen. The class can be set per element.</p>
+                    <p>If you can't add a fullcreen button outside the slides yourself, FsFx can also generate a nice button for you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-simplemenu">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Simplemenu</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-simplemenu/screenshot.png')">
+                        <div class="reveal" id="simplemenu">
+                            <div class="menubar">
+                                <ul class="menu"></ul>
+                            </div>
+                            <div class="slides">
+                                <section class="center" data-transition="fade" data-state="hide-menubar hide-menu">
+                                    <h1>Simplemenu</h1>
+                                    <h3>for Reveal.js</h3>
+                                </section>
+                                <section class="center" data-name="TOC" data-sm="false">
+                                    <h4>Table of contents</h4>
+                                    <p class="small">(TOC generated by Simplemenu)</p>
+                                    <ul class="menu"></ul>
+                                </section>
+                                <section data-name="What it does">
+                                    <section class="center">
+                                        <h4>What?</h4>
+                                        <p>In Powerpoint you can make slides with a nice bottom- or top bar in which the active menu item is highlighted. This menu works in the same way, but automatically.</p>
+                                    </section>
+                                    <section class="center">
+                                        <h4>What Simplemenu does</h4>
+                                        <ul>
+                                            <li>Generates a menu of your sections and stacks</li>
+                                            <li>Puts the menu in a header or footer if provided</li>
+                                            <li>And/or on any slide as an agenda or TOC</li>
+                                            <li>Use the menu to navigate</li>
+                                            <li>Update the menu state during navigation</li>
+                                        </ul>
+                                    </section>
+                                </section>
+                                <section data-name="Set it up">
+                                    <section class="center">
+                                        <h4>It's easy to set up</h4>
+                                    </section>
+                                    <section>
+                                        <h4>JavaScript</h4>
+                                        <p>Load the script and make a reference to it in the Reveal plugin options</p>
+                                    </section>
+                                    <section>
+                                        <h4>HTML Markup</h4>
+                                        <p>Setup your sections with data-names.(Markdown is also supported, see the <a href="demo-markdown.html" target="_blank">Markdown</a> demo.)</p>
+                                        <p>Add <code>data-sm="false"</code> to named sections you don’t want to show in the menu.</p>
+                                    </section>
+                                    <section>
+                                        <p class="small">Add a menubar (header and/or footer), with an empty menu, through the options:</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="4,5,6,7">&hellip;
+Reveal.initialize({
+    simplemenu: {
+        barhtml: {
+            header: "&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;",
+            footer: ""
+        }
+    },
+    plugins: [ Simplemenu ]
+
+</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>That’s it! </h4>
+                                        <p>The setup above is the default (auto) way of linking the menu with the sections. </p>
+                                        <p class="small">There is also a manual way, where the author creates the links in the menu(s) manually. See <a href="demo-manual.html">demo-manual.html</a>.</p>
+                                    </section>
+                                </section>
+                                <section class="center" data-name="Demos">
+                                    <h4>Option demos</h4>
+                                    <p>See all demos on the main <a href="https://github.com/martinomagnifico/reveal.js-simplemenu" target="_blank">Simplemenu page</a>.</p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="both">
+                            <button class="button hideonsmall internal" data-viewdemo="simplemenu">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-simplemenu/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-simplemenu" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>In Powerpoint you can make slides with a nice bottom- or top bar in which the active menu item is highlighted. This menu works in the same way, but automatically.</p>
+                    <p>If the author sets the 'auto'-option to true, Simplemenu will auto-generate a menu by the names of the sections, so the author does not have to copy ID's to buttons.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-relativenumber">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>RelativeNumber</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-relativenumber/screenshot.png')">
+                        <div class="reveal" id="relativenumber">
+                            <div class="menubar">
+                                <div class="slide-number"></div>
+                                <ul class="menu">
+                                    <li>RelativeNumber, a Reveal.js plugin</li>
+                                </ul>
+                                <div class="right"></div>
+                            </div>
+                            <div class="slides">
+                                <section class="center" data-transition="fade">
+                                    <h1>RelativeNumber</h1>
+                                    <h3>for Reveal.js</h3>
+                                </section>
+                                <section class="center">
+                                    <p>This simple plugin checks if there already is an element with the class "slide-number" in the presentation. If so, it moves the slidenumber there.</p>
+                                </section>
+                                <section class="center">
+                                    <p>Create an empty element with class "slide-number" in your document. For example, in a menubar like above.</p>
+                                </section>
+                                <section class="center">
+                                    <p>Now you can style it and make it fit in your content. For example, give it a relative position.</p>
+                                </section>
+                                <section class="center">
+                                    <p>For the menu you might use my <a href="https://github.com/Martinomagnifico/reveal.js-simplemenu">Simplemenu</a> plugin. </p>
+                                    <p>If you load Simplemenu before RelativeNumber, page numbers will also be exported correctly as PDF when using the Reveal.js <code>?print-pdf</code> function.</p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="internal">
+                            <button class="button hideonsmall internal" data-viewdemo="relativenumber">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-relativenumber/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-relativenumber" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>Reveal.js creates a 'slide-number' element in the presentation if it is turned on in the configuration. Normally, his element is positioned absolutely as a sibling to the slides. But sometimes you want it inside a menubar or some other element. This plugin does just that.</p>
+                    <p>Relativenumber only does one thing: It checks of there already is an element with the class 'slide-number' in the presentation before continuing. If there is, the regular Reveal.js slide-number element will replace it. That's all there is to it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-copycode">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>CopyCode</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-copycode/screenshot.png')">
+                        <div class="reveal" id="copycode">
+                            <div class="slides">
+                                <section>
+                                    <h1>CopyCode</h1>
+                                    <h3>for Reveal.js</h3><br>
+                                    <pre><code class="hljs javascript" data-line-numbers style="font-size: 1em">let why = `Because we always want to copy code
+           during our presentations, right?`</code></pre>
+                                </section>
+                                <section>
+                                    <h4>Works out of the box</h4>
+                                    <pre><code class="hljs javascript" data-line-numbers>const http = require("http");
+http.createServer(function (request, response) {
+	response.writeHead(200, {"Content-Type": "text/plain"});
+	response.end("Hello World\n");
+}).listen(8081);</code></pre><small>A 'Copy' button is automatically added to any <code>&lt;pre&gt;</code> code block.</small>
+                                </section>
+                                <section>
+                                    <section>
+                                        <h2>Setup </h2>
+                                    </section>
+                                    <section>
+                                        <h2>Basics</h2>
+                                        <p>There are really only three steps:</p>
+                                        <ol>
+                                            <li>Install and set up CopyCode</li>
+                                            <li>Copy your code from a code block</li>
+                                            <li>Paste your code somewhere</li>
+                                        </ol>
+                                    </section>
+                                    <section>
+                                        <h3>Install CopyCode</h3>
+                                        <p class="small">Copy the copycode folder to the plugins folder of the reveal.js folder, like this: <code>plugin/copycode</code>. Now load the script and make a reference to it in the Reveal plugin options:</p>
+                                        <pre><code class="hljs html" data-line-numbers>&lt;script src="plugin/copycode/copycode.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    Reveal.initialize({
+        plugins: [ CopyCode ]
+    });
+&lt;/script&gt;</code></pre><small>This plugin is also published to, and can be installed from, npm.</small>
+                                    </section>
+                                </section>
+                                <section>
+                                    <section>
+                                        <h2>Now change it</h2>
+                                        <p>You can change the visibility, icon use <br> or texts easily per element: </p>
+                                    </section>
+                                    <section>
+                                        <h4>Change the visibility per element</h4>
+                                        <p class="small">Turn it off</p>
+                                        <pre data-cc="false"><code class="hljs html" data-line-numbers>&lt;pre data-cc="false"&gt;
+    &lt;code&gt;
+        Here is the code	
+    &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+                                        <p class="small">Or show only on hover over the code block</p>
+                                        <pre data-cc="hover"><code class="hljs html" data-line-numbers>&lt;pre data-cc="hover"&gt;
+    &lt;code&gt;
+        Here is the code	
+    &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+                                        <p class="small">This can also be set globally. See <a href="#/options">Global options</a>.</p><small>Note: Hover-only codeblocks will <em>always</em> show the copy button on touch devices.</small>
+                                    </section>
+                                    <section>
+                                        <h4>Change the display of icons per element</h4>
+                                        <pre data-cc-display="icons"><code class="hljs html" data-line-numbers>&lt;pre data-cc-display="icons"&gt;
+    &lt;code&gt;
+        Here is the code	
+    &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+                                        <pre data-cc-display="both"><code class="hljs html" data-line-numbers>&lt;pre data-cc-display="both"&gt;
+    &lt;code&gt;
+        Here is the code	
+    &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+                                        <p class="small">This can also be set globally. See <a href="#/options">Global options</a>.</p>
+                                    </section>
+                                    <section>
+                                        <h4>Change the text per element</h4>
+                                        <pre data-cc-copy="Copy HTML" data-cc-copied="Done"><code class="hljs html" data-line-numbers>&lt;pre data-cc-copy="Copy HTML" data-cc-copied="Done"&gt;
+    &lt;code&gt;
+        Here is the code
+    &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+                                        <p class="small">This can also be set globally. See <a href="#/options">Global options</a>.</p>
+                                    </section>
+                                </section>
+                                <section>
+                                    <section id="options">
+                                        <h2>Global options</h2>
+                                        <div class="centerblock">
+                                            <ol class="twocol" style="margin-right: 5%">
+                                                <li>button</li>
+                                                <li>display</li>
+                                                <li>text</li>
+                                                <li>plaintextonly</li>
+                                                <li>timeout</li>
+                                                <li>style</li>
+                                                <li>tooltip</li>
+                                                <li>iconsvg</li>
+                                                <li>csspath</li>
+                                                <li>clipboardjspath</li>
+                                            </ol>
+                                        </div>
+                                    </section>
+                                    <section>
+                                        <h4>Option 1: button</h4>
+                                        <p class="small">The <code>button</code> option is to show the button, always or only on hover. </p>
+                                        <pre><code class="hljs js" data-line-numbers="3">Reveal.initialize({
+    copycode: {
+        button: "always" // "always"|"hover"
+    },
+    plugins: [ CopyCode ]
+})</code></pre><small>This can also be set per element with data-attributes.</small>
+                                    </section>
+                                    <section>
+                                        <h4>Option 2: display</h4>
+                                        <p class="small">The <code>display</code> option is to show text in the button, icons, or both.</p>
+                                        <pre><code class="hljs js" data-line-numbers="3">Reveal.initialize({
+    copycode: {
+        display: "text" // "text"|"icons"|"both"
+    },
+    plugins: [ CopyCode ]
+})</code></pre><small>This can also be set per element with data-attributes.</small>
+                                    </section>
+                                    <section>
+                                        <h4>Option 3: text</h4>
+                                        <p class="small">The <code>text</code> option is an object that contains the texts for the 'copy' and 'copied' state.</p>
+                                        <pre><code class="hljs javascript" data-line-numbers="3-6">Reveal.initialize({
+    copycode: {
+        text: {
+            copy: &quot;Copy&quot;,
+            copied: &quot;Copied!&quot;
+        }
+    },
+    plugins: [ CopyCode ]</code></pre><small>This can also be set per element with data-attributes.</small>
+                                    </section>
+                                    <section>
+                                        <h4>Option 4: plaintextonly</h4>
+                                        <p class="small">The <code>plaintextonly</code> option can be set to false to allow copying of rich text and styles. </p>
+                                        <pre><code class="hljs js" data-line-numbers="3">Reveal.initialize({
+    copycode: {
+        plaintextonly: true // true|false
+    },
+    plugins: [ CopyCode ]
+})</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>Option 5: timeout</h4>
+                                        <p class="small">The <code>timeout</code> option is the time in milliseconds for the "Copied!"-state to revert back to "Copy". </p>
+                                        <pre><code class="hljs js" data-line-numbers="3">Reveal.initialize({
+    copycode: {
+        timeout: 1000
+    },
+    plugins: [ CopyCode ]
+})</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>Option 6: style</h4>
+                                        <p class="small">The <code>style</code> option is an object that contains settings for background colors, colors, sizing, spacing and border styles. </p>
+                                        <pre><code class="hljs js" data-line-numbers="3-12">Reveal.initialize({
+    copycode: {
+        style: {
+            copybg: "orange", // Any CSS color, hex, named etc.
+            copiedbg: "green",
+            copycolor: "black",
+            copiedcolor: "white",
+            copyborder: "", // e.g. "1px solid blue"
+            copiedborder: "",
+            scale: 1,
+            offset: 0, // in em units
+            radius: 0  // in em units
+        }
+    },
+    plugins: [ CopyCode ]
+})</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>Option 7: tooltip</h4>
+                                        <p class="small">The <code>tooltip</code> option makes sure that the 'copied' text is shown in a tooltip, when an icon-only button display is used.</p>
+                                        <pre><code class="hljs js" data-line-numbers="3">Reveal.initialize({
+    copycode: {
+        tooltip: true
+    },
+    plugins: [ CopyCode ]
+})</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>Option 8: iconsvg</h4>
+                                        <p class="small">The <code>iconsvg</code> option is an object with placeholders for SVG icons for the 'copy' and 'copied' state. If left empty, it will use the default icons.</p>
+                                        <pre><code class="hljs js" data-line-numbers="3-6">Reveal.initialize({
+    copycode: {
+        iconsvg: {
+            copy: '',  // User can paste &lt;svg&gt;…&lt;/svg&gt; code here
+            copied: '' // User can paste &lt;svg&gt;…&lt;/svg&gt; code here
+        }
+    },
+    plugins: [ CopyCode ]
+})</code></pre>
+                                    </section>
+                                    <section>
+                                        <h4>Option 9: csspath</h4>
+                                        <p class="small">The <code>csspath</code> option can be used when the you want to use your own stylesheet, instead of the provided one. </p>
+                                        <pre><code class="hljs js" data-line-numbers="3">Reveal.initialize({
+    copycode: {
+        csspath: ''
+    },
+    plugins: [ CopyCode ]
+})</code></pre><small>Use this if you really want to change things that you can't override from the Reveal.js config, like the padding and so on.</small>
+                                    </section>
+                                    <section>
+                                        <h4>Option 10: clipboardjspath</h4>
+                                        <p class="small">The <code>clipboardjspath</code> option is the path to ClipboardJS. When nothing is filled in here, it will automatically load from a CDN. </p>
+                                        <pre><code class="hljs js" data-line-numbers="3">Reveal.initialize({
+    copycode: {
+        clipboardjspath: ''
+    },
+    plugins: [ CopyCode ]
+})</code></pre>
+                                    </section>
+                                </section>
+                                <section>
+                                    <h4>Thanks</h4>
+                                    <ul>
+                                        <li>Hakim El Hattab for <a href="https://revealjs.com" target="_blank">Reveal.js</a></li>
+                                        <li>Zeno Rocha, for <a href="https://clipboardjs.com" target="_blank">Clipboard.js</a></li>
+                                        <li>Philipp Nurullin and Jetbrains for <a href="https://www.jetbrains.com/lp/mono/" target="_blank">JetBrains Mono</a></li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup">
+                            <button class="button hideonsmall internal" data-viewdemo="copycode">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-copycode/demo/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-copycode" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>In Reveal.js presentations we can show blocks of code. This plugin for Reveal.js adds a 'copy' button to each of those.</p>
+                    <p>The user can change the text for 'Copy' and 'Copied', and the accompanying colors in the options.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-fontsfirst">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>FontsFirst</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-fontsfirst/screenshot.png')">
+                        <div class="reveal" id="fontsfirst">
+                            <div class="slides">
+                                <section class="center" data-transition="fade">
+                                    <h1>FontsFirst</h1>
+                                    <h3>for Reveal.js</h3>
+                                </section>
+                                <section class="center">
+                                    <h3>Fontsfirst:</h3><br>
+                                    <ol>
+                                        <li>Uses WebFontLoader.js to load remote fonts</li>
+                                        <li>Will use your fallback self-hosted font</li>
+                                        <li>Sets that preference during the session</li>
+                                        <li>Reveal.js will start when the fonts are loaded</li>
+                                    </ol>
+                                    <p class="fontinfo small"></p>
+                                </section>
+                                <section class="center">
+                                    <h4>Options</h4>
+                                    <p class="small">This plugin returns a 'promise' if the font from whatever source is loaded. Reveal.js will then continue initialisation. This demo sets opacity to 0 and then to 1 if Reveal.js is ready, to make sure that no Flash Of Unstyled Text is shown. </p>
+                                    <p>From the Reveal options you can:</p>
+                                    <ol>
+                                        <li>Set modules (Google)</li>
+                                        <li>Set the timeout</li>
+                                        <li>Set url to fallback font css</li>
+                                        <li>Turn on debug mode</li>
+                                    </ol>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="both">
+                            <button class="button hideonsmall internal" data-viewdemo="fontsfirst">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-fontsfirst/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-fontsfirst" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>A plugin for Reveal.js that makes sure that your fonts get loaded before initialising Reveal.js. </p>
+                    <p>Sometimes when you use a Google or Typekit font, it takes some time to load the font. Your presentation will then first show in a default font and then jump to the correct font (known as a 'FOUT', a Flash Of Unstyled Text).</p>
+                    <p>Also, if you use an Adblocker like Ghostery, it is possible that the remote font will also not load at all. This plugin fixes that, but you do need to provide your self-hosted fallback fonts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-doghouse">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Doghouse</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-doghouse/screenshot.png')">
+                        <div class="reveal" id="doghouse">
+                            <div class="slides">
+                                <section class="center">
+                                    <h1>Doghouse</h1>
+                                    <h3>for Reveal.js</h3>
+                                </section>
+                                <section class="center">
+                                    <h3>Tags</h3>
+                                    <p class="text-left">Pug automatically closes tags.</p>
+                                    <div class="row" data-doghouse>
+                                        <div class="col">
+                                            <pre><code class="hljs nohighlight" contenteditable="false" data-doghouse-pug>p The dog has a tag</code></pre>
+                                        </div>
+                                        <div class="col">
+                                            <pre><code class="hljs language-html" data-doghouse-html></code></pre>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="center">
+                                    <h3>Indents</h3>
+                                    <p class="text-left">To make a nested structure, Pug uses indents to separate the levels.</p>
+                                    <div class="row" data-doghouse>
+                                        <div class="col">
+                                            <pre><code class="hljs nohighlight" contenteditable="false" data-doghouse-pug>div
+  div
+    h3 Who let the dogs out?</code></pre>
+                                        </div>
+                                        <div class="col">
+                                            <pre><code class="hljs language-html" data-doghouse-html></code></pre>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="center">
+                                    <h4>Inline variables</h4>
+                                    <p class="text-left">As a long as a variable is defined before use, it will render fine. You can use placeholders or assign the variable to a tag.</p>
+                                    <div class="row" data-doghouse>
+                                        <div class="col">
+                                            <pre><code class="hljs nohighlight" contenteditable="false" data-doghouse-pug>- let bark = "woooof";
+p The dog says #{bark}
+p= `The dog says ${bark}`
+p= bark</code></pre>
+                                        </div>
+                                        <div class="col">
+                                            <pre><code class="hljs language-html" data-doghouse-html></code></pre>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="center">
+                                    <h4>Object and array variables</h4>
+                                    <p class="text-left">Local variables can be assigned in advance, or read from a database. Pug can read any JavaScript object or array format.</p>
+                                    <div class="row" data-doghouse>
+                                        <div class="col">
+                                            <pre><code class="hljs nohighlight" contenteditable="false" data-doghouse-data>{"names": {"small": "Choco", "large": "Hector"}}
+</code></pre>
+                                            <pre><code class="hljs nohighlight" contenteditable="false" data-doghouse-pug>p My dog is called #{names.small}.
+p The neighbors also have a dog. It is called #{names.large}.
+</code></pre>
+                                        </div>
+                                        <div class="col">
+                                            <pre><code class="hljs language-html" data-doghouse-html></code></pre>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="center">
+                                    <h4>Code</h4>
+                                    <p class="text-left">Pug allows inline JavaScript code for conditions and other logic.</p>
+                                    <div class="row" data-doghouse>
+                                        <div class="col">
+                                            <pre><code class="hljs nohighlight" contenteditable="false" data-doghouse-pug>- let uglydog = true
+if uglydog
+  h3 You ain’t nothin’ but a hound dog, cryin’ all the time
+  h4=uglydog
+if uglydog == false 
+  h4 Nice doggie</code></pre>
+                                        </div>
+                                        <div class="col">
+                                            <pre><code class="hljs language-html" data-doghouse-html></code></pre>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="center">
+                                    <h4>Iteration</h4>
+                                    <p class="text-left">You can use either ‘each’ or ‘while’ for iteration.</p>
+                                    <div class="row" data-doghouse>
+                                        <div class="col">
+                                            <pre><code class="hljs nohighlight" contenteditable="false" data-doghouse-pug>ul
+  each dog in ["Chichuahua", "Great dane", "German shepherd"]
+    li=dog</code></pre>
+                                        </div>
+                                        <div class="col">
+                                            <pre><code class="hljs language-html" data-doghouse-html></code></pre>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="both">
+                            <button class="button hideonsmall internal" data-viewdemo="doghouse">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-doghouse/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-doghouse" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>A plugin for Reveal.js that will render Pug codeblocks when it starts, but it also works with live editing, which makes it great for presentations about Pug. </p>
+                    <p>Doghouse only does one thing: it renders Pug codeblocks, and can update them live. Go ahead: navigate through the presentation on the left and change some of the code in the left panels.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-tagteam">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Tagteam</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-tagteam/screenshot.png')">
+                        <div class="reveal" id="tagteam">
+                            <div class="menubar">
+                                <ul class="menu"></ul>
+                            </div>
+                            <div class="slides">
+                                <section data-tag="keep" data-state="hide-menubar">
+                                    <h1>Tagteam</h1>
+                                    <h3>for Reveal.js</h3><code class="url" id="exampleParameter">.../demo.html?t=tagteam</code>
+                                </section>
+                                <section data-name="What is it" data-tag="intro">
+                                    <section>
+                                        <h2>What is it?</h2>
+                                    </section>
+                                    <section>
+                                        <p>Tagteam is used to dynamically show only certain sections in presentations when you don't want to show everything. It uses URL parameters to set the needed sections.</p>
+                                        <p class="small">This demo uses only this HTML file. Clicking the demo links will only change the URL parameters and reload the page. Tagteam can work together with <a href="https://github.com/Martinomagnifico/reveal.js-simplemenu" target="_blank">Simplemenu </a> to show only the relevant chapters.</p>
+                                    </section>
+                                    <section>
+                                        <p>An option to use groups is also provided. Also, the need to enter a group can be set, to avoid the possibility to view all slides (no parameters at all).</p>
+                                        <p class="small">This is just a simple safeguard. Anyone with a bit of HTML knowledge can find the valid group names.</p>
+                                    </section>
+                                    <section>
+                                        <p>Tagteam reads 3 different URL parameters:
+                                        <ol>
+                                            <li><code>?t=abcd</code> for <code>data-tag</code> sections</li>
+                                            <li><code>?n=abcd</code> for <code>data-name</code> sections</li>
+                                            <li><code>?g=abcd</code> for predefined groups</li>
+                                        </ol>
+                                        </p>
+                                    </section>
+                                    <section>
+                                        <p>Any named or tagged section that is NOT in a parameter will NOT be shown. Sections without tags or name WILL be shown.</p>
+                                        <p class="small">You can also use a <code>data-keep</code> attribute, like the title section of this presentation, to make sure that the slide will always be shown, except when a group is mandatory.</p>
+                                    </section>
+                                </section>
+                                <section data-name="Setup" data-tag="intro">
+                                    <section>
+                                        <h2>Setup</h2>
+                                    </section>
+                                    <section>
+                                        <p>Setup your HTML with data-tags and/or data-names:</p>
+                                        <pre><code data-trim data-line-numbers>
+                                                          &lt;section data-name=&quot;Brown&quot; data-tag=&quot;nice&quot;&gt;
+                                                            &lt;section data-tag=&quot;cats, small&quot;&gt;Cat (brown, small, nice)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;dogs&quot;&gt;Dog (brown, nice)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;dogs, big&quot;&gt;Dog (brown, big, nice)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;horses&quot;&gt;Horse (brown, nice)&lt;/section&gt;
+                                                          &lt;/section&gt;
+                                                          &lt;section data-name=&quot;Black &amp;amp; white&quot;&gt;
+                                                            &lt;section data-tag=&quot;cats&quot;&gt;Cat (black &amp;amp; white)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;dogs, small&quot;&gt;Dog (black &amp;amp; white + small)&lt;/section&gt;
+                                                            &lt;section data-tag=&quot;horses&quot;&gt;Horse (black &amp;amp; white)&lt;/section&gt;
+                                                          &lt;/section&gt;</code></pre>
+                                        <p class="small">The above markup is used in all following examples.</p>
+                                        <p class="small">Note: 'data-tag' can can include multiple comma-separated tags. But 'data-name' can only contain a single term (which may consist of several words).</p>
+                                    </section>
+                                    <section>
+                                        <h4>JavaScript</h4>
+                                        <p>Load the script and make a reference to it in the Reveal plugin options.</p>
+                                        <pre><code class="hljs html" data-line-numbers>&lt;script src="plugin/tagteam/tagteam.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	Reveal.initialize({
+		plugins: [ Tagteam ]
+	});
+&lt;script&gt;</code></pre>
+                                        <p class="small">When using the Markdown plugin as well, load it first, so Tagteam can correctly find tagged or named sections.</p>
+                                    </section>
+                                </section>
+                                <section data-name="Tags" data-tag="intro">
+                                    <section>
+                                        <h2>Tags</h2>
+                                    </section>
+                                    <section>
+                                        <h4>Using a single <code>t</code> parameter</h4>
+                                        <p class="small"><code class="url">.../demo.html?t=dogs</code></p>
+                                        <p class="small">Test it here now: <a href="?t=dogs">demo.html?t=dogs</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using multiple <code>t</code> parameters</h4>
+                                        <p class="small"><code class="url">.../demo.html?t=dogs,cats</code></p>
+                                        <p class="small">Test it here now: <a href="?t=dogs,cats">demo.html?t=dogs,cats</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using more specific <code>t</code> parameters</h4>
+                                        <p class="small">Use the plus sign to be more specific. <br>In this case we want all dogs, but only small cats.</p>
+                                        <p class="small"><code class="url">.../demo.html?t=dogs,cats+small</code></p>
+                                        <p class="small">Test it here now: <a href="?t=dogs,cats+small">demo.html?t=dogs,cats+small</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using more specific <code>t</code> parameters</h4>
+                                        <p class="small">This works with nested tags as well.</p>
+                                        <p class="small"><code class="url">.../demo.html?t=small+cats,nice+horses</code></p>
+                                        <p class="small">Test it here now: <a href="t=small+cats,nice+horses">demo.html?t=small+cats,nice+horses</a></p>
+                                    </section>
+                                </section>
+                                <section data-name="Names" data-tag="intro">
+                                    <section>
+                                        <h2>Names</h2>
+                                        <p>When ordering your presentation with nested sections, you can specify these to be shown in one fell swoop.</p>
+                                    </section>
+                                    <section>
+                                        <h4>Using an <code>n</code> parameter</h4>
+                                        <p class="small">There are two named stacks with vertical slides. Now we only want the first (data-name="Brown") stack.</p>
+                                        <p class="small"><code class="url">.../demo.html?n=brown</code></p>
+                                        <p class="small">Test it here now: <a href="?n=brown">demo.html?n=brown</a></p>
+                                    </section>
+                                    <section>
+                                        <h4>Using multiple <code>n</code> parameters</h4>
+                                        <p class="small"><code class="url">.../demo.html?n=brown,black+%26+white</code></p>
+                                        <p class="small">Test it here now: <a href="?n=brown,black+%26+white">demo.html?n=brown,black+%26+white</a></p>
+                                    </section>
+                                </section>
+                                <section data-name="Groups" data-tag="intro">
+                                    <section>
+                                        <h2>Groups</h2>
+                                        <p>Groups are predefined sets of tags and/or names.</p>
+                                    </section>
+                                    <section>
+                                        <h4>Setting a groups option</h4>
+                                        <p class="small">Each 'groups' object needs a name and an array of tags and/or an array of names.</p>
+                                        <pre><code class="hljs js" data-line-numbers="4-11">Reveal.initialize({
+    //...
+    tagteam: {
+        groups: {
+            "brownpets": {
+                names: ["brown"], tags: ["cats", "dogs"]
+            },
+            "bwhsd": {
+                names: ["black &amp; white"], tags: [ "horses", ["dogs", "small"] ]
+            }
+        }
+    },
+    plugins: [ Tagteam ]
+});</code></pre>
+                                        <p class="small">Note: In the 2nd group, the tags contain a nested array to be more specific (small dogs only).</p>
+                                    </section>
+                                    <section>
+                                        <h4>Using a <code>g</code> parameter</h4>
+                                        <p class="small"><code class="url">.../demo.html?g=brownpets</code></p>
+                                        <p class="small">Test it here now: <a href="?g=brownpets">demo.html?g=brownpets</a></p>
+                                    </section>
+                                    <section>For the <code>mandatorygroup</code> option, see the <a href="reveal.js-tagteam/demo.html" target="_blank">full demo</a>.</section>
+                                </section>
+                                <section data-name="Brown" data-tag="nice" data-visibility="hidden">
+                                    <section data-tag="cats, small">Cat (brown, small, nice)</section>
+                                    <section data-tag="dogs">Dog (brown, nice)</section>
+                                    <section data-tag="dogs, big">Dog (brown, big, nice)</section>
+                                    <section data-tag="horses">Horse (brown, nice)</section>
+                                </section>
+                                <section data-name="Black &amp; white" data-visibility="hidden">
+                                    <section data-tag="cats">Cat (black &amp; white)</section>
+                                    <section data-tag="dogs, small">Dog (black &amp; white, small)</section>
+                                    <section data-tag="horses">Horse (black &amp; white)</section>
+                                </section>
+                                <section data-mandatory>There is no correct URL parameter set</section>
+                                <section data-tag="tagteam" data-state="hide-menubar" data-visibility="hidden">
+                                    <p>Thanks for trying out Tagteam! <br>Star it if you like it :-)</p>
+                                </section>
+                                <section data-tag="keep" data-state="hide-menubar">Go <a href="demo.html">back to the start</a></section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="both">
+                            <button class="button hideonsmall internal" data-viewdemo="tagteam">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-tagteam/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-tagteam" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>A plugin for Reveal.js which is used to dynamically show only certain sections in presentations when you don't want to show everything. It uses URL parameters to set the needed sections.</p>
+                    <p>An option to use groups is also provided. Also, the need to enter a group can be set, to avoid the possibility to view all slides (no parameters at all), as a simple safeguard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane" id="lane-counteract">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>CounterAct</h2>
+                </div>
+                <div class="col-half">
+                    <div class="holder" style="background-image: url('//martinomagnifico.github.io/reveal.js-counteract/screenshot.png')">
+                        <div class="reveal" id="counteract">
+                            <div class="slides">
+                                <!--include ../plugins/counteract/html/slides/_slides.pug-->
+                                <section class="center">
+                                    <h1>CounterAct</h1>
+                                    <h4>A <span class="titlecount">counter</span> for Reveal.js</h4>
+                                </section>
+                                <section class="center">
+                                    <h2>Example</h2>
+                                </section>
+                                <section>
+                                    <h3>Counting occurences</h3>
+                                    <p class="small">Counting occurences will count up across all slides.</p>
+                                    <div class="example">
+                                        <figcaption>This is figcaption number</figcaption>
+                                        <figcaption>This is figcaption number</figcaption>
+                                    </div>
+                                </section>
+                                <section>
+                                    <h3>Counting in lists</h3>
+                                    <p class="small">In and across lists and slides, these keep counting up.</p>
+                                    <div class="row example">
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">A list</p>
+                                            <ol class="list">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">An other list</p>
+                                            <ol class="list">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <h3>Resetting counters</h3>
+                                    <p class="small">Resets must be parents of selectors.</p>
+                                    <div class="row example">
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">A list</p>
+                                            <ol class="stoplist">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                        <div class="col">
+                                            <p class="left" style="margin-top: 0; margin-bottom: 0.2em">An other list</p>
+                                            <ol class="stoplist">
+                                                <li>List item</li>
+                                                <li>List item</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="countme center">
+                                    <h3>Incrementing with other elements</h3>
+                                    <div class="example">
+                                        <h4 class="countme">This h4 is counted</h4>
+                                    </div>
+                                </section>
+                                <section class="countme center">
+                                    <p class="small">Increments must be parents of selectors and children of resets.</p>
+                                    <div class="example">
+                                        <h4 class="countme">This h4 is also counted</h4>
+                                    </div>
+                                </section>
+                                <section class="countme center">
+                                    <section class="center">
+                                        <h3>Combine increment and reset</h3>
+                                        <div class="example">
+                                            <h4 class="countme">This h4 has two counters</h4>
+                                        </div>
+                                    </section>
+                                    <section class="center">
+                                        <div class="example">
+                                            <h4 class="countme">And this one as well</h4>
+                                        </div>
+                                        <p class="small">By combining increments and resets, you can count things like vertical sections, and sections inside them. If sections are hidden with <code>data-visibility</code>, they will not increment or add to the count of selectors in them.</p>
+                                    </section>
+                                </section>
+                                <section class="countme center">
+                                    <h4 class="countme">Happy counting!</h4>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonrow">
+                        <div class="buttongroup" data-prefer="both">
+                            <button class="button hideonsmall internal" data-viewdemo="counteract">View demo</button><a class="button secondary external" href="https://martinomagnifico.github.io/reveal.js-counteract/demo.html" target="_blank">Full demo</a>
+                        </div><a class="button" href="https://github.com/martinomagnifico/reveal.js-counteract" target="_blank">Get the plugin</a>
+                    </div>
+                </div>
+                <div class="col-half rpb">
+                    <p>Reveal.js optimises the performance of presentations by hiding slides that are more than a few steps in the future. </p>
+                    <p>As per the CSS specification, CSS counters simply don’t work in those hidden slides. </p>
+                    <p>CounterAct goes around this limitation by using data-attributes on the elements that you want to count. Similar to CSS counters, CounterAct lets you define multiple counters. This way, you can have nice numbers in your presentation again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lane narrow white">
+        <div class="container">
+            <p>Made by <a href="https://github.com/Martinomagnifico">Martino</a>.</p>
+        </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="https://martinomagnifico.github.io/reveal.js-copycode/demo/plugin/highlight/highlight.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="reveal.js-appearance/plugin/appearance/appearance.js?ioqpu"></script>
+    <script src="reveal.js-internation/plugin/internation/internation.js?ioqpu"></script>
+    <script src="reveal.js-verticator/plugin/verticator/verticator.js?ioqpu"></script>
+    <script src="reveal.js-smallcontrol/plugin/smallcontrol/smallcontrol.js?ioqpu"></script>
+    <script src="reveal.js-fsfx/plugin/fsfx/fsfx.js?ioqpu"></script>
+    <script src="reveal.js-simplemenu/plugin/simplemenu/simplemenu.js?ioqpu"></script>
+    <script src="reveal.js-relativenumber/plugin/relativenumber/relativenumber.js?ioqpu"></script>
+    <script src="reveal.js-copycode/plugin/copycode/copycode.js?ioqpu"></script>
+    <script src="reveal.js-fontsfirst/plugin/fontsfirst/fontsfirst.js?ioqpu"></script>
+    <script src="reveal.js-doghouse/plugin/doghouse/doghouse.js?ioqpu"></script>
+    <script src="reveal.js-tagteam/plugin/tagteam/tagteam.js?ioqpu"></script>
+    <script src="reveal.js-counteract/plugin/counteract/counteract.js?ioqpu"></script>
+    <script src="demo.js?ioqpu"></script>
+    <script src="https://unpkg.com/requirejs@2.3.5/require.js"></script>
+    <script>
+        require({
+            paths: {
+                pug: "reveal.js-doghouse/plugin/pug/pug"
+            }
+        }, ["pug"], function() {
+            pug = require('pug');
+            window.pug = pug;
+        });
+    </script>
+</body>
+
+</html>
