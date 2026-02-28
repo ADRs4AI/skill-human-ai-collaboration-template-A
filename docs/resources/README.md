@@ -2,6 +2,8 @@
 
 This directory contains reference materials for building the Architecture of Complexity skill.
 
+**NOTE: NEEDS UPDATING AFTER REFACTORING**
+
 ## Contents
 
 ### 📚 Skill Documentation
