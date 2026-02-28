@@ -1,11 +1,20 @@
+---
+name: architecture-of-complexity
+description: Apply Herbert Simon's Architecture of Complexity principles to system design, code architecture, and UI decisions. Use for understanding hierarchical decomposition, near-decomposability, stable intermediate forms, and architectural trade-offs. Helps analyze modularity, coupling, and complexity in software systems, pedagogical frameworks, and organizational design.
+license: Complete terms in LICENSE. See also LICENSE-CAM.md and LICENSE-THIRDX.md for framework copyrights.
+---
+
 # Architecture of Complexity Skill
 
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5  
-**License:** [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)  
-**Based on:** Herbert A. Simon, "The Architecture of Complexity" (1962)  
-**Version:** 1.0 (February 2026)
+**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
+**License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+**Based on:** Herbert A. Simon, "The Architecture of Complexity" (1962)
+**Version:** 1.0.0
 
-**Note:** The CAM (Computationally-Assisted Metacognition) framework referenced herein is Copyright © Jérémie Lumbroso. This skill document itself is licensed under CC BY-SA 4.0.
+**Copyright Notices:**
+- **CAM framework** (Computationally-Assisted Metacognition): Copyright © Jérémie Lumbroso. See [LICENSE-CAM.md](LICENSE-CAM.md)
+- **Third X framework** (LLM output linearization): Copyright © Jérémie Lumbroso. See [LICENSE-THIRDX.md](LICENSE-THIRDX.md)
+- **Skill content**: Licensed under CC BY-SA 4.0. See [LICENSE](LICENSE)
 
 ---
 
