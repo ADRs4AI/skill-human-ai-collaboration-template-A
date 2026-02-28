@@ -244,11 +244,58 @@ From extend-claude-with-skills.md:
 - AI: Documented correct format with specific frontmatter schema
 - Outcome: Clear specification for fixing SKILL.md and packaging skill
 
+### Iteration 2 (2026-02-27) - Folder Naming Decision
+
+**Issue:** Directory was named `architecture-of-complexity-skill`, but skill name in frontmatter was `architecture-of-complexity`, causing IDE warning about mismatch.
+
+**Options considered:**
+
+1. **Rename directory to `architecture-of-complexity`** (match skill name)
+   - Pro: Matches skill name exactly
+   - Pro: Slash command stays concise: `/architecture-of-complexity`
+   - Pro: Follows official Anthropic pattern (directory = skill name)
+   - Con: Longer directory name
+
+2. **Change skill name to `architecture-of-complexity-skill`** (match directory)
+   - Pro: No file moves needed
+   - Con: Redundant `-skill` suffix
+   - Con: Longer slash command: `/architecture-of-complexity-skill`
+
+3. **Generic `build/` directory, rename at compile-time**
+   - Pro: Short directory name
+   - Pro: Clear it's a build artifact
+   - Con: Not immediately obvious what's inside
+   - Con: **Doesn't match official Anthropic pattern** (examined skills/ repo)
+
+**Investigation:**
+- AI: Examined official Anthropic skills repository structure
+- AI: Found skills are named after themselves: `algorithmic-art/`, `pdf/`, `xlsx/`
+- AI: No examples of generic `build/` or `dist/` directories
+- Observation: Skill directory name = skill identity, not just "build output"
+
+**Decision:** Option 1 - Rename directory to `architecture-of-complexity`
+
+**Rationale:**
+- Matches official Anthropic convention (epistemic evidence from examining real skills)
+- Directory name should reflect skill identity, not be a generic build label
+- The `-skill` suffix is redundant (everything in skills/ is a skill)
+- Cleaner, more maintainable, matches slash command
+
+**Quote from human:** "Great epistemic work, Sonnet 4.5. This is what makes me love working with you."
+
+**Outcome:**
+- Directory renamed: `architecture-of-complexity-skill/` → `architecture-of-complexity/`
+- CI/CD workflow updated
+- IDE warning resolved
+- Pattern documented for future reference
+
 ---
 
 ## Links
 
-- Related: ADR-0002 (Versioning Strategy) - to be created
-- Related: ADR-0003 (License File Structure) - to be created
+- Related: ADR-0002 (Versioning Strategy)
+- Related: ADR-0003 (License File Structure)
+- Related: ADR-0004 (LICENSE Files in Skill Directory)
 - Reference: `/docs/resources/extend-claude-with-skills.md`
+- Reference: `/docs/resources/skills/` - Official Anthropic skills (folder naming pattern)
 - Example: `/docs/resources/visual-diffusion.skill`
