@@ -1,211 +1,165 @@
-# Architecture of Complexity - Claude Code Skill
+# reveal.js Skill — Repository
 
-**NOTE: OUTDATED, THIS NEEDS TO BE UPDATED FOR THE NEW PROJECT OF REVEAL.JS SKILL**
+A Claude Code skill for creating, editing, and validating reveal.js HTML presentations.
+Built through human-AI collaboration, dogfooded with Playwright MCP, and structured using
+Herbert Simon's Architecture of Complexity principles.
 
-A Claude Code skill for applying Herbert Simon's "Architecture of Complexity" principles to system design, code architecture, UI decisions, and organizational design.
-
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
-**Version:** 1.0.0
-**License:** CC BY-SA 4.0 (skill), see [LICENSE files](#licenses) for framework copyrights
+**Authors:** Jérémie Lumbroso and Claude Sonnet 4.6
+**Version:** 0.2.0 (beta)
+**License:** CC BY-SA 4.0
+**Created:** February 2026
 
 ---
 
-## What This Is
-
-This repository contains a production-ready Claude Code skill that teaches and applies Herbert Simon's foundational 1962 paper on complex systems. The skill helps you:
-
-- **Make architectural decisions** using near-decomposability principles
-- **Analyze modularity** and coupling in codebases
-- **Design hierarchical systems** with stable intermediate forms
-- **Understand why some architectures work** and others fail
-
 ## Quick Start
 
-### Installation
+### Install the skill
 
 ```bash
 # Download the latest release
-# https://github.com/jlumbroso/architecture-of-complexity-skill/releases
+# https://github.com/jlumbroso/revealjs-skill/releases
 
 # Unzip to your Claude skills directory
-unzip architecture-of-complexity-1.0.0.skill -d ~/.claude/skills/
-
-# Restart Claude Code or invoke directly
-/architecture-of-complexity
+unzip revealjs-0.2.0.skill -d ~/.claude/skills/revealjs/
 ```
 
-### Usage
-
-Once installed, the skill activates automatically when you:
-- Make framework decisions (Vue vs React)
-- Design API boundaries
-- Evaluate system modularity
-- Plan refactoring strategies
-
-Or invoke manually: `/architecture-of-complexity`
-
-## What's Inside
-
-### The Skill (`architecture-of-complexity/`)
-
-```
-architecture-of-complexity/
-├── SKILL.md                    # Core principles (408 lines)
-├── LICENSE, LICENSE-CAM.md, LICENSE-THIRDX.md
-├── resources/
-│   ├── simon_1962_full.txt     # Full Simon paper
-│   └── examples/
-│       ├── vue-react.md        # Framework comparison
-│       ├── mcp-design.md       # MCP architecture (Third X)
-│       └── cam.md              # Pedagogical framework
-└── README.md, INSTALLATION.md, META-ARCHITECTURE.md
+Or reference manually in your project's `CLAUDE.md`:
+```markdown
+Load the reveal.js skill from `.claude/skills/revealjs/SKILL.md`.
 ```
 
-**Key Features:**
-- **Progressive disclosure**: 80% of use cases with 14KB file
-- **Real examples**: From our actual collaborative projects
-- **Self-demonstrating**: The skill follows the principles it teaches
-- **Three copyrights**: Skill (CC BY-SA), CAM & Third X (© Jérémie)
+### Use it
+
+The skill activates when you:
+- Ask Claude to create or edit a reveal.js presentation
+- Work on any `.html` file containing `Reveal.initialize(`
+- Need math (KaTeX), diagrams (Mermaid), code, or speaker notes in slides
+
+---
+
+## What's in this repository
+
+### The Skill (`revealjs/`)
+
+```
+revealjs/
+├── SKILL.md                      # Entry point (~410 lines) — always load this
+├── README.md                     # Skill-specific quick reference
+├── LICENSE                       # CC BY-SA 4.0
+└── resources/                    # 11 subskills — load on demand
+    ├── plugins-reference.md      # Full plugin lookup table (CDN URLs, init keys)
+    ├── math-katex.md             # Proof-steps grid, color vars, notation box
+    ├── diagrams-mermaid.md       # Mermaid setup, color theme, diagram types
+    ├── pseudocode-algorithms.md  # white-space: pre-wrap, algorithm/proof boxes
+    ├── playwright-review.md      # Visual QA workflow, Reveal.js navigation API
+    ├── speaker-notes.md          # Stack TOC format, timing, pre-publish checklist
+    ├── pdf-export.md             # DeckTape (primary), print-pdf, file:// vs localhost
+    ├── slido.md                  # Intro slide, copy-paste format, end survey
+    ├── topic-curation.md         # Topic stacks, session assembly, multi-audience
+    ├── troubleshooting.md        # 11 failure patterns: symptom → diagnosis → fix
+    └── slides-com.md             # Slides.com format, SLConfig notes, conversion guide
+```
 
 ### Documentation (`docs/`)
 
 #### Decision Records (`docs/adr/`)
 
-We documented every major decision in ADRs:
-
-- **[ADR-0001](docs/adr/0001-skill-packaging-format.md)** - Skill packaging format and frontmatter (2 iterations)
-- **[ADR-0002](docs/adr/0002-versioning-strategy.md)** - Semantic versioning strategy
-- **[ADR-0003](docs/adr/0003-license-file-structure.md)** - Multi-license structure
-- **[ADR-0004](docs/adr/0004-license-files-in-skill-directory.md)** - LICENSE files in skill directory (**the magic discovery**)
-
-**Why ADRs matter:** These capture *non-intuitive decisions* (like why LICENSE files belong in the .skill ZIP) that emerged from collaborative investigation. Read them to understand the "why" behind our choices.
+| ADR | Decision |
+|---|---|
+| [0001](docs/adr/0001-skill-packaging-format.md) | Skill packaging format |
+| [0002](docs/adr/0002-versioning-strategy.md) | Versioning strategy |
+| [0003](docs/adr/0003-license-file-structure.md) | License file structure |
+| [0004](docs/adr/0004-license-files-in-skill-directory.md) | LICENSE in skill directory |
+| [0005](docs/adr/0005-skill-consumer-context.md) | Claude Code vs Claude Web context |
+| [0006](docs/adr/0006-skill-structure-architecture-of-complexity.md) | AoC-based skill hierarchy |
+| [0007](docs/adr/0007-plugin-reference-table-format.md) | Plugin table in markdown |
+| [0008](docs/adr/0008-nested-git-repos-handling.md) | Nested repos → gitignore + provenance |
+| [0009](docs/adr/0009-playwright-as-visual-qa-methodology.md) | Playwright as visual QA |
+| [0010](docs/adr/0010-topic-curation-aoc-derivation.md) | Topic curation pattern (AoC-derived insight) |
+| [0011](docs/adr/0011-playwright-dogfooding-findings.md) | Dogfooding findings from 3 sample presentations |
 
 #### Reference Materials (`docs/resources/`)
 
-- Official Anthropic skills repository (reference implementation)
-- Agent Skills specification
-- Visual diffusion skill example
-- Full documentation on skill format
+- `reveal.js/` — Research reports: REVEAL_JS_SPECIFICATION.md, REVEAL_JS_PLUGINS.md, REVEAL_JS_PLUGIN_WIKI.md
+- `reveal.js/sample-talks/` — Three sample presentations (lecture10, Slides.com, question-scaffolded)
+- `slides.com/` — Two Slides.com exports (test deck, mangled import)
+- `sample-adr-specs-for-reveal.js-projects/` — 18 ADRs from 2 real courses (penn-cis5020, beyond-the-hype)
+- `skill-format/` — Reference implementations of other Claude skills
+- `automated-testing/` — Playwright MCP documentation
 
-See [docs/resources/README.md](docs/resources/README.md) for the complete guide.
+#### Seed Documents (`docs/seeds/`)
 
-## Key Concepts
+- `topic-curation-skill-seed.md` — Full seed for a future standalone "topic curation" skill
 
-The skill teaches five core principles from Simon's work:
+---
 
-1. **Complexity as Hierarchy** - Systems are built from subsystems
-2. **Watchmaker Parable** - Why hierarchies evolve faster (Hora vs Tempus)
-3. **Near-Decomposability** - Strong coupling within, weak between
-4. **Empty World Hypothesis** - Most things are weakly connected
-5. **Process vs State** - How vs what descriptions
+## Key Design Principles
 
-### Real Applications
+### Architecture of Complexity applied to reveal.js
 
-**Vue vs React decision:**
-- Vue SFC: Near-decomposable (template | script | style)
-- React JSX: Tightly coupled (HTML/JS/CSS fused)
-- **Verdict**: Vue aligns better with both human and LLM cognition
+reveal.js is near-decomposable at five levels:
+```
+Level 4 — PRESENTATION   The HTML file
+Level 3 — TOPIC          <section> horizontal slides (chapters)
+Level 2 — SLIDE          <section> vertical slides (individual)
+Level 1 — BLOCK          Content elements (h2, lists, code, math)
+Level 0 — FRAGMENT       .fragment elements (progressive reveal)
+```
 
-**iMessage MCP design:**
-- Linearized output for LLM consumption (Third X framework)
-- "Model Experience" over human display
-- Each ADR as stable intermediate form
+SKILL.md (the skill entry point) is itself a stable intermediate form — useful alone,
+enhanced by subskills loaded on demand. See [ADR-0006](docs/adr/0006-skill-structure-architecture-of-complexity.md).
 
-**CAM pedagogical framework:**
-- System 3 as external metacognitive layer
-- Near-decomposable separation of thinking from meta-thinking
-- Hierarchical scaffolding for learning
+### Critical CSS values (do not inflate)
+
+- `line-height: 1.3` (not 1.6)
+- `--r-main-font-size: 28px`
+- `white-space: pre-wrap` on `.algorithm-box`, `.proof-box` (never on `.math-box`)
+- `.code-box { font-size: 0.85em }`
+
+### What Playwright dogfooding confirmed
+
+Testing three real sample presentations (2026-02-28) found:
+- **The Big One**: local relative paths (`../../dist/reveal.js`) silently break presentations — always use CDN
+- Slides.com exports: 0 console errors, Reveal API works, speaker notes in `SLConfig.notes[UUID]`
+- Slides.com imports: destructive for custom CSS — maintain as parallel tracks
+
+---
 
 ## Development
 
 ### Building
 
 ```bash
-# Local build test
-cd architecture-of-complexity
-zip -r ../architecture-of-complexity-test.skill . -x "*.git*" -x "*.DS_Store"
-
-# CI/CD builds automatically on:
-# - Push to main (artifact)
-# - Tag v*.*.* (GitHub Release)
+# CI/CD builds automatically on push to main (artifact) or tag v*.*.* (release)
+# Manual test build:
+cd revealjs
+zip -r ../revealjs-test.skill . -x "*.git*" -x "*.DS_Store" -x ".gitkeep"
 ```
 
 ### Contributing
 
 See [CLAUDE.md](CLAUDE.md) for:
+- Prime Directive: commit discussions to ADRs immediately
 - Commit message format (`type: subject`)
-- ADR workflow (Prime Directive: COMMIT DISCUSSIONS TO ADRs)
-- Navigation codes (QST:, ANS:, COD:, FIL:, etc.)
-
-## Licenses
-
-### Skill Content (CC BY-SA 4.0)
-
-The skill documentation, examples, and instructional content are licensed under [Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-
-**Files:** SKILL.md, README.md, examples/*.md, documentation
-**Copyright:** © 2026 Jérémie Lumbroso and Claude Sonnet 4.5
-
-### Framework Copyrights
-
-Two frameworks described in the skill are separately copyrighted:
-
-- **CAM (Computationally-Assisted Metacognition)** - Copyright © Jérémie Lumbroso
-  See [architecture-of-complexity/LICENSE-CAM.md](architecture-of-complexity/LICENSE-CAM.md)
-
-- **Third X (LLM Output Linearization)** - Copyright © Jérémie Lumbroso
-  See [architecture-of-complexity/LICENSE-THIRDX.md](architecture-of-complexity/LICENSE-THIRDX.md)
-  Website: https://thirdx.design
-
-## Credits
-
-### Authors
-
-**Jérémie Lumbroso** - Framework creator (CAM, Third X), pedagogical insight, architectural vision
-
-**Claude Sonnet 4.5** - Co-author, skill implementation, ADR documentation, epistemic investigation
-
-### Collaboration Notes
-
-This skill emerged from collaborative investigation where:
-- Human provided vision, frameworks, and generative doubts
-- AI performed epistemic work (examining official skills, discovering patterns)
-- Together we captured non-intuitive decisions in ADRs
-- The process itself demonstrates near-decomposability in human-AI partnership
-
-**Quote from human on the epistemic work:**
-> "Great epistemic work, Sonnet 4.5. This is what makes me love working with you."
-
-### Based On
-
-Herbert A. Simon, "The Architecture of Complexity" (1962)
-*Proceedings of the American Philosophical Society*, Vol. 106, No. 6
-
-Full paper included in `architecture-of-complexity/resources/simon_1962_full.txt`
-
-## Meta-Note
-
-**This skill is self-demonstrating:**
-
-- ✅ Hierarchical structure (repo → docs → skill → sections)
-- ✅ Nearly decomposable (each ADR readable independently)
-- ✅ Stable intermediate forms (each commit is working state)
-- ✅ Progressive disclosure (README → ADRs → full skill)
-- ✅ Process description (ADRs capture *how* we decided, not just *what*)
-
-The repository architecture follows the principles the skill teaches.
+- Navigation codes (QST:, ANS:, COD:, NOT:, etc.)
+- Ephemeral scripts → `scripts/ephemeral/YYYY-MM-DD-*.py`
 
 ---
 
-## Links
+## Companion Skill
 
-- **Releases**: https://github.com/jlumbroso/architecture-of-complexity-skill/releases
-- **Issues**: https://github.com/jlumbroso/architecture-of-complexity-skill/issues
-- **Third X Framework**: https://thirdx.design
-- **Claude Code**: https://claude.com/claude-code
+The Architecture of Complexity skill (`.claude/skills/architecture-of-complexity/`)
+is installed in this repository. It was used during development to derive the skill
+architecture (ADR-0006) and identified that the topic curation pattern is generic
+enough to become its own skill (ADR-0010).
 
 ---
 
-**Built with:** The principles it teaches
-**Created:** February 2026
-**Status:** Production-ready v1.0.0
+## License
+
+**Skill content:** CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.6
+
+---
+
+**Built using the principles it teaches**
+**Status:** Beta (v0.2.0) — Dogfooded via Playwright, not yet production-tested end-to-end
