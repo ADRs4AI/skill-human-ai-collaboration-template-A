@@ -307,8 +307,20 @@ def linearize_messages(rows):
 
 ---
 
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5  
-**License:** CC BY-SA 4.0  
-**Date:** February 2026  
+**Copyright Notice:**
+
+The **Third X framework** (LLM output linearization framework) described in this document is Copyright © Jérémie Lumbroso. See [LICENSE-THIRDX.md](../../LICENSE-THIRDX.md) for details.
+
+This document's analysis and description are licensed under CC BY-SA 4.0 as part of the Architecture of Complexity skill.
+
+**More Information:**
+- Third X website: https://thirdx.design
+- Third X principles: Model Experience, linearization, hierarchical output design for LLM consumption
+
+---
+
+**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
+**License:** CC BY-SA 4.0
+**Date:** February 2026
 
 **Note:** This design emerged from 17 hours of collaborative partnership between Jérémie Lumbroso and Claude Sonnet 4.5, demonstrating that cognitive partnership produces architecturally sound systems.

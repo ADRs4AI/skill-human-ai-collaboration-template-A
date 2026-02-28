@@ -362,9 +362,16 @@ Highly sensitive processing sees all connections. CAM helps manage which connect
 
 ---
 
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5  
-**License:** CC BY-SA 4.0  
-**CAM Framework:** Copyright © Jérémie Lumbroso  
+**Copyright Notice:**
+
+The **CAM (Computationally-Assisted Metacognition) framework** described in this document is Copyright © Jérémie Lumbroso. See [LICENSE-CAM.md](../../LICENSE-CAM.md) for details.
+
+This document's analysis and description are licensed under CC BY-SA 4.0 as part of the Architecture of Complexity skill.
+
+---
+
+**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
+**License:** CC BY-SA 4.0
 **Date:** February 2026
 
 **Note:** This framework emerged from years of collaborative cognitive partnership, demonstrating that AI can function as System 3 when properly architected.
