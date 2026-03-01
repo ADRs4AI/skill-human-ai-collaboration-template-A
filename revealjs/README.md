@@ -1,9 +1,9 @@
 # reveal.js Skill
 
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.6
-**License:** CC BY-SA 4.0
-**Version:** 0.3.0
-**Last updated:** 2026-02-28
+- **Authors:** Jérémie Lumbroso and Claude Sonnet 4.6
+- **License:** CC BY-SA 4.0
+- **Version:** 0.3.0
+- **Last updated:** 2026-02-28
 
 ---
 
