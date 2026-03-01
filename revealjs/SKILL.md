@@ -394,6 +394,10 @@ Load these from `resources/` when needed:
 | `resources/topic-curation.md` | Building from topic stacks; multi-audience presentations |
 | `resources/troubleshooting.md` | Common failure points: symptoms, diagnosis, fix |
 | `resources/slides-com.md` | Slides.com format, conversion to/from hand-crafted |
+| `resources/auto-animate-layout.md` | Auto-Animate, layout helpers (r-stretch, r-stack, r-fit-text), all fragment styles, full background reference |
+| `resources/markdown-authoring.md` | Markdown slides, external `.md` files, separators, slide/element attributes |
+| `resources/media-lightbox.md` | Video, audio, iframe embeds, data-autoplay, lightbox previews |
+| `resources/advanced-config.md` | Full config reference, themes, keyboard shortcuts, API events, scroll view, data-state |
 
 ---
 
