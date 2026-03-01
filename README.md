@@ -4,10 +4,10 @@ A Claude Code skill for creating, editing, and validating reveal.js HTML present
 Built through human-AI collaboration, dogfooded with Playwright MCP, and structured using
 Herbert Simon's Architecture of Complexity principles.
 
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.6
-**Version:** 0.2.0 (beta)
-**License:** CC BY-SA 4.0
-**Created:** February 2026
+- **Authors:** Jérémie Lumbroso and Claude Sonnet 4.6
+- **Version:** 0.2.0 (beta)
+- **License:** CC BY-SA 4.0
+- **Created:** February 2026
 
 ---
 
