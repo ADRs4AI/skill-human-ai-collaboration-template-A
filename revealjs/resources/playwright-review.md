@@ -180,17 +180,21 @@ The most common issue. A slide overflows when content height > viewport height (
 **Detect programmatically**:
 ```javascript
 () => {
-  const slides = document.querySelectorAll('.reveal .slides section');
+  // Use :not(.stack) to exclude wrapper sections — those always "overflow" their children
+  const slides = document.querySelectorAll('.reveal .slides section:not(.stack)');
   return Array.from(slides).map((s, i) => ({
     index: i,
+    title: s.querySelector('h2')?.textContent?.slice(0, 30) ?? '(no h2)',
     scrollHeight: s.scrollHeight,
     clientHeight: s.clientHeight,
-    overflows: s.scrollHeight > s.clientHeight
+    overflows: s.scrollHeight > s.clientHeight + 5
   })).filter(s => s.overflows);
 }
 ```
 
-Returns list of overflowing slides with their indices.
+Returns list of overflowing content slides with titles and indices.
+**Important**: use `:not(.stack)` — `.stack` wrapper sections contain all their children
+and will always appear to overflow; they are not real content slides.
 
 **Fix overflow (in order of preference)**:
 1. Split slide into two sub-slides

@@ -183,7 +183,7 @@ KaTeX's `$...$` inline delimiter conflicts with currency signs. If dollar signs 
 
 **Diagnostic**:
 ```javascript
-() => Array.from(document.querySelectorAll('.reveal .slides section'))
+() => Array.from(document.querySelectorAll('.reveal .slides section:not(.stack)'))
   .map((s, i) => ({ i, overflows: s.scrollHeight > s.clientHeight + 5 }))
   .filter(s => s.overflows)
 // Returns indices of overflowing slides
@@ -299,7 +299,7 @@ For actual delivery: confirm by opening the presentation in a browser without Pl
 () => Reveal.getPlugins().map(p => p.id)
 
 // 3. Any overflowing slides?
-() => Array.from(document.querySelectorAll('.reveal .slides section'))
+() => Array.from(document.querySelectorAll('.reveal .slides section:not(.stack)'))
   .map((s,i) => ({i, over: s.scrollHeight > s.clientHeight+5})).filter(s=>s.over)
 
 // 4. Mermaid rendered?
