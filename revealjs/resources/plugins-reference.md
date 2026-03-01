@@ -112,6 +112,7 @@ https://cdn.jsdelivr.net/npm/reveal.js-spotlight/plugin/spotlight.js
 | Embedded quizzes | Quizzes | GitHub | — | No server needed |
 | Countdown per slide | RevealCountdown | CDN | `reveal.js-countdown` | `<section data-countdown="180">` |
 | Presentation analytics | reveal.js-tracking | GitHub | — | Dwell times, clicks, quiz responses |
+| **Slido Q&A / polls** | — (external service) | — | — | Not a plugin — see `resources/slido.md` for intro slide, copy-paste format, end survey |
 
 ---
 
