@@ -5,7 +5,7 @@
 - **AI**: Claude Web Sonnet 4.5 and Claude Code Sonnet 4.5
 - **Last Updated**: February 28, 2026
 
-**NOT:** (by Jérémie) The concept of "epistemic arc mapping" was created/invented by Claude Web Sonnet 4.5 spontaneously.
+**NOTE:** (by Jérémie) The concept of "epistemic arc mapping" was created/invented by Claude Web Sonnet 4.5 spontaneously during analysis of an academic paper.
 
 ---
 
@@ -29,9 +29,9 @@ This means the human is interested in meaningful points of friction or underspec
 
 (Other directives have been occluded because they are not relevant.)
 
-**DON'T HESITATE TO EXPERIMENT TO LEARN: YOU HAVE ACCESS TO PLAYWRIGHT MCP TO BE ABLE TO HAVE ACCESS TO YOUR HOW BROWSER**
+**EXPERIMENT AND LEARN WHEN APPROPRIATE**
 
-This is a methodology (of taking screenshots, learning from Playwright) that you need to document a subskill for this reveal.js skill we are building — so dogfooding is the best way of learning!
+(The original Tenth Directive about Playwright MCP was specific to the reveal.js skill. For epistemic arc mapping, experimentation means testing the methodology on diverse papers to refine the framework.)
 
 ---
 
@@ -95,50 +95,63 @@ If the script was successfully used, append as comments how, and what the outcom
 ## Project Context
 
 ### What we're building:
-This is a repository where we're putting together a skill to create "epistemic arc mappings" of documents, transcripts, talks, etc.. An "epistemic arc mapping" is an epistemic deconstruction of all the arguments of an input, their justification, and tensions/gaps in the materials. This allows to assess the epistemic robustness of an input.
+This is a repository for the **epistemic arc mapping skill** — a Claude skill for rigorous academic analysis. It maps claims, epistemic foundations, and productive tensions in papers, policy documents, and scholarly arguments. It distinguishes truth-seeking scholarship from sophistic advocacy through systematic analysis.
+
+An "epistemic arc mapping" is an epistemic deconstruction of all the arguments in a paper: their claims, justification, and tensions/gaps. This allows assessment of the epistemic robustness of scholarship.
 
 ### Current focus:
-Claude Web Sonnet 4.5 has create the skill itself.
+The skill itself (SKILL.md) has been created by Claude Web Sonnet 4.5. Current work involves:
+- Cleaning up repository structure (removing reveal.js artifacts)
+- Updating documentation to reflect epistemic arc mapping focus
+- Preparing for initial release (v0.1.0)
 
 ### Key decisions made:
-None yet. Later will be in this format:
-- [Decision 1] - See `docs/adr/0001-*.md`
-- [Decision 2] - See `docs/adr/0002-*.md`
+- [Skill packaging format](docs/adr/0001-skill-packaging-format.md) — ZIP with YAML frontmatter
+- [Versioning strategy](docs/adr/0002-versioning-strategy.md) — Semantic versioning (SemVer)
+- [Consumer context](docs/adr/0005-skill-consumer-context.md) — Claude Web (primary), Claude Code (batch)
+- [Skill structure](docs/adr/0006-skill-structure-architecture-of-complexity.md) — Complete SKILL.md + optional specialized subskills
 
-### Open questions:
-- How to structure the skill most effectively in main SKILL.md and subskills to have layered activation when effective. -> This will involve using the `.claude/skills/architecture-of-complexity` skill that you should load. This skill is actually the initial instance of a repo of this kind (to build skills). You can check the last commit or one of the last commit moved the skill to the folder.
-- What files/resources from `architecture-of-complexity` remains that we should remove. (I deleted some obvious, but others may be missing.)
+### Current status:
+- ✅ SKILL.md created (complete, ~420 lines)
+- ✅ README.md updated
+- ✅ ADRs cleaned up (removed reveal.js-specific ones)
+- ⚠️  Need to finalize packaging and release process
 
 ---
 
 ## File Structure
 
 ```
-architecture-of-complexity-skill
-├── architecture-of-complexity-skill          # Skill as composed by Claude Web Sonnet 4.5 see BUILD-SUMMARY.md
-│   ├── INSTALLATION.md
-│   ├── META-ARCHITECTURE.md
-│   ├── README.md
-│   ├── resources
-│   │   ├── examples
-│   │   │   ├── cam.md
-│   │   │   ├── mcp-design.md
-│   │   │   └── vue-react.md
-│   │   ├── simon_1962_full.txt
-│   │   └── simon_architecture_summary.md
-│   └── SKILL.md
-├── CLAUDE.md                                 # this file, agent guidance
-├── docs
-│   ├── adr                                   # ADR repository for the project
-│   │   └── templates
-│   │       ├── collab-adr-lean.md            # human-AI extended ADR template
-│   │       ├── seed-template.md              # human-AI seed template
-│   │       └── template.md                   # MADR template
-│   ├── BUILD-SUMMARY.md                          # Sonnet 4.5's build summary (may be moved to docs)
-│   ├── CONVERSATION.md                       # original conversation with Claude Web Sonnet 4.5
-│   ├── METHODOLOGY.md                        # human-AI ADR framework methodology
-│   └── sample-ci-cd.yaml                     # sample CI/CD script with GITHUB_STEP_SUMMARY
-└── licenses
+epistemic-arc-mapping-skill/
+├── .claude/
+│   └── skills/
+│       └── architecture-of-complexity/       # Companion skill used during development
+├── epistemic-arc-mapping/                    # The skill itself
+│   ├── SKILL.md                              # Complete methodology (~420 lines)
+│   ├── README.md                             # Quick reference
+│   ├── LICENSE                               # CC BY-SA 4.0
+│   └── resources/                            # Future specialized subskills
+│       └── .gitkeep
+├── docs/
+│   ├── adr/                                  # Architecture Decision Records
+│   │   ├── 0001-skill-packaging-format.md
+│   │   ├── 0002-versioning-strategy.md
+│   │   ├── 0003-license-file-structure.md
+│   │   ├── 0004-license-files-in-skill-directory.md
+│   │   ├── 0005-skill-consumer-context.md
+│   │   ├── 0006-skill-structure-architecture-of-complexity.md
+│   │   ├── 0008-nested-git-repos-handling.md
+│   │   └── templates/
+│   │       ├── collab-adr-lean.md            # human-AI extended ADR template
+│   │       ├── seed-template.md              # human-AI seed template
+│   │       └── template.md                   # MADR template
+│   └── feedback/
+│       └── INITIAL-SONNET-4.5.md             # Founding conversation
+├── scripts/
+│   └── ephemeral/                            # Temporary diagnostic scripts
+├── CLAUDE.md                                 # This file — agent guidance
+├── README.md                                 # Repository overview
+└── LICENSE                                   # Repository license
 ```
 
 ---
@@ -190,7 +203,9 @@ If context window fills mid-work, create `docs/HANDOFF-datetime.md`:
 
 ## Project-Specific Notes
 
-- This repo was based off another project called the `architecture-of-complexity-skill` and so there are traces of that. I have left them to show you an one-shot example of what we are going for with our new skill.
+- This repo was originally cloned from `revealjs-skill` and has been repurposed for epistemic arc mapping. Cleanup is ongoing.
+
+- The `architecture-of-complexity-skill` is installed at `.claude/skills/architecture-of-complexity/` as a companion skill. It was used to structure this skill (see ADR-0006).
 
 - It's possible the user uses `asdf` for Node.js and Python and the runtime of most languages. You can `source .claude/agent.env` before calling the runtimes, like `python` or `node` to access them through `asdf`'s shims. See: https://asdf-vm.com/manage/configuration.html
 

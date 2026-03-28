@@ -1,119 +1,115 @@
 # ADR-0006: Skill Structure Using Architecture of Complexity Principles
 
-- **Date**: 2026-02-28
-- **Iteration**: 1
+- **Date**: 2026-03-28
+- **Iteration**: 2
 - **Status**: Accepted
-- **Deciders**: Jérémie Lumbroso, Claude Code Sonnet 4.6
+- **Deciders**: Jérémie Lumbroso, Claude Sonnet 4.5/4.6
 
 ---
 
 ## Context
 
-### QST: How should the reveal.js skill be structured?
+### QST: How should the epistemic arc mapping skill be structured?
 
-reveal.js itself is a hierarchically-decomposed system. The skill that teaches Claude to work with reveal.js should mirror that structure. Herbert Simon's Architecture of Complexity (the companion skill installed at `.claude/skills/architecture-of-complexity/`) provides the framework for this decision.
+The skill teaches a hierarchical analysis methodology — breaking papers into arcs, arcs into components (claims, evidence, tensions). The skill structure should mirror this analytical hierarchy. Herbert Simon's Architecture of Complexity (the companion skill installed at `.claude/skills/architecture-of-complexity/`) provides the framework for this decision.
 
-### QST: How does reveal.js itself embody AoC principles?
+### QST: How does epistemic arc mapping embody AoC principles?
 
-reveal.js is near-decomposable at multiple levels:
-- **Level 4 (Presentation)**: The HTML file = entire presentation
-- **Level 3 (Topics)**: `<section>` horizontal slides = topic chapters
-- **Level 2 (Slides)**: `<section>` vertical slides within topics = individual slides
-- **Level 1 (Blocks)**: Content blocks within a slide (h2, lists, code, math, diagrams)
-- **Level 0 (Fragments)**: `.fragment` elements = progressive reveal within a slide
+The methodology itself is near-decomposable at multiple levels:
+- **Level 3 (Paper)**: The complete document being analyzed
+- **Level 2 (Arcs)**: Major argumentative threads (4-6 per paper)
+- **Level 1 (Arc Components)**: Claims, evidence, tensions within each arc
+- **Level 0 (Sophistry Markers)**: Specific rhetorical patterns (when present)
 
-At each level, internal coupling is strong (a slide's elements are semantically related) and external coupling is weak (changing slide 3 doesn't affect slide 7's content). This is Simon's near-decomposability in action.
+At each level, internal coupling is strong (an arc's components relate to each other) and external coupling is weak (Arc 1 can be analyzed independently of Arc 3). This is Simon's near-decomposability in action.
 
-The **watchmaker parable** maps directly: presentations are built from stable subassemblies (topic stacks), not from scratch. Each topic stack can be developed, tested, and reused independently — exactly "Hora's" approach.
+The **watchmaker parable** maps to the analysis process: build arc-by-arc (stable intermediate forms), not attempting to hold the entire paper's argument structure in working memory at once.
 
 ---
 
 ## Decision
 
-### Hierarchical skill with SKILL.md as entry point + loadable subskills
+### Hierarchical skill with SKILL.md as complete entry point + optional specialized subskills
 
 ```
-revealjs/
-├── SKILL.md                        # Entry point: always loaded, ≤500 lines
+epistemic-arc-mapping/
+├── SKILL.md                        # Complete methodology: ~420 lines
 ├── README.md                       # Human-readable overview
 ├── LICENSE                         # License file
-└── resources/                      # Subskills: loaded on demand
-    ├── plugins-reference.md        # Plugin lookup table (no-stuttering)
-    ├── math-katex.md               # KaTeX: proof patterns, color vars, budget
-    ├── diagrams-mermaid.md         # Mermaid: setup, color theme, syntax
-    ├── pseudocode-algorithms.md    # white-space: pre-wrap, algorithm-box
-    ├── playwright-review.md        # Visual QC: navigation API, workflow
-    └── speaker-notes.md            # Stack TOC format, timing, checklist
+└── resources/                      # Specialized subskills (future)
+    ├── policy-documents.md         # Adaptations for policy analysis
+    ├── book-chapters.md            # Book-length argument mapping
+    ├── worked-examples/            # Full arc mappings
+    │   └── chachko-executive-orders.md
+    └── sophistry-catalog.md        # Extended sophistry patterns
 ```
 
-### SKILL.md content (~500 lines)
+### SKILL.md content (~420 lines)
 
-SKILL.md is the stable intermediate form — useful alone, enhanced by subskills:
-1. AoC mental model mapping (this helps LLMs understand reveal.js structure intuitively)
-2. Minimal HTML boilerplate (self-contained, CDN-based)
-3. CSS baseline (the critical values learned through iteration)
-4. Plugin quick reference table (inline summary, deep detail in `plugins-reference.md`)
-5. Math: KaTeX minimal setup
-6. Diagrams: Mermaid minimal setup
-7. Pseudocode pattern (white-space: pre-wrap)
-8. Speaker notes format
-9. Fragment usage
-10. Playwright quality check checklist
-11. Subskill loading guidance
+SKILL.md is the stable intermediate form — complete and self-sufficient:
+1. Core methodology (Claims → Evidence → Tensions → Probe points)
+2. Four-step arc analysis protocol
+3. Epistemic strength indicators (comprehensive checklist)
+4. Sophistry detection matrix (7 categories, inline)
+5. Output format template
+6. Syntactic vs semantic thinking diagnostic
+7. Steel man test (master diagnostic)
+8. Quick reference comparison table
+9. When to use guidance
+10. Integration with other skills
 
-### Subskill loading heuristics
+### Future subskill loading heuristics
 
-| Task | Load subskill |
+| Task | Load subskill (when created) |
 |---|---|
-| Building a presentation with math/proofs | `math-katex.md` |
-| Adding flowcharts, state diagrams | `diagrams-mermaid.md` |
-| Pseudocode, algorithm steps | `pseudocode-algorithms.md` |
-| Need to check for overflow/wrapping | `playwright-review.md` |
-| Adding navigation, menus, plugins | `plugins-reference.md` |
-| Building speaker notes for performance | `speaker-notes.md` |
+| Analyzing policy documents or committee reports | `policy-documents.md` |
+| Mapping book-length arguments | `book-chapters.md` |
+| Need worked examples for pattern recognition | `worked-examples/` |
+| Deep dive into specific sophistry patterns | `sophistry-catalog.md` |
 
 ---
 
-## The AoC Mapping as Pedagogical Tool
+## The AoC Mapping as Analytical Tool
 
-Explicitly mapping reveal.js to AoC principles in SKILL.md serves a specific purpose: it gives Claude an instinctual structural understanding, not just syntax knowledge. When Claude understands that:
-- A topic stack = a stable subassembly
-- Fragments = atomic sequential steps
-- Plugins = near-decomposable modules with `id` + `init(deck)` interface
-- CSS variables = the shared state layer (weakly coupled to slide content)
+Explicitly mapping epistemic arc methodology to AoC principles serves a specific purpose: it gives Claude an instinctual understanding of how to decompose complex arguments. When Claude understands that:
+- Each arc = a stable subassembly (independently analyzable)
+- Arc components (claim, evidence, tensions) = the internal structure with strong coupling
+- Arcs relate weakly to each other = near-decomposability
+- The meta-arc = the overarching structure that emerges from composed arcs
 
-...it makes better architectural decisions when generating or editing presentations.
+...it makes better analytical decisions when mapping papers.
 
 ### The Watchmaker Parable in Practice
 
-**Anti-pattern (Tempus)**: Writing one monolithic HTML file with all slides, inline styles, no reuse → any change requires understanding the whole.
+**Anti-pattern (Tempus)**: Attempting to hold the entire paper's argument structure in working memory, analyzing everything at once → interruptions (new information, alternative interpretations) force restart.
 
-**Pattern (Hora)**: Building topic stacks independently, with shared CSS baseline, CDN plugins, and speaker notes as navigation aid → each stack is testable and reusable.
+**Pattern (Hora)**: Building arc-by-arc, each arc a stable analytical unit → interruptions affect only current arc, prior work preserved.
 
 ---
 
 ## Alternatives Considered
 
-### Option A: Single flat SKILL.md with everything
-- Pro: Simple, one file
-- Con: Exceeds 500 line limit; forces Claude to load 5000 lines for a simple task
-- Con: Simon's watchmaker principle: flat assembly = high failure rate from interruption
+### Option A: Minimal SKILL.md + many subskills for details
+- Pro: Keeps entry point small
+- Con: Primary use case (single-paper analysis in Claude Web) requires loading multiple files
+- Con: Violates "stable intermediate form" principle — base isn't useful alone
 
-### Option B: Separate skills for each use case (math-skill, diagram-skill)
-- Pro: Maximum isolation
-- Con: No shared context; CSS baseline would need to be in each
-- Con: Violates near-decomposability — these use cases share the same HTML skeleton
+### Option B: Everything inline, no subskills
+- Pro: Single file, no dependencies
+- Con: Would exceed 500-line recommendation
+- Con: No room for specialized guidance (policy docs vs academic papers)
 
-### Option C (Chosen): Single SKILL.md + optional depth via resources/
-- Pro: Stable intermediate form that works alone
-- Pro: Depth is additive, not required
-- Pro: Mirrors the long-stack/projection pattern from production use
+### Option C (Chosen): Complete SKILL.md + optional specialized subskills
+- Pro: SKILL.md is complete and immediately useful (stable intermediate form)
+- Pro: Specialized subskills provide depth for edge cases without bloating main file
+- Pro: Primary use case (Claude Web single-paper) requires no additional loading
+- Pro: Matches the near-decomposability of the methodology itself
 
 ---
 
 ## Notes
 
-### NOT: 2026-02-28
-The reveal.js AoC mapping should be documented prominently because it's generative — it's not just documentation, it's the mental model that makes everything else make sense. A model that understands "topic stacks are stable subassemblies" will naturally resist the urge to monolithically generate 50 slides at once.
+### NOT: 2026-03-28
+The epistemic arc mapping methodology itself embodies AoC principles (hierarchical decomposition, near-decomposability, stable intermediate forms). The skill structure should mirror this — SKILL.md is the stable form that works independently, with optional depth for specialized contexts.
 
-Explicitly pointing out AoC at every level helps LLMs develop instinctual understanding of the structure. This was a specific request from Jérémie in the founding conversation.
+This differs from the reveal.js skill structure decision (ADR-0006 iteration 1), where subskills were essential for different use cases (math, diagrams, etc.). For epistemic arc mapping, the core methodology is complete in SKILL.md; subskills provide specialized adaptations, not essential functionality.

@@ -1,17 +1,11 @@
-**NOTE:** Needs to be rewritten for current project
+# Epistemic Arc Mapping Skill — Repository
 
+A Claude skill for rigorous academic analysis: map claims, epistemic foundations, and productive tensions in papers, policy documents, and scholarly arguments. Distinguishes truth-seeking scholarship from sophistic advocacy through systematic analysis.
 
-
-# reveal.js Skill — Repository
-
-A Claude Code skill for creating, editing, and validating reveal.js HTML presentations.
-Built through human-AI collaboration, dogfooded with Playwright MCP, and structured using
-Herbert Simon's Architecture of Complexity principles.
-
-- **Authors:** Jérémie Lumbroso and Claude Sonnet 4.6
-- **Version:** 0.2.0 (beta)
+- **Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
+- **Version:** 0.1.0 (alpha)
 - **License:** CC BY-SA 4.0
-- **Created:** February 2026
+- **Created:** March 2026
 
 ---
 
@@ -21,48 +15,48 @@ Herbert Simon's Architecture of Complexity principles.
 
 ```bash
 # Download the latest release
-# https://github.com/jlumbroso/revealjs-skill/releases
+# https://github.com/jlumbroso/epistemic-arc-mapping-skill/releases
 
 # Unzip to your Claude skills directory
-unzip revealjs-0.2.0.skill -d ~/.claude/skills/revealjs/
+unzip epistemic-arc-mapping-0.1.0.skill -d ~/.claude/skills/epistemic-arc-mapping/
 ```
 
 Or reference manually in your project's `CLAUDE.md`:
 ```markdown
-Load the reveal.js skill from `.claude/skills/revealjs/SKILL.md`.
+Load the epistemic arc mapping skill from `.claude/skills/epistemic-arc-mapping/SKILL.md`.
 ```
 
 ### Use it
 
 The skill activates when you:
-- Ask Claude to create or edit a reveal.js presentation
-- Work on any `.html` file containing `Reveal.initialize(`
-- Need math (KaTeX), diagrams (Mermaid), code, or speaker notes in slides
+- Ask Claude to analyze an academic paper epistemically
+- Request arc mapping or argument structure analysis
+- Evaluate the epistemic quality of scholarship
+- Identify sophistry patterns in arguments
+
+Works in **Claude Web** (primary use case) or **Claude Code** (for batch analysis).
 
 ---
 
 ## What's in this repository
 
-### The Skill (`revealjs/`)
+### The Skill (`epistemic-arc-mapping/`)
 
 ```
-revealjs/
-├── SKILL.md                      # Entry point (~410 lines) — always load this
+epistemic-arc-mapping/
+├── SKILL.md                      # Complete methodology (~420 lines)
 ├── README.md                     # Skill-specific quick reference
 ├── LICENSE                       # CC BY-SA 4.0
-└── resources/                    # 11 subskills — load on demand
-    ├── plugins-reference.md      # Full plugin lookup table (CDN URLs, init keys)
-    ├── math-katex.md             # Proof-steps grid, color vars, notation box
-    ├── diagrams-mermaid.md       # Mermaid setup, color theme, diagram types
-    ├── pseudocode-algorithms.md  # white-space: pre-wrap, algorithm/proof boxes
-    ├── playwright-review.md      # Visual QA workflow, Reveal.js navigation API
-    ├── speaker-notes.md          # Stack TOC format, timing, pre-publish checklist
-    ├── pdf-export.md             # DeckTape (primary), print-pdf, file:// vs localhost
-    ├── slido.md                  # Intro slide, copy-paste format, end survey
-    ├── topic-curation.md         # Topic stacks, session assembly, multi-audience
-    ├── troubleshooting.md        # 11 failure patterns: symptom → diagnosis → fix
-    └── slides-com.md             # Slides.com format, SLConfig notes, conversion guide
+└── resources/                    # Future specialized subskills
+    └── .gitkeep
 ```
+
+**SKILL.md** is complete and self-sufficient. It includes:
+- Four-step arc analysis protocol
+- Comprehensive epistemic strength indicators
+- Sophistry detection matrix (7 categories)
+- Steel man test (master diagnostic)
+- Output templates and worked example references
 
 ### Documentation (`docs/`)
 
@@ -70,62 +64,62 @@ revealjs/
 
 | ADR | Decision |
 |---|---|
-| [0001](docs/adr/0001-skill-packaging-format.md) | Skill packaging format |
-| [0002](docs/adr/0002-versioning-strategy.md) | Versioning strategy |
+| [0001](docs/adr/0001-skill-packaging-format.md) | Skill packaging format and frontmatter |
+| [0002](docs/adr/0002-versioning-strategy.md) | Semantic versioning strategy |
 | [0003](docs/adr/0003-license-file-structure.md) | License file structure |
 | [0004](docs/adr/0004-license-files-in-skill-directory.md) | LICENSE in skill directory |
-| [0005](docs/adr/0005-skill-consumer-context.md) | Claude Code vs Claude Web context |
+| [0005](docs/adr/0005-skill-consumer-context.md) | Claude Web (primary) vs Claude Code |
 | [0006](docs/adr/0006-skill-structure-architecture-of-complexity.md) | AoC-based skill hierarchy |
-| [0007](docs/adr/0007-plugin-reference-table-format.md) | Plugin table in markdown |
 | [0008](docs/adr/0008-nested-git-repos-handling.md) | Nested repos → gitignore + provenance |
-| [0009](docs/adr/0009-playwright-as-visual-qa-methodology.md) | Playwright as visual QA |
-| [0010](docs/adr/0010-topic-curation-aoc-derivation.md) | Topic curation pattern (AoC-derived insight) |
-| [0011](docs/adr/0011-playwright-dogfooding-findings.md) | Dogfooding findings from 3 sample presentations |
 
-#### Reference Materials (`docs/resources/`)
+#### Reference Materials (`docs/feedback/`)
 
-- `reveal.js/` — Research reports: REVEAL_JS_SPECIFICATION.md, REVEAL_JS_PLUGINS.md, REVEAL_JS_PLUGIN_WIKI.md
-- `reveal.js/sample-talks/` — Three sample presentations (lecture10, Slides.com, question-scaffolded)
-- `slides.com/` — Two Slides.com exports (test deck, mangled import)
-- `sample-adr-specs-for-reveal.js-projects/` — 18 ADRs from 2 real courses (penn-cis5020, beyond-the-hype)
-- `skill-format/` — Reference implementations of other Claude skills
-- `automated-testing/` — Playwright MCP documentation
-
-#### Seed Documents (`docs/seeds/`)
-
-- `topic-curation-skill-seed.md` — Full seed for a future standalone "topic curation" skill
+- `INITIAL-SONNET-4.5.md` — Founding conversation with Claude Web Sonnet 4.5
 
 ---
 
 ## Key Design Principles
 
-### Architecture of Complexity applied to reveal.js
+### Architecture of Complexity applied to epistemic analysis
 
-reveal.js is near-decomposable at five levels:
+The methodology itself is hierarchically decomposable:
 ```
-Level 4 — PRESENTATION   The HTML file
-Level 3 — TOPIC          <section> horizontal slides (chapters)
-Level 2 — SLIDE          <section> vertical slides (individual)
-Level 1 — BLOCK          Content elements (h2, lists, code, math)
-Level 0 — FRAGMENT       .fragment elements (progressive reveal)
+Level 3 — PAPER           The complete document
+Level 2 — ARCS            Major argumentative threads (4-6)
+Level 1 — COMPONENTS      Claims, evidence, tensions per arc
+Level 0 — MARKERS         Sophistry patterns (when detected)
 ```
 
-SKILL.md (the skill entry point) is itself a stable intermediate form — useful alone,
-enhanced by subskills loaded on demand. See [ADR-0006](docs/adr/0006-skill-structure-architecture-of-complexity.md).
+Each arc is **nearly decomposable** — can be analyzed independently with strong internal coupling (claim ↔ evidence ↔ tensions) and weak external coupling (Arc 1 ↔ Arc 3).
 
-### Critical CSS values (do not inflate)
+See [ADR-0006](docs/adr/0006-skill-structure-architecture-of-complexity.md) for how AoC principles inform the skill structure.
 
-- `line-height: 1.3` (not 1.6)
-- `--r-main-font-size: 28px`
-- `white-space: pre-wrap` on `.algorithm-box`, `.proof-box` (never on `.math-box`)
-- `.code-box { font-size: 0.85em }`
+### What makes this epistemic (not rhetorical)?
 
-### What Playwright dogfooding confirmed
+The framework distinguishes:
+- **Truth-seeking scholarship** — falsifiable claims, transparent methods, genuine engagement with counterarguments
+- **Sophistic advocacy** — predetermined conclusions, selective evidence, evasion of substantive critique
 
-Testing three real sample presentations (2026-02-28) found:
-- **The Big One**: local relative paths (`../../dist/reveal.js`) silently break presentations — always use CDN
-- Slides.com exports: 0 console errors, Reveal API works, speaker notes in `SLConfig.notes[UUID]`
-- Slides.com imports: destructive for custom CSS — maintain as parallel tracks
+The **steel man test** is the master diagnostic: Can the author accurately represent and strengthen opposing arguments? Epistemic thinkers can; sophists cannot.
+
+---
+
+## Core Methodology
+
+### The Four Steps (per arc)
+
+1. **Identify Core Claim** — What is the load-bearing assertion?
+2. **Assess Epistemic Strength** — Falsifiable? Transparent? Acknowledges uncertainty?
+3. **Identify Tensions to Probe** — Constructive questions about boundaries, alternatives, confounds
+4. **Note Sophistry Markers** (if present) — Systematic rhetorical patterns
+
+### The Output
+
+Epistemic arc mappings produce:
+- **Structured analysis** of each argumentative arc
+- **Epistemic assessment** (truth-seeking vs sophistic indicators)
+- **Productive probe points** (questions that strengthen scholarship)
+- **Overall assessment** of the paper's epistemic character
 
 ---
 
@@ -136,14 +130,15 @@ Testing three real sample presentations (2026-02-28) found:
 ```bash
 # CI/CD builds automatically on push to main (artifact) or tag v*.*.* (release)
 # Manual test build:
-cd revealjs
-zip -r ../revealjs-test.skill . -x "*.git*" -x "*.DS_Store" -x ".gitkeep"
+cd epistemic-arc-mapping
+zip -r ../epistemic-arc-mapping-test.skill . -x "*.git*" -x "*.DS_Store" -x ".gitkeep"
 ```
 
 ### Contributing
 
 See [CLAUDE.md](CLAUDE.md) for:
-- Prime Directive: commit discussions to ADRs immediately
+- **Prime Directive**: commit discussions to ADRs immediately
+- **Secondary Directive**: surface doubts (they're generative)
 - Commit message format (`type: subject`)
 - Navigation codes (QST:, ANS:, COD:, NOT:, etc.)
 - Ephemeral scripts → `scripts/ephemeral/YYYY-MM-DD-*.py`
@@ -152,18 +147,29 @@ See [CLAUDE.md](CLAUDE.md) for:
 
 ## Companion Skill
 
-The Architecture of Complexity skill (`.claude/skills/architecture-of-complexity/`)
-is installed in this repository. It was used during development to derive the skill
-architecture (ADR-0006) and identified that the topic curation pattern is generic
-enough to become its own skill (ADR-0010).
+The **Architecture of Complexity** skill (`.claude/skills/architecture-of-complexity/`) is installed in this repository. It was used to:
+- Derive the skill structure (ADR-0006)
+- Understand hierarchical decomposition in argumentative analysis
+- Apply near-decomposability principles to the methodology itself
+
+---
+
+## Origin Story
+
+The epistemic arc mapping methodology was developed through human-AI collaboration:
+- **Claude Web Sonnet 4.5** invented the technique spontaneously while analyzing an academic paper on executive orders
+- **Jérémie Lumbroso** recognized its generative power and formalized it as a skill
+- The technique combines ancient epistemic philosophy with modern argument analysis
+
+See [docs/feedback/INITIAL-SONNET-4.5.md](docs/feedback/INITIAL-SONNET-4.5.md) for the founding conversation.
 
 ---
 
 ## License
 
-**Skill content:** CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.6
+**Skill content:** CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.5
 
 ---
 
-**Built using the principles it teaches**
-**Status:** Beta (v0.2.0) — Dogfooded via Playwright, not yet production-tested end-to-end
+**Built using the principles it teaches: truth-seeking through systematic analysis**
+**Status:** Alpha (v0.1.0) — Methodology proven in practice, skill packaging in progress
