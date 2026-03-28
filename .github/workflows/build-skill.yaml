@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # ── Check required files exist ──────────────────────────────
       - name: Check required skill files
@@ -184,7 +184,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # ── Extract version from tag or use commit SHA ──────────────
       - name: Extract version
@@ -250,7 +250,7 @@ jobs:
 
       # ── Upload artifact ─────────────────────────────────────────
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: skill-package-${{ steps.extract_version.outputs.version }}
           path: ${{ steps.package.outputs.skill_file }}
@@ -277,10 +277,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Download artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: skill-package-${{ needs.build.outputs.version }}
 
