@@ -44,7 +44,7 @@ jobs:
           echo "## 📋 Required File Check" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_DIR="revealjs"
+          SKILL_DIR="epistemic-arc-mapping"
           REQUIRED_FILES=(
             "$SKILL_DIR/SKILL.md"
             "$SKILL_DIR/README.md"
@@ -61,14 +61,18 @@ jobs:
             fi
           done
 
-          # Check subskills directory exists and has content
+          # Check resources directory exists
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Subskills" >> $GITHUB_STEP_SUMMARY
-          SUBSKILL_COUNT=$(ls "$SKILL_DIR/resources/"*.md 2>/dev/null | wc -l)
-          echo "- **Subskills found**: $SUBSKILL_COUNT" >> $GITHUB_STEP_SUMMARY
-          for f in "$SKILL_DIR"/resources/*.md; do
-            [ -f "$f" ] && echo "  - \`$f\`" >> $GITHUB_STEP_SUMMARY
-          done
+          echo "### Resources Directory" >> $GITHUB_STEP_SUMMARY
+          if [ -d "$SKILL_DIR/resources" ]; then
+            SUBSKILL_COUNT=$(ls "$SKILL_DIR/resources/"*.md 2>/dev/null | wc -l)
+            echo "- **Subskills found**: $SUBSKILL_COUNT" >> $GITHUB_STEP_SUMMARY
+            for f in "$SKILL_DIR"/resources/*.md 2>/dev/null; do
+              [ -f "$f" ] && echo "  - \`$f\`" >> $GITHUB_STEP_SUMMARY
+            done
+          else
+            echo "⚠️  resources/ directory not found (optional for this skill)" >> $GITHUB_STEP_SUMMARY
+          fi
 
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "$ALL_PRESENT" = true ]; then
@@ -84,7 +88,7 @@ jobs:
           echo "## 🔍 SKILL.md Frontmatter Validation" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_FILE="revealjs/SKILL.md"
+          SKILL_FILE="epistemic-arc-mapping/SKILL.md"
 
           # Check if file starts with ---
           if ! head -1 "$SKILL_FILE" | grep -q "^---$"; then
@@ -122,7 +126,7 @@ jobs:
           echo "## 📏 SKILL.md Size Check" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          SKILL_FILE="revealjs/SKILL.md"
+          SKILL_FILE="epistemic-arc-mapping/SKILL.md"
           LINE_COUNT=$(wc -l < "$SKILL_FILE")
           FILE_SIZE=$(du -h "$SKILL_FILE" | cut -f1)
 
@@ -133,16 +137,18 @@ jobs:
           if [ $LINE_COUNT -le 500 ]; then
             echo "✅ Under recommended 500-line limit" >> $GITHUB_STEP_SUMMARY
           else
-            echo "⚠️  Exceeds recommended 500-line limit" >> $GITHUB_STEP_SUMMARY
-            echo "_Consider moving detailed content to subskills in resources/_" >> $GITHUB_STEP_SUMMARY
+            echo "⚠️  Exceeds recommended 500-line limit (but acceptable for this skill)" >> $GITHUB_STEP_SUMMARY
+            echo "_The epistemic arc mapping skill is complete in SKILL.md by design_" >> $GITHUB_STEP_SUMMARY
           fi
 
-          # Also report subskill sizes
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Subskill Sizes" >> $GITHUB_STEP_SUMMARY
-          for f in revealjs/resources/*.md; do
-            [ -f "$f" ] && echo "- \`$(basename $f)\`: $(wc -l < $f) lines" >> $GITHUB_STEP_SUMMARY
-          done
+          # Also report subskill sizes if they exist
+          if [ -d "epistemic-arc-mapping/resources" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Subskill Sizes" >> $GITHUB_STEP_SUMMARY
+            for f in epistemic-arc-mapping/resources/*.md 2>/dev/null; do
+              [ -f "$f" ] && echo "- \`$(basename $f)\`: $(wc -l < $f) lines" >> $GITHUB_STEP_SUMMARY
+            done
+          fi
 
       # ── Summary ─────────────────────────────────────────────────
       - name: Validation summary
@@ -199,13 +205,13 @@ jobs:
         id: package
         run: |
           VERSION="${{ steps.extract_version.outputs.version }}"
-          SKILL_FILE="revealjs-${VERSION}.skill"
+          SKILL_FILE="epistemic-arc-mapping-${VERSION}.skill"
 
           echo "Packaging skill as $SKILL_FILE..." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           # Create ZIP from skill directory
-          cd revealjs
+          cd epistemic-arc-mapping
           zip -r "../$SKILL_FILE" . \
             -x "*.git*" \
             -x "*.DS_Store" \
@@ -230,7 +236,7 @@ jobs:
           echo "### 📁 Contents" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          unzip -l "$SKILL_FILE" | head -25 >> $GITHUB_STEP_SUMMARY
+          unzip -l "$SKILL_FILE" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
@@ -281,40 +287,52 @@ jobs:
 
           # Create release notes
           cat > release_notes.md << EOF
-          # reveal.js Skill v${VERSION}
+          # Epistemic Arc Mapping Skill v${VERSION}
 
-          A Claude Code skill for creating, editing, and validating reveal.js HTML
-          presentations — including math (KaTeX), diagrams (Mermaid), pseudocode,
-          speaker notes, plugins, and visual quality checking via Playwright MCP.
+          A Claude skill for rigorous academic analysis — maps claims, epistemic foundations,
+          and productive tensions in papers, policy documents, and scholarly arguments.
+          Distinguishes truth-seeking scholarship from sophistic advocacy through systematic
+          analysis of argumentative structure, evidence quality, and rhetorical patterns.
 
           ## 📦 Installation
 
           1. Download \`${SKILL_FILE}\`
           2. Unzip to your Claude skills directory:
              \`\`\`bash
-             unzip ${SKILL_FILE} -d ~/.claude/skills/revealjs/
+             unzip ${SKILL_FILE} -d ~/.claude/skills/epistemic-arc-mapping/
              \`\`\`
-          3. Use in Claude Code: \`/revealjs\` or reference in CLAUDE.md
+          3. Use in Claude Web (primary) or Claude Code: \`/epistemic-arc-mapping\`
 
           ## 🎯 What's Included
 
-          - **SKILL.md**: Core skill (~500 lines) — AoC hierarchy, boilerplate, CSS baseline, plugin table, KaTeX/Mermaid/pseudocode/fragments/Playwright QC
-          - **resources/math-katex.md**: Proof-steps grid, color variables, notation box, overflow budget
-          - **resources/diagrams-mermaid.md**: Mermaid setup, color theme, all diagram types
-          - **resources/pseudocode-algorithms.md**: white-space: pre-wrap patterns, algorithm/proof boxes
-          - **resources/playwright-review.md**: Visual QA workflow with Reveal.js navigation API
-          - **resources/speaker-notes.md**: Stack TOC format, timing markers, pre-publish checklist
-          - **resources/plugins-reference.md**: Complete plugin lookup table (built-in, navigation, diagrams, drawing, interaction, animation)
+          - **SKILL.md**: Complete methodology (~420 lines) — four-step arc analysis, epistemic strength indicators, sophistry detection matrix (7 categories), steel man test, output templates
+          - **README.md**: Quick reference guide
+          - **LICENSE**: CC BY-SA 4.0
+          - **resources/**: Future specialized subskills (policy documents, book chapters, worked examples)
 
-          ## 🏗️ Architecture
+          ## 📋 Core Methodology
 
-          This skill follows Herbert Simon's Architecture of Complexity — the same
-          hierarchical decomposition that reveal.js itself uses. SKILL.md is the
-          stable intermediate form; subskills are independent modules loadable on demand.
+          **The Four Steps** (per argumentative arc):
+          1. **Identify Core Claim** — Extract the load-bearing assertion
+          2. **Assess Epistemic Strength** — Falsifiable? Transparent? Acknowledges uncertainty?
+          3. **Identify Tensions to Probe** — Constructive questions about boundaries, alternatives, confounds
+          4. **Note Sophistry Markers** (if present) — Systematic rhetorical patterns
+
+          **The Master Diagnostic**: Steel Man Test — Can the author accurately represent and strengthen opposing arguments?
+
+          ## 🏗️ Design Philosophy
+
+          This skill embodies Architecture of Complexity principles: hierarchical decomposition
+          (Paper → Arcs → Components → Markers), near-decomposability (each arc analyzed
+          independently), and stable intermediate forms (arc-by-arc construction).
 
           ## 📄 License
 
-          CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.6
+          CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.5
+
+          **Origin**: The epistemic arc mapping methodology was invented spontaneously by
+          Claude Web Sonnet 4.5 during analysis of an academic paper, then formalized
+          by Jérémie Lumbroso as a Claude skill.
 
           ---
 
@@ -324,14 +342,14 @@ jobs:
 
           ---
 
-          **Authors**: Jérémie Lumbroso and Claude Sonnet 4.6
-          **Created**: February 2026
+          **Authors**: Jérémie Lumbroso and Claude Sonnet 4.5
+          **Created**: March 2026
           EOF
 
           echo "## 🚀 Release Notes Generated" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo '```markdown' >> $GITHUB_STEP_SUMMARY
-          cat release_notes.md | head -30 >> $GITHUB_STEP_SUMMARY
+          cat release_notes.md | head -40 >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
@@ -340,7 +358,7 @@ jobs:
         with:
           files: ${{ needs.build.outputs.skill_file }}
           body_path: release_notes.md
-          name: reveal.js Skill v${{ needs.build.outputs.version }}
+          name: Epistemic Arc Mapping Skill v${{ needs.build.outputs.version }}
           draft: false
           prerelease: false
         env:
