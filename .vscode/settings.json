@@ -22,6 +22,26 @@
     "peacock.color": "#CC7C5E",
     "python.terminal.activateEnvironment": false,
     "terminal.integrated.env.osx": {
-        "PATH": "/opt/homebrew/bin:${env:HOME}/.asdf/shims:${env:PATH}"
-    }
+        "PATH": "/opt/homebrew/bin:${env:HOME}/.asdf/shims:${env:PATH}",
+        "ANTHROPIC_MODEL": "claude-sonnet-4-5-20250929"
+    },
+    /* Claude Code configuration */
+    "claudeCode.environmentVariables": [
+        {
+            "name": "PATH",
+            "value": "/opt/homebrew/bin:${env:HOME}/.asdf/shims:${env:HOME}/.poetry/bin:${env:HOME}/.local/bin:/opt/homebrew/Caskroom/mambaforge/base/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+        },
+        {
+            "name": "ASDF_DIR",
+            "value": "/opt/homebrew/opt/asdf/libexec"
+        },
+        {
+            "name": "NODE_PATH",
+            "value": "/opt/homebrew/lib/node_modules"
+        },
+        {
+            "name": "ANTHROPIC_MODEL",
+            "value": "claude-sonnet-4-5-20250929"
+        }
+    ]
 }
