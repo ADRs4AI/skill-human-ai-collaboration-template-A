@@ -1,9 +1,11 @@
 # CLAUDE.md - Project Guidance
 
-- **Project**: "Reveal.js" Skill
+- **Project**: "Epistemic Arc Mapping" Skill
 - **Human**: Jérémie Lumbroso  
-- **AI**: Claude Web Sonnet 4.5 and Claude Code Sonnet 4.6
+- **AI**: Claude Web Sonnet 4.5 and Claude Code Sonnet 4.5
 - **Last Updated**: February 28, 2026
+
+**NOT:** (by Jérémie) The concept of "epistemic arc mapping" was created/invented by Claude Web Sonnet 4.5 spontaneously.
 
 ---
 
@@ -93,10 +95,10 @@ If the script was successfully used, append as comments how, and what the outcom
 ## Project Context
 
 ### What we're building:
-This is a repository where we're putting together a skill to create reveal.js presentations with a lot of depth of understanding of reveal.js.
+This is a repository where we're putting together a skill to create "epistemic arc mappings" of documents, transcripts, talks, etc.. An "epistemic arc mapping" is an epistemic deconstruction of all the arguments of an input, their justification, and tensions/gaps in the materials. This allows to assess the epistemic robustness of an input.
 
 ### Current focus:
-Claude Web Sonnet 4.5 has created multiple research reports. We need to systematize them (for instance we need to create a table of plugin names so Claude Code models are not stuttering with installation). And we need to provide guidance on how to use the plugins effectively, what are good defaults, how to do math, how to do algorithms, proofs, diagrams, etc.
+Claude Web Sonnet 4.5 has create the skill itself.
 
 ### Key decisions made:
 None yet. Later will be in this format:

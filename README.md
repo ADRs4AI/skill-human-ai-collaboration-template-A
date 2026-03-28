@@ -1,3 +1,7 @@
+**NOTE:** Needs to be rewritten for current project
+
+
+
 # reveal.js Skill — Repository
 
 A Claude Code skill for creating, editing, and validating reveal.js HTML presentations.
