@@ -65,11 +65,13 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Resources Directory" >> $GITHUB_STEP_SUMMARY
           if [ -d "$SKILL_DIR/resources" ]; then
-            SUBSKILL_COUNT=$(ls "$SKILL_DIR/resources/"*.md 2>/dev/null | wc -l)
+            SUBSKILL_COUNT=$(find "$SKILL_DIR/resources" -name "*.md" -type f 2>/dev/null | wc -l)
             echo "- **Subskills found**: $SUBSKILL_COUNT" >> $GITHUB_STEP_SUMMARY
-            for f in "$SKILL_DIR"/resources/*.md 2>/dev/null; do
-              [ -f "$f" ] && echo "  - \`$f\`" >> $GITHUB_STEP_SUMMARY
-            done
+            if [ -n "$(find "$SKILL_DIR/resources" -name "*.md" -type f 2>/dev/null)" ]; then
+              find "$SKILL_DIR/resources" -name "*.md" -type f 2>/dev/null | while read f; do
+                echo "  - \`$f\`" >> $GITHUB_STEP_SUMMARY
+              done
+            fi
           else
             echo "⚠️  resources/ directory not found (optional for this skill)" >> $GITHUB_STEP_SUMMARY
           fi
@@ -145,9 +147,11 @@ jobs:
           if [ -d "epistemic-arc-mapping/resources" ]; then
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Subskill Sizes" >> $GITHUB_STEP_SUMMARY
-            for f in epistemic-arc-mapping/resources/*.md 2>/dev/null; do
-              [ -f "$f" ] && echo "- \`$(basename $f)\`: $(wc -l < $f) lines" >> $GITHUB_STEP_SUMMARY
-            done
+            if [ -n "$(find epistemic-arc-mapping/resources -name "*.md" -type f 2>/dev/null)" ]; then
+              find epistemic-arc-mapping/resources -name "*.md" -type f 2>/dev/null | while read f; do
+                echo "- \`$(basename $f)\`: $(wc -l < $f) lines" >> $GITHUB_STEP_SUMMARY
+              done
+            fi
           fi
 
       # ── Summary ─────────────────────────────────────────────────
