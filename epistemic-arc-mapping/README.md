@@ -1,88 +1,158 @@
-# reveal.js Skill
+# Epistemic Arc Mapping Skill
 
-- **Authors:** Jérémie Lumbroso and Claude Sonnet 4.6
-- **License:** CC BY-SA 4.0
-- **Version:** 0.3.0
-- **Last updated:** 2026-02-28
+Rigorous framework for analyzing academic papers, policy documents, and scholarly arguments.
+
+**What it does:**
+- Maps argumentative structure (claims → evidence → tensions)
+- Assesses epistemic quality (truth-seeking vs sophistic patterns)
+- Generates productive probe points (constructive critique)
+- Distinguishes genuine scholarship from rhetorical advocacy
+
+**When to use:**
+- Analyzing academic papers (journal articles, working papers, preprints)
+- Evaluating policy documents (committee reports, white papers)
+- Book manuscript or dissertation assessment
+- Peer review preparation
+- Grant proposal evaluation
+
+**Not designed for:**
+- Interviewing people (different framework needed)
+- Op-eds or journalism (different epistemic standards)
+- Social media discourse (lacks structure for arc analysis)
 
 ---
 
-## What this skill does
+## Quick Reference
 
-Enables Claude to create, edit, and validate reveal.js HTML presentations with complete
-coverage of the reveal.js API — including math (KaTeX), diagrams (Mermaid), pseudocode,
-auto-animate, layout helpers, speaker notes, all plugins, Slido integration, PDF export,
-Playwright visual QA, and Slides.com conversion.
+### The Four-Step Arc Analysis
 
-## File structure
+For each major argumentative arc (typically 4-6 per paper):
 
+1. **Core Claim** — Extract the specific assertion, framework, or finding
+2. **Epistemic Strength** — Evaluate truth-seeking qualities:
+   - Falsifiable? Transparent methodology?
+   - Observable categories? Acknowledges uncertainty?
+   - Additive contribution? Content-neutral mechanisms?
+3. **Tensions to Probe** — Identify constructive questions:
+   - Boundary crispness? Alternative hypotheses?
+   - Selection effects? Measurement validity?
+   - Confounding factors? Generalizability?
+4. **Sophistry Markers** (if present) — Note systematic patterns:
+   - Motte-and-bailey, circular reasoning, cherry-picking
+   - Citation misrepresentation, moving goalposts
+   - Appeals to authority without substance
+
+### The Master Diagnostic: Steel Man Test
+
+**Can the author accurately represent and strengthen opposing arguments?**
+
+- Epistemic thinkers: can steelman contrary positions
+- Sophistic thinkers: cannot represent opposing views accurately
+
+---
+
+## Output Format
+
+```markdown
+# Epistemic Arc Mapping: [Paper Title]
+
+## Meta-Arc: [Overarching Claim]
+[Central contribution and epistemic character]
+
+---
+
+## Arc 1: [Concept Name]
+
+**Core Claim:**
+[2-3 sentence summary]
+
+**Epistemic Strength:**
+- Falsifiable: [example]
+- Transparent methodology: [example]
+
+**Potential Tensions to Probe:**
+❓ [Question about boundaries]
+❓ [Question about alternatives]
+
+---
+
+[Repeat for all arcs]
+
+---
+
+## Overall Assessment
+
+**Epistemic Character:** [Truth-seeking or sophistic? Balance?]
+**Strongest Contributions:** [What survives scrutiny?]
+**Most Productive Avenues:** [Where should follow-up research focus?]
 ```
-revealjs/
-├── SKILL.md                        # Entry point (~420 lines): always load this
-├── README.md                       # This file
-├── LICENSE                         # CC BY-SA 4.0
-└── resources/                      # 15 subskills: load on demand
-    ├── plugins-reference.md        # Full plugin lookup table (CDN URLs, init keys)
-    ├── math-katex.md               # Proof-steps grid, color vars, notation box
-    ├── diagrams-mermaid.md         # Mermaid setup, color theme, diagram types
-    ├── pseudocode-algorithms.md    # white-space: pre-wrap, algorithm/proof boxes
-    ├── playwright-review.md        # Visual QA: Reveal.js API, overflow detection
-    ├── speaker-notes.md            # Stack TOC format, timing, pre-publish checklist
-    ├── pdf-export.md               # DeckTape (primary), print-pdf, file:// vs localhost
-    ├── slido.md                    # Intro slide, copy-paste format, end survey
-    ├── topic-curation.md           # Topic stacks, session assembly, multi-audience
-    ├── troubleshooting.md          # 11 failure patterns: symptom → diagnosis → fix
-    ├── slides-com.md               # Slides.com format, SLConfig notes, conversion
-    ├── auto-animate-layout.md      # Auto-Animate, r-stretch/r-stack/r-fit-text, all fragment styles
-    ├── markdown-authoring.md       # Markdown slides, external .md files, separators
-    ├── media-lightbox.md           # Video, audio, iframe, data-autoplay, lightbox
-    └── advanced-config.md          # Full config, themes, keyboard, API events, scroll view
-```
 
-## When to load subskills
+---
 
-| You need... | Load |
-|---|---|
-| Math formulas, proofs | `resources/math-katex.md` |
-| Flowcharts, state diagrams | `resources/diagrams-mermaid.md` |
-| Pseudocode, algorithms | `resources/pseudocode-algorithms.md` |
-| Check for overflow, visual bugs | `resources/playwright-review.md` |
-| Add menu, verticator, or any plugin | `resources/plugins-reference.md` |
-| Speaker notes for performance | `resources/speaker-notes.md` |
-| Export to PDF | `resources/pdf-export.md` |
-| Slido polls / Q&A / surveys | `resources/slido.md` |
-| Building from topic stacks | `resources/topic-curation.md` |
-| Something's broken | `resources/troubleshooting.md` |
-| Working with Slides.com exports | `resources/slides-com.md` |
-| Smooth slide transitions, layout classes | `resources/auto-animate-layout.md` |
-| Writing slides in Markdown | `resources/markdown-authoring.md` |
-| Video, audio, iframe, lightbox | `resources/media-lightbox.md` |
-| Configuration, themes, API events | `resources/advanced-config.md` |
+## Sophistry Detection Matrix
 
-## Spec coverage
+### Seven Categories
 
-All sections of the official reveal.js specification are covered:
+1. **Structural Fallacies** — Circular reasoning, question-begging, false dichotomy, straw man, moving goalposts
+2. **Evidence Manipulation** — Cherry-picking, citation misrepresentation, selective omission, hasty generalization
+3. **Definitional Games** — Motte-and-bailey, semantic overloading, equivocation, category slippage
+4. **Authority Manipulation** — Appeal to authority, appeal to popularity, credentialism
+5. **Emotional Manipulation** — Fear, pity, consequences, moral panic
+6. **Deflection & Evasion** — Tu quoque, DARVO, answering different questions, red herrings
+7. **Steel Man Test** — Can they accurately represent opposing views?
 
-| Spec section | Covered in |
-|---|---|
-| Basic Structure | SKILL.md (boilerplate) |
-| Slides (horizontal, vertical, IDs) | SKILL.md |
-| Markdown Support | `markdown-authoring.md` |
-| Auto-Animate | `auto-animate-layout.md` |
-| Backgrounds | SKILL.md + `auto-animate-layout.md` |
-| Layout Helpers (r-*) | `auto-animate-layout.md` |
-| Transitions | SKILL.md + `advanced-config.md` |
-| Fragments (all styles) | SKILL.md + `auto-animate-layout.md` |
-| Code Highlighting | SKILL.md + `markdown-authoring.md` |
-| Math (KaTeX/MathJax) | SKILL.md + `math-katex.md` |
-| Media (video/audio/iframe) | `media-lightbox.md` |
-| Lightbox/Preview | `media-lightbox.md` |
-| Configuration | SKILL.md + `advanced-config.md` |
-| Plugins | SKILL.md + `plugins-reference.md` |
-| Advanced (scroll, state, events) | `advanced-config.md` |
+**Critical distinction:** Mistakes vs manipulation. Scholars make errors; sophists systematically evade truth-seeking constraints.
 
-## Architecture
+---
 
-This skill follows Herbert Simon's Architecture of Complexity — the same hierarchical
-decomposition reveal.js itself uses. SKILL.md is the stable intermediate form; subskills
-are near-decomposable modules loaded on demand. See [ADR-0006](../docs/adr/0006-skill-structure-architecture-of-complexity.md).
+## Epistemic vs Sophistic Indicators
+
+### Epistemic Work ✓
+- Falsifiable claims with specified conditions
+- Transparent methods and data
+- Acknowledgment of limitations
+- Fair representation of opposing views
+- Willingness to update based on evidence
+- Focus on mechanisms, not just correlations
+- Citation accuracy and context
+- Additive contribution to knowledge
+
+### Sophistic Work ✗
+- Unfalsifiable claims or moving goalposts
+- Opaque methods or selective reporting
+- Certainty despite weak evidence
+- Strawmanning of opposing views
+- Defensive response to critique
+- Correlation treated as causation
+- Citation misrepresentation
+- Purely competitive/demolition framing
+
+---
+
+## Files in This Skill
+
+- **SKILL.md** (~420 lines) — Complete methodology, always load this first
+- **resources/** — Future specialized subskills:
+  - `policy-documents.md` — Adaptations for policy analysis
+  - `book-chapters.md` — Book-length argument mapping
+  - `worked-examples/` — Full arc mappings for pattern recognition
+  - `sophistry-catalog.md` — Extended sophistry patterns
+
+---
+
+## Integration with Other Skills
+
+Works alongside:
+- **Literature review** — Synthesize how papers relate epistemically
+- **Research design** — Identify successful epistemic strategies
+- **Critical writing** — Structure arguments to avoid sophistic patterns
+- **Peer review** — Provide substantive, strengthening feedback
+
+---
+
+## License
+
+CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.5
+
+**Built through human-AI collaboration**
+**Methodology invented by Claude Web Sonnet 4.5, formalized by Jérémie Lumbroso**

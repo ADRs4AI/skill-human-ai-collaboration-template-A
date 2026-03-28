@@ -131,7 +131,8 @@
       "Read(Pipfile.lock)"
     ],
     "additionalDirectories": [
-      "/Users/jlumbroso/.claude/projects/-Users-jlumbroso-Programming-claude-revealjs-skill"
+      "/Users/jlumbroso/.claude/projects/-Users-jlumbroso-Programming-claude-revealjs-skill",
+      "/tmp"
     ]
   },
   "enableAllProjectMcpServers": false,
