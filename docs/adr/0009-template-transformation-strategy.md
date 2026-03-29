@@ -41,7 +41,7 @@ This repository was cloned from `epistemic-arc-mapping-skill` and needs to becom
 ## Questions
 
 ### QST: What to do with the epistemic-arc-mapping skill directory?
-- Status: unanswered
+- Status: answered
 - Why asking: This determines whether template includes worked examples or just documentation
 - Need: Decision on one of three options
 
@@ -50,13 +50,13 @@ This repository was cloned from `epistemic-arc-mapping-skill` and needs to becom
 - **B: Move to `examples/epistemic-arc-mapping/`** - Shows what a complete skill looks like
 - **C: Separate branch** - Keep git history but not in main template
 
-**ANS:** (by Jérémie)
-[Fill this in]
+**ANS:** (by Jérémie Lumbroso)
+Excellent question. Option A. This skill has its own repo. In due time (once I've made the ADR4AI methodology public), the repo itself of the skill will be made public, and we can link to it as an example in the `README.md`, but for now, let's wipe the skill. In fact, what would be great is if you used `git` history filtering to remove the existing of the irrelevant files from the repo. Once this template is public it'd be great if little about the epistemic arc mapping were in the history. We cna mention it as an example in the README.md or something, but I don't think having it in the history makes sense for future users—what do you think?
 
 ---
 
 ### QST: How much scaffolding to provide in the template?
-- Status: unanswered
+- Status: answered
 - Why asking: Affects usability vs. clutter trade-off
 - Need: Decision on scaffolding level
 
@@ -65,13 +65,13 @@ This repository was cloned from `epistemic-arc-mapping-skill` and needs to becom
 - **Medium**: `your-skill-name/` directory with placeholder SKILL.md, README.md
 - **Maximal**: Script that generates skeleton + prompts for metadata
 
-**ANS:** (by Jérémie)
-[Fill this in]
+**ANS:** (by Jérémie Lumbroso)
+I would say Medium + Maximal. The documentation should be a bit user geared, but mostly LLM geared, maybe with a lot of it hidden in .claude or something. Maybe we write our local skill that explains how to use the scripts optimally. The way this should be used (at least from my point of view is), with a thinking partner like you Sonnet 4.5, the ADR4AI system, and basically the LLM takes care of all of this. Anything we can do to standardize and prechew the work for LLMs is I think something that will help them be responsive to higher order goals of their human. Thoughts on this?
 
 ---
 
 ### QST: How to handle ADR-0006 (skill structure)?
-- Status: unanswered
+- Status: answered
 - Why asking: It's valuable but uses epistemic examples throughout
 - Need: Decision on generalization approach
 
@@ -80,8 +80,12 @@ This repository was cloned from `epistemic-arc-mapping-skill` and needs to becom
 - **B: Rewrite generically** - Remove specific examples, talk about skill structure abstractly
 - **C: Create new ADR-0010** - "How to use this template" and keep 0006 as historical example
 
-**ANS:** (by Jérémie)
-[Fill this in]
+**ANS:** (by Jérémie Lumbroso)
+Option B: Rewrite generically. Feel free to extend this policy more broadly:
+(a) Delete ADRs no longer relevant to this project
+(b) Rewrite ADRs partially relevant to this project
+(c) At the end, renumber the ADRs contiguously, including the titles
+I appreciate the idea of historical example, but for now, I would like this template to be totally agnostic. Since transformers would absorbing the content, I don't want to bias other people's transformers according to my worldview. The epistemic arc mapping is... subversive. Maybe that's a good thing? But right now I want to focus on improving the relationship between humans and transformers, and I don't want to be distracted from that agenda. Skill-building is something that makes the relationship between humans and transformers better. Why? Because humans are low-fidelity entities, they don't explain themselves well, or fully, with all context, and so that leads to transformers having to scaffold many decisions that later turn out to be something the human wish they had specified, but they blame the transformer for mind-reading incorrectly. Not all hallucinations are the result of this, but many are. So skills are a way for humans to focus on specifying a process, on creating what my colleague and friend Eric Wong calls a "superprompt" that has been iterated and refined over time to correct any specification error.
 
 ---
 
@@ -94,7 +98,7 @@ This repository was cloned from `epistemic-arc-mapping-skill` and needs to becom
 **Template question**: Start at v1.0.0 (it's complete workflow) or v0.1.0 (it's new)?
 
 **ANS:** (by Jérémie)
-[Fill this in]
+Yes, I would say that we should definitely version these things differently. This template should definitely be versioned separately from any skill that it is related to. In terms of the versioning scheme: I am not completely sure. I am not sure I would know how to create a versioning scheme that makes sense for something like a transformer skill. In thinking of SemVer, I am not sure I could identify what is a breaking change vs a patch, etc.. Perhaps what makes sense then is a timestamp/release date based versioning scheme perhaps? It's worth noting that the `https://github.com/jlumbroso/human-ai-collaboration-template-A` has a versioning scheme that is a bit ad-hoc, and currently at v3.2. It seems, even though this template is based in part on that one (and I will backport changes) that we are creating a different versioning. I may also elect to use the same versioning scheme with the `human-ai-collaboration-template-A`. Maybe we can mention which version of that template this one is pegged at.
 
 ---
 
