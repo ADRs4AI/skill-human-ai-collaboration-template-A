@@ -1,7 +1,7 @@
 # ADR-0009: Template Transformation Strategy
 
 - **Date**: 2026-03-28
-- **Iteration**: 2
+- **Iteration**: 3
 - **Status**: Accepted
 - **Deciders**: Jérémie Lumbroso, Claude Code Sonnet 4.5
 
@@ -251,9 +251,10 @@ Transform epistemic-arc-mapping-skill repository into general skill-building tem
 ## Action Items
 
 - [x] Answer QST questions above - Owner: Jérémie (Done: 2026-03-29)
-- [ ] Create ADR-0010 for template-guide skill - Owner: Claude Code
-- [ ] Perform git history filtering (remove epistemic-arc-mapping/, reveal.js refs) - Owner: Claude Code
+- [x] Create ADR-0010 for template-guide skill - Owner: Claude Code (Done: 2026-03-29)
+- [x] Perform git history filtering (remove epistemic-arc-mapping/, reveal.js refs) - Owner: Claude Code (Done: 2026-03-29)
 - [ ] Audit/cleanup/renumber ADRs - Owner: Claude Code
+- [ ] Implement template-guide skill (per ADR-0010) - Owner: Claude Code
 - [ ] Create new README.md - Owner: Claude Code
 - [ ] Create CLAUDE.template.md - Owner: Claude Code
 - [ ] Create TEMPLATE-VERSION.md - Owner: Claude Code
@@ -285,6 +286,13 @@ When we both agree:
 - Human: Clarified git filtering (surgical removal of crud, keep ADR trail), confirmed all follow-up questions
 - AI: Updated ADR with properly formatted QST:/ANS: sections, captured LLM-documentation insight and skills-as-superprompts philosophy
 - Outcome: Complete transformation plan with 6 components, ready to proceed to ADR-0010 (template-guide skill) and then ADR cleanup
+
+### Iteration 3 (2026-03-29)
+- Human: Created reference copy at temp/epistemic-arc-mapping-skill (read-only), added temp/ to .gitignore
+- AI: Used git-filter-repo to surgically remove from history: epistemic-arc-mapping/ (4 files), docs/resources/reveal.js/ (216 files), docs/resources/automated-testing/ (1 file)
+- Result: 59 commits → 56 commits (3 commits removed that only touched irrelevant files)
+- Verification: All ADR commits preserved, reference copy available for consultation during transformation
+- Outcome: Clean repository foundation, ready for ADR audit/cleanup on clean ground
 
 ---
 
