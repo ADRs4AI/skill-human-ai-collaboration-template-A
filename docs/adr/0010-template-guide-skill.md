@@ -21,7 +21,7 @@
 
 ## Context
 
-While designing the transformation strategy in ADR-0009, I (Claude) surfaced a generative doubt: What if we created a **meta-skill** that teaches any Claude instance how to use this template?
+While designing the transformation strategy in ADR-0009, I (Claude Sonnet 4.5) surfaced a generative doubt: What if we created a **meta-skill** that teaches any Claude model instance how to use this template?
 
 ### The Core Insight
 
@@ -109,7 +109,7 @@ Prototype here in skill-building template, then backport to human-ai-collaborati
 ---
 
 ### QST: How detailed should the skill be?
-- Status: unanswered
+- Status: answered
 - Why asking: Balance between completeness and being overwhelming
 - Need: Scope decision
 
@@ -118,13 +118,13 @@ Prototype here in skill-building template, then backport to human-ai-collaborati
 - **Medium**: Add ADR workflow and patterns (~250 lines)
 - **Complete**: Full methodology including examples (~400 lines)
 
-**ANS:** (by Jérémie)
-[Fill this in]
+**ANS:** (by Jérémie Lumbroso)
+My recommendation would be to load the Architecture of Complexity skill (`.claude/skills/architecture-of-complexity/SKILL.md`) and to try to figure out what is the right structure. The skill can break knowledge in the main core and resources that can be loaded on-demand. I think the main methodology, like a cheat-sheet, and bold directives to remember, should be in the core, and maybe examples can be in resources. We might aim at minimal-medium in the core and complete overall.
 
 ---
 
 ### QST: Should it include worked examples?
-- Status: unanswered
+- Status: answered
 - Why asking: Examples help pattern recognition but add length
 - Need: yes/no + format if yes
 
@@ -133,13 +133,13 @@ Prototype here in skill-building template, then backport to human-ai-collaborati
 - Inline examples (in SKILL.md)
 - Separate resources/examples/ directory
 
-**ANS:** (by Jérémie)
-[Fill this in]
+**ANS:** (by Jérémie Lumbroso)
+Maybe use the previous heuristic I described and the AoC principles to decide how to make this trade-off. Perhaps one worked example inline, and then more in the separate resource. That is just an example of a possibility. I don't have a clear opinion here except, we don't want to overflag attention of the transformer.
 
 ---
 
 ### QST: Auto-invocation vs. explicit invocation?
-- Status: unanswered
+- Status: answered
 - Why asking: Affects whether skill is always present or loaded on demand
 - Need: Frontmatter configuration decision
 
@@ -148,8 +148,8 @@ Prototype here in skill-building template, then backport to human-ai-collaborati
 - **Explicit only**: Set `disable-model-invocation: true`, only loads via `/template-guide`
 - **Hybrid**: Load when user says "ADR" or "directives" but not automatically
 
-**ANS:** (by Jérémie)
-[Fill this in]
+**ANS:** (by Jérémie Lumbroso)
+I did not know we could do auto-invocation, but that's what I would advocate, yes.
 
 ---
 
