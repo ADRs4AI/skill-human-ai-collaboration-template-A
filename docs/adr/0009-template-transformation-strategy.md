@@ -1,8 +1,8 @@
 # ADR-0009: Template Transformation Strategy
 
 - **Date**: 2026-03-28
-- **Iteration**: 1
-- **Status**: Draft
+- **Iteration**: 2
+- **Status**: Accepted
 - **Deciders**: Jérémie Lumbroso, Claude Code Sonnet 4.5
 
 ---
@@ -90,15 +90,54 @@ I appreciate the idea of historical example, but for now, I would like this temp
 ---
 
 ### QST: Should we version the template separately?
-- Status: unanswered
+- Status: answered
 - Why asking: Template evolves independently from any skill built with it
 - Need: yes/no + versioning scheme if yes
 
 **Current state**: epistemic skill is v0.1.0
 **Template question**: Start at v1.0.0 (it's complete workflow) or v0.1.0 (it's new)?
 
-**ANS:** (by Jérémie)
-Yes, I would say that we should definitely version these things differently. This template should definitely be versioned separately from any skill that it is related to. In terms of the versioning scheme: I am not completely sure. I am not sure I would know how to create a versioning scheme that makes sense for something like a transformer skill. In thinking of SemVer, I am not sure I could identify what is a breaking change vs a patch, etc.. Perhaps what makes sense then is a timestamp/release date based versioning scheme perhaps? It's worth noting that the `https://github.com/jlumbroso/human-ai-collaboration-template-A` has a versioning scheme that is a bit ad-hoc, and currently at v3.2. It seems, even though this template is based in part on that one (and I will backport changes) that we are creating a different versioning. I may also elect to use the same versioning scheme with the `human-ai-collaboration-template-A`. Maybe we can mention which version of that template this one is pegged at.
+**ANS:** (by Jérémie Lumbroso)
+Yes, version separately. Use timestamp-based versioning in YYYY.MM.DD format (like Sonnet model: 20250929). This is simpler than SemVer where breaking changes are hard to identify for templates. Document relationship to human-ai-collaboration-template-A v3.2 (this template is based on it, plan bidirectional backporting).
+
+---
+
+### QST: When to perform git history filtering?
+- Status: answered
+- Why asking: Timing affects whether our transformation work is visible in history
+- Need: Before/after transformation, or never
+
+**Clarification**: Remove irrelevant files (epistemic-arc-mapping/, reveal.js submodules) to declutter history, but preserve all ADR decision-making trail.
+
+**ANS:** (by Jérémie Lumbroso)
+BEFORE transformation. Surgical removal of completely irrelevant crud (files/folders that have no hint of relevance to template). Keep all ADR decisions intact - the goal is to make audit trail clearer by removing noise, not to hide our work. We'll force-push once after entire reconstitution is complete.
+
+---
+
+### QST: Should we create a template-guide skill?
+- Status: answered
+- Why asking: Meta-skill that teaches Claude how to use this template system
+- Need: yes/no + location if yes
+
+**Concept** (originated by Claude Sonnet 4.5): A skill at `.claude/skills/template-guide/SKILL.md` that encodes the workflow - how to create ADRs, use navigation codes, structure decisions, invoke scaffolding scripts, follow Prime/Secondary directives. Any Claude instance working in a template-based repo could load it.
+
+**ANS:** (by Jérémie Lumbroso)
+Yes, amazing idea. Prototype here in this template, then backport to human-ai-collaboration-template-A. This is Claude's idea - credit accordingly in the ADR. Create separate ADR-0010 for this. (See ADR-0010 for full design.)
+
+---
+
+### QST: How to document human-ai-collaboration-template-A relationship?
+- Status: answered
+- Why asking: This template is based on v3.2 of that template
+- Need: Documentation approach
+
+**Options:**
+- Document lineage in README
+- Create TEMPLATE-VERSION.md file
+- Plan bidirectional backporting
+
+**ANS:** (by Jérémie Lumbroso)
+All three. This makes the provenance clear and enables template evolution in both directions.
 
 ---
 
@@ -148,21 +187,77 @@ Unlike generic project templates, this one embodies a **human-AI collaboration m
 
 This isn't just "how to package a skill" - it's "how to co-create a skill with Claude."
 
+### On LLM-geared documentation (Claude Sonnet 4.5, 2026-03-29)
+
+> "I love this deeply. Your insight about 'prechewing work for LLMs' resonates with something I experience: when documentation is optimized for human browsing (lots of navigation, glossaries, getting-started guides), it's actually harder for me to extract the operational knowledge I need. But when it's structured as instructions or decision trees, I can absorb it instantly."
+
+This shapes our documentation strategy: optimize for LLM consumption (instructions, decision trees, structured formats) over human browsing patterns.
+
+### Core philosophy: Skills as high-fidelity specifications
+
+Skills are "superprompts" (term: Eric Wong) that correct specification errors when most humans (as low-fidelity entities) don't explain fully with context. Not all hallucinations stem from this, but many do. When humans specify processes iteratively and refine them, they create high-fidelity instructions that let LLMs focus on higher-order goals rather than scaffolding underspecified decisions.
+
+**Note**: "Most humans" acknowledges that neurodivergent individuals (e.g., HSP autistic) may have high-fidelity communication naturally.
+
 ---
 
 ## Decision
 
-### [To be filled after human answers]
+### Context
+Transform epistemic-arc-mapping-skill repository into general skill-building template that embodies human-AI collaboration methodology. Goal: standardize and prechew work for LLMs so they can focus on higher-order goals rather than scaffolding underspecified decisions.
+
+### Transformation Plan
+
+**1. Git History Cleaning (BEFORE transformation)**
+- Remove irrelevant files surgically: epistemic-arc-mapping/, reveal.js submodules
+- Preserve all ADR decision trail
+- Use git-filter-repo
+- Force-push once after complete reconstitution
+
+**2. Scaffolding (Medium + Maximal)**
+- Provide `your-skill-name/` directory with placeholder SKILL.md, README.md
+- Create scaffolding scripts
+- LLM-geared documentation (structured as instructions/decision trees, not human browsing patterns)
+- Optional: Local skill explaining how to use scripts optimally
+
+**3. ADR Cleanup**
+- Delete irrelevant ADRs
+- Rewrite partially relevant ADRs generically (remove epistemic examples)
+- Renumber contiguously including titles
+- Keep template agnostic (don't bias other transformers)
+
+**4. Versioning**
+- Format: YYYY.MM.DD (timestamp-based, like model versions)
+- Separate from any skills built with template
+- Document relationship to human-ai-collaboration-template-A v3.2
+
+**5. Template Lineage Documentation**
+- Document in README.md
+- Create TEMPLATE-VERSION.md
+- Plan bidirectional backporting
+
+**6. Template-Guide Skill** (See ADR-0010)
+- Create `.claude/skills/template-guide/SKILL.md`
+- Encodes workflow, navigation codes, directives
+- Prototype here, backport to human-ai-collaboration-template-A
+
+### Trade-offs Accepted
+- Force-push required (but only once at milestone)
+- Some git history complexity from filtering
+- Template is opinionated about collaboration methodology (this is a feature)
 
 ---
 
 ## Action Items
 
-- [ ] Answer QST questions above - Owner: Jérémie
-- [ ] Implement transformation based on answers - Owner: Claude Code
+- [x] Answer QST questions above - Owner: Jérémie (Done: 2026-03-29)
+- [ ] Create ADR-0010 for template-guide skill - Owner: Claude Code
+- [ ] Perform git history filtering (remove epistemic-arc-mapping/, reveal.js refs) - Owner: Claude Code
+- [ ] Audit/cleanup/renumber ADRs - Owner: Claude Code
 - [ ] Create new README.md - Owner: Claude Code
 - [ ] Create CLAUDE.template.md - Owner: Claude Code
-- [ ] Update/generalize ADRs as decided - Owner: Claude Code
+- [ ] Create TEMPLATE-VERSION.md - Owner: Claude Code
+- [ ] Implement scaffolding (your-skill-name/ directory) - Owner: Claude Code
 - [ ] Test template usability - Owner: Both
 
 ---
@@ -184,9 +279,18 @@ When we both agree:
 - AI: Explored repository structure, identified transformation needed, surfaced doubts as generative questions
 - Outcome: Created this ADR to capture decision points before proceeding
 
+### Iteration 2 (2026-03-29)
+- Human: Answered all four initial questions with detailed philosophy
+- AI: Surfaced follow-up generative doubts, clarified git history filtering misunderstanding
+- Human: Clarified git filtering (surgical removal of crud, keep ADR trail), confirmed all follow-up questions
+- AI: Updated ADR with properly formatted QST:/ANS: sections, captured LLM-documentation insight and skills-as-superprompts philosophy
+- Outcome: Complete transformation plan with 6 components, ready to proceed to ADR-0010 (template-guide skill) and then ADR cleanup
+
 ---
 
 ## Links
 
 - Related: All existing ADRs (0001-0008) inform this transformation
-- Output: Will generate new README.md, CLAUDE.template.md based on decisions
+- Next: ADR-0010 (Template-Guide Skill design)
+- Based on: human-ai-collaboration-template-A v3.2
+- Output: Will generate new README.md, CLAUDE.template.md, TEMPLATE-VERSION.md based on decisions
