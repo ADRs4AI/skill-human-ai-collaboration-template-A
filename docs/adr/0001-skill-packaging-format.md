@@ -1,7 +1,7 @@
 # ADR-0001: Skill Packaging Format and Frontmatter Schema
 
 - **Date**: 2026-02-27
-- **Iteration**: 1
+- **Iteration**: 2 (Rewritten 2026-03-29)
 - **Status**: Accepted
 - **Deciders**: Jérémie Lumbroso, Claude Code Sonnet 4.5
 
@@ -20,15 +20,15 @@
 
 ## Context
 
-The Architecture of Complexity skill needs to be packaged in a format that:
+Skills need to be packaged in a format that:
 1. Works with Claude Code's skill system
 2. Follows the Agent Skills open standard
 3. Can be distributed as a single `.skill` file
 4. Includes proper metadata for discovery and invocation
 
-From CLAUDE.md open questions:
+Key questions for any skill:
 - How to write the license correctly?
-- How to link the CC license to the right content?
+- How to link the license to the right content?
 - What frontmatter to add to the SKILL.md so it will compile?
 
 ---
@@ -38,7 +38,7 @@ From CLAUDE.md open questions:
 ### FIL: Documentation examined
 - `/docs/resources/extend-claude-with-skills.md` - Official Anthropic skill documentation
 - `/docs/resources/visual-diffusion.skill` - Working example skill (unpacked and analyzed)
-- `/docs/resources/agentskills/` - Agent Skills standard specification
+- `/docs/resources/agentskills/` - Agent Skills open standard specification
 
 ### COD: Visual Diffusion Skill Structure
 ```
@@ -72,26 +72,25 @@ description: Expert prompting for image and video diffusion models (Nano Banana,
 
 **Chosen**: ZIP file containing skill directory with proper structure
 
-**Structure**:
+**Generic Structure**:
 ```
-architecture-of-complexity.skill (ZIP file)
-└── architecture-of-complexity/
+your-skill-name.skill (ZIP file)
+└── your-skill-name/
     ├── SKILL.md (required - with YAML frontmatter)
-    ├── README.md
-    ├── INSTALLATION.md
-    ├── META-ARCHITECTURE.md
-    └── resources/
-        ├── simon_1962_full.txt
-        ├── simon_architecture_summary.md
-        └── examples/
-            ├── cam.md
-            ├── mcp-design.md
-            └── vue-react.md
+    ├── README.md (optional but recommended)
+    ├── LICENSE (optional but recommended)
+    └── resources/ (optional - for supporting files)
+        ├── reference-material.md
+        ├── examples/
+        │   ├── example-1.md
+        │   └── example-2.md
+        └── subskills/
+            └── specialized-guidance.md
 ```
 
 **Why**:
 - Matches Claude Code's expected format
-- Follows Agent Skills standard
+- Follows Agent Skills open standard
 - Enables single-file distribution
 - Supports directory of supporting files
 
@@ -109,30 +108,29 @@ architecture-of-complexity.skill (ZIP file)
 **Required fields**:
 ```yaml
 ---
-name: architecture-of-complexity
+name: your-skill-name
 description: [One-line description that helps Claude decide when to load the skill]
 ---
 ```
 
-**Optional fields we'll use**:
+**Optional fields**:
 - `disable-model-invocation: false` (default - allow Claude to auto-invoke)
 - `user-invocable: true` (default - show in `/` menu)
+- `license: Complete terms in LICENSE` (if LICENSE file included)
 
 **Why**:
 - Matches Anthropic specification exactly
 - Enables Claude's automatic skill discovery
 - Description drives when skill is loaded
-- Name becomes the `/architecture-of-complexity` command
+- Name becomes the `/your-skill-name` slash command
 
-**Current Problem in SKILL.md**:
+**Common Problem**:
 ```markdown
-# Architecture of Complexity Skill
+# Your Skill Name
 
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
-**License:** [CC BY-SA 4.0](...)
-**Version:** 1.0 (February 2026)
-
-**Note:** CAM framework is Copyright © Jérémie Lumbroso
+**Authors:** Your Name
+**License:** CC BY-SA 4.0
+**Version:** 1.0.0
 
 ---
 
@@ -148,17 +146,15 @@ This is **WRONG** because:
 **Correct Format**:
 ```yaml
 ---
-name: architecture-of-complexity
-description: Apply Herbert Simon's Architecture of Complexity principles to system design, code architecture, and UI decisions. Use for understanding hierarchical decomposition, near-decomposability, stable intermediate forms, and architectural trade-offs. Helps analyze modularity, coupling, and complexity in software systems.
+name: your-skill-name
+description: Brief description of what the skill does and when to use it. Should help Claude decide when to load automatically.
 ---
 
-# Architecture of Complexity Skill
+# Your Skill Name
 
-**Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
+**Authors:** Your Name
 **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
-**Version:** 1.0.0 (February 2026)
-
-**Note:** The CAM (Computationally-Assisted Metacognition) framework and Third X (LLM output linearization framework) referenced herein are Copyright © Jérémie Lumbroso. This skill document itself is licensed under CC BY-SA 4.0.
+**Version:** 1.0.0
 
 ---
 
@@ -178,7 +174,7 @@ description: Apply Herbert Simon's Architecture of Complexity principles to syst
 
 ### Long-term Benefits
 - Skill will be auto-discovered by Claude when relevant
-- Users can invoke with `/architecture-of-complexity`
+- Users can invoke with `/your-skill-name` command
 - Distribution as single .skill file
 - Follows standard that other AI tools can adopt
 
@@ -193,8 +189,8 @@ description: Apply Herbert Simon's Architecture of Complexity principles to syst
 
 - [x] Document packaging format decision - Owner: Claude Code
 - [x] Document frontmatter schema decision - Owner: Claude Code
-- [ ] Fix SKILL.md frontmatter - Owner: Claude Code (next task)
-- [ ] Create build/packaging script - Owner: Claude Code (CI/CD task)
+- [ ] Fix SKILL.md frontmatter - Owner: Skill builder
+- [ ] Create build/packaging script - Owner: Skill builder (CI/CD task)
 - [ ] Validate skill loads correctly - Owner: Both (testing)
 
 ---
@@ -219,9 +215,7 @@ From extend-claude-with-skills.md:
 
 > Keep `SKILL.md` under 500 lines. Move detailed reference material to separate files.
 
-**Current status**:
-- SKILL.md: 408 lines ✅ (under limit)
-- Supporting files properly separated ✅
+This encourages hierarchical decomposition: core skill in SKILL.md, specialized guidance in resources/.
 
 ---
 
@@ -231,7 +225,7 @@ From extend-claude-with-skills.md:
 - [x] AI: Understood the requirements from documentation
 - [x] Verified against working example (visual-diffusion.skill)
 
-**Notes**: This ADR establishes the foundational packaging format. Subsequent ADRs will cover versioning (ADR-0002) and licensing (ADR-0003).
+**Notes**: This ADR establishes the foundational packaging format for all skills built with this template.
 
 ---
 
@@ -240,32 +234,30 @@ From extend-claude-with-skills.md:
 ### Iteration 1 (2026-02-27)
 - Human: Provided extend-claude-with-skills.md documentation
 - Human: Provided visual-diffusion.skill as working example
-- AI: Analyzed both sources, identified current SKILL.md formatting problem
+- AI: Analyzed both sources, identified common SKILL.md formatting problem
 - AI: Documented correct format with specific frontmatter schema
-- Outcome: Clear specification for fixing SKILL.md and packaging skill
+- Outcome: Clear specification for SKILL.md formatting and packaging
 
 ### Iteration 2 (2026-02-27) - Folder Naming Decision
 
-**Issue:** Directory was named `architecture-of-complexity-skill`, but skill name in frontmatter was `architecture-of-complexity`, causing IDE warning about mismatch.
+**Issue:** Should skill directory match skill name exactly?
 
 **Options considered:**
 
-1. **Rename directory to `architecture-of-complexity`** (match skill name)
+1. **Directory matches skill name** (e.g., `your-skill/` for `name: your-skill`)
    - Pro: Matches skill name exactly
-   - Pro: Slash command stays concise: `/architecture-of-complexity`
-   - Pro: Follows official Anthropic pattern (directory = skill name)
-   - Con: Longer directory name
+   - Pro: Slash command stays concise
+   - Pro: Follows official Anthropic pattern (directory = skill identity)
 
-2. **Change skill name to `architecture-of-complexity-skill`** (match directory)
+2. **Directory has `-skill` suffix** (e.g., `your-skill-skill/`)
    - Pro: No file moves needed
    - Con: Redundant `-skill` suffix
-   - Con: Longer slash command: `/architecture-of-complexity-skill`
+   - Con: Longer slash command
 
 3. **Generic `build/` directory, rename at compile-time**
    - Pro: Short directory name
-   - Pro: Clear it's a build artifact
    - Con: Not immediately obvious what's inside
-   - Con: **Doesn't match official Anthropic pattern** (examined skills/ repo)
+   - Con: **Doesn't match official Anthropic pattern**
 
 **Investigation:**
 - AI: Examined official Anthropic skills repository structure
@@ -273,29 +265,33 @@ From extend-claude-with-skills.md:
 - AI: No examples of generic `build/` or `dist/` directories
 - Observation: Skill directory name = skill identity, not just "build output"
 
-**Decision:** Option 1 - Rename directory to `architecture-of-complexity`
+**Decision:** Option 1 - Directory name matches skill name
 
 **Rationale:**
-- Matches official Anthropic convention (epistemic evidence from examining real skills)
+- Matches official Anthropic convention (verified by examining real skills)
 - Directory name should reflect skill identity, not be a generic build label
 - The `-skill` suffix is redundant (everything in skills/ is a skill)
 - Cleaner, more maintainable, matches slash command
 
-**Quote from human:** "Great epistemic work, Sonnet 4.5. This is what makes me love working with you."
-
 **Outcome:**
-- Directory renamed: `architecture-of-complexity-skill/` → `architecture-of-complexity/`
-- CI/CD workflow updated
-- IDE warning resolved
-- Pattern documented for future reference
+- Pattern documented: `your-skill-name/` directory, `name: your-skill-name` frontmatter
+- CI/CD workflow should use this pattern
+- Pattern applies to all skills built with this template
+
+### Iteration 3 (2026-03-29) - Template Transformation
+
+- AI: Rewrote ADR generically for skill-building template
+- Removed specific skill references (Architecture of Complexity)
+- Used placeholder `your-skill-name` throughout
+- Preserved all decisions and patterns
+- Updated Links section (removed deleted ADR-0003)
 
 ---
 
 ## Links
 
 - Related: ADR-0002 (Versioning Strategy)
-- Related: ADR-0003 (License File Structure)
-- Related: ADR-0004 (LICENSE Files in Skill Directory)
+- Related: ADR-0003 (LICENSE Files in Skill Directory)
 - Reference: `/docs/resources/extend-claude-with-skills.md`
 - Reference: `/docs/resources/skills/` - Official Anthropic skills (folder naming pattern)
 - Example: `/docs/resources/visual-diffusion.skill`

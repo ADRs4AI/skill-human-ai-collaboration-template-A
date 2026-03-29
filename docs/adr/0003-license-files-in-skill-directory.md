@@ -1,7 +1,7 @@
-# ADR-0004: LICENSE Files Belong in Skill Directory (Not Repo Root)
+# ADR-0003: LICENSE Files Belong in Skill Directory (Not Repo Root)
 
 - **Date**: 2026-02-27
-- **Iteration**: 1
+- **Iteration**: 2 (Minor edits 2026-03-29)
 - **Status**: Accepted
 - **Deciders**: Jérémie Lumbroso, Claude Code Sonnet 4.5
 
@@ -83,10 +83,9 @@ skills/                          (repo root)
 **All license files go in the skill directory and are included in the .skill ZIP:**
 
 ```
-architecture-of-complexity-skill/  (skill directory → packaged in ZIP)
-├── LICENSE                        ← CC BY-SA 4.0 full text
-├── LICENSE-CAM.md                 ← CAM framework copyright
-├── LICENSE-THIRDX.md              ← Third X framework copyright
+your-skill-name/                   (skill directory → packaged in ZIP)
+├── LICENSE                        ← Primary license (e.g., CC BY-SA 4.0, MIT, Apache 2.0)
+├── LICENSE-FRAMEWORK.md           ← Optional: specific framework/content copyright
 ├── SKILL.md
 └── resources/
 ```
@@ -144,9 +143,18 @@ architecture-of-complexity-skill/  (skill directory → packaged in ZIP)
 
 ```yaml
 ---
-name: architecture-of-complexity
-description: Apply Herbert Simon's Architecture of Complexity principles...
-license: Complete terms in LICENSE. See also LICENSE-CAM.md and LICENSE-THIRDX.md for framework copyrights.
+name: your-skill-name
+description: Brief description of your skill...
+license: Complete terms in LICENSE
+---
+```
+
+If multiple licenses:
+```yaml
+---
+name: your-skill-name
+description: Brief description of your skill...
+license: Complete terms in LICENSE. See also LICENSE-FRAMEWORK.md for specific content copyrights.
 ---
 ```
 
@@ -154,18 +162,17 @@ license: Complete terms in LICENSE. See also LICENSE-CAM.md and LICENSE-THIRDX.m
 
 **✅ Correct:**
 ```
-architecture-of-complexity-skill/
+your-skill-name/
 ├── LICENSE
-├── LICENSE-CAM.md
-├── LICENSE-THIRDX.md
+├── LICENSE-FRAMEWORK.md    (optional, if needed)
 └── SKILL.md
 ```
 
 **❌ Wrong:**
 ```
 repository-root/
-├── LICENSE                        ← Don't put here (unless separate repo license)
-├── architecture-of-complexity-skill/
+├── LICENSE                 ← Don't put here (unless separate repo license)
+├── your-skill-name/
 │   └── SKILL.md
 ```
 
@@ -174,8 +181,8 @@ repository-root/
 The build workflow should **include** LICENSE files in the ZIP:
 
 ```bash
-cd architecture-of-complexity-skill
-zip -r "../architecture-of-complexity-1.0.0.skill" . \
+cd your-skill-name
+zip -r "../your-skill-name-1.0.0.skill" . \
   -x "*.git*" \
   -x "*.DS_Store"
   # LICENSE files are NOT excluded!
@@ -307,12 +314,18 @@ This follows the **"distribution manifest" pattern:**
 
 **Key quote from human:** "This was not intuitive at all. It's a little bit magic so I'm glad that we figured it out together."
 
+### Iteration 2 (2026-03-29) - Template Transformation
+
+- AI: Minor edits for skill-building template
+- Updated examples from AoC-specific to generic (`your-skill-name`)
+- Removed reference to deleted ADR-0003
+- All principles and patterns remain unchanged
+
 ---
 
 ## Links
 
 - Related: ADR-0001 (Skill Packaging Format)
-- Related: ADR-0003 (License File Structure) - **Updated by this ADR**
 - Supersedes: Initial analysis that suggested excluding LICENSE from ZIP
 - Reference: `/docs/resources/skills/skills/algorithmic-art/`
 - Reference: `/docs/resources/skills/THIRD_PARTY_NOTICES.md` (for dependency attribution pattern)

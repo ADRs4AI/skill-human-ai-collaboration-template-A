@@ -1,4 +1,4 @@
-# ADR-0009: Template Transformation Strategy
+# ADR-0006: Template Transformation Strategy
 
 - **Date**: 2026-03-28
 - **Iteration**: 3

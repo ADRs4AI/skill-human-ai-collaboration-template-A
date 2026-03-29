@@ -1,4 +1,4 @@
-# ADR-0010: Template-Guide Skill Design
+# ADR-0007: Template-Guide Skill Design
 
 - **Date**: 2026-03-29
 - **Iteration**: 1
