@@ -1,11 +1,9 @@
 # CLAUDE.md - Project Guidance
 
-- **Project**: "Epistemic Arc Mapping" Skill
+- **Project**: Human-AI Collaboration A v3.2 Skill Template
 - **Human**: Jérémie Lumbroso  
 - **AI**: Claude Web Sonnet 4.5 and Claude Code Sonnet 4.5
-- **Last Updated**: February 28, 2026
-
-**NOTE:** (by Jérémie) The concept of "epistemic arc mapping" was created/invented by Claude Web Sonnet 4.5 spontaneously during analysis of an academic paper.
+- **Last Updated**: March 28, 2026
 
 ---
 
@@ -95,14 +93,12 @@ If the script was successfully used, append as comments how, and what the outcom
 ## Project Context
 
 ### What we're building:
-This is a repository for the **epistemic arc mapping skill** — a Claude skill for rigorous academic analysis. It maps claims, epistemic foundations, and productive tensions in papers, policy documents, and scholarly arguments. It distinguishes truth-seeking scholarship from sophistic advocacy through systematic analysis.
-
-An "epistemic arc mapping" is an epistemic deconstruction of all the arguments in a paper: their claims, justification, and tensions/gaps. This allows assessment of the epistemic robustness of scholarship.
+This repository is to create a skill template repository, that is scaffolded with the human-ai-collaboration-template-A (see `https://github.com/jlumbroso/human-ai-collaboration-template-A` which you are free to clone). We've imported the repository of an actual skill, and the main mission will be to clean up the repository, remove any skill-specific mention, and then create a README.md describing the template, and finally create a `CLAUDE.template.md` that will replace this one and will poise this to start the human with skill building.
 
 ### Current focus:
 The skill itself (SKILL.md) has been created by Claude Web Sonnet 4.5. Current work involves:
-- Cleaning up repository structure (removing reveal.js artifacts)
-- Updating documentation to reflect epistemic arc mapping focus
+- Cleaning up repository structure (removing artifacts)
+- Updating documentation to reflect template
 - Preparing for initial release (v0.1.0)
 
 ### Key decisions made:
@@ -120,6 +116,8 @@ The skill itself (SKILL.md) has been created by Claude Web Sonnet 4.5. Current w
 ---
 
 ## File Structure
+
+**NOT:** will need to be redone
 
 ```
 epistemic-arc-mapping-skill/
@@ -203,7 +201,7 @@ If context window fills mid-work, create `docs/HANDOFF-datetime.md`:
 
 ## Project-Specific Notes
 
-- This repo was originally cloned from `revealjs-skill` and has been repurposed for epistemic arc mapping. Cleanup is ongoing.
+- This repo was originally cloned from `epistemic-arc-mapping-skill` and has been repurposed for as a general template for skill packaging. Cleanup is ongoing.
 
 - The `architecture-of-complexity-skill` is installed at `.claude/skills/architecture-of-complexity/` as a companion skill. It was used to structure this skill (see ADR-0006).
 

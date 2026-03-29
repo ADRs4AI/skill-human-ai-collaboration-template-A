@@ -10,11 +10,15 @@
 ## Context
 
 ### QST: How should the epistemic arc mapping skill be structured?
-
+- Status: answered
 The skill teaches a hierarchical analysis methodology — breaking papers into arcs, arcs into components (claims, evidence, tensions). The skill structure should mirror this analytical hierarchy. Herbert Simon's Architecture of Complexity (the companion skill installed at `.claude/skills/architecture-of-complexity/`) provides the framework for this decision.
 
-### QST: How does epistemic arc mapping embody AoC principles?
+**ANS:** (by Jérémie)
 
+No. That skill has already been constructed in a separate repository. It is no longer this repository's concern (or ours).
+
+### QST: How does epistemic arc mapping embody AoC principles?
+- Status: answered
 The methodology itself is near-decomposable at multiple levels:
 - **Level 3 (Paper)**: The complete document being analyzed
 - **Level 2 (Arcs)**: Major argumentative threads (4-6 per paper)
@@ -24,6 +28,10 @@ The methodology itself is near-decomposable at multiple levels:
 At each level, internal coupling is strong (an arc's components relate to each other) and external coupling is weak (Arc 1 can be analyzed independently of Arc 3). This is Simon's near-decomposability in action.
 
 The **watchmaker parable** maps to the analysis process: build arc-by-arc (stable intermediate forms), not attempting to hold the entire paper's argument structure in working memory at once.
+
+**ANS:** (by Jérémie)
+
+Once more, the epistemic arc mapping is not part of this project. This project is a general skill template, scaffolded by the human-AI collaboration template A.
 
 ---
 

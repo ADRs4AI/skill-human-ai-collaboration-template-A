@@ -10,7 +10,7 @@
 ## Context
 
 ### QST: What to do with the nested git repos?
-
+- Status: answered
 Four git repositories were cloned as reference material inside this project's working directory:
 
 | Path | Repository | Purpose |
@@ -43,6 +43,12 @@ These show up as untracked in `git status` because git detects the nested `.git`
 - Add nested `.git` directories to `.gitignore`
 - The outer repo stays self-contained
 - Preferred by the user as most sustainable
+
+### Answer
+
+I tried to delete those folders. We should remove them from this repository, they are not relevant to this project. Please purge. If you can remove from whole history like everything else you remove.
+
+If you find anything useful, feel free to keep, but I don't think there's anything relevant and I had already deleted the folders (sure you can retrieve them through the git history if you really are curious).
 
 ---
 
