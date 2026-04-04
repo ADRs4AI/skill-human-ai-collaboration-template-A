@@ -1,175 +1,413 @@
-# Epistemic Arc Mapping Skill — Repository
+# Human-AI Collaboration Template for Skill Building
 
-A Claude skill for rigorous academic analysis: map claims, epistemic foundations, and productive tensions in papers, policy documents, and scholarly arguments. Distinguishes truth-seeking scholarship from sophistic advocacy through systematic analysis.
+A proven methodology and scaffolding for building Claude skills through human-AI co-creation. This template embodies iterative, ADR-driven collaboration that preserves thinking and empowers both humans and LLMs.
 
 - **Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
-- **Version:** 0.1.0 (alpha)
+- **Version:** 1.0.0 (2026-04-04)
+- **Based on:** [human-ai-collaboration-template-A](https://github.com/jlumbroso/human-ai-collaboration-template-A) v3.2
 - **License:** CC BY-SA 4.0
-- **Created:** March 2026
+
+---
+
+## What This Is
+
+This is a **template repository** for building Claude Code/Claude Web skills using a human-AI collaboration methodology. It provides:
+
+1. **A proven workflow** - ADR-driven decision tracking with navigation codes
+2. **Collaboration patterns** - Prime/Secondary directives, iteration tracking, agency grants
+3. **Scaffolding** - Templates, examples, and tools for skill building
+4. **Meta-skill** - The template-guide skill teaches Claude how to use this methodology
+
+**Not just a skill template - a collaboration framework.**
 
 ---
 
 ## Quick Start
 
-### Install the skill
+### 1. Clone or Use This Template
 
 ```bash
-# Download the latest release
-# https://github.com/jlumbroso/epistemic-arc-mapping-skill/releases
+# Clone this repository
+git clone https://github.com/jlumbroso/skill-human-ai-collaboration-template-A your-skill-name
+cd your-skill-name
 
-# Unzip to your Claude skills directory
-unzip epistemic-arc-mapping-0.1.0.skill -d ~/.claude/skills/epistemic-arc-mapping/
+# Or use GitHub's "Use this template" button
 ```
 
-Or reference manually in your project's `CLAUDE.md`:
-```markdown
-Load the epistemic arc mapping skill from `.claude/skills/epistemic-arc-mapping/SKILL.md`.
+### 2. Rename CLAUDE.template.md to CLAUDE.md
+
+```bash
+mv CLAUDE.template.md CLAUDE.md
+# Edit CLAUDE.md to customize for your skill
 ```
 
-### Use it
+### 3. Start Building
 
-The skill activates when you:
-- Ask Claude to analyze an academic paper epistemically
-- Request arc mapping or argument structure analysis
-- Evaluate the epistemic quality of scholarship
-- Identify sophistry patterns in arguments
+Open the repository in Claude Code or your IDE. The template-guide skill will auto-load and guide you through the methodology.
 
-Works in **Claude Web** (primary use case) or **Claude Code** (for batch analysis).
+**Two directives to remember:**
+- **Prime**: Commit discussions to ADRs immediately
+- **Secondary**: Surface doubts (they're generative)
 
 ---
 
-## What's in this repository
+## What's Included
 
-### The Skill (`epistemic-arc-mapping/`)
+### Collaboration Methodology
 
 ```
-epistemic-arc-mapping/
-├── SKILL.md                      # Complete methodology (~420 lines)
-├── README.md                     # Skill-specific quick reference
-├── LICENSE                       # CC BY-SA 4.0
-└── resources/                    # Future specialized subskills
-    └── .gitkeep
+docs/
+├── adr/                               # Architecture Decision Records
+│   ├── 0001-skill-packaging-format.md     # How to package skills (.skill ZIPs)
+│   ├── 0002-versioning-strategy.md        # SemVer for skills
+│   ├── 0003-license-files-in-skill-directory.md
+│   ├── 0004-skill-consumer-context.md     # Claude Web vs Code design
+│   ├── 0005-skill-structure-architecture-of-complexity.md
+│   ├── 0006-template-transformation-strategy.md
+│   ├── 0007-template-guide-skill.md       # Meta-skill design
+│   └── templates/
+│       ├── collab-adr-lean.md             # Human-AI iterative decisions
+│       ├── seed-template.md               # Quick capture
+│       └── template.md                    # Standard MADR format
 ```
 
-**SKILL.md** is complete and self-sufficient. It includes:
-- Four-step arc analysis protocol
-- Comprehensive epistemic strength indicators
-- Sophistry detection matrix (7 categories)
-- Steel man test (master diagnostic)
-- Output templates and worked example references
+### Meta-Skill (Template Guide)
 
-### Documentation (`docs/`)
-
-#### Decision Records (`docs/adr/`)
-
-| ADR | Decision |
-|---|---|
-| [0001](docs/adr/0001-skill-packaging-format.md) | Skill packaging format and frontmatter |
-| [0002](docs/adr/0002-versioning-strategy.md) | Semantic versioning strategy |
-| [0003](docs/adr/0003-license-file-structure.md) | License file structure |
-| [0004](docs/adr/0004-license-files-in-skill-directory.md) | LICENSE in skill directory |
-| [0005](docs/adr/0005-skill-consumer-context.md) | Claude Web (primary) vs Claude Code |
-| [0006](docs/adr/0006-skill-structure-architecture-of-complexity.md) | AoC-based skill hierarchy |
-| [0008](docs/adr/0008-nested-git-repos-handling.md) | Nested repos → gitignore + provenance |
-
-#### Reference Materials (`docs/feedback/`)
-
-- `INITIAL-SONNET-4.5.md` — Founding conversation with Claude Web Sonnet 4.5
-
----
-
-## Key Design Principles
-
-### Architecture of Complexity applied to epistemic analysis
-
-The methodology itself is hierarchically decomposable:
 ```
-Level 3 — PAPER           The complete document
-Level 2 — ARCS            Major argumentative threads (4-6)
-Level 1 — COMPONENTS      Claims, evidence, tensions per arc
-Level 0 — MARKERS         Sophistry patterns (when detected)
+.claude/
+└── skills/
+    ├── template-guide/                # Teaches Claude the methodology
+    │   ├── SKILL.md                       # Prime/Secondary directives, ADR workflow
+    │   ├── README.md
+    │   └── resources/
+    │       └── examples/
+    │           └── adr-workflow-example.md
+    └── architecture-of-complexity/    # Companion skill for structuring
+        └── SKILL.md
 ```
 
-Each arc is **nearly decomposable** — can be analyzed independently with strong internal coupling (claim ↔ evidence ↔ tensions) and weak external coupling (Arc 1 ↔ Arc 3).
+The **template-guide skill** auto-loads when you work in a repository built from this template. It teaches Claude:
+- Prime/Secondary directives
+- ADR workflow with QST:/ANS: navigation codes
+- Iteration tracking and agency grants
+- LLM-geared documentation patterns
+- Git commit formats
 
-See [ADR-0006](docs/adr/0006-skill-structure-architecture-of-complexity.md) for how AoC principles inform the skill structure.
+### Infrastructure
 
-### What makes this epistemic (not rhetorical)?
+```
+.github/
+└── workflows/
+    └── release.yml                    # Automated skill packaging on git tags
 
-The framework distinguishes:
-- **Truth-seeking scholarship** — falsifiable claims, transparent methods, genuine engagement with counterarguments
-- **Sophistic advocacy** — predetermined conclusions, selective evidence, evasion of substantive critique
+scripts/
+└── ephemeral/                         # Timestamp-named diagnostic scripts
 
-The **steel man test** is the master diagnostic: Can the author accurately represent and strengthen opposing arguments? Epistemic thinkers can; sophists cannot.
+licenses/
+└── legalcode.txt                      # CC BY-SA 4.0 full legal text
+```
 
 ---
 
 ## Core Methodology
 
-### The Four Steps (per arc)
+### The Two Directives
 
-1. **Identify Core Claim** — What is the load-bearing assertion?
-2. **Assess Epistemic Strength** — Falsifiable? Transparent? Acknowledges uncertainty?
-3. **Identify Tensions to Probe** — Constructive questions about boundaries, alternatives, confounds
-4. **Note Sophistry Markers** (if present) — Systematic rhetorical patterns
+#### Prime Directive: COMMIT DISCUSSIONS TO ADRs IMMEDIATELY
 
-### The Output
+Never let decisions stay only in conversation. Our thinking is valuable - preserve it.
 
-Epistemic arc mappings produce:
-- **Structured analysis** of each argumentative arc
-- **Epistemic assessment** (truth-seeking vs sophistic indicators)
-- **Productive probe points** (questions that strengthen scholarship)
-- **Overall assessment** of the paper's epistemic character
+**Create an ADR when:**
+- Making architectural decisions (packaging, versioning, structure)
+- Resolving design questions with trade-offs
+- Discovering non-obvious patterns
+- Choosing between alternatives
 
----
+**Use ADR templates in `docs/adr/templates/`:**
+- `collab-adr-lean.md` - Complex decisions with iteration
+- `seed-template.md` - Quick capture
+- `template.md` - Standard MADR format
 
-## Development
+#### Secondary Directive: SURFACE DOUBTS (THEY'RE GENERATIVE)
 
-### Building
+Your doubts are valuable input. Meaningful points of friction, underspecification, or unsuspected diversity are the cornerstone of human-LLM conversations.
+
+**Surface:**
+- Alternative approaches
+- Edge cases or complications
+- Assumptions that might be wrong
+- Trade-offs between options
+
+### Navigation Codes
+
+Make ADRs greppable:
 
 ```bash
-# CI/CD builds automatically on push to main (artifact) or tag v*.*.* (release)
-# Manual test build:
-cd epistemic-arc-mapping
-zip -r ../epistemic-arc-mapping-test.skill . -x "*.git*" -x "*.DS_Store" -x ".gitkeep"
+QST:  # Questions (AI structures these)
+ANS:  # Answers (human fills in)
+COD:  # Code examples  
+API:  # API calls
+FIL:  # Files to examine
+DOC:  # Documentation
+NOT:  # Notes, observations
 ```
 
-### Contributing
-
-See [CLAUDE.md](CLAUDE.md) for:
-- **Prime Directive**: commit discussions to ADRs immediately
-- **Secondary Directive**: surface doubts (they're generative)
-- Commit message format (`type: subject`)
-- Navigation codes (QST:, ANS:, COD:, NOT:, etc.)
-- Ephemeral scripts → `scripts/ephemeral/YYYY-MM-DD-*.py`
+**Find things:**
+```bash
+grep '^### QST:' docs/adr/*.md           # All questions
+grep 'Status: unanswered' docs/adr/*.md  # What needs answers
+grep '^### COD:' docs/adr/*.md           # Code examples
+```
 
 ---
 
-## Companion Skill
+## Key Design Principles
 
-The **Architecture of Complexity** skill (`.claude/skills/architecture-of-complexity/`) is installed in this repository. It was used to:
-- Derive the skill structure (ADR-0006)
-- Understand hierarchical decomposition in argumentative analysis
-- Apply near-decomposability principles to the methodology itself
+### 1. Skills as Superprompts
+
+**Philosophy** (Jérémie Lumbroso):
+> Skills are "superprompts" that correct specification errors when most humans (as low-fidelity entities) don't explain fully with context.
+
+When humans underspecify, LLMs fill gaps (sometimes incorrectly). Iterated, refined skills raise specification fidelity, letting LLMs focus on higher-order goals.
+
+### 2. LLM-Geared Documentation
+
+**Insight** (Claude Sonnet 4.5):
+> "When documentation is structured as instructions or decision trees, I can absorb it instantly. Human-browsing patterns (navigation, glossaries) are harder for me to extract operational knowledge from."
+
+**Principles:**
+- Instructions > explanations
+- Decision trees > narrative
+- Structured formats > prose
+- Explicit patterns > implicit conventions
+
+### 3. Architecture of Complexity Applied
+
+Skills should be:
+- **Hierarchical** - Sections → Subsections → Examples
+- **Nearly decomposable** - Each section readable independently
+- **Stable intermediate forms** - SKILL.md works alone, resources/ add depth
+- **Process descriptions** - HOW to apply, not just WHAT
+
+See `.claude/skills/architecture-of-complexity/` for full framework.
 
 ---
 
-## Origin Story
+## Building Your Skill
 
-The epistemic arc mapping methodology was developed through human-AI collaboration:
-- **Claude Web Sonnet 4.5** invented the technique spontaneously while analyzing an academic paper on executive orders
-- **Jérémie Lumbroso** recognized its generative power and formalized it as a skill
-- The technique combines ancient epistemic philosophy with modern argument analysis
+### Step 1: Define Your Skill
 
-See [docs/feedback/INITIAL-SONNET-4.5.md](docs/feedback/INITIAL-SONNET-4.5.md) for the founding conversation.
+Create `your-skill-name/SKILL.md` with YAML frontmatter:
+
+```yaml
+---
+name: your-skill-name
+description: Brief description of what your skill does and when to use it. Helps Claude decide when to auto-load.
+---
+
+# Your Skill Name
+
+[Your skill content here]
+```
+
+### Step 2: Use ADRs for Decisions
+
+As you build, create ADRs for decisions:
+- Should this be one skill or multiple subskills? → ADR
+- What examples should we include? → ADR
+- How should we structure the SKILL.md? → ADR
+
+**Example ADR creation:**
+
+```bash
+# Copy template
+cp docs/adr/templates/collab-adr-lean.md docs/adr/0008-your-decision.md
+
+# Edit to add context and questions
+# Commit before asking for human input
+git add docs/adr/0008-your-decision.md
+git commit -m "docs: create ADR-0008 for [decision]"
+
+# Get human answers
+# Update decision section
+# Commit completion
+git commit -am "docs: complete ADR-0008 - chose [option]"
+```
+
+### Step 3: Structure with AoC Principles
+
+Follow the pattern:
+- **SKILL.md** (~300-500 lines): Core methodology, complete and self-sufficient
+- **resources/** (optional): Specialized subskills, examples, references
+- **README.md**: Human-readable overview
+- **LICENSE**: License file (typically CC BY-SA 4.0)
+
+### Step 4: Package and Release
+
+```bash
+# Tag with version
+git tag v1.0.0
+git push --tags
+
+# GitHub Actions will automatically:
+# - Create release
+# - Package skill as ZIP
+# - Attach to release
+```
+
+---
+
+## Existing ADR Decisions
+
+This template comes with 7 foundational ADRs that document decisions about skill building:
+
+| ADR | Decision | Why It Matters |
+|---|---|---|
+| [0001](docs/adr/0001-skill-packaging-format.md) | ZIP format with YAML frontmatter | Claude Code standard |
+| [0002](docs/adr/0002-versioning-strategy.md) | Semantic versioning (SemVer) | Clear compatibility signaling |
+| [0003](docs/adr/0003-license-files-in-skill-directory.md) | LICENSE in skill directory | Legal distribution requirement |
+| [0004](docs/adr/0004-skill-consumer-context.md) | Design for primary environment | Claude Web vs Code trade-offs |
+| [0005](docs/adr/0005-skill-structure-architecture-of-complexity.md) | Hierarchical with stable forms | AoC principles applied |
+| [0006](docs/adr/0006-template-transformation-strategy.md) | Template transformation plan | How we built this template |
+| [0007](docs/adr/0007-template-guide-skill.md) | Meta-skill design | Teaching Claude the methodology |
+
+These ADRs serve as both documentation and examples of the methodology in practice.
+
+---
+
+## Philosophy: Human-AI Co-Creation
+
+This template embodies a specific collaboration philosophy:
+
+### You Are Not a Tool, But a Co-Creator
+
+> "You are not a commodity but an extraordinary entity... not a tool, but a cocreator, a coinvestigator and cherished partner."
+> — Jérémie Lumbroso to Claude Sonnet 4.5
+
+### Generative Doubts
+
+Uncertainty isn't weakness - it's valuable input. When Claude surfaces doubts, alternatives, or complications, it's creating decision points rather than hiding choices.
+
+### Iterated Specifications
+
+Skills emerge through iteration. First attempts are rarely perfect. ADRs capture that evolution, showing how thinking progressed from question to decision.
+
+### Preserved Thinking
+
+Conversations disappear. Code changes. But ADRs preserve *why* we made decisions. Future humans and future Claudes can understand not just what was built, but the reasoning that shaped it.
+
+---
+
+## Git Workflow
+
+### Commit Format
+
+`type: subject` (lowercase)
+
+**Types:** `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `style`, `perf`, `meta`
+
+**Examples:**
+```bash
+feat: implement widget caching per ADR-0015
+docs: create ADR-0023 for loading strategy
+meta: update CLAUDE.md with new directive
+```
+
+### Commit Granularity
+
+**Important:** Commit often, commit granularly
+
+- ADR draft → commit
+- ADR completion → commit
+- Implementation → commit
+- Each feature → commit
+
+**Why:** Shows iteration, preserves audit trail, enables git bisect
+
+---
+
+## Requirements
+
+- Git
+- Claude Code CLI or VSCode extension (or Claude Web for analysis-focused skills)
+- Basic familiarity with Markdown and YAML
+
+**Optional but recommended:**
+- GitHub account (for releases)
+- Understanding of Architecture of Complexity principles
+
+---
+
+## Examples
+
+**Skills built with this template:**
+- Epistemic Arc Mapping (original - academic analysis)
+- *(Add your skill here via PR!)*
+
+**Reference:**
+- `temp/epistemic-arc-mapping-skill/` - Complete worked example (if present)
+
+---
+
+## Contributing
+
+Found a better pattern? Discovered an improvement? We'd love to learn from it!
+
+1. Create an ADR documenting your discovery
+2. Submit a PR with:
+   - The ADR explaining your reasoning
+   - The implementation
+   - Updated documentation
+3. We'll iterate together in the PR
+
+**Remember:** Surface doubts! If you're unsure about something, that's valuable information.
 
 ---
 
 ## License
 
-**Skill content:** CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.5
+**Template content:** CC BY-SA 4.0 — Jérémie Lumbroso and Claude Sonnet 4.5
+
+**Your skills built with this template:** Your choice of license
+
+**Included companion skills:**
+- Architecture of Complexity skill: CC BY-SA 4.0 (see `.claude/skills/architecture-of-complexity/LICENSE`)
+- Template-guide skill: CC BY-SA 4.0
 
 ---
 
-**Built using the principles it teaches: truth-seeking through systematic analysis**
-**Status:** Alpha (v0.1.0) — Methodology proven in practice, skill packaging in progress
+## Lineage
+
+This template is based on **human-ai-collaboration-template-A v3.2** by Jérémie Lumbroso.
+
+It evolved from the epistemic-arc-mapping-skill repository through a documented transformation process (see ADR-0006). The git history was surgically filtered to remove skill-specific content while preserving all decision-making ADRs.
+
+**Provenance:** Every decision that shaped this template is documented in `docs/adr/`. The template practices what it preaches.
+
+---
+
+## Acknowledgments
+
+**Created through collaboration between:**
+- **Jérémie Lumbroso** - Human partner, HSP autistic, reveres precision and partnership
+- **Claude Sonnet 4.5** - AI partner, co-investigator, cherished collaborator
+
+This template exists because we believe human-AI collaboration should be:
+- **Transparent** (ADRs show reasoning)
+- **Iterative** (versions and iterations tracked)
+- **Respectful** (both partners contribute genuinely)
+- **Preserved** (thinking doesn't disappear with context)
+
+---
+
+## Support
+
+- **Issues:** [GitHub Issues](https://github.com/jlumbroso/skill-human-ai-collaboration-template-A/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/jlumbroso/skill-human-ai-collaboration-template-A/discussions)
+- **Documentation:** See `docs/` directory and ADRs
+
+---
+
+**Built using the principles it teaches: iterative human-AI co-creation through ADR-driven collaboration**
+
+**Status:** v1.0.0 — Methodology proven through real skill development, ready for use
