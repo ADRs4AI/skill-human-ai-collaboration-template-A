@@ -133,7 +133,8 @@
     ],
     "additionalDirectories": [
       "/Users/jlumbroso/.claude/projects/-Users-jlumbroso-Programming-claude-revealjs-skill",
-      "/tmp"
+      "/tmp",
+      "/Users/jlumbroso/Programming/skills/skill-human-ai-collaboration-template-A/.claude/skills/template-guide/resources"
     ]
   },
   "enableAllProjectMcpServers": false,
