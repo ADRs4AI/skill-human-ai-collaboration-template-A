@@ -1,0 +1,41 @@
+# kintsugi.lock — tool-written state; do not hand-edit.
+# What this repo HAS, per artifact (base version + exact canonical blob).
+kintsugi_schema: 1
+canonical_version: 3.9.2
+synced: '2026-08-08T16:27:04Z'
+artifacts:
+  .claude/skills/adr-authoring/SKILL.md:
+    base_version: 3.9.2
+    base_blob: 919a98e710893f5414b985a02723c3013d902d14
+    state_at_adopt: unmodified+current
+  CLAUDE.md:
+    state_at_adopt: unknown-base
+  docs/METHODOLOGY.md:
+    base_version: 0+git.1996a21
+    base_blob: 1bb24abed4b8b1cad86655b2d1e3bd0977746251
+    state_at_adopt: unmodified+behind
+  docs/adr/templates/AGENTS.md:
+    base_version: 3.9.2
+    base_blob: 3ad56716a2a0fbd13b706b9031e61db35c4f219f
+    state_at_adopt: unmodified+current
+  docs/adr/templates/adr-madr.md:
+    base_version: 3.9.2
+    base_blob: 057270a395a710ca2eff6567c667f5da19f28197
+    state_at_adopt: unmodified+current
+  docs/adr/templates/adr.md:
+    base_version: 3.9.2
+    base_blob: 84576ffdc2b425f4f5c354c067691d96007ed877
+    state_at_adopt: unmodified+current
+  docs/adr/templates/debrief.md:
+    base_version: 3.9.2
+    base_blob: d739a95efaea09d6be0fe9b82653778bd36cb1bf
+    state_at_adopt: unmodified+current
+  docs/adr/templates/failure-classes.md:
+    base_version: 3.9.2
+    base_blob: 75bfa61e4ce325dd4b9defa7dba5896c7c94c52b
+    state_at_adopt: unmodified+current
+  docs/adr/templates/seed.md:
+    base_version: 3.9.2
+    base_blob: 75fc8cb1dc12cd1203bf872c6d9046cadcbd4dd2
+    state_at_adopt: unmodified+current
+applied_bundles: []
