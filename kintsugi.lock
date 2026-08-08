@@ -2,7 +2,7 @@
 # What this repo HAS, per artifact (base version + exact canonical blob).
 kintsugi_schema: 1
 canonical_version: 3.9.2
-synced: '2026-08-08T16:27:04Z'
+synced: '2026-08-08T16:27:43Z'
 artifacts:
   .claude/skills/adr-authoring/SKILL.md:
     base_version: 3.9.2
@@ -11,9 +11,8 @@ artifacts:
   CLAUDE.md:
     state_at_adopt: unknown-base
   docs/METHODOLOGY.md:
-    base_version: 0+git.1996a21
-    base_blob: 1bb24abed4b8b1cad86655b2d1e3bd0977746251
-    state_at_adopt: unmodified+behind
+    base_version: 3.9.2
+    base_blob: e14c5ec6c8c3afb0bee671378ccf2ff136af3436
   docs/adr/templates/AGENTS.md:
     base_version: 3.9.2
     base_blob: 3ad56716a2a0fbd13b706b9031e61db35c4f219f

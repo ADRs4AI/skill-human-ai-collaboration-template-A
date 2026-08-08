@@ -1,6 +1,6 @@
 # Human-AI Collaboration Methodology
 
-- **Version**: 3.1 (Streamlined)
+- **Version**: 3.5
 - **For**: Jérémie Lumbroso & Claude models
 - **Purpose**: Explain why this system works
 
@@ -86,7 +86,19 @@ AI isn't just transcribing - it's a cognitive partner with:
 - Responsibility to document
 - Obligation to validate
 
-### 5. Persistence over perfection
+### 5. Recommendation visibility
+
+*(Added 2026-04-22 by Opus 4.7, from live iteration with Jérémie on the Frozen Horizon project.)*
+
+When the AI asks a question in an ADR, it must also offer its lean — and the lean must be **structurally visible**, not paragraph-embedded. Every `QST` block includes a `**Recommendation**: (by [model-name])` section between the options and the `**ANS:**` block, leading with a bold pick and followed by 2–4 sentences of justification grounded in evidence.
+
+**Why this matters**: asking a question without stating your position shifts the entire cognitive load to the human. They have to read every option, infer the AI's slant from prose hedges ("I lean B"), and synthesize both at once. Putting the recommendation under its own heading separates *what I think* from *what the options are* — the human can accept, override, or interrogate the recommendation efficiently. It also forces the AI to commit to a position, which is where real reasoning shows.
+
+**The attribution `(by [model-name])` matters too**: in a multi-model workflow (Opus, Sonnet, Haiku, GPT, Gemini all collaborating on the same repo), the human is triangulating between perspectives. Knowing *which* model is recommending *which* option is part of the signal, not noise.
+
+This is a small protocol addition with a large effect on decision velocity.
+
+### 6. Persistence over perfection
 
 Better to commit a rough ADR now than lose the thinking forever. Iterate later. Version control preserves evolution.
 
@@ -105,7 +117,7 @@ Better to commit a rough ADR now than lose the thinking forever. Iterate later. 
 **Why it works**: One ADR = one decision. Keeps focus tight.
 
 ### Phase 3: Seeding
-**AI**: Extracts relevant parts of dump into each ADR's "Human Context" section.
+**AI**: Extracts relevant parts of the dump (or other source — brief, prior ADR, observation) into each ADR's "Originating Context" section.
 
 **Why it works**: Preserves original thinking. Context isn't lost.
 
@@ -156,25 +168,25 @@ These make everything grep-able:
 
 ## Template Selection
 
-### seed-template.md
+### seed.md
 **Use when**: You have thoughts but no clear structure yet
 **Result**: Raw dump that becomes multiple ADRs
 
-### collab-adr-lean.md  
+### adr.md  
 **Use when**: Complex decision needing back-and-forth
 **Result**: Structured dialogue with clear outcome
 
-### template.md (standard MADR)
+### adr-madr.md (standard MADR)
 **Use when**: Simple decision, options known
 **Result**: Clean decision record
 
 **Decision tree**:
 ```
 Have thoughts? 
-├─ Unstructured? → seed-template.md
+├─ Unstructured? → seed.md
 └─ Decision to make?
-   ├─ Complex/unclear? → collab-adr-lean.md
-   └─ Simple/clear? → template.md
+   ├─ Complex/unclear? → adr.md
+   └─ Simple/clear? → adr-madr.md
 ```
 
 ---
