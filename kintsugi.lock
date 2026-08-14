@@ -2,7 +2,7 @@
 # What this repo HAS, per artifact (base version + exact canonical blob).
 kintsugi_schema: 1
 canonical_version: 3.9.2
-synced: '2026-08-08T16:27:43Z'
+synced: '2026-08-14T20:48:48Z'
 artifacts:
   .claude/skills/adr-authoring/SKILL.md:
     base_version: 3.9.2
@@ -37,4 +37,7 @@ artifacts:
     base_version: 3.9.2
     base_blob: 75fc8cb1dc12cd1203bf872c6d9046cadcbd4dd2
     state_at_adopt: unmodified+current
+  scripts/tmux/seat.conf:
+    base_version: 3.9.2
+    base_blob: 3a36bec4fab3b8555c0c772d8d80d862010d3875
 applied_bundles: []
