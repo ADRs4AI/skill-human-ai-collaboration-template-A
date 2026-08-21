@@ -19,6 +19,9 @@ Two primary environments exist:
 
 Skills may be used in both environments. The question is which environment should be the primary design target.
 
+**ANS:** (by Jérémie Lumbroso)
+The skill should be built for a model that is in a Claude Code like environment, in which it has file access, can run shell commands, and has MCP tools, long context, and works iteratively. We could make `kintsugi` have an MCP server, through `stdio`, and probably do it for cheap? But I think transformers like the ability to group commands together in shell, using the `&&` and `;` and so on. They tend to make many calls at once to see a lot in a single turn. (Which is so neat!)
+
 ---
 
 ## Decision
