@@ -1,30 +1,45 @@
 # kintsugi.lock — tool-written state; do not hand-edit.
 # What this repo HAS, per artifact (base version + exact canonical blob).
 kintsugi_schema: 1
-canonical_version: 3.9.2
-synced: '2026-08-14T20:48:48Z'
+canonical_version: 3.10.0
+synced: '2026-08-24T18:21:45Z'
 artifacts:
   .claude/skills/adr-authoring/SKILL.md:
-    base_version: 3.9.2
-    base_blob: 919a98e710893f5414b985a02723c3013d902d14
-    state_at_adopt: unmodified+current
+    base_version: 3.10.0
+    base_blob: 40d11cf3f00226b9ba362b2757a05764f92691d2
+  .claude/skills/adr-authoring/references/depth.md:
+    base_version: 3.10.0
+    base_blob: d190fe81b8ba194350e94addee02bee4417dbbde
+  .claude/skills/adr-authoring/references/questions-reference.md:
+    base_version: 3.10.0
+    base_blob: a8b05ae082c0de3016b5c9adecf4211bf301de2b
+  .vscode/vscode-optimization-guide.md:
+    base_version: 3.10.0
+    base_blob: c530ec32ed082c3649c967556ba7ac541e3f39bb
+  CHANGELOG.md:
+    base_version: 3.10.0
+    base_blob: 0473be8e6a690b26c50314890e34845535014d9c
   CLAUDE.md:
     state_at_adopt: unknown-base
+  QUICK-START.md:
+    base_version: 3.10.0
+    base_blob: 0996d551ca5ac3c77e71463dc01f22e38560a547
   docs/METHODOLOGY.md:
-    base_version: 3.9.2
-    base_blob: e14c5ec6c8c3afb0bee671378ccf2ff136af3436
+    base_version: 3.10.0
+    base_blob: a3480a0e364fe47f30af328df7fb5f9d899b28d1
+  docs/adr/AGENTS.md:
+    base_version: 3.10.0
+    base_blob: df8c39920e78f66d9ca29a663b6ef56600bdb2b0
   docs/adr/templates/AGENTS.md:
     base_version: 3.9.2
     base_blob: 3ad56716a2a0fbd13b706b9031e61db35c4f219f
     state_at_adopt: unmodified+current
   docs/adr/templates/adr-madr.md:
-    base_version: 3.9.2
-    base_blob: 057270a395a710ca2eff6567c667f5da19f28197
-    state_at_adopt: unmodified+current
+    base_version: 3.10.0
+    base_blob: 6801bd39e142abde8a2ff55f848fcf5dc152cd88
   docs/adr/templates/adr.md:
-    base_version: 3.9.2
-    base_blob: 84576ffdc2b425f4f5c354c067691d96007ed877
-    state_at_adopt: unmodified+current
+    base_version: 3.10.0
+    base_blob: 99eaa2202a745ba84ca3a725e5ddd6a88d900a88
   docs/adr/templates/debrief.md:
     base_version: 3.9.2
     base_blob: d739a95efaea09d6be0fe9b82653778bd36cb1bf
@@ -34,10 +49,36 @@ artifacts:
     base_blob: 75bfa61e4ce325dd4b9defa7dba5896c7c94c52b
     state_at_adopt: unmodified+current
   docs/adr/templates/seed.md:
-    base_version: 3.9.2
-    base_blob: 75fc8cb1dc12cd1203bf872c6d9046cadcbd4dd2
-    state_at_adopt: unmodified+current
+    base_version: 3.10.0
+    base_blob: 9ccde253bfc98035b50f96eb270fe9e3be2603f7
+  docs/inbox/CONVENTIONS.md:
+    base_version: 3.10.0
+    base_blob: b86ecdd8136b8b3ae008cb46a4325ea1b1e3ed31
+  docs/inbox/ENCODING-MAP.md:
+    base_version: 3.10.0
+    base_blob: 34b80f2a572b700f6eb7194ed58ab55b6694fbb9
+  docs/inbox/INBOX-PROTOCOL.md:
+    base_version: 3.10.0
+    base_blob: f92619469b0d6bb7581aa132f95adf62f04b4b77
+  docs/inbox/ONBOARDING.md:
+    base_version: 3.10.0
+    base_blob: ccec0fdba19a05e2e8ecf085bb921f0f43db5692
+  scripts/groups-lookup.py:
+    base_version: 3.10.0
+    base_blob: 0e2ac2ba306b006302a76e85429b427640246060
+  scripts/hooks/remind-uncommitted-substrate.py:
+    base_version: 3.10.0
+    base_blob: 48d49ea2929d6e49fa12ba877a4413096cde8cf7
   scripts/tmux/seat.conf:
     base_version: 3.9.2
     base_blob: 3a36bec4fab3b8555c0c772d8d80d862010d3875
+  scripts/unwrap-adrs/README.md:
+    base_version: 3.10.0
+    base_blob: 64bdd5a8eca10f2b8b2fb2c512ad4befb00a1266
+  scripts/unwrap-adrs/unwrap-adrs.mjs:
+    base_version: 3.10.0
+    base_blob: 2404a13f76c91815f6e6aa0eaca08f7a90cbf75c
+  scripts/unwrap-adrs/unwrap-adrs.py:
+    base_version: 3.10.0
+    base_blob: a284dc6e551e0338dcf51b34154f450bbea509bf
 applied_bundles: []
