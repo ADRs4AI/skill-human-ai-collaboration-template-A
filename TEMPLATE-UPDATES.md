@@ -1,5 +1,12 @@
 # Template updates
 
+## 2026-09-07 — canonical → v3.11.2
+
+- replace: `CHANGELOG.md` (→ v3.11.2)
+- create: `.claude/skills/adr-authoring/references/freshening.md` (new from v3.11.2)
+
+Flagged (untouched, need attention): `justfile`
+
 ## 2026-09-07 — reconcile (decisions recorded)
 
 - keep: `CLAUDE.md` — Per-repo/real content (skill starter repo's own), verified by reading (handbook step 8). (Tender 5, v3.11.x campaign, 2026-09-07)
