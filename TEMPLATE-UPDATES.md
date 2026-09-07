@@ -1,5 +1,11 @@
 # Template updates
 
+## 2026-09-07 — reconcile (decisions recorded)
+
+- keep: `CLAUDE.md` — Per-repo/real content (skill starter repo's own), verified by reading (handbook step 8). (Tender 5, v3.11.x campaign, 2026-09-07)
+- keep: `.gitignore` — Per-repo/real content (skill starter repo's own), verified by reading (handbook step 8). (Tender 5, v3.11.x campaign, 2026-09-07)
+- keep: `README.md` — Per-repo/real content (skill starter repo's own), verified by reading (handbook step 8). (Tender 5, v3.11.x campaign, 2026-09-07)
+
 ## 2026-09-07 — canonical → v3.11.1
 
 - replace: `CHANGELOG.md` (→ v3.11.1)

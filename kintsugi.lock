@@ -2,7 +2,7 @@
 # What this repo HAS, per artifact (base version + exact canonical blob).
 kintsugi_schema: 1
 canonical_version: 3.11.1
-synced: '2026-09-07T10:50:32Z'
+synced: '2026-09-07T10:51:03Z'
 artifacts:
   .claude/skills/adr-authoring/SKILL.md:
     base_version: 3.11.1
