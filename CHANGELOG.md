@@ -6,9 +6,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-## [Unreleased]
+## [3.11.1] — 2026-09-07 — patch: the coherence release reaches the crew docs
 
-_Nothing yet._
+Same-day catch (founder-reported, minutes after the tag): `docs/inbox/ONBOARDING.md` and `INBOX-PROTOCOL.md` still taught **ORJ** (Options + Recommendation + Justification) — the crew layer's decision pattern had not been upgraded when ORRCF landed in every *ADR* teaching surface. A coherence release that leaves one surface teaching the superseded form re-creates, inside the template, the exact claim-outruns-teaching gap it shipped to close.
+
+### Fixed
+- `INBOX-PROTOCOL.md` §Communication patterns: ORJ → **ORRCF** (all five slots taught, action bands and `If wrong:`-as-nullification included), with a tolerant-reading line — old ORJ blocks are valid history, exactly as pre-ORRCF recommendations are.
+- `ONBOARDING.md` decisions bullet: same upgrade.
+- `scripts/last-message.py` docstring: vocabulary aligned.
+- NOT changed: historical CHANGELOG entries (archives are never edited).
+
+Patch-tier under ADR-0023 (taught intent unchanged — v3.11.0's own row 1 said *every* teaching surface; this repairs its incomplete execution). A parallel ecosystem-wide sweep of public surfaces runs under Pharos 5.
+
+---
+
+## [3.11.0] — 2026-09-07 — "the coherence release"
+
+**Through-line**: the canonical's README began claiming ORRCF before the templates taught it, and a downstream crew's adoption hit the gap live (elenchus, 2026-09-02). This release makes the claim true — the founder-ratified ORRCF form lands in every teaching surface in one pass — and folds two specimen-driven teachings the field just paid for. Row gate answered GO 2026-09-07 (HQ ADR-0037, `adr://v1/repo/ADRs4AI/initial-meta-repository/adr/0037#qst-v3110-gate`).
+
+- **ORRCF** (Options · Recommendation · Rationale · Confidence · Falsifier, "or-SEFF"): `adr.md`'s protocol paragraph, both QST skeletons, and the Chosen section's rationale field; SKILL §2's minimal shape. Confidence at the end with its mandatory *because* (the number is an anchor that forces reasons and discloses basis, never a calibration claim), read as **action bands** — ≥0.90 act · 0.60–0.85 your call · ≤0.55 route to another mind (elenchus's field formulation). Falsifier taught as **`If wrong:` — nullification, never price** (field audit: 10/10 wild consequence-clauses were cost-shaped; the distinction must be taught or it is not written). Pre-ORRCF recommendations stay valid history, read tolerantly.
+- **The absent-question malformation** (SKILL §3's fifth class + depth.md D1 correction, from Sherd 5's debrief): an ADR with zero open questions is a *claim that nothing is open* — the decision's status and the record's completeness are independent; *the seed asks the human what happened, the ADR asks the reader what should happen*; deliberate emptiness says so (`NOT:`), never by omission.
+- **The freshening pass** (`references/freshening.md` + SKILL load-condition): the professionalized protocol for combing existing ADRs — status-vs-reality with evidence, iterations debt, remainder inventories with dispositions, recommendation stacking, new-QSTs-for-unbuilt-problems — from the founder's 2026-08-30 instruction; every rule carries a named incident. Rides the v3.11 gate formally; usable from main now.
+
+---
+
+## [3.10.1] — 2026-08-25 — patch: the phantom suite exorcised
+
+Two defects in canonical `CLAUDE.md`'s Fifth Directive, reported with census by **Framer 5 (lumbroso-hq)** — a fresh instantiation reading as a *new consumer* caught what five months of inheritors (steward included) did not:
+
+### Fixed
+- **The phantom suite**: "We have 497 tests with 60% coverage" — another project's fact, fossilized since v3.2 (2026-03-16), shipped to 80 repos, 55 of which had no `package.json` to even attempt it. The directive is now instantiation-slotted (*name this project's real gate*), with Framer's diagnosis kept as its teaching: *an unfollowable directive teaches every seat that directives are decorative, and that lesson generalizes.*
+- **Canonical self-contradiction**: the Process block instructed `git add -A` — the exact command CONVENTIONS' shared-worktree rule forbids, with a paid-for provenance incident behind it; 36 repos shipped the rule and its violation together, the more-authoritative document being the wrong one. Now: stage by path, commit by pathspec, CONVENTIONS cited inline.
+
+Patch-tier under ADR-0023 (taught intent unchanged; defective expression repaired). `CLAUDE.md` is reconcile-class: adapted consumers keep their versions and are told; untouched consumers — the population that needs it — heal silently on the next kintsugi update.
 
 ---
 

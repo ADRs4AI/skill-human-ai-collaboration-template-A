@@ -1,5 +1,16 @@
 # Template updates
 
+## 2026-09-07 — canonical → v3.11.1
+
+- replace: `CHANGELOG.md` (→ v3.11.1)
+- replace: `docs/adr/templates/adr.md` (→ v3.11.1)
+- replace: `docs/inbox/ONBOARDING.md` (→ v3.11.1)
+- replace: `docs/inbox/INBOX-PROTOCOL.md` (→ v3.11.1)
+- replace: `.claude/skills/adr-authoring/SKILL.md` (→ v3.11.1)
+- replace: `.claude/skills/adr-authoring/references/depth.md` (→ v3.11.1)
+
+Flagged (untouched, need attention): `CLAUDE.md`, `justfile`, `.gitignore`, `README.md`
+
 ## 2026-08-24 — canonical → v3.10.0
 
 - create: `QUICK-START.md` (new from v3.10.0)

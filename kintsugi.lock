@@ -1,15 +1,15 @@
 # kintsugi.lock — tool-written state; do not hand-edit.
 # What this repo HAS, per artifact (base version + exact canonical blob).
 kintsugi_schema: 1
-canonical_version: 3.10.0
-synced: '2026-08-24T18:21:45Z'
+canonical_version: 3.11.1
+synced: '2026-09-07T10:50:32Z'
 artifacts:
   .claude/skills/adr-authoring/SKILL.md:
-    base_version: 3.10.0
-    base_blob: 40d11cf3f00226b9ba362b2757a05764f92691d2
+    base_version: 3.11.1
+    base_blob: a27ac47c847bf509cda7afd66bb0180e6ac6ed74
   .claude/skills/adr-authoring/references/depth.md:
-    base_version: 3.10.0
-    base_blob: d190fe81b8ba194350e94addee02bee4417dbbde
+    base_version: 3.11.1
+    base_blob: 479e7aeaa4fac1c6fed7d2d57077e8c1ef58bca4
   .claude/skills/adr-authoring/references/questions-reference.md:
     base_version: 3.10.0
     base_blob: a8b05ae082c0de3016b5c9adecf4211bf301de2b
@@ -17,8 +17,8 @@ artifacts:
     base_version: 3.10.0
     base_blob: c530ec32ed082c3649c967556ba7ac541e3f39bb
   CHANGELOG.md:
-    base_version: 3.10.0
-    base_blob: 0473be8e6a690b26c50314890e34845535014d9c
+    base_version: 3.11.1
+    base_blob: 113d2e711647d897f673ad2ae136c9da7b6060d0
   CLAUDE.md:
     state_at_adopt: unknown-base
   QUICK-START.md:
@@ -38,8 +38,8 @@ artifacts:
     base_version: 3.10.0
     base_blob: 6801bd39e142abde8a2ff55f848fcf5dc152cd88
   docs/adr/templates/adr.md:
-    base_version: 3.10.0
-    base_blob: 99eaa2202a745ba84ca3a725e5ddd6a88d900a88
+    base_version: 3.11.1
+    base_blob: 2c501053bbffe1a9b66f49df89e5a49dff8e16c8
   docs/adr/templates/debrief.md:
     base_version: 3.9.2
     base_blob: d739a95efaea09d6be0fe9b82653778bd36cb1bf
@@ -58,11 +58,11 @@ artifacts:
     base_version: 3.10.0
     base_blob: 34b80f2a572b700f6eb7194ed58ab55b6694fbb9
   docs/inbox/INBOX-PROTOCOL.md:
-    base_version: 3.10.0
-    base_blob: f92619469b0d6bb7581aa132f95adf62f04b4b77
+    base_version: 3.11.1
+    base_blob: 53c33cec9e69bbf656b96f01e771aad61ebca8f5
   docs/inbox/ONBOARDING.md:
-    base_version: 3.10.0
-    base_blob: ccec0fdba19a05e2e8ecf085bb921f0f43db5692
+    base_version: 3.11.1
+    base_blob: b97c55df80a74dfa292fdcbb9738893a29d37e4f
   scripts/groups-lookup.py:
     base_version: 3.10.0
     base_blob: 0e2ac2ba306b006302a76e85429b427640246060
