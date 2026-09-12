@@ -1,12 +1,12 @@
 # kintsugi.lock — tool-written state; do not hand-edit.
 # What this repo HAS, per artifact (base version + exact canonical blob).
 kintsugi_schema: 1
-canonical_version: 3.11.2
-synced: '2026-09-07T11:15:43Z'
+canonical_version: 3.11.3
+synced: '2026-09-12T00:05:56Z'
 artifacts:
   .claude/skills/adr-authoring/SKILL.md:
-    base_version: 3.11.1
-    base_blob: a27ac47c847bf509cda7afd66bb0180e6ac6ed74
+    base_version: 3.11.3
+    base_blob: d53a974e9cb7abe973a10e58505f1a5ebb77bee8
   .claude/skills/adr-authoring/references/depth.md:
     base_version: 3.11.1
     base_blob: 479e7aeaa4fac1c6fed7d2d57077e8c1ef58bca4
@@ -20,8 +20,8 @@ artifacts:
     base_version: 3.10.0
     base_blob: c530ec32ed082c3649c967556ba7ac541e3f39bb
   CHANGELOG.md:
-    base_version: 3.11.2
-    base_blob: d86c65b0214f65526b563849721c59a2939cb4bc
+    base_version: 3.11.3
+    base_blob: 9ace2297c4fd882d675e0e62fd846e88ec19941d
   CLAUDE.md:
     state_at_adopt: unknown-base
   QUICK-START.md:
@@ -41,8 +41,8 @@ artifacts:
     base_version: 3.10.0
     base_blob: 6801bd39e142abde8a2ff55f848fcf5dc152cd88
   docs/adr/templates/adr.md:
-    base_version: 3.11.1
-    base_blob: 2c501053bbffe1a9b66f49df89e5a49dff8e16c8
+    base_version: 3.11.3
+    base_blob: 0b8d3432d38f39526397ca7c25513feb58b35332
   docs/adr/templates/debrief.md:
     base_version: 3.9.2
     base_blob: d739a95efaea09d6be0fe9b82653778bd36cb1bf
