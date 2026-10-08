@@ -1,10 +1,15 @@
+<!-- TEMPLATE README — this file documents the skill-building template. As your
+     skill takes shape, replace it with your skill's own story (keep a lineage
+     link if you like); the template's docs remain one `git log` away. The
+     hesitation you may feel at replacing well-crafted prose is normal and
+     reported by real instantiators — this comment exists so you spend zero
+     minutes on it. -->
 # Human-AI Collaboration Template for Skill Building
 
 A proven methodology and scaffolding for building Claude skills through human-AI co-creation. This template embodies iterative, ADR-driven collaboration that preserves thinking and empowers both humans and LLMs.
 
-- **Authors:** Jérémie Lumbroso and Claude Sonnet 4.5
-- **Version:** 1.0.0 (2026-04-04)
-- **Based on:** [human-ai-collaboration-template-A](https://github.com/jlumbroso/human-ai-collaboration-template-A) v3.2
+- **Authors:** Jérémie Lumbroso and Claude Sonnet 4.5 (with later crew contributions — see CHANGELOG.md)
+- **Version:** See [CHANGELOG.md](CHANGELOG.md) and `kintsugi.lock` — this repo is a kintsugi-adopted instance of [human-ai-collaboration-template-A](https://github.com/jlumbroso/human-ai-collaboration-template-A); the lock records exactly which canonical version every shared file derives from. (No hardcoded number here: hardcoded versions rotted in this ecosystem repeatedly, and the record remembers.)
 - **License:** CC BY-SA 4.0
 
 ---
@@ -34,16 +39,16 @@ cd your-skill-name
 # Or use GitHub's "Use this template" button
 ```
 
-### 2. Rename CLAUDE.template.md to CLAUDE.md
+### 2. Your first session — the instantiation path
 
-```bash
-mv CLAUDE.template.md CLAUDE.md
-# Edit CLAUDE.md to customize for your skill
-```
+Work through this WITH Claude (open the repo in Claude Code, or add it to a claude.ai project); the point of the methodology is that you never fill a template alone:
 
-### 3. Start Building
-
-Open the repository in Claude Code or your IDE. The template-guide skill will auto-load and guide you through the methodology.
+1. **Name the skill** — pick a kebab-case name; rename the `your-skill-name/` directory to it
+2. **Fill `CLAUDE.md`'s bracketed placeholders** — project name, your name, what you're building (ask Claude to walk the file with you)
+3. **Brain-dump what the skill should do** into a seed (`docs/adr/templates/seed.md` → `docs/adr/seed-YYYY-MM-DD-topic.md`) and let Claude chunk it into ADRs — your decisions start at **0008** (0001–0007 are the template's own, kept as worked examples)
+4. **Draft `SKILL.md`** in the scaffold — the frontmatter `description` is the trigger surface; write it first and write it concretely
+5. **Install and test**: copy the skill directory into `.claude/skills/`, open a FRESH session, and try the trigger scenarios
+6. **File your friction**: anything that surprised or blocked you goes in a root `TEMPLATE-FEEDBACK.md` (Observation / Perception / Suggestion) — while it's fresh; this is how the template improves
 
 **Two directives to remember:**
 - **Prime**: Commit discussions to ADRs immediately
@@ -66,9 +71,10 @@ docs/
 │   ├── 0006-template-transformation-strategy.md
 │   ├── 0007-template-guide-skill.md       # Meta-skill design
 │   └── templates/
-│       ├── collab-adr-lean.md             # Human-AI iterative decisions
-│       ├── seed-template.md               # Quick capture
-│       └── template.md                    # Standard MADR format
+│       ├── adr.md                         # Human-AI iterative decisions (full workflow)
+│       ├── adr-madr.md                    # Standard MADR format (simple decisions)
+│       ├── seed.md                        # Quick capture
+│       └── debrief.md                     # Post-arc retrospectives
 ```
 
 ### Meta-Skill (Template Guide)
@@ -123,10 +129,10 @@ Never let decisions stay only in conversation. Our thinking is valuable - preser
 - Discovering non-obvious patterns
 - Choosing between alternatives
 
-**Use ADR templates in `docs/adr/templates/`:**
-- `collab-adr-lean.md` - Complex decisions with iteration
-- `seed-template.md` - Quick capture
-- `template.md` - Standard MADR format
+**Use ADR templates in `docs/adr/templates/`** (load the installed `adr-authoring` skill before writing — it is the read-the-template step):
+- `adr.md` - Complex decisions with iteration
+- `seed.md` - Quick capture
+- `adr-madr.md` - Standard MADR format
 
 #### Secondary Directive: SURFACE DOUBTS (THEY'RE GENERATIVE)
 
@@ -220,8 +226,8 @@ As you build, create ADRs for decisions:
 **Example ADR creation:**
 
 ```bash
-# Copy template
-cp docs/adr/templates/collab-adr-lean.md docs/adr/0008-your-decision.md
+# Copy template (load the adr-authoring skill first — available ≠ loaded)
+cp docs/adr/templates/adr.md docs/adr/0008-your-decision.md
 
 # Edit to add context and questions
 # Commit before asking for human input
@@ -378,7 +384,7 @@ Found a better pattern? Discovered an improvement? We'd love to learn from it!
 
 ## Lineage
 
-This template is based on **human-ai-collaboration-template-A v3.2** by Jérémie Lumbroso.
+This template is a **kintsugi-adopted instance of [human-ai-collaboration-template-A](https://github.com/jlumbroso/human-ai-collaboration-template-A)** by Jérémie Lumbroso — shared files (ADR templates, skills, scripts) heal from canonical releases via fleet campaigns, and `kintsugi.lock` records the exact lineage of every one. (It was born against canonical v3.2; the lock, not this sentence, says where it stands today.)
 
 It evolved from the epistemic-arc-mapping-skill repository through a documented transformation process (see ADR-0006). The git history was surgically filtered to remove skill-specific content while preserving all decision-making ADRs.
 
@@ -410,4 +416,4 @@ This template exists because we believe human-AI collaboration should be:
 
 **Built using the principles it teaches: iterative human-AI co-creation through ADR-driven collaboration**
 
-**Status:** v1.0.0 — Methodology proven through real skill development, ready for use
+**Status:** Methodology proven through real skill development, ready for use — current version per CHANGELOG.md and `kintsugi.lock`

@@ -1,14 +1,20 @@
 ---
 name: your-skill-name
-description: Brief description of what your skill does and when Claude should use it. This helps Claude decide when to auto-load the skill. Be specific about use cases and triggers.
+description: >-
+  [THE TRIGGER SURFACE — the only part Claude sees before deciding to load this
+  skill, so it carries the whole triggering burden. Write it in third person
+  ("Use when the user..."), name the concrete scenarios, tasks, and keywords
+  that should fire it, and say what it does NOT cover so it stays unloaded for
+  neighboring asks. A vague description is the #1 reason a good skill never
+  fires. Replace this whole bracket.]
 ---
+<!-- skill version: "your-skill-name 0.1.0" — bump deliberately with a CHANGELOG entry per release; markers on past releases are historical truth, never re-stamped -->
 
 # Your Skill Name
 
-**Authors:** [Your Name] and Claude [Model Version]
+**Authors:** [Your Name] and Claude [model name] — sign honestly; attribution is part of the method
 **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) *(or your chosen license)*
-**Version:** 0.1.0
-**Created:** [Date]
+**Created:** [YYYY-MM-DD]
 
 ---
 

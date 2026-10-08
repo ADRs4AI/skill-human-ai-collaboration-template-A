@@ -1,15 +1,14 @@
 # Template Version and Lineage
 
-**Template:** Human-AI Collaboration Skill Building Template  
-**Version:** 1.0.0  
-**Date:** 2026-04-04
+**Template:** Human-AI Collaboration Skill Building Template
+**Version:** See [CHANGELOG.md](CHANGELOG.md) for releases and `kintsugi.lock` for the exact canonical version every shared file derives from. (This file carried "1.0.0 / based on v3.2" for six months while the lock advanced release by release — hardcoded versions rot; the lock is the truth.)
+**Born:** 2026-04-04, against canonical v3.2
 
 ---
 
 ## Based On
 
-**Source Template:** [human-ai-collaboration-template-A](https://github.com/jlumbroso/human-ai-collaboration-template-A)  
-**Version:** v3.2  
+**Source Template:** [human-ai-collaboration-template-A](https://github.com/jlumbroso/human-ai-collaboration-template-A) — this repo is a **kintsugi-adopted instance**: shared artifacts (ADR templates, skills, scripts) heal from canonical releases via fleet campaigns
 **Authors:** Jérémie Lumbroso
 
 ---
