@@ -24,7 +24,7 @@ Two layers with different metabolisms:
 ## The long-run question
 
 ### QST-SKILL-TEMPLATE-FATE: What is this repo's end state?
-- Status: unanswered
+- Status: deferred — template maintainers' question (ADRs4AI ecosystem), not an instantiator's; if you cloned this template to build a skill, this seed is lore, not your ball
 - Why asking: The repo has real, proven value (Jérémie: "I've gotten a lot of good use out of that template") and real identity debt (unowned local layer; conventions diverging from the house's actual skill-making practice; packaging bets predating the standards). Tonight's class use is unaffected — this is about where the value should live in a year.
 - Need: pick a letter (or override — any shape answers; staged combinations welcome, the recommendation proposes one)
 

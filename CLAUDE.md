@@ -31,6 +31,16 @@ This means the human is interested in meaningful points of friction or underspec
 
 A skill repo has no test suite; its gate is behavioral: **load the skill in a fresh session and try its triggers**. Before calling a SKILL.md revision done: (1) does a session with the skill installed actually load it when the trigger scenarios occur? (2) does it stay unloaded for unrelated asks? (3) does the output follow the methodology the skill teaches? Record surprising answers as ADR material — a trigger that misfires is a finding, not an embarrassment.
 
+**How to actually run the gate** (write your prompt list BEFORE testing, so the test can fail):
+1. Install: copy the skill directory into `.claude/skills/` (`diff -r` to confirm the copy is exact)
+2. Restart: quit and relaunch Claude Code **from the repo root** — a fresh session, not a continued one
+3. Confirm the skill is registered: `/skills`, or ask "what skills are available?"
+4. Fire the positives: 5–8 prompts that SHOULD trigger it (write them from your description's own scenarios)
+5. Fire the negatives: 5–8 neighboring prompts that should NOT trigger it
+6. Score honestly, record the misses, iterate the `description` first (it does most of the triggering work)
+
+An agent or CI running headless cannot do step 2 — label any stand-in verification **"proxy-verified"** and say so in the version's changelog entry rather than claiming the gate ran.
+
 ---
 
 ## Sixth Directive: Document Metacognitive Gems
@@ -45,8 +55,8 @@ When collaboration produces insights about **how you think** (not just what you 
 
 1. **Read** the dump (use bash for large files)
 2. **Identify threads** - separate topics/decisions (usually 2-5)
-3. **Create ADRs** — **load the `adr-authoring` skill first** (it is installed in this repo; available ≠ loaded — the skill IS the read-the-template step, and a skeleton filled without it ships unstructured questions). Then copy `docs/adr/templates/adr.md` to `docs/adr/NNNN-short-slug.md` with the next sequential number — check `ls docs/adr/` first; never reuse a number.
-4. **Seed each** with relevant excerpt from dump (`docs/adr/templates/seed.md` → `docs/adr/seed-YYYY-MM-DD-topic.md`)
+3. **Create ADRs** — **load the `adr-authoring` skill first** (it is installed in this repo; available ≠ loaded — the skill IS the read-the-template step, and a skeleton filled without it ships unstructured questions). Mint with `just adr "Short title"` (the justfile numbers it and copies the template). No `just` on the machine? Copy `docs/adr/templates/adr.md` to `docs/adr/NNNN-short-slug.md` by hand — next number = highest existing + 1.
+4. **Seed each** with relevant excerpt from dump (`just seed "topic"`, or copy `docs/adr/templates/seed.md` → `docs/adr/seed-YYYY-MM-DD-topic.md`)
 5. **Add navigation codes** (QST:, ANS:, COD:, etc.)
 6. **Ask clarifying questions** with context — every question as a `### QST:` block with options and a recommendation, so answering degrades to accept/override
 
@@ -72,7 +82,7 @@ NOT:  # Notes, remarks, comments, observations
 **Find things**:
 ```bash
 grep -E '^### QST(-[A-Za-z0-9-]{1,24})?:' -r docs/adr/   # All questions — both canonical forms; a bare '^### QST:' grep silently misses every handled question
-grep 'Status: unanswered' -r docs/adr/                    # What needs answers
+grep 'Status: unanswered' -r docs/adr/ --exclude-dir=templates   # What needs answers (the skeletons carry example Status lines)
 grep '^### COD:' -r docs/adr/                             # Code examples
 ```
 
@@ -88,7 +98,7 @@ A skill is a directory: `SKILL.md` (the core, ~300–500 lines) + optional `reso
 
 1. **The frontmatter `description` is the trigger surface.** It is the ONLY part of the skill Claude sees before deciding to load it — write it in third person, name the concrete scenarios and keywords that should trigger it, and say what it does NOT cover. A beautiful skill with a vague description never fires.
 2. **SKILL.md carries the 80%, `resources/` the depth.** Core methodology complete in the main file; escalation pointers (`→ see resources/...`) for the rest. This is the Architecture of Complexity applied to teaching — the `architecture-of-complexity` skill (installed here) explains why.
-3. **Version it like the house does**: a first-line HTML comment `<!-- skill version: "your-skill-name 0.1.0" -->`, bumped deliberately, with a CHANGELOG entry per release. Markers on past releases are historical truth — never re-stamp them.
+3. **Version it like the house does**: an HTML comment `<!-- skill version: "your-skill-name 0.1.0" -->` on the first line *below the YAML frontmatter* (frontmatter must stay line 1), bumped deliberately, with an entry per release in **the skill's own changelog** — `your-skill-name/CHANGELOG.md` (the root CHANGELOG.md is the template's and gets replaced by template updates). Markers on past releases are historical truth — never re-stamp them.
 
 ### The build loop
 
@@ -101,8 +111,10 @@ A skill is a directory: `SKILL.md` (the core, ~300–500 lines) + optional `reso
 ### Companions installed in this repo
 
 - **`adr-authoring`** — load before writing any ADR/seed/QST (it will also trigger on its own; let it)
-- **`template-guide`** — the methodology's own skill; teaches the collaboration patterns
+- **`template-guide`** — the methodology's own skill; teaches the collaboration patterns. *(Predates adr-authoring and names some files by older names — where the two disagree, adr-authoring wins.)*
 - **`architecture-of-complexity`** — the structural theory behind the SKILL.md + resources/ split
+
+Skills in `.claude/skills/` are discovered when the session **starts at the repo root** — launch Claude Code from inside the clone (`cd your-skill && claude`), and verify with `/skills` or by asking "what skills are available?".
 
 ---
 
@@ -118,12 +130,13 @@ A skill is a directory: `SKILL.md` (the core, ~300–500 lines) + optional `reso
 
 ### Key decisions made:
 
-[List your ADRs here as they're created. The repo ships with ADRs 0001–0007 — the template's OWN decisions about skill packaging, versioning, licensing, and structure. Read them as worked examples; your decisions start at 0008.]
+[List your ADRs here as they're created. The repo ships with ADRs 0001–0007 — the template's OWN decisions about skill packaging, versioning, licensing, and structure. **They are historical: read them for the *decisions*, but copy the *shape* from `docs/adr/templates/adr.md` + the adr-authoring skill** — they predate the current form (no TL;DR, older question dialect) and imitating the nearest ADR instead of the template is the most common way the form breaks. Your decisions start at 0008.]
 
 ### Open questions:
 
 ```bash
-grep -E '^### QST(-[A-Za-z0-9-]{1,24})?:' -r docs/adr/
+just unanswered                                                              # excludes the template skeletons
+grep -E '^### QST(-[A-Za-z0-9-]{1,24})?:' -r docs/adr/ --exclude-dir=templates   # all questions, both canonical forms
 ```
 
 ---

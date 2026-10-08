@@ -1,6 +1,6 @@
 ---
 name: template-guide
-description: Guides Claude through the human-AI collaboration template methodology for building skills. Use when working in a repository built from this template. Teaches ADR workflow, navigation codes, Prime/Secondary directives, and effective co-creation patterns.
+description: Explains how this repository's human-AI collaboration method works. Use ONLY when the user asks about the methodology itself — the ADR/seed workflow, navigation codes, Prime/Secondary directives, or co-creation patterns — not for ordinary work in the repo. (Predates the adr-authoring skill; where the two disagree, adr-authoring wins. Refresh queued, 2026-10-08 fate seed.)
 ---
 
 # Template-Guide Skill

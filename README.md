@@ -43,11 +43,12 @@ cd your-skill-name
 
 Work through this WITH Claude (open the repo in Claude Code, or add it to a claude.ai project); the point of the methodology is that you never fill a template alone:
 
+0. **Read in this order (~15 min)**: this README → `CLAUDE.md` → let the `adr-authoring` skill load when you write. **Skip for now**: `docs/inbox/` (crew layer — only for multi-participant projects), `kintsugi.yaml`/`kintsugi.lock` (bookkeeping for pulling template updates later; leave them alone), `docs/resources/`, and ADRs 0001–0007 (historical — read for the decisions, never copy their shape; the shape lives in `docs/adr/templates/adr.md`).
 1. **Name the skill** — pick a kebab-case name; rename the `your-skill-name/` directory to it
-2. **Fill `CLAUDE.md`'s bracketed placeholders** — project name, your name, what you're building (ask Claude to walk the file with you)
-3. **Brain-dump what the skill should do** into a seed (`docs/adr/templates/seed.md` → `docs/adr/seed-YYYY-MM-DD-topic.md`) and let Claude chunk it into ADRs — your decisions start at **0008** (0001–0007 are the template's own, kept as worked examples)
-4. **Draft `SKILL.md`** in the scaffold — the frontmatter `description` is the trigger surface; write it first and write it concretely
-5. **Install and test**: copy the skill directory into `.claude/skills/`, open a FRESH session, and try the trigger scenarios
+2. **Fill `CLAUDE.md`'s bracketed placeholders** — project name, your name, what you're building. **Launch Claude Code from the repo root** (`cd your-skill && claude`) — the bundled skills are discovered at launch from the working directory; verify with `/skills`.
+3. **Brain-dump what the skill should do** into a seed (`just seed "topic"`) and let Claude chunk it into ADRs — your decisions start at **0008**. **Sizing for a small skill: three ADRs are enough** — scope & trigger, behavior policy, verification plan; fold packaging/license/versioning into one `NOT:` list unless something is genuinely contested. (A cold-pass test wrote five full ADRs for a 230-line skill: ~1,000 lines of record. Every one surfaced a real decision — but an evening project should choose the three that matter.)
+4. **Draft `SKILL.md`** in the scaffold — the frontmatter `description` is the trigger surface; write it first and write it concretely. Aim **under 500 lines; most skills land at 150–400** — length is cost, since the whole file loads every time the skill fires.
+5. **Install and test**: copy the skill directory into `.claude/skills/`, open a FRESH session (quit and relaunch from the repo root), and run your pre-written trigger prompts — positives AND neighboring negatives. CLAUDE.md's "How to actually run the gate" has the six-step recipe.
 6. **File your friction**: anything that surprised or blocked you goes in a root `TEMPLATE-FEEDBACK.md` (Observation / Perception / Suggestion) — while it's fresh; this is how the template improves
 
 **Two directives to remember:**
@@ -104,7 +105,7 @@ The **template-guide skill** auto-loads when you work in a repository built from
 ```
 .github/
 └── workflows/
-    └── release.yml                    # Automated skill packaging on git tags
+    └── build-skill.yaml               # Skill packaging on git tags (edit SKILL_DIR first — see Step 4)
 
 scripts/
 └── ephemeral/                         # Timestamp-named diagnostic scripts
@@ -250,15 +251,21 @@ Follow the pattern:
 
 ### Step 4: Package and Release
 
+> ⚠️ **Before your first tag**: `.github/workflows/build-skill.yaml` is currently
+> hardcoded to the donor skill's directory name (`epistemic-arc-mapping`) — edit its
+> `SKILL_DIR`/`SKILL_FILE` values to your skill's directory first, or the validate
+> job fails. A parameterized rewrite is queued (see the 2026-10-08 fate seed). No
+> release exists until you do this; the install-from-ZIP snippets presume one.
+
 ```bash
-# Tag with version
-git tag v1.0.0
+# After fixing the workflow's SKILL_DIR — tag with version
+git tag v0.1.0
 git push --tags
 
-# GitHub Actions will automatically:
-# - Create release
-# - Package skill as ZIP
-# - Attach to release
+# GitHub Actions then:
+# - Creates a release
+# - Packages the skill as a ZIP
+# - Attaches it to the release
 ```
 
 ---
@@ -351,7 +358,7 @@ meta: update CLAUDE.md with new directive
 - *(Add your skill here via PR!)*
 
 **Reference:**
-- `temp/epistemic-arc-mapping-skill/` - Complete worked example (if present)
+- A complete worked instance (seed → ADRs → tested skill, built by a cold-pass agent 2026-10-08: `dictation-cleanup`) exists and is slated to ship under `docs/examples/` — until it lands, the scaffold + `docs/adr/templates/adr.md` are the shapes to copy
 
 ---
 

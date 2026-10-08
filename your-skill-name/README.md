@@ -24,6 +24,9 @@ Brief tagline describing what your skill does.
 # https://github.com/[your-username]/[your-skill-repo]/releases
 
 # Unzip to Claude skills directory
+# (presumes a tagged release built by the repo's workflow — none exists until you
+#  edit build-skill.yaml's SKILL_DIR and tag; before that, install by copying:
+#  cp -r your-skill-name ~/.claude/skills/)
 unzip your-skill-name-0.1.0.skill -d ~/.claude/skills/your-skill-name/
 ```
 
@@ -141,6 +144,6 @@ Contributions welcome! This skill follows:
 
 ---
 
-**Built using:** [human-ai-collaboration-template-A](https://github.com/jlumbroso/skill-human-ai-collaboration-template-A) skill-building template
+**Built using:** [skill-human-ai-collaboration-template-A](https://github.com/jlumbroso/skill-human-ai-collaboration-template-A) — the skill-building template of the ADRs4AI methodology
 
 **Status:** [Alpha/Beta/Stable] — [Current state description]
