@@ -19,3 +19,5 @@ docs/resources/slides.com/*/lib/
 
 # Playwright MCP session logs
 .playwright-mcp/
+# ADRs4AI extension working state (machine logs, local observations)
+docs/adr/.working/
