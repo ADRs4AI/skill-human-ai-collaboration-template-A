@@ -3,7 +3,7 @@ name: adr-authoring
 description: Use BEFORE writing or editing any ADR, seed, or QST/ANS block in docs/adr/ — the template's minimal shape, the QST grammar and handles, the catch-the-author Recommendation form, and the four real-world malformations that break parsing. This skill IS the read-the-template step; skipping it re-creates the failure it exists to fix.
 ---
 
-<!-- skill version: "adr-authoring 3.11.4" — co-versioned with human-ai-collaboration-template-A; assembled from Rubricator 5's corpus-adherence syllabus -->
+<!-- skill version: "adr-authoring 3.11.6" — co-versioned with human-ai-collaboration-template-A; assembled from Rubricator 5's corpus-adherence syllabus -->
 
 # Writing parseable ADRs, seeds, and questions
 
@@ -45,6 +45,8 @@ The document `Status:` enum above is the **frozen five** (case-insensitive read,
 
 That trailing comment on `[Fill this in]` is real, current template text (v3.9.0) — tooling checks for the literal placeholder to detect unanswered blocks; "helpfully" rewording it as filler prose breaks that check silently. Leave it exactly as-is until there's a real answer to put there.
 
+**The closing `---` is load-bearing**: a QST block ends at the next `###` heading or a bare `---`, and the answer layer collects *everything* after the ANS marker until then. Commentary *about* the question — a `NOT:` filing note ("chunk into an ADR post-deadline"), a routing remark — goes **after a `---`**, never bare below the ANS slot, or the parser reads it as the answer. (Contract verified in the extension's parser, born from the founder's 2026-07 parse-accuracy reports; taught since 3.11.5.)
+
 The Options block is part of the shape, not decoration: **one option per bullet**, letter + bold petname + a description evaluable in place — the Recommendation's letter must name an entry in it. A question with no enumerable options (pure elicitation) says `Options: none (elicitation)` and the Need line bounds the answer's expected shape; full specification is never optional. **The block is the answer surface**: write each description to be weighable without the Rationale, because the human may read only the block — the Recommendation and Rationale are for the reader who wants to check the author, not the one who wants to answer. And the letters are an offer, never a fence: `(or override — any shape answers)` is part of the taught Need line because a fragment, a "warmer/colder," or a fourth option is a complete answer.
 
 That block — frontmatter, one QST, one catch-the-author Recommendation — is the load-bearing 80%. Everything else (Explicitation, Supporting Materials, Validation, Iterations, Glossary) matters and lives in the depth reference; this is what must never be skipped. Mint new ADRs with `just adr "<title>"` — never hand-number.
@@ -82,8 +84,10 @@ Every pair below is a real, uncorrected specimen from this ecosystem's own corpu
 
 **Never** — options as an inline ribbon, or a pick-shaped question with no options at all (the underspecified ask):
 > `- Options: A — serve locally. B — deploy remote. C — both.` … then `**Recommendation**: **B.**`
-**Always**: one option per bullet — `- **A — <petname>**: <clear description>` — and the Recommendation's letter names a bullet. The block form is what makes the decider's side skimmable: letters anchor the pick, petnames anchor recall, descriptions carry enough to evaluate without leaving the block. No enumerable options? `Options: none (elicitation)`, with the Need line bounding the answer's shape — never a slot silently absent.
-*(Founder-caught across two live repos, 2026-09-11 — one ADR's questions "perfect," a same-week peer's inline and underspecified. The cause was the mold itself: the skeleton's old `[List the options A / B / C …]` bracket read as the ribbon it should forbid, so quality was author-dependent until v3.11.3 delivered the form.)*
+
+**Never** — the dangling letter: a Recommendation that opens `**A — <pick>**` above a QST with **zero option bullets** — the letter-form imitated, the block it refers to dropped. The founder, answering one in the wild: *"Yes, you're calling it Option A, but I don't see any other options."* He answered a choice that was never laid out — the letter is the memorable token, but the block is the answer surface, and a letter pointing at nothing spends the decider's attention reconstructing the space the author already knew.
+**Always**: one option per bullet — `- **A — <petname>**: <clear description>` — and the Recommendation's letter names a bullet **that exists in this QST's own block**. The block form is what makes the decider's side skimmable: letters anchor the pick, petnames anchor recall, descriptions carry enough to evaluate without leaving the block. No enumerable options? `Options: none (elicitation)`, with the Need line bounding the answer's shape — never a slot silently absent.
+*(Founder-caught three times across three live repos: 2026-09-11, inline ribbons + underspecified asks — cause: the mold's old `[List the options A / B / C …]` bracket taught the ribbon, fixed at v3.11.3; 2026-09-22, the dangling letter above, in a repo whose template was already current — proof that the rule alone doesn't hold without this specimen: labels get imitated, structure gets dropped, exactly the skipped-TL;DR class from this skill's own corpus figures.)*
 
 ## 4. The handle grammar, in one line (plus the fragility worth knowing)
 

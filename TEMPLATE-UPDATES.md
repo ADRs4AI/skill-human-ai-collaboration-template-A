@@ -1,5 +1,14 @@
 # Template updates
 
+## 2026-10-11 — canonical → v3.11.6
+
+- replace: `CHANGELOG.md` (→ v3.11.6)
+- replace: `docs/adr/templates/adr.md` (→ v3.11.6)
+- replace: `.claude/skills/adr-authoring/SKILL.md` (→ v3.11.6)
+- replace: `.claude/skills/adr-authoring/references/questions-reference.md` (→ v3.11.6)
+
+Flagged (untouched, need attention): `justfile`
+
 ## 2026-09-12 — canonical → v3.11.4
 
 - replace: `CHANGELOG.md` (→ v3.11.4)
