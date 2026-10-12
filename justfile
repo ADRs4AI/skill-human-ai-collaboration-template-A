@@ -12,7 +12,7 @@ adr TITLE:
     # `(grep || true)` so an empty docs/adr/ doesn't abort under pipefail
     LAST=$(ls docs/adr/ 2>/dev/null | { grep -E '^[0-9]{4}-' || true; } | sed 's/-.*//' | sort -n | tail -1)
     NEXT=$(printf "%04d" $(( 10#${LAST:-0} + 1 )))
-    SLUG=$(echo "{{TITLE}}" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g; s/--*/-/g; s/^-//; s/-$//')
+    SLUG=$(echo {{quote(TITLE)}} | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g; s/--*/-/g; s/^-//; s/-$//')
     FILE="docs/adr/${NEXT}-${SLUG}.md"
     if [[ -e "$FILE" ]]; then echo "Error: $FILE already exists" >&2; exit 1; fi
     if [[ ! -f docs/adr/templates/adr.md ]]; then
